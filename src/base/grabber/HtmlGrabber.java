@@ -32,10 +32,11 @@ public class HtmlGrabber extends Grabber {
 
     public void grabKindOfStuff(Class<? extends Stuff> kind) {
         List<Stuff> stuffs = stuffProvider.getStuffs(kind);
+        Element element;
         for (Stuff stuff : stuffs) {
             for (Pair<Reference, RequestRule> reference : stuff.getReferences()) {
-                Element element = requestHandler.getElementByRule(reference.getKey().getDocument(), reference.getValue());
-                stuff.convert(element, stuff.getConvertRules(reference.getKey()));
+                element = requestHandler.getElementByRule(reference.getKey().getDocument(), reference.getValue());
+                stuff.setProperties(requestHandler.convert(element, stuff.getConvertRules(reference.getKey())));
             }
         }
     }

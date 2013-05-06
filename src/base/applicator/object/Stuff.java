@@ -1,13 +1,11 @@
 package base.applicator.object;
 
 import base.applicator.ConvertRule;
-import base.applicator.RequestHandler;
 import base.applicator.RequestRule;
 import base.util.Pair;
 import base.util.Property;
 import base.util.Reference;
 import base.util.Word;
-import org.jsoup.nodes.Element;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -43,9 +41,7 @@ public abstract class Stuff {
         return references;
     }
 
-    public void convert(Element element, List<ConvertRule> rules) {
-        RequestHandler requestHandler = new RequestHandler();
-        List<Property> properties = requestHandler.convert(element, rules);
+    public void setProperties(List<Property> properties){
         Method method;
         for (Property property : properties) {
             try {
