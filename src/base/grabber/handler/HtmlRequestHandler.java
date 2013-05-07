@@ -1,5 +1,7 @@
-package base.applicator;
+package base.grabber.handler;
 
+import base.applicator.ConvertRule;
+import base.applicator.RequestRule;
 import base.util.Property;
 import base.util.Util;
 import org.jsoup.nodes.Document;
@@ -13,7 +15,7 @@ import java.util.List;
 /**
  * @author Mahdi
  */
-public class RequestHandler {
+public class HtmlRequestHandler {
 
 //    public RequestHandler() {
 //    }

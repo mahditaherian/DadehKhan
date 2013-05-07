@@ -1,7 +1,7 @@
 package base.grabber;
 
+import base.grabber.handler.HtmlRequestHandler;
 import base.applicator.ReferenceProvider;
-import base.applicator.RequestHandler;
 import base.applicator.RequestRule;
 import base.applicator.StuffProvider;
 import base.applicator.object.Stuff;
@@ -16,11 +16,11 @@ import java.util.List;
  * Created by: Mahdi Taherian
  */
 public class HtmlGrabber extends Grabber {
-    private RequestHandler requestHandler;
+    private HtmlRequestHandler htmlRequestHandler;
 
     public HtmlGrabber(MySqlConnector connector, ReferenceProvider referenceProvider, StuffProvider stuffProvider) {
         super(connector, referenceProvider, stuffProvider);
-        requestHandler = new RequestHandler();
+        htmlRequestHandler = new HtmlRequestHandler();
     }
 
 
@@ -35,8 +35,8 @@ public class HtmlGrabber extends Grabber {
         Element element;
         for (Stuff stuff : stuffs) {
             for (Pair<Reference, RequestRule> reference : stuff.getReferences()) {
-                element = requestHandler.getElementByRule(reference.getKey().getDocument(), reference.getValue());
-                stuff.setProperties(requestHandler.convert(element, stuff.getConvertRules(reference.getKey())));
+                element = htmlRequestHandler.getElementByRule(reference.getKey().getDocument(), reference.getValue());
+                stuff.setProperties(htmlRequestHandler.convert(element, stuff.getConvertRules(reference.getKey())));
             }
         }
     }

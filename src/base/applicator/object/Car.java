@@ -1,14 +1,6 @@
 package base.applicator.object;
 
-import base.applicator.ConvertRule;
-import base.applicator.RequestHandler;
-import base.util.Property;
 import base.util.Word;
-import org.jsoup.nodes.Element;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * @author Mahdi Taherian

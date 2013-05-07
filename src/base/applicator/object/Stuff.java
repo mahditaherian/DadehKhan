@@ -61,7 +61,7 @@ public abstract class Stuff {
         return name;
     }
 
-    public void name(Word name) {
+    public void setName(Word name) {
         this.name = name;
     }
 
@@ -73,7 +73,7 @@ public abstract class Stuff {
         return referenceConvertRuleMap.get(reference);
     }
 
-    public void typeName(Word typeName) {
+    public void setTypeName(Word typeName) {
         this.typeName = typeName;
     }
 }

@@ -52,18 +52,18 @@ public class ConvertRule {
     }
 
     //    private List<Pair<RequestRule, Property>> requestRules;
-//    private RequestHandler requestHandler;
+//    private HtmlRequestHandler requestHandler;
 
 //    public ConvertRule(List<Pair<RequestRule, Property>> requestRules) {
 //        this.requestRules = requestRules;
-//        this.requestHandler = new RequestHandler();
+//        this.requestHandler = new HtmlRequestHandler();
 //    }
 
 //    public List<Property> convert(Element element) {
 //        List<Property> properties = new ArrayList<Property>();
 //        for (Pair<RequestRule, Property> rule : requestRules) {
 //            Element elm = requestHandler.getElementByRule(element.ownerDocument(), rule.getKey());
-//            String propertyName = rule.getValue().getName();
+//            String propertyName = rule.getValue().setName();
 //            Class type = rule.getValue().getType();
 //            if (type.equals(Integer.class)) {
 //                properties.add(new Property(propertyName, Integer.parseInt(elm.text()), type));
