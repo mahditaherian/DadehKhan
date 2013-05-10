@@ -13,10 +13,10 @@ public abstract class Grabber {
     protected MySqlConnector connector;
     protected StuffProvider stuffProvider;
 
-    protected Grabber(MySqlConnector connector, ReferenceProvider referenceProvider, StuffProvider stuffProvider) {
-        this.referenceProvider = referenceProvider;
-        this.stuffProvider = stuffProvider;
-        this.connector = connector;
+    protected Grabber(/*MySqlConnector connector, ReferenceProvider referenceProvider, StuffProvider stuffProvider*/) {
+//        this.referenceProvider = referenceProvider;
+//        this.stuffProvider = stuffProvider;
+//        this.connector = connector;
     }
 
     public abstract void grabKindOfStuff(Class<? extends Stuff> kind);

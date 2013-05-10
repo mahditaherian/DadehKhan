@@ -39,11 +39,19 @@ public class StuffProvider extends Provider {
     }
 
 
+    public void addStuff(Stuff stuff) {
+        stuffs.add(stuff);
+        if (!stuffsMap.containsKey(stuff.getClass())) {
+            stuffsMap.put(stuff.getClass(), new ArrayList<Stuff>());
+        }
+        stuffsMap.get(stuff.getClass()).add(stuff);
+    }
+
     public List<Stuff> getStuffs() {
         return stuffs;
     }
 
-    public List<Stuff> getStuffs(Class<? extends Stuff> kind){
+    public List<Stuff> getStuffs(Class<? extends Stuff> kind) {
         return stuffsMap.get(kind);
     }
 

@@ -30,6 +30,24 @@ public class Util {
         return Integer.parseInt(numberStr);
     }
 
+    public static boolean isInstance(Class c1, Class c2) {
+        Class superClass = c1;
+        while (superClass != null) {
+            if (superClass.equals(c2)) {
+                return true;
+            }
+            superClass = superClass.getSuperclass();
+        }
+        superClass = c2.getSuperclass();
+        while (superClass != null) {
+            if (superClass.equals(c1)) {
+                return true;
+            }
+            superClass = superClass.getSuperclass();
+        }
+        return false;
+    }
+
 //    public static String retainAllChars(String str, char[] chars) {
 //
 //    }

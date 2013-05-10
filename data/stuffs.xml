@@ -1,11 +1,14 @@
-<stuff>
-    <car>
-        <name pe="پراید" en="pride" fa="pride"/>
-        <factory id="1"/>
-        <references>
-            <ref id="1"/>
-            <ref id="2"/>
-            <ref id="3"/>
-        </references>
-    </car>
-</stuff>
+<stuffs>
+    <stuff type="Car">
+        <property name="price" type="Currency">
+            <property name="irRial" type="int">0</property>
+            <property name="usDollar" type="int">0</property>
+        </property>
+        <property name="bazaarPrice" type="Currency">
+            <property name="irRial" type="int">0</property>
+            <property name="usDollar" type="int">0</property>
+        </property>
+    </stuff>
+    <stuff type="Car"/>
+    <stuff type="Car"/>
+</stuffs>

@@ -1,97 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" />
+    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="push .idea folder">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/stuff/Car.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/util/EntityID.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/FileHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/KindType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/XmlGrabberLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Car.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" afterPath="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Config.java" afterPath="$PROJECT_DIR$/src/base/Config.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" afterPath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/Grabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/Grabber.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" afterPath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/Util.java" afterPath="$PROJECT_DIR$/src/base/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" afterPath="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/stuffs.xml" afterPath="$PROJECT_DIR$/data/stuffs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\mtn\Project\DadehKhan\DadehKhan\src\base\applicator\RequestHandler.java" afterPath="$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java" />
+      <change type="MOVED" beforePath="G:\Projects\GitHub\DadehKhan\data\reference.xml" afterPath="$PROJECT_DIR$/data/reference/reference.xml" />
     </list>
     <ignored path="DadehKhan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367942424478" ignored="false" />
-    <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367873143504" ignored="false" />
-    <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367931422346" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/sos/police_v2/state/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926268250" ignored="false" />
+    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368210838663" ignored="false" />
+    <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121624488" ignored="false" />
+    <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368114496208" ignored="false" />
+    <file path="G:/java/SOS/src/sos/police_v2/state/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926268250" ignored="false" />
     <file path="/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926267034" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/sos/police_v2/base/AbstractPoliceForceAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922988777" ignored="false" />
+    <file path="G:/java/SOS/src/sos/police_v2/base/AbstractPoliceForceAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922988777" ignored="false" />
     <file path="/AbstractPoliceForceAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922297072" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/sos/base/AbstractSOSAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922929440" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/MessageComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/AbstractCommand.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/AbstractMessage.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/AbstractMessageComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/Command.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/Control.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/Message.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/WorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/misc/Pair.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/WorldModelListener.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/log/Logger.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/registry/AbstractMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/Constants.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/CommandListComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/ConfigComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/EntityComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/components/AbstractAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/EntityListComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/components/AbstractComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/IntComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/components/AbstractViewer.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/components/StringComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/AKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/AKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/ControlMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/ControlMessageURN.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/EntityIDRequest.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/EntityIDResponse.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/GKConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/config/Config.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/GKConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KAConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KAConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/connection/Connection.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/AbstractEntity.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/AbstractProperty.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/AbstractWorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/ChangeSet.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/DefaultWorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/Entity.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/EntityID.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/EntityListener.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/worldmodel/Property.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/SKUpdate.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/VKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/VKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KASense.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KGAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KGConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KSCommands.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KSConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KSConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KSUpdate.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KVConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/KVTimestep.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/Shutdown.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/SKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/SKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/sos/base/AbstractSOSAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922929440" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/MessageComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/AbstractCommand.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/AbstractMessage.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/AbstractMessageComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/Command.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/Control.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/Message.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367923278768" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/WorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/misc/Pair.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/WorldModelListener.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/log/Logger.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/registry/AbstractMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/Constants.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/CommandListComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/ConfigComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/EntityComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/components/AbstractAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/EntityListComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/components/AbstractComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/IntComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/components/AbstractViewer.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/components/StringComponent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/AKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/AKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/ControlMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/ControlMessageURN.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/EntityIDRequest.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/EntityIDResponse.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/GKConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/config/Config.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/GKConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KAConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KAConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/connection/Connection.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/AbstractEntity.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/AbstractProperty.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/AbstractWorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/ChangeSet.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/DefaultWorldModel.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/Entity.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/EntityID.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/EntityListener.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/worldmodel/Property.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925225834" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/SKUpdate.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/VKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/VKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KASense.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KGAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KGConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KSCommands.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KSConnectError.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KSConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KSUpdate.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KVConnectOK.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/KVTimestep.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/Shutdown.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/SKAcknowledge.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/SKConnect.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925226152" ignored="false" />
     <file path="/a.dummy" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925303090" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/standard/messages/StandardMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925685011" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/rescuecore2/messages/control/AKMotion.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925666446" ignored="false" />
-    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367932060821" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/SOS/src/sos/base/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926302625" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/standard/messages/StandardMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925685011" ignored="false" />
+    <file path="G:/java/SOS/src/rescuecore2/messages/control/AKMotion.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925666446" ignored="false" />
+    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368117708280" ignored="false" />
+    <file path="G:/java/SOS/src/sos/base/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926302625" ignored="false" />
     <file path="/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926301676" ignored="false" />
-    <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367942483816" ignored="false" />
+    <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116842664" ignored="false" />
     <file path="/RequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367932135442" ignored="false" />
     <file path="/XmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367932917882" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/DataGrabber/DadehKhan/data/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367937396258" ignored="false" />
-    <file path="/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367937396258" ignored="false" />
-    <file path="/PropertyType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367935260901" ignored="false" />
+    <file path="G:/java/DataGrabber/DadehKhan/data/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367937396258" ignored="false" />
+    <file path="/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368120709648" ignored="false" />
+    <file path="/PropertyType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116318329" ignored="false" />
+    <file path="/EntityID.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367953263675" ignored="false" />
+    <file path="/Car.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368115595409" ignored="false" />
+    <file path="/ReferenceProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368102324472" ignored="false" />
+    <file path="/KindType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368095525080" ignored="false" />
+    <file path="/FileReserver.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368101136203" ignored="false" />
+    <file path="/FileHolder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105126358" ignored="false" />
+    <file path="/Config.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368099565211" ignored="false" />
+    <file path="/GrabManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121429803" ignored="false" />
+    <file path="/XmlGrabberLauncher.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116898006" ignored="false" />
+    <file path="/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105222175" ignored="false" />
+    <file path="/Car.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105666906" ignored="false" />
+    <file path="/StuffProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116811341" ignored="false" />
+    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368210599893" ignored="false" />
+    <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368199456697" ignored="false" />
+    <file path="E:/jswingtest-code/src/main/test/test.iml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368201031543" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +135,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -113,6 +143,7 @@
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
         <option name="SUSPEND" value="true" />
         <option name="COUNT_FILTER_ENABLED" value="false" />
@@ -129,6 +160,7 @@
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
         <option name="SUSPEND" value="true" />
         <option name="COUNT_FILTER_ENABLED" value="false" />
@@ -140,7 +172,38 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" line="146" class="base.grabber.XmlGrabber" package="base.grabber">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" line="162" class="base.grabber.XmlGrabber" package="base.grabber">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -150,28 +213,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Grabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/Grabber.java">
+      <file leaf-file-name="ReferenceManagerForm.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+            <state line="24" column="35" selection-start="636" selection-end="644" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HtmlGrabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
+      <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1083" selection-end="1415" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlGrabber.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="20" selection-start="3256" selection-end="3256" vertical-scroll-proportion="0.47749725">
+            <state line="80" column="44" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-19.44">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,47 +233,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PropertyType.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/PropertyType.java">
+      <file leaf-file-name="EditorPaneStructure.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="24" selection-start="69" selection-end="81" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Car.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Car.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="27" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConvertRule.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/applicator/ConvertRule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="59" selection-start="1859" selection-end="1859" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stuff.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Stuff.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="23" selection-start="1956" selection-end="1956" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlRequestHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="8" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="4" column="40" selection-start="127" selection-end="127" vertical-scroll-proportion="0.12781955">
+              <folding>
+                <element signature="e#2549#2679#0" expanded="true" />
+                <element signature="e#2668#2669#0" expanded="true" />
+                <element signature="e#2723#3604#0" expanded="true" />
+                <element signature="e#3593#3594#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -242,25 +265,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/README" />
-        <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/HtmlRequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/XmlRequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/base/grabber/handler/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/base/Config.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/FileHolder.java" />
+        <option value="$PROJECT_DIR$/src/base/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/object/Car.java" />
         <option value="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" />
+        <option value="$PROJECT_DIR$/data/stuff/Car.xml" />
         <option value="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" />
+        <option value="$PROJECT_DIR$/src/XmlGrabberLauncher.java" />
         <option value="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
+        <option value="$PROJECT_DIR$/data/stuffs.xml" />
+        <option value="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="width" value="1296" />
+    <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -290,7 +318,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -306,82 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grabber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="applicator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -431,26 +382,90 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="ReferenceManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="structure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="OverrideImplement.combined" value="false" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="E:/Temp/Flash/JAVA/roborescue/rescuecompetition2010.ipr" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Projects\GitHub\DadehKhan\ReferenceManager\src\structure" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="base.grabber" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Projects\GitHub\DadehKhan\data\reference" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration default="false" name="ReferenceManagerForm" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="ReferenceManagerForm" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ReferenceManager" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="App" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="structure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="structure.App" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ReferenceManager" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -542,7 +557,54 @@
       <patterns />
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="false" name="XmlGrabberLauncher" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="XmlGrabberLauncher" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="DadehKhan" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Launcher" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="DadehKhan" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.XmlGrabberLauncher" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Launcher" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ReferenceManagerForm" />
+      <item index="3" class="java.lang.String" itemvalue="Application.App" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.App" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ReferenceManagerForm" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -605,33 +667,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.60047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.60047" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39952996" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24919957" sideWeight="0.67022413" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878444" sideWeight="0.6709753" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="410" y="615" width="778" height="287" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -661,7 +725,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -671,6 +735,10 @@
     <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
     <option name="LIMIT_HISTORY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="push .idea folder" />
@@ -684,6 +752,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="push data folder" />
@@ -695,117 +764,106 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/base/util/Pair.java">
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/PropertyType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="211" selection-end="211" vertical-scroll-proportion="0.28848484">
-          <folding />
-        </state>
+        <state line="18" column="74" selection-start="317" selection-end="317" vertical-scroll-proportion="0.63092786" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="104" selection-end="104" vertical-scroll-proportion="0.24536082" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="23" selection-start="215" selection-end="215" vertical-scroll-proportion="0.35051546" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/GrabManager.java">
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="21" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0">
+        <state line="54" column="28" selection-start="1633" selection-end="1636" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/Grabber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1083" selection-end="1415" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.7.2.jar!/org/jsoup/nodes/Element.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="25" selection-start="4059" selection-end="4073" vertical-scroll-proportion="0.34198645" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="39" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
+        <state line="93" column="29" selection-start="2908" selection-end="2912" vertical-scroll-proportion="0.33206108" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/ConvertRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="73" selection-end="84" vertical-scroll-proportion="0.1559633" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Stuff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="22" selection-start="2086" selection-end="2086" vertical-scroll-proportion="0.56330276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="86" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.6880734" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/GrabManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="39" selection-start="1307" selection-end="1322" vertical-scroll-proportion="0.3761468" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/Grabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="234" selection-end="234" vertical-scroll-proportion="0.21834862" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="28" selection-start="352" selection-end="359" vertical-scroll-proportion="-8.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/java/awt/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="964" column="16" selection-start="37263" selection-end="37263" vertical-scroll-proportion="0.33270678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="35" selection-start="636" selection-end="644" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="44" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-19.44">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Car.java">
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="27" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/ConvertRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="59" selection-start="1859" selection-end="1859" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Stuff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="23" selection-start="1956" selection-end="1956" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/PropertyType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="69" selection-end="81" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="19" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.33260155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/org/w3c/dom/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="61" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.27616927">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="23" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.50054884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="20" selection-start="3256" selection-end="3256" vertical-scroll-proportion="0.47749725">
+        <state line="4" column="40" selection-start="127" selection-end="127" vertical-scroll-proportion="0.12781955">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2549#2679#0" expanded="true" />
+            <element signature="e#2668#2669#0" expanded="true" />
+            <element signature="e#2723#3604#0" expanded="true" />
+            <element signature="e#3593#3594#0" expanded="true" />
           </folding>
         </state>
       </provider>

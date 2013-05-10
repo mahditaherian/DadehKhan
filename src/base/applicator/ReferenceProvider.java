@@ -1,6 +1,8 @@
 package base.applicator;
 
 import base.applicator.object.Stuff;
+import base.grabber.XmlGrabber;
+import base.util.EntityID;
 import base.util.MySqlConnector;
 import base.util.Reference;
 import org.jsoup.Jsoup;
@@ -18,10 +20,14 @@ import java.util.Map;
 public class ReferenceProvider extends Provider {
     private List<Reference> references;
     private List<Stuff> stuffs;
+    private Map<EntityID,Reference> referenceIDMap;
+    private XmlGrabber xmlGrabber;
 
-    public ReferenceProvider(MySqlConnector connector, List<Stuff> stuffs) {
+    public ReferenceProvider(XmlGrabber xmlGrabber, MySqlConnector connector, List<Stuff> stuffs) {
         super(connector);
+        this.xmlGrabber = xmlGrabber;
         this.stuffs = new ArrayList<Stuff>(stuffs);
+        referenceIDMap = new HashMap<EntityID, Reference>();
     }
 
     public void reset() {
@@ -66,4 +72,7 @@ public class ReferenceProvider extends Provider {
         }
     }
 
+    public Reference getReferenceByID(EntityID id) {
+        return referenceIDMap.get(id);
+    }
 }

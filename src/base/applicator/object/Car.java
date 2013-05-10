@@ -6,8 +6,8 @@ import base.util.Word;
  * @author Mahdi Taherian
  */
 public class Car extends Stuff {
-    protected Currency bazaarPrice;
-    protected Currency price;
+    public Currency bazaarPrice;
+    public Currency price;
 
 
     public Car() {

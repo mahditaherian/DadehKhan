@@ -16,7 +16,7 @@ import java.util.*;
  */
 public abstract class Stuff {
     //    protected List<Reference> references;
-    protected Word name;
+    public Word name;
     protected Word typeName;
     protected List<Pair<Reference, RequestRule>> references;
     protected Map<Reference, List<ConvertRule>> referenceConvertRuleMap;
