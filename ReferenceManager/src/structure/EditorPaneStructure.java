@@ -7,15 +7,16 @@ import javax.swing.text.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.lang.reflect.Field;
 import java.util.Enumeration;
 
 public class EditorPaneStructure extends JPanel {
     JEditorPane sourcePane;
+    int maximumLevel = 0;
+    int level = 0;
     JLabel lblViewBounds = new JLabel() {
         public void paint(Graphics g) {
             super.paint(g);
@@ -23,11 +24,13 @@ public class EditorPaneStructure extends JPanel {
             g.fillRect(0, 0, getWidth(), getHeight());
         }
     };
-    JTree trDocument = new JTree() {
-        public String getToolTipText(MouseEvent event) {
-            return processDocumentTooltip(event);
-        }
-    };
+    //    JTree trDocument = new JTree() {
+//        public String getToolTipText(MouseEvent event) {
+//            return processDocumentTooltip(event);
+//        }
+//    };
+    private final static int MAX_ROW_SIZE = 20;
+    JTable table = new JTable(MAX_ROW_SIZE, 2);
     JTree trView = new JTree() {
         public String getToolTipText(MouseEvent event) {
             return processViewTooltip(event);
@@ -45,14 +48,14 @@ public class EditorPaneStructure extends JPanel {
     protected void init() {
         setLayout(new GridBagLayout());
 
-        add(new JLabel("Document structure"), new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
-        JScrollPane scroll = new JScrollPane(trDocument);
-        scroll.setPreferredSize(new Dimension(300, 200));
+        add(new JLabel("Field attributes"), new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
+        JScrollPane scroll = new JScrollPane(table);
+        scroll.setPreferredSize(new Dimension(200, 100));
         add(scroll, new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
-        add(new JLabel("Views structure (Select node to highlight the view's bounds)"), new GridBagConstraints(0, 2, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
 
+        add(new JLabel("Views structure"), new GridBagConstraints(0, 2, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
         scroll = new JScrollPane(trView);
-        scroll.setPreferredSize(new Dimension(300, 200));
+        scroll.setPreferredSize(new Dimension(200, 300));
         add(scroll, new GridBagConstraints(0, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
 
         add(btnRefresh, new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0));
@@ -65,13 +68,91 @@ public class EditorPaneStructure extends JPanel {
                 refresh();
             }
         });
+        sourcePane.setEditable(false);
+        sourcePane.addKeyListener(new KeyListener() {
 
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyChar() == '+') {
+                    level++;
+                    if (level > maximumLevel) {
+                        level = maximumLevel;
+                    } else {
+                        getCurrentElement(level);
+                    }
+                } else if (e.getKeyChar() == '-') {
+                    level--;
+                    if (level < 0) {
+                        level = 0;
+                    } else {
+                        getCurrentElement(level);
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+        sourcePane.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                getCurrentElement(level = 0);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+//        sourcePane.addMouseMotionListener(new MouseMotionListener() {
+//            @Override
+//            public void mouseDragged(MouseEvent e) {
+//
+//            }
+//
+//            long currentTime = System.currentTimeMillis();
+//
+//            @Override
+//            public void mouseMoved(MouseEvent e) {
+//                if (System.currentTimeMillis() - currentTime >= 100) {
+//                    currentTime = System.currentTimeMillis();
+//                    try {
+//                        final Robot robot = new Robot();
+//                        robot.mousePress(InputEvent.BUTTON1_MASK);
+//                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+//                    } catch (AWTException e1) {
+//                        e1.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
         trView.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(TreeSelectionEvent e) {
                 if (e.getNewLeadSelectionPath() != null) {
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getNewLeadSelectionPath().getLastPathComponent();
                     View v = (View) node.getUserObject();
-                    if (v.getParent() == null) {
+                    if (v.getParent() == null && node.getParent() != null) {
                         View vParent = (View) ((DefaultMutableTreeNode) node.getParent()).getUserObject();
                         v = vParent.getView(vParent.getViewIndex(v.getStartOffset(), Position.Bias.Forward));
                     }
@@ -87,28 +168,28 @@ public class EditorPaneStructure extends JPanel {
 
     public void refresh() {
         if (sourcePane != null) {
-            Document doc = sourcePane.getDocument();
-
-            Element elem = doc.getDefaultRootElement();
-            if (elem instanceof TreeNode) {
-                trDocument.setModel(new DefaultTreeModel((TreeNode) elem));
-            } else {
-                DefaultMutableTreeNode node1 = new DefaultMutableTreeNode(elem);
-                buildElementsTree(node1, elem);
-                trDocument.setModel(new DefaultTreeModel(node1));
-            }
-            int row = 0;
-            while (row < trDocument.getRowCount()) {
-                trDocument.expandRow(row);
-                row++;
-            }
-            trDocument.setToolTipText(" ");
+//            Document doc = sourcePane.getDocument();
+//
+//            Element elem = doc.getDefaultRootElement();
+//            if (elem instanceof TreeNode) {
+//                trDocument.setModel(new DefaultTreeModel((TreeNode) elem));
+//            } else {
+//                DefaultMutableTreeNode node1 = new DefaultMutableTreeNode(elem);
+//                buildElementsTree(node1, elem);
+//                trDocument.setModel(new DefaultTreeModel(node1));
+//            }
+//            int row = 0;
+//            while (row < trDocument.getRowCount()) {
+//                trDocument.expandRow(row);
+//                row++;
+//            }
+//            trDocument.setToolTipText(" ");
 
             View v = sourcePane.getUI().getRootView(sourcePane);
             DefaultMutableTreeNode node = new DefaultMutableTreeNode(v);
             buildViewTree(node, v);
             trView.setModel(new DefaultTreeModel(node));
-            row = 0;
+            int row = 0;
             while (row < trView.getRowCount()) {
                 trView.expandRow(row);
                 row++;
@@ -117,21 +198,22 @@ public class EditorPaneStructure extends JPanel {
         }
     }
 
-    public void buildElementsTree(DefaultMutableTreeNode root, Element elem) {
-        for (int i = 0; i < elem.getElementCount(); i++) {
-            AttributeSet attrs = getAttributes(elem.getElement(i));
-            String str = elem.getElement(i).toString() + " " + attrs.getClass().getName() + "@" + Integer.toHexString(attrs.hashCode());
-            DefaultMutableTreeNode node = new DefaultMutableTreeNode(str);
-            root.add(node);
-            buildElementsTree(node, elem.getElement(i));
-        }
-    }
+//    public void buildElementsTree(DefaultMutableTreeNode root, Element elem) {
+//        for (int i = 0; i < elem.getElementCount(); i++) {
+//            AttributeSet attrs = getAttributes(elem.getElement(i));
+//            String str = elem.getElement(i).toString() + " " + attrs.getClass().getName() + "@" + Integer.toHexString(attrs.hashCode());
+//            DefaultMutableTreeNode node = new DefaultMutableTreeNode(str);
+//            root.add(node);
+//            buildElementsTree(node, elem.getElement(i));
+//        }
+//    }
 
     public void buildViewTree(DefaultMutableTreeNode root, View v) {
         for (int i = 0; i < v.getViewCount(); i++) {
             DefaultMutableTreeNode node = new DefaultMutableTreeNode(v.getView(i));
             root.add(node);
             buildViewTree(node, v.getView(i));
+            maximumLevel = Math.max(maximumLevel, node.getLevel());
         }
     }
 
@@ -152,28 +234,32 @@ public class EditorPaneStructure extends JPanel {
         return null;
     }
 
-    protected String processDocumentTooltip(MouseEvent e) {
-        int rn = trDocument.getRowForLocation(e.getX(), e.getY());
-        if (trDocument.getPathForRow(rn) != null) {
-            Element tn = (Element) trDocument.getPathForRow(rn).getLastPathComponent();
-            StringBuffer buff = new StringBuffer();
-            buff.append("<html>");
-            buff.append("<b>Start offset: </b>").append(tn.getStartOffset()).append("<br>");
-            buff.append("<b>End offset: </b>").append(tn.getEndOffset()).append("<br>");
-            buff.append("<b>Child count: </b>").append(tn.getElementCount()).append("<br>");
-            buff.append("<b>Text: </b>\"").append(getText(tn.getDocument(), tn.getStartOffset(), tn.getEndOffset())).append("\"<br>");
-            buff.append("<b>Attributes: </b>").append("<br>");
-            Enumeration names = tn.getAttributes().getAttributeNames();
-            while (names.hasMoreElements()) {
-                Object name = names.nextElement();
-                Object value = tn.getAttributes().getAttribute(name);
-                buff.append("&nbsp;&nbsp;<b>").append(name).append(":</b>").append(value).append("<br>");
-            }
-            buff.append("</html>");
-            return buff.toString();
-        }
+//    protected String processDocumentTooltip(MouseEvent e) {
+//        int rn = trDocument.getRowForLocation(e.getX(), e.getY());
+//        if (trDocument.getPathForRow(rn) != null) {
+//            Element tn = (Element) trDocument.getPathForRow(rn).getLastPathComponent();
+//            StringBuffer buff = new StringBuffer();
+//            buff.append("<html>");
+//            buff.append("<b>Start offset: </b>").append(tn.getStartOffset()).append("<br>");
+//            buff.append("<b>End offset: </b>").append(tn.getEndOffset()).append("<br>");
+//            buff.append("<b>Child count: </b>").append(tn.getElementCount()).append("<br>");
+//            buff.append("<b>Text: </b>\"").append(getText(tn.getDocument(), tn.getStartOffset(), tn.getEndOffset())).append("\"<br>");
+//            buff.append("<b>Attributes: </b>").append("<br>");
+//            Enumeration names = tn.getAttributes().getAttributeNames();
+//            while (names.hasMoreElements()) {
+//                Object name = names.nextElement();
+//                Object value = tn.getAttributes().getAttribute(name);
+//                buff.append("&nbsp;&nbsp;<b>").append(name).append(":</b>").append(value).append("<br>");
+//            }
+//            buff.append("</html>");
+//            return buff.toString();
+//        }
+//
+//        return null;
+//    }
 
-        return null;
+    protected String getText(View view) {
+        return getText(view.getDocument(), view.getStartOffset(), view.getEndOffset());
     }
 
     protected String getText(Document doc, int startOffset, int endOffset) {
@@ -195,7 +281,7 @@ public class EditorPaneStructure extends JPanel {
         int rn = trView.getRowForLocation(e.getX(), e.getY());
         if (trView.getPathForRow(rn) != null) {
             View tn = (View) ((DefaultMutableTreeNode) trView.getPathForRow(rn).getLastPathComponent()).getUserObject();
-            StringBuffer buff = new StringBuffer();
+            StringBuilder buff = new StringBuilder();
             buff.append("<html>");
             buff.append("<b>Start offset: </b>").append(tn.getStartOffset()).append("<br>");
             buff.append("<b>End offset: </b>").append(tn.getEndOffset()).append("<br>");
@@ -213,6 +299,62 @@ public class EditorPaneStructure extends JPanel {
             buff.append("</html>");
             return buff.toString();
         }
+
+        return null;
+    }
+
+    public TreeNode getCurrentElement(int levelUp) {
+        int startOffset = 0, endOffset = Integer.MAX_VALUE;
+
+        int caret = sourcePane.getCaretPosition();
+        TreePath path, targetPath = null;
+        DefaultMutableTreeNode treeNode = null;
+        for (int i = 0; i < trView.getRowCount(); i++) {
+            path = trView.getPathForRow(i);
+            View tn = (View) ((DefaultMutableTreeNode) path.getLastPathComponent()).getUserObject();
+            if (tn.getStartOffset() < caret && caret < tn.getEndOffset()) {
+                if (tn.getStartOffset() > startOffset || tn.getEndOffset() < endOffset) {
+                    startOffset = tn.getStartOffset();
+                    endOffset = tn.getEndOffset();
+                    treeNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+                    targetPath = path;
+                }
+            }
+        }
+        if (treeNode != null) {
+            View view = (View) treeNode.getUserObject();
+            for (int i = 0; i < levelUp && i < treeNode.getLevel(); i++) {
+                if (view.getParent() == null) {
+                    break;
+                }
+                view = view.getParent();
+                targetPath = targetPath.getParentPath();
+            }
+            System.out.println(getText(view));
+            trView.setSelectionRow(trView.getRowForPath(targetPath));
+            trView.scrollRowToVisible(trView.getRowForPath(targetPath));
+            AttributeSet set = getAttributes(view.getElement());
+            Enumeration names = /*view.getAttributes().getAttributeNames()*/set.getAttributeNames();
+
+            for (int i = 0; i < MAX_ROW_SIZE; i++) {
+                table.setValueAt("", i, 0);
+                table.setValueAt("", i, 1);
+            }
+            int i = 0;
+            while (names.hasMoreElements()) {
+                if (i >= MAX_ROW_SIZE) {
+                    break;
+                }
+
+                Object name = names.nextElement();
+                Object value = set.getAttribute(name);
+                table.setValueAt(name, i, 0);
+                table.setValueAt(value, i, 1);
+                i++;
+            }
+            return treeNode;
+        }
+
 
         return null;
     }

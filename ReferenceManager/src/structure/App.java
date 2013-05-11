@@ -80,11 +80,11 @@ public class App extends JFrame {
 
         info = new EditorPaneStructure(edit);
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, tbPane, new JScrollPane(info));
-        split.setDividerLocation(300);
+        split.setDividerLocation(900);
         getContentPane().add(split);
     }
 
-    public static String htmlStr = "<table align=center width=90% border=1>\n" +
+    public static String htmlStr = "<table id=\"tbl_id\" align=center width=90% border=1>\n" +
             "\t<tr height=25>\n" +
             "\t\t<td align=center><strong>توليد كننده</strong></td>\n" +
             "\t\t<td align=center><strong>نوع خودرو</strong></td>\n" +

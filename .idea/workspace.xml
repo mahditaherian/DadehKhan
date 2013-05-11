@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="push .idea folder">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/stuff/Car.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/util/EntityID.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/FileHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/KindType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/XmlGrabberLauncher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Car.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Config.java" afterPath="$PROJECT_DIR$/src/base/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" afterPath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/Grabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/Grabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" afterPath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/Util.java" afterPath="$PROJECT_DIR$/src/base/util/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" afterPath="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/stuffs.xml" afterPath="$PROJECT_DIR$/data/stuffs.xml" />
+    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="G:\Projects\GitHub\DadehKhan\data\reference.xml" afterPath="$PROJECT_DIR$/data/reference/reference.xml" />
     </list>
     <ignored path="DadehKhan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368210838663" ignored="false" />
+    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368294505539" ignored="false" />
     <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121624488" ignored="false" />
     <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368114496208" ignored="false" />
     <file path="G:/java/SOS/src/sos/police_v2/state/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926268250" ignored="false" />
@@ -97,7 +77,7 @@
     <file path="/a.dummy" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925303090" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/standard/messages/StandardMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925685011" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/messages/control/AKMotion.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925666446" ignored="false" />
-    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368117708280" ignored="false" />
+    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368299713956" ignored="false" />
     <file path="G:/java/SOS/src/sos/base/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926302625" ignored="false" />
     <file path="/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926301676" ignored="false" />
     <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116842664" ignored="false" />
@@ -118,8 +98,8 @@
     <file path="/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105222175" ignored="false" />
     <file path="/Car.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105666906" ignored="false" />
     <file path="/StuffProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116811341" ignored="false" />
-    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368210599893" ignored="false" />
-    <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368199456697" ignored="false" />
+    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368302166367" ignored="false" />
+    <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368298515068" ignored="false" />
     <file path="E:/jswingtest-code/src/main/test/test.iml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368201031543" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +115,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -204,6 +183,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -213,22 +193,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ReferenceManagerForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="35" selection-start="636" selection-end="644" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="44" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-19.44">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="86" column="55" selection-start="3158" selection-end="3158" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -236,12 +205,11 @@
       <file leaf-file-name="EditorPaneStructure.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="40" selection-start="127" selection-end="127" vertical-scroll-proportion="0.12781955">
+            <state line="325" column="32" selection-start="13073" selection-end="13073" vertical-scroll-proportion="0.49061662">
               <folding>
-                <element signature="e#2549#2679#0" expanded="true" />
-                <element signature="e#2668#2669#0" expanded="true" />
-                <element signature="e#2723#3604#0" expanded="true" />
-                <element signature="e#3593#3594#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#4210#4281#0" expanded="false" />
+                <element signature="e#6082#6136#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -279,8 +247,8 @@
         <option value="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
         <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
       </list>
     </option>
   </component>
@@ -462,7 +430,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="ReferenceManager" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -663,35 +637,59 @@
       <created>1367867385709</created>
       <updated>1367867385709</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="improve code!!!">
+      <created>1368210927241</created>
+      <updated>1368210927241</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.60047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.60047" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39952996" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4864865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878444" sideWeight="0.6709753" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.60047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="410" y="615" width="778" height="287" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -741,7 +739,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="push .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve code!!!" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -760,6 +758,7 @@
     <MESSAGE value="push ReferenceManager Project" />
     <MESSAGE value="push Main Source Project" />
     <MESSAGE value="push .idea folder" />
+    <MESSAGE value="improve code!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -769,16 +768,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/PropertyType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="74" selection-start="317" selection-end="317" vertical-scroll-proportion="0.63092786" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="104" selection-end="104" vertical-scroll-proportion="0.24536082" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="23" selection-start="215" selection-end="215" vertical-scroll-proportion="0.35051546" />
@@ -828,42 +817,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/java/awt/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="964" column="16" selection-start="37263" selection-end="37263" vertical-scroll-proportion="0.33270678">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="35" selection-start="636" selection-end="644" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="26" selection-start="635" selection-end="635" vertical-scroll-proportion="0.28073394" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/java/awt/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="964" column="16" selection-start="37263" selection-end="37263" vertical-scroll-proportion="0.3326613">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="44" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-19.44">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="86" column="55" selection-start="3158" selection-end="3158" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/javax/swing/text/AttributeSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="9" selection-start="1176" selection-end="1178" vertical-scroll-proportion="0.43426296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="18" selection-start="10169" selection-end="10169" vertical-scroll-proportion="0.33206832">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="40" selection-start="127" selection-end="127" vertical-scroll-proportion="0.12781955">
+        <state line="325" column="32" selection-start="13073" selection-end="13073" vertical-scroll-proportion="0.49061662">
           <folding>
-            <element signature="e#2549#2679#0" expanded="true" />
-            <element signature="e#2668#2669#0" expanded="true" />
-            <element signature="e#2723#3604#0" expanded="true" />
-            <element signature="e#3593#3594#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4210#4281#0" expanded="false" />
+            <element signature="e#6082#6136#0" expanded="false" />
           </folding>
         </state>
       </provider>
