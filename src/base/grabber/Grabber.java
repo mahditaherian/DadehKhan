@@ -20,4 +20,6 @@ public abstract class Grabber {
     }
 
     public abstract void grabKindOfStuff(Class<? extends Stuff> kind);
+
+    public abstract void grabReferences();
 }

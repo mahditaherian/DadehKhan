@@ -50,11 +50,12 @@ public class XmlGrabber extends Grabber {
             System.err.println("xmlDocument is null");
             return;
         }
-        Stuff stuff = null;
+        Stuff stuff;
 // Wrap the document with the jOOX API
         Match stuffs = $(doc).find(kind.getSimpleName().toLowerCase());
         Field[] fields;
         for (Element stuffElement : stuffs) {
+            stuff = null;
             try {
                 stuff = kind.newInstance();
             } catch (InstantiationException e) {
@@ -79,8 +80,13 @@ public class XmlGrabber extends Grabber {
                     e.printStackTrace();
                 }
             }
-//            stuffProvider.addStuff(stuff);
+            stuffProvider.addStuff(stuff);
         }
+    }
+
+    @Override
+    public void grabReferences() {
+
     }
 
     private Document getDocument(Class kind) {

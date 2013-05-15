@@ -2,27 +2,27 @@
     <car type="stuff" id="1">
         <name type="word" pe="پراید" en="pride" fi="pride"/>
         <factories type="list">
-            <factory type="refer" kind="factory" id="1"/>
-            <factory type="refer" kind="factory" id="2"/>
-            <factory type="refer" kind="factory" id="3"/>
+            <refer type="factory" id="1"/>
+            <refer type="factory" id="2"/>
+            <refer type="factory" id="3"/>
         </factories>
         <references type="list">
-            <reference type="reference" id="1"/>
-            <reference type="reference" id="2"/>
-            <reference type="reference" id="3"/>
+            <refer type="reference" id="1"/>
+            <refer type="reference" id="2"/>
+            <refer type="reference" id="3"/>
         </references>
     </car>
     <car type="stuff" id="2">
         <name type="word" pe="پراید" en="pride" fi="pride"/>
         <factories type="list">
-            <factory type="refer" kind="factory" id="1"/>
-            <factory type="refer" kind="factory" id="2"/>
-            <factory type="refer" kind="factory" id="3"/>
+            <refer type="factory" id="1"/>
+            <refer type="factory" id="2"/>
+            <refer type="factory" id="3"/>
         </factories>
         <references type="list">
-            <reference type="reference" id="1"/>
-            <reference type="reference" id="2"/>
-            <reference type="reference" id="3"/>
+            <refer type="reference" id="1"/>
+            <refer type="reference" id="2"/>
+            <refer type="reference" id="3"/>
         </references>
     </car>
 </cars>

@@ -41,6 +41,11 @@ public class HtmlGrabber extends Grabber {
         }
     }
 
+    @Override
+    public void grabReferences() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     public void grab(Stuff stuff) {
         Element element;
         for (Pair<Reference, RequestRule> reference : stuff.getReferences()) {

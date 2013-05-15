@@ -1,10 +1,22 @@
 <references>
-    <reference>
-        <id>1</id>
-        <name type="english">Reference1</name>
-        <name type="persian">منبع1</name>
-        <name type="finglish">manba1</name>
-        <link>http://hhhhhhhhhhhhhhhhhh</link>
-        <relyrate>0</relyrate>
+    <reference type="reference" id="1">
+        <name type="word" pe="منبع1" en="RefNo1" fi="manba1"/>
+        <pages type="list">
+            <page link="http://m.ai.n/" id="1" rate="0"/>
+            <page link="http://m.ai.n/p1" id="2" rate="0"/>
+            <page link="http://m.ai.n/p2" id="3" rate="1"/>
+            <page link="http://m.ai.n/p3" id="4" rate="5"/>
+            <page link="http://m.ai.n/p4" id="5" rate="10"/>
+        </pages>
+    </reference>
+    <reference type="reference" id="2">
+        <name type="word" pe="منبع2" en="RefNo2" fi="manba2"/>
+        <pages type="list">
+            <page link="http://m.ai.n/" id="6" rate="0"/>
+            <page link="http://m.ai.n/p1" id="7" rate="0"/>
+            <page link="http://m.ai.n/p2" id="8" rate="1"/>
+            <page link="http://m.ai.n/p3" id="9" rate="5"/>
+            <page link="http://m.ai.n/p4" id="10" rate="10"/>
+        </pages>
     </reference>
 </references>
