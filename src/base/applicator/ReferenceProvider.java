@@ -28,6 +28,7 @@ public class ReferenceProvider extends Provider {
         this.xmlGrabber = xmlGrabber;
         this.stuffs = new ArrayList<Stuff>(stuffs);
         referenceIDMap = new HashMap<EntityID, Reference>();
+        references = new ArrayList<Reference>();
     }
 
     public void reset() {

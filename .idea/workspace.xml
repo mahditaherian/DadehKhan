@@ -2,28 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jgoodies_forms.xml" />
-      <change type="DELETED" beforePath="D:\mtn\Project\DadehKhan\DadehKhan\ReferenceManager\src\ReferenceManagerForm.form" afterPath="" />
-      <change type="DELETED" beforePath="D:\mtn\Project\DadehKhan\DadehKhan\ReferenceManager\src\ReferenceManagerForm.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/stuff/Car.xml" afterPath="$PROJECT_DIR$/data/stuff/Car.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DadehKhan.iml" afterPath="$PROJECT_DIR$/DadehKhan.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/Grabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/Grabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/ReferenceManager.iml" afterPath="$PROJECT_DIR$/ReferenceManager/ReferenceManager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/reference/reference.xml" afterPath="$PROJECT_DIR$/data/reference/reference.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/reference/rule/rule.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/RequestRule.java" afterPath="$PROJECT_DIR$/src/base/applicator/RequestRule.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DadehKhan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368634264192" ignored="false" />
+    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369235151860" ignored="false" />
     <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121624488" ignored="false" />
     <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368114496208" ignored="false" />
     <file path="G:/java/SOS/src/sos/police_v2/state/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926268250" ignored="false" />
@@ -92,7 +80,7 @@
     <file path="/a.dummy" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925303090" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/standard/messages/StandardMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925685011" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/messages/control/AKMotion.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925666446" ignored="false" />
-    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368621447277" ignored="false" />
+    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369244894946" ignored="false" />
     <file path="G:/java/SOS/src/sos/base/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926302625" ignored="false" />
     <file path="/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926301676" ignored="false" />
     <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368606052670" ignored="false" />
@@ -103,7 +91,7 @@
     <file path="/PropertyType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116318329" ignored="false" />
     <file path="/EntityID.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367953263675" ignored="false" />
     <file path="/Car.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368546988841" ignored="false" />
-    <file path="/ReferenceProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368102324472" ignored="false" />
+    <file path="/ReferenceProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369124635284" ignored="false" />
     <file path="/KindType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368095525080" ignored="false" />
     <file path="/FileReserver.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368101136203" ignored="false" />
     <file path="/FileHolder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105126358" ignored="false" />
@@ -113,18 +101,26 @@
     <file path="/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633567143" ignored="false" />
     <file path="/Car.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105666906" ignored="false" />
     <file path="/StuffProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116811341" ignored="false" />
-    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368552521687" ignored="false" />
+    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369236651675" ignored="false" />
     <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368298515068" ignored="false" />
     <file path="E:/jswingtest-code/src/main/test/test.iml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368201031543" ignored="false" />
     <file path="/Grabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368538428181" ignored="false" />
     <file path="/reference.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368542794915" ignored="false" />
     <file path="/ReferenceAdder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368560423250" ignored="false" />
-    <file path="/ReferenceManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368603112190" ignored="false" />
+    <file path="/ReferenceManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369244398996" ignored="false" />
     <file path="/ReferenceGui.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368622213229" ignored="false" />
     <file path="/ReferenceManagerLauncher.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368603109147" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../java/MRL2013_newKernel/src/mrl/police/ClearHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633719754" ignored="false" />
-    <file path="/ClearHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633680128" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../java/MRL2013_newKernel/src/mrl/police/ClearHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369151351070" ignored="false" />
+    <file path="/ClearHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369151270817" ignored="false" />
     <file path="$PROJECT_DIR$/../../../java/MRL2013_newKernel/src/mrl/common/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633594913" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../java/MRL2013_newKernel/src/mrl/police/strategies/PoliceTargetClusteringActionStrategy.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368970941139" ignored="false" />
+    <file path="/RequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369242177227" ignored="false" />
+    <file path="/XmlRequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237436858" ignored="false" />
+    <file path="$PROJECT_DIR$/src/base/applicator/XmlRequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237461680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237463927" ignored="false" />
+    <file path="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237463927" ignored="false" />
+    <file path="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237463927" ignored="false" />
+    <file path="/rule.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237972905" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +135,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" line="152" class="base.grabber.XmlGrabber" package="base.grabber">
         <option name="ENABLED" value="true" />
@@ -169,22 +164,8 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java" line="81" class="ReferenceGui" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java" line="92" class="ReferenceGui" package="">
-        <option name="ENABLED" value="true" />
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" line="67" class="structure.ReferenceManager" package="structure">
+        <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
@@ -232,6 +213,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -240,89 +222,101 @@
     <favorites_list name="DadehKhan" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="9" selection-start="1780" selection-end="1780" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/javax/swing/JFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="382" column="16" selection-start="14120" selection-end="14120" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditorPaneStructure.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="96" selection-start="8354" selection-end="8354" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReferenceManagerLauncher.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="14" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReferenceGui.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="20" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.032015067">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reference.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/reference/reference.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="14" selection-start="18" selection-end="27" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlGrabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="8" selection-start="1260" selection-end="1337" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlGrabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="33" selection-start="1718" selection-end="1730" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReferenceGui.form" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.59210527">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="60" column="30" selection-start="2108" selection-end="2109" vertical-scroll-proportion="-11.16">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EditorPaneStructure.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="68" column="137" selection-start="3101" selection-end="3101" vertical-scroll-proportion="-26.52">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RequestRule.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/base/applicator/RequestRule.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="6" column="22" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReferenceManager.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="67" column="29" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.4333996">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="XmlGrabber.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="106" column="17" selection-start="3213" selection-end="3213" vertical-scroll-proportion="-11.28">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="reference.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/reference/reference.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="1" column="14" selection-start="18" selection-end="27" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="StuffProvider.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/base/applicator/StuffProvider.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="12" column="13" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="1.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/html/1.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="rule.xml" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/data/reference/rule/rule.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="49" selection-start="0" selection-end="316" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -340,30 +334,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/data/stuffs.xml" />
-        <option value="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
-        <option value="$PROJECT_DIR$/src/base/grabber/Grabber.java" />
-        <option value="$PROJECT_DIR$/data/reference/reference.xml" />
         <option value="$PROJECT_DIR$/data/stuff/Car.xml" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceAdder.form" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceAdder.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceManager.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java" />
         <option value="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
         <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/HtmlRequestRule.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/XmlRequestRule.java" />
+        <option value="$PROJECT_DIR$/data/reference/rule/sample.xsl" />
+        <option value="$PROJECT_DIR$/src/base/applicator/RequestRule.java" />
+        <option value="$PROJECT_DIR$/data/reference/rule/rule.xml" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="217" />
-    <option name="y" value="168" />
-    <option name="width" value="1588" />
-    <option name="height" value="714" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -394,6 +388,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -409,6 +404,104 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grabber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applicator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,7 +587,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stuff" />
+              <option name="myItemId" value="reference" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,10 +608,31 @@
               <option name="myItemId" value="reference" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -550,7 +664,7 @@
       <recent name="G:\Projects\GitHub\DadehKhan\data\reference" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReferenceManagerLauncher">
+  <component name="RunManager" selected="Application.ReferenceManager">
     <configuration default="false" name="ReferenceManagerForm" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ReferenceManagerForm" />
@@ -599,6 +713,34 @@
     <configuration default="false" name="ReferenceManagerLauncher" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ReferenceManagerLauncher" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ReferenceManager" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ReferenceManager" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="structure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="structure.ReferenceManager" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -746,18 +888,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.XmlGrabberLauncher" />
       <item index="1" class="java.lang.String" itemvalue="Application.Launcher" />
       <item index="2" class="java.lang.String" itemvalue="Application.ReferenceManagerForm" />
       <item index="3" class="java.lang.String" itemvalue="Application.App" />
       <item index="4" class="java.lang.String" itemvalue="Application.ReferenceManagerLauncher" />
+      <item index="5" class="java.lang.String" itemvalue="Application.ReferenceManager" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.ReferenceManagerLauncher" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ReferenceManagerForm" />
-        <item index="2" class="java.lang.String" itemvalue="Application.App" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.ReferenceManager" />
+        <item index="1" class="java.lang.String" itemvalue="Application.App" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ReferenceManagerLauncher" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ReferenceManagerForm" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -822,7 +966,11 @@
       <created>1368210927241</created>
       <updated>1368210927241</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="improve code!!!">
+      <created>1368634375125</created>
+      <updated>1368634375125</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -846,35 +994,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="217" y="168" width="1588" height="714" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18938401" sideWeight="0.6862327" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21077909" sideWeight="0.6722408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6862327" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.60047" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7837838" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38684505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18938401" sideWeight="0.21621622" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31376734" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18890075" sideWeight="0.61315495" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="410" y="615" width="778" height="287" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -948,73 +1096,52 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/javax/swing/JComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/XmlGrabberLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="584" column="11" selection-start="21690" selection-end="21690" vertical-scroll-proportion="0.50859106" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/javax/swing/JSplitPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="339" column="10" selection-start="10954" selection-end="10954" vertical-scroll-proportion="0.64490265">
+        <state line="11" column="25" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="3" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="9" selection-start="1780" selection-end="1780" vertical-scroll-proportion="0.0">
+        <state line="60" column="30" selection-start="2108" selection-end="2109" vertical-scroll-proportion="-11.16">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/javax/swing/table/TableModel.java">
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="962" selection-end="962" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Stuff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="360" selection-end="360" vertical-scroll-proportion="0.13631158" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/org/w3c/dom/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1459" selection-end="1459" vertical-scroll-proportion="0.0">
+        <state line="68" column="137" selection-start="3101" selection-end="3101" vertical-scroll-proportion="-26.52">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/org/w3c/dom/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="0" selection-start="6140" selection-end="6140" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/joox-1.1.0.jar!/org/joox/JOOX.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="635" selection-end="635" vertical-scroll-proportion="-0.522604" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="72" selection-end="72" vertical-scroll-proportion="0.14705883">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/joox-1.1.0.jar!/org/joox/Match.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="155" selection-end="155" vertical-scroll-proportion="0.15370706" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/joox-1.1.0.jar!/org/joox/Content.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="-4.08" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="8" selection-start="1260" selection-end="1337" vertical-scroll-proportion="0.0">
+        <state line="45" column="8" selection-start="1260" selection-end="1337" vertical-scroll-proportion="0.49913344">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="17" selection-start="3213" selection-end="3213" vertical-scroll-proportion="-11.28">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1025,23 +1152,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/org/w3c/dom/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+        <state line="73" column="0" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/jre/lib/plugin.jar!/sun/plugin/dom/core/Element.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="33" selection-start="1718" selection-end="1730" vertical-scroll-proportion="0.0">
+        <state line="6" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.09758898">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java">
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/StuffProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="20" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.032015067">
+        <state line="12" column="13" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/org/w3c/dom/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="186" column="0" selection-start="7853" selection-end="7853" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/RequestRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/html/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/reference/rule/rule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="49" selection-start="0" selection-end="316" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="29" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.4333996">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

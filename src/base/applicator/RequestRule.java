@@ -5,12 +5,12 @@ package base.applicator;
  */
 
 public class RequestRule {
-    private String tagName = "table";
-    private String containsText = "I30";
-    private String containsID = "";
-    private String containsClass = "";
-    private int requiredParent = 0;
-    private int resultIndex = 0;
+    public String tagName = "table";
+    public String containsText = "I30";
+    public String containsID = "";
+    public String containsClass = "";
+    public int requiredParent = 0;
+    public int resultIndex = 0;
 
     public RequestRule() {
 

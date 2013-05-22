@@ -37,6 +37,8 @@ public class EditorPaneStructure extends JPanel {
         }
     };
     JButton btnRefresh = new JButton("Refresh");
+    JButton btnMakeRule = new JButton("make rule");
+    JTextArea txtRule = new JTextArea();
 
     public EditorPaneStructure(JEditorPane source) {
         this.sourcePane = source;
@@ -58,7 +60,13 @@ public class EditorPaneStructure extends JPanel {
         scroll.setPreferredSize(new Dimension(200, 300));
         add(scroll, new GridBagConstraints(0, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
 
-        add(btnRefresh, new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0));
+        add(new JLabel("XML Rule"), new GridBagConstraints(0, 4, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
+        scroll = new JScrollPane(txtRule);
+        scroll.setPreferredSize(new Dimension(200, 300));
+        add(scroll, new GridBagConstraints(0, 5, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
+
+        add(btnRefresh, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 5, 5, 5), 0, 0));
+        add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 100, 5, 5), 0, 0));
         btnRefresh.setToolTipText("Press here to refresh trees");
     }
 
