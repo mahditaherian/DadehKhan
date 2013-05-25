@@ -1,5 +1,7 @@
 package structure;
 
+import base.applicator.RequestRule;
+
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -12,11 +14,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.Field;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditorPaneStructure extends JPanel {
     JEditorPane sourcePane;
     int maximumLevel = 0;
     int level = 0;
+    int markedLevel = 0;
+    private Map<String, String> tableAttributes = new HashMap<String, String>();
     JLabel lblViewBounds = new JLabel() {
         public void paint(Graphics g) {
             super.paint(g);
@@ -37,6 +43,7 @@ public class EditorPaneStructure extends JPanel {
         }
     };
     JButton btnRefresh = new JButton("Refresh");
+    JButton btnMark = new JButton("Mark as key");
     JButton btnMakeRule = new JButton("make rule");
     JTextArea txtRule = new JTextArea();
 
@@ -49,6 +56,7 @@ public class EditorPaneStructure extends JPanel {
 
     protected void init() {
         setLayout(new GridBagLayout());
+        btnMakeRule.setEnabled(false);
 
         add(new JLabel("Field attributes"), new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
         JScrollPane scroll = new JScrollPane(table);
@@ -66,21 +74,23 @@ public class EditorPaneStructure extends JPanel {
         add(scroll, new GridBagConstraints(0, 5, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
 
         add(btnRefresh, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 5, 5, 5), 0, 0));
-        add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 100, 5, 5), 0, 0));
+        add(btnMark, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 100, 5, 5), 0, 0));
+        add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 200, 5, 5), 0, 0));
         btnRefresh.setToolTipText("Press here to refresh trees");
     }
 
     protected void initListeners() {
+        sourcePane.setFocusable(true);
         btnRefresh.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 refresh();
             }
         });
         sourcePane.setEditable(false);
-        sourcePane.addKeyListener(new KeyListener() {
-
+        KeyListener keyListener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                sourcePane.requestFocusInWindow();
                 if (e.getKeyChar() == '+') {
                     level++;
                     if (level > maximumLevel) {
@@ -95,7 +105,15 @@ public class EditorPaneStructure extends JPanel {
                     } else {
                         getCurrentElement(level);
                     }
-                }
+                } /*else if (e.getKeyChar() == 'k') {
+                    sourcePane.requestFocusInWindow();
+                    level--;
+                    if (level < 0) {
+                        level = 0;
+                    } else {
+                        getCurrentElement(level);
+                    }
+                }*/
             }
 
             @Override
@@ -107,7 +125,11 @@ public class EditorPaneStructure extends JPanel {
             public void keyReleased(KeyEvent e) {
 
             }
-        });
+        };
+        this.setFocusable(true);
+        this.addKeyListener(keyListener);
+        btnMark.addKeyListener(keyListener);
+        sourcePane.addKeyListener(keyListener);
         sourcePane.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -172,6 +194,35 @@ public class EditorPaneStructure extends JPanel {
             }
         });
 
+        btnMark.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnMakeRule.setEnabled(true);
+                markedLevel = level;
+//                RequestRule rule = new RequestRule();
+//                rule.setContainsClass(tableAttributes.get("class"));
+//                rule.setContainsID(tableAttributes.get("id"));
+//                rule.setTagName(tableAttributes.get("name"));
+//                rule.setContainsText(tableAttributes.get("containsText"));
+//                rule.setRequiredParent(level);
+//                rule.setResultIndex(0);
+//                txtRule.setText(ReferenceManager.makeXML(rule));
+            }
+        });
+
+        btnMakeRule.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RequestRule rule = new RequestRule();
+                rule.setContainsClass(tableAttributes.get("class"));
+                rule.setContainsID(tableAttributes.get("id"));
+                rule.setTagName(tableAttributes.get("name"));
+                rule.setContainsText(tableAttributes.get("containsText"));
+                rule.setRequiredParent(level - markedLevel);
+                rule.setResultIndex(0);
+                txtRule.setText(ReferenceManager.makeXML(rule));
+            }
+        });
     }
 
     public void refresh() {
@@ -217,6 +268,13 @@ public class EditorPaneStructure extends JPanel {
 //    }
 
     public void buildViewTree(DefaultMutableTreeNode root, View v) {
+//        Node n = null;
+//        NodeList nodeList = n.getChildNodes();
+//        for (int i = 0; i < nodeList.getLength(); i++) {
+//            DefaultMutableTreeNode node = new DefaultMutableTreeNode(nodeList.item(i));
+////            Node node = nodeList.item(i);
+//            root.add(node);
+//        }
         for (int i = 0; i < v.getViewCount(); i++) {
             DefaultMutableTreeNode node = new DefaultMutableTreeNode(v.getView(i));
             root.add(node);
@@ -230,8 +288,7 @@ public class EditorPaneStructure extends JPanel {
             try {
                 Field f = AbstractDocument.AbstractElement.class.getDeclaredField("attributes");
                 f.setAccessible(true);
-                AttributeSet res = (AttributeSet) f.get(elem);
-                return res;
+                return (AttributeSet) f.get(elem);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -338,7 +395,7 @@ public class EditorPaneStructure extends JPanel {
                 view = view.getParent();
                 targetPath = targetPath.getParentPath();
             }
-            System.out.println(getText(view));
+//            System.out.println(getText(view));
             trView.setSelectionRow(trView.getRowForPath(targetPath));
             trView.scrollRowToVisible(trView.getRowForPath(targetPath));
             AttributeSet set = getAttributes(view.getElement());
@@ -349,6 +406,7 @@ public class EditorPaneStructure extends JPanel {
                 table.setValueAt("", i, 1);
             }
             int i = 0;
+            tableAttributes.clear();
             while (names.hasMoreElements()) {
                 if (i >= MAX_ROW_SIZE) {
                     break;
@@ -356,10 +414,15 @@ public class EditorPaneStructure extends JPanel {
 
                 Object name = names.nextElement();
                 Object value = set.getAttribute(name);
+                tableAttributes.put(name.toString(), value.toString());
                 table.setValueAt(name, i, 0);
                 table.setValueAt(value, i, 1);
                 i++;
             }
+            String text = getText(view);
+            tableAttributes.put("containsText", text);
+            table.setValueAt("containsText", i, 0);
+            table.setValueAt(text, i, 1);
             return treeNode;
         }
 
