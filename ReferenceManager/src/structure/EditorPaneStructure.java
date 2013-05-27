@@ -1,14 +1,17 @@
 package structure;
 
 import base.applicator.RequestRule;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.*;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.text.*;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,6 +26,7 @@ public class EditorPaneStructure extends JPanel {
     int level = 0;
     int markedLevel = 0;
     private Map<String, String> tableAttributes = new HashMap<String, String>();
+    private org.jsoup.nodes.Document sourceDocument;
     JLabel lblViewBounds = new JLabel() {
         public void paint(Graphics g) {
             super.paint(g);
@@ -70,13 +74,14 @@ public class EditorPaneStructure extends JPanel {
 
         add(new JLabel("XML Rule"), new GridBagConstraints(0, 4, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(5, 5, 5, 5), 0, 0));
         scroll = new JScrollPane(txtRule);
-        scroll.setPreferredSize(new Dimension(200, 300));
+        scroll.setPreferredSize(new Dimension(200, 100));
         add(scroll, new GridBagConstraints(0, 5, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
 
         add(btnRefresh, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 5, 5, 5), 0, 0));
         add(btnMark, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 100, 5, 5), 0, 0));
-        add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 200, 5, 5), 0, 0));
+        add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 220, 5, 5), 0, 0));
         btnRefresh.setToolTipText("Press here to refresh trees");
+        btnMark.setRequestFocusEnabled(false);
     }
 
     protected void initListeners() {
@@ -105,15 +110,7 @@ public class EditorPaneStructure extends JPanel {
                     } else {
                         getCurrentElement(level);
                     }
-                } /*else if (e.getKeyChar() == 'k') {
-                    sourcePane.requestFocusInWindow();
-                    level--;
-                    if (level < 0) {
-                        level = 0;
-                    } else {
-                        getCurrentElement(level);
-                    }
-                }*/
+                }
             }
 
             @Override
@@ -128,7 +125,7 @@ public class EditorPaneStructure extends JPanel {
         };
         this.setFocusable(true);
         this.addKeyListener(keyListener);
-        btnMark.addKeyListener(keyListener);
+//        btnMark.addKeyListener(keyListener);
         sourcePane.addKeyListener(keyListener);
         sourcePane.addMouseListener(new MouseListener() {
             @Override
@@ -181,11 +178,13 @@ public class EditorPaneStructure extends JPanel {
             public void valueChanged(TreeSelectionEvent e) {
                 if (e.getNewLeadSelectionPath() != null) {
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getNewLeadSelectionPath().getLastPathComponent();
-                    View v = (View) node.getUserObject();
+                    org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) node.getUserObject();
+                    View v = elementViewMap.get(element);
                     if (v.getParent() == null && node.getParent() != null) {
-                        View vParent = (View) ((DefaultMutableTreeNode) node.getParent()).getUserObject();
+                        View vParent = elementViewMap.get(((DefaultMutableTreeNode) node.getParent()).getUserObject());
                         v = vParent.getView(vParent.getViewIndex(v.getStartOffset(), Position.Bias.Forward));
                     }
+                    fillTable(element);
                     Rectangle r = getAllocation(v, sourcePane).getBounds();
                     lblViewBounds.setBounds(r);
                     sourcePane.add(lblViewBounds);
@@ -216,7 +215,7 @@ public class EditorPaneStructure extends JPanel {
                 RequestRule rule = new RequestRule();
                 rule.setContainsClass(tableAttributes.get("class"));
                 rule.setContainsID(tableAttributes.get("id"));
-                rule.setTagName(tableAttributes.get("name"));
+                rule.setTagName(tableAttributes.get("tagName"));
                 rule.setContainsText(tableAttributes.get("containsText"));
                 rule.setRequiredParent(level - markedLevel);
                 rule.setResultIndex(0);
@@ -226,27 +225,13 @@ public class EditorPaneStructure extends JPanel {
     }
 
     public void refresh() {
+        createElementViewMap();
         if (sourcePane != null) {
-//            Document doc = sourcePane.getDocument();
-//
-//            Element elem = doc.getDefaultRootElement();
-//            if (elem instanceof TreeNode) {
-//                trDocument.setModel(new DefaultTreeModel((TreeNode) elem));
-//            } else {
-//                DefaultMutableTreeNode node1 = new DefaultMutableTreeNode(elem);
-//                buildElementsTree(node1, elem);
-//                trDocument.setModel(new DefaultTreeModel(node1));
-//            }
-//            int row = 0;
-//            while (row < trDocument.getRowCount()) {
-//                trDocument.expandRow(row);
-//                row++;
-//            }
-//            trDocument.setToolTipText(" ");
-
-            View v = sourcePane.getUI().getRootView(sourcePane);
-            DefaultMutableTreeNode node = new DefaultMutableTreeNode(v);
-            buildViewTree(node, v);
+            if (sourceDocument.children().size() > 1) {
+                System.out.println("hfdsjlhujklh");
+            }
+            DefaultMutableTreeNode node = new DefaultMutableTreeNode(sourceDocument.children().get(0));
+            rf(node, sourceDocument.children().get(0));
             trView.setModel(new DefaultTreeModel(node));
             int row = 0;
             while (row < trView.getRowCount()) {
@@ -257,24 +242,17 @@ public class EditorPaneStructure extends JPanel {
         }
     }
 
-//    public void buildElementsTree(DefaultMutableTreeNode root, Element elem) {
-//        for (int i = 0; i < elem.getElementCount(); i++) {
-//            AttributeSet attrs = getAttributes(elem.getElement(i));
-//            String str = elem.getElement(i).toString() + " " + attrs.getClass().getName() + "@" + Integer.toHexString(attrs.hashCode());
-//            DefaultMutableTreeNode node = new DefaultMutableTreeNode(str);
-//            root.add(node);
-//            buildElementsTree(node, elem.getElement(i));
-//        }
-//    }
+
+    public void rf(DefaultMutableTreeNode treeNode, org.jsoup.nodes.Element elementRoot) {
+        for (org.jsoup.nodes.Element element : elementRoot.children()) {
+            DefaultMutableTreeNode node = new DefaultMutableTreeNode(element);
+            treeNode.add(node);
+            rf(node, element);
+            maximumLevel = Math.max(maximumLevel, node.getLevel());
+        }
+    }
 
     public void buildViewTree(DefaultMutableTreeNode root, View v) {
-//        Node n = null;
-//        NodeList nodeList = n.getChildNodes();
-//        for (int i = 0; i < nodeList.getLength(); i++) {
-//            DefaultMutableTreeNode node = new DefaultMutableTreeNode(nodeList.item(i));
-////            Node node = nodeList.item(i);
-//            root.add(node);
-//        }
         for (int i = 0; i < v.getViewCount(); i++) {
             DefaultMutableTreeNode node = new DefaultMutableTreeNode(v.getView(i));
             root.add(node);
@@ -299,30 +277,6 @@ public class EditorPaneStructure extends JPanel {
         return null;
     }
 
-//    protected String processDocumentTooltip(MouseEvent e) {
-//        int rn = trDocument.getRowForLocation(e.getX(), e.getY());
-//        if (trDocument.getPathForRow(rn) != null) {
-//            Element tn = (Element) trDocument.getPathForRow(rn).getLastPathComponent();
-//            StringBuffer buff = new StringBuffer();
-//            buff.append("<html>");
-//            buff.append("<b>Start offset: </b>").append(tn.getStartOffset()).append("<br>");
-//            buff.append("<b>End offset: </b>").append(tn.getEndOffset()).append("<br>");
-//            buff.append("<b>Child count: </b>").append(tn.getElementCount()).append("<br>");
-//            buff.append("<b>Text: </b>\"").append(getText(tn.getDocument(), tn.getStartOffset(), tn.getEndOffset())).append("\"<br>");
-//            buff.append("<b>Attributes: </b>").append("<br>");
-//            Enumeration names = tn.getAttributes().getAttributeNames();
-//            while (names.hasMoreElements()) {
-//                Object name = names.nextElement();
-//                Object value = tn.getAttributes().getAttribute(name);
-//                buff.append("&nbsp;&nbsp;<b>").append(name).append(":</b>").append(value).append("<br>");
-//            }
-//            buff.append("</html>");
-//            return buff.toString();
-//        }
-//
-//        return null;
-//    }
-
     protected String getText(View view) {
         return getText(view.getDocument(), view.getStartOffset(), view.getEndOffset());
     }
@@ -345,13 +299,17 @@ public class EditorPaneStructure extends JPanel {
     protected String processViewTooltip(MouseEvent e) {
         int rn = trView.getRowForLocation(e.getX(), e.getY());
         if (trView.getPathForRow(rn) != null) {
-            View tn = (View) ((DefaultMutableTreeNode) trView.getPathForRow(rn).getLastPathComponent()).getUserObject();
+            org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) ((DefaultMutableTreeNode) trView.getPathForRow(rn).getLastPathComponent()).getUserObject();
+            View tn = elementViewMap.get(element);
+            if (tn == null) {
+                return "";
+            }
             StringBuilder buff = new StringBuilder();
             buff.append("<html>");
             buff.append("<b>Start offset: </b>").append(tn.getStartOffset()).append("<br>");
             buff.append("<b>End offset: </b>").append(tn.getEndOffset()).append("<br>");
             buff.append("<b>Child count: </b>").append(tn.getViewCount()).append("<br>");
-            buff.append("<b>Text: </b>\"").append(getText(tn.getDocument(), tn.getStartOffset(), tn.getEndOffset())).append("\"<br>");
+            buff.append("<b>Text: </b>\"").append(element.text()/*getText(tn.getDocument(), tn.getStartOffset(), tn.getEndOffset())*/).append("\"<br>");
             if (tn.getAttributes() != null) {
                 buff.append("<b>Attributes: </b>").append("<br>");
                 Enumeration names = tn.getAttributes().getAttributeNames();
@@ -368,7 +326,7 @@ public class EditorPaneStructure extends JPanel {
         return null;
     }
 
-    public TreeNode getCurrentElement(int levelUp) {
+    public org.jsoup.nodes.Element getCurrentElement(int levelUp) {
         int startOffset = 0, endOffset = Integer.MAX_VALUE;
 
         int caret = sourcePane.getCaretPosition();
@@ -376,7 +334,12 @@ public class EditorPaneStructure extends JPanel {
         DefaultMutableTreeNode treeNode = null;
         for (int i = 0; i < trView.getRowCount(); i++) {
             path = trView.getPathForRow(i);
-            View tn = (View) ((DefaultMutableTreeNode) path.getLastPathComponent()).getUserObject();
+            org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) ((DefaultMutableTreeNode) path.getLastPathComponent()).getUserObject();
+            View tn = elementViewMap.get(element);
+            if (tn == null) {
+                System.out.println("view == nul");
+                continue;
+            }
             if (tn.getStartOffset() < caret && caret < tn.getEndOffset()) {
                 if (tn.getStartOffset() > startOffset || tn.getEndOffset() < endOffset) {
                     startOffset = tn.getStartOffset();
@@ -386,48 +349,96 @@ public class EditorPaneStructure extends JPanel {
                 }
             }
         }
+        org.jsoup.nodes.Element element = null;
         if (treeNode != null) {
-            View view = (View) treeNode.getUserObject();
+            element = (org.jsoup.nodes.Element) treeNode.getUserObject();
             for (int i = 0; i < levelUp && i < treeNode.getLevel(); i++) {
-                if (view.getParent() == null) {
+                if (element.parent() == null) {
                     break;
                 }
-                view = view.getParent();
+                element = element.parent();
                 targetPath = targetPath.getParentPath();
             }
-//            System.out.println(getText(view));
             trView.setSelectionRow(trView.getRowForPath(targetPath));
             trView.scrollRowToVisible(trView.getRowForPath(targetPath));
-            AttributeSet set = getAttributes(view.getElement());
-            Enumeration names = /*view.getAttributes().getAttributeNames()*/set.getAttributeNames();
+        }
+        fillTable(element);
+        return element;
+    }
 
-            for (int i = 0; i < MAX_ROW_SIZE; i++) {
-                table.setValueAt("", i, 0);
-                table.setValueAt("", i, 1);
+    public void fillTable(org.jsoup.nodes.Element element) {
+        for (int i = 0; i < MAX_ROW_SIZE; i++) {
+            table.setValueAt("", i, 0);
+            table.setValueAt("", i, 1);
+        }
+        int i = 0;
+        tableAttributes.clear();
+        if (element == null) {
+            return;
+        }
+        tableAttributes.put("tagName", element.tagName());
+        table.setValueAt("tagName", i, 0);
+        table.setValueAt(element.tagName(), i++, 1);
+        for (Attribute attribute : element.attributes()) {
+            if (i >= MAX_ROW_SIZE) {
+                break;
             }
-            int i = 0;
-            tableAttributes.clear();
-            while (names.hasMoreElements()) {
-                if (i >= MAX_ROW_SIZE) {
-                    break;
-                }
 
-                Object name = names.nextElement();
-                Object value = set.getAttribute(name);
-                tableAttributes.put(name.toString(), value.toString());
-                table.setValueAt(name, i, 0);
-                table.setValueAt(value, i, 1);
-                i++;
-            }
-            String text = getText(view);
-            tableAttributes.put("containsText", text);
-            table.setValueAt("containsText", i, 0);
-            table.setValueAt(text, i, 1);
-            return treeNode;
+            Object name = attribute.getKey();
+            Object value = attribute.getValue();
+            tableAttributes.put(name.toString(), value.toString());
+            table.setValueAt(name, i, 0);
+            table.setValueAt(value, i, 1);
+            i++;
         }
 
+        String text = element.text();
+        tableAttributes.put("containsText", text);
+        table.setValueAt("containsText", i, 0);
+        table.setValueAt(text, i, 1);
+    }
 
-        return null;
+    Map<org.jsoup.nodes.Element, View> elementViewMap = new HashMap<org.jsoup.nodes.Element, View>();
+
+    public void createElementViewMap() {
+        View view = sourcePane.getUI().getRootView(sourcePane);
+        sourceDocument = Jsoup.parse(App.htmlStr);
+        elementViewMap.clear();
+        elementViewMap.put(sourceDocument.child(0), view.getView(0));
+        elementViewSync(sourceDocument.child(0), view.getView(0));
+    }
+
+    public void elementViewSync(org.jsoup.nodes.Element element, View view) {
+        int count = element.children().size();
+        for (int i = 0; i < count; i++) {
+            if (view.getViewCount() != count) {
+                System.out.println("ghjalhfrlahurljkl");
+            }
+            org.jsoup.nodes.Element childElement = element.child(i);
+            View childView = view.getView(i);
+            if (childView == null) {
+                elementViewMap.put(childElement, view);
+                elementViewSync(childElement, view);
+            } else if (isUndefined(childElement)) {
+                elementViewMap.put(childElement, view);
+                elementViewSync(childElement, view);
+                childView.setParent(view);
+            } else {
+                elementViewMap.put(childElement, childView);
+                elementViewSync(childElement, childView);
+                childView.setParent(view);
+            }
+        }
+    }
+
+    public boolean isUndefined(org.jsoup.nodes.Element element) {
+        if (element.tagName().equalsIgnoreCase("tbody") ||
+                element.tagName().equalsIgnoreCase("script") ||
+                element.tagName().equalsIgnoreCase("html") ||
+                element.tagName().equalsIgnoreCase("head")) {
+            return true;
+        }
+        return false;
     }
 
     protected static Shape getAllocation(View v, JEditorPane edit) {

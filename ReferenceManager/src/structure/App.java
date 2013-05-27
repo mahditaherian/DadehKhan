@@ -1,13 +1,22 @@
 package structure;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import javax.swing.*;
 import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class App extends JFrame {
-//    public static String htmlStr = "<html>\n" +
+    //    public static String htmlStr = "<html>\n" +
 //            "<head><title>Example\n" +
 //            "</title></head>\n" +
 //            "<body>\n" +
@@ -51,7 +60,17 @@ public class App extends JFrame {
 
         edit.setEditorKit(new HTMLEditorKit());
         edit.setContentType("text/html");
+        {
+            Document doc = null;
+            try {
+                doc = Jsoup.parse(new URL("http://www.ghatreh.com/news/khodro.php"), 5000);
 
+                htmlStr = doc.body().outerHtml();
+//                htmlStr = doc.outerHtml();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         edit.setText(htmlStr);
 
         JScrollPane scroll = new JScrollPane(edit);
