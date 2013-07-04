@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rules>
+    <convertrule id="1">
+        <explosion type="string" value="td"/>
+        <index type="int" value="2"/>
+        <type type="type" value="MillionToman"/>
+        <name type="string" value="price"/>
+        <keyword type="string" value="111-SX"/>
+        <parent type="string" value="tr"/>
+    </convertrule>
+    <convertrule id="2">
+        <explosion type="string" value="td"/>
+        <index type="int" value="3"/>
+        <type type="type" value="MillionToman"/>
+        <name type="string" value="bazaarPrice"/>
+        <keyword type="string" value="111-SX"/>
+        <parent type="string" value="tr"/>
+    </convertrule>
+
+    <convertrule id="3">
+        <explosion type="string" value="td"/>
+        <index type="int" value="2"/>
+        <type type="type" value="MillionToman"/>
+        <name type="string" value="price"/>
+        <keyword type="string" value="رانا"/>
+        <parent type="string" value="tr"/>
+    </convertrule>
+    <convertrule id="4">
+        <explosion type="string" value="td"/>
+        <index type="int" value="3"/>
+        <type type="type" value="MillionToman"/>
+        <name type="string" value="bazaarPrice"/>
+        <keyword type="string" value="رانا"/>
+        <parent type="string" value="tr"/>
+    </convertrule>
+</rules>

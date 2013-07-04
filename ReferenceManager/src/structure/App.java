@@ -1,7 +1,5 @@
 package structure;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import javax.swing.*;
@@ -9,11 +7,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
 
 public class App extends JFrame {
     //    public static String htmlStr = "<html>\n" +
@@ -61,16 +55,41 @@ public class App extends JFrame {
         edit.setEditorKit(new HTMLEditorKit());
         edit.setContentType("text/html");
         {
-            Document doc = null;
-            try {
-                doc = Jsoup.parse(new URL("http://www.ghatreh.com/news/khodro.php"), 5000);
 
-                htmlStr = doc.body().outerHtml();
+            Document doc = null;
+
+
+            try {
+//                doc = Jsoup.parse(new URL("http://www.ghatreh.com/news/khodro.php"), 5000);
+                File file = new File("data/html/1.html");
+                InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+//                    stringBuilder.append("\r\n");
+                }
+
+                htmlStr = stringBuilder.toString();
 //                htmlStr = doc.outerHtml();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        htmlStr = htmlStr.replaceAll("\n", "");
+        htmlStr = htmlStr.replaceAll("\r", "");
+        htmlStr = htmlStr.replaceAll("\t", "");
+//        try {
+//            Reader stringReader = new StringReader(htmlStr);
+//            HTMLEditorKit htmlKit = new HTMLEditorKit();
+//            HTMLDocument htmlDoc = (HTMLDocument) htmlKit.createDefaultDocument();
+//            HTMLEditorKit.Parser parser = new ParserDelegator();
+//            parser.parse(stringReader, htmlDoc.getReader(0), true);
+//            edit.setDocument(htmlDoc);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         edit.setText(htmlStr);
 
         JScrollPane scroll = new JScrollPane(edit);
@@ -97,13 +116,14 @@ public class App extends JFrame {
         pnl.add(pnlButtons, BorderLayout.SOUTH);
         tbPane.add("Source", pnl);
 
-        info = new EditorPaneStructure(edit);
+        info = new EditorPaneStructure(edit, editSrc);
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, tbPane, new JScrollPane(info));
         split.setDividerLocation(900);
         getContentPane().add(split);
     }
 
-    public static String htmlStr = "<table id=\"tbl_id\" align=center width=90% border=1>\n" +
+    public static String htmlStr = "";
+    public static String htmlStr2 = "<table id=\"tbl_id\" align=center width=90% border=1>\n" +
             "\t<tr height=25>\n" +
             "\t\t<td align=center><strong>توليد كننده</strong></td>\n" +
             "\t\t<td align=center><strong>نوع خودرو</strong></td>\n" +

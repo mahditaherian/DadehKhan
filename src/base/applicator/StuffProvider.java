@@ -4,6 +4,7 @@ import base.applicator.object.Stuff;
 import base.util.MySqlConnector;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public class StuffProvider extends Provider {
         super(connector);
         this.stuffs = new ArrayList<Stuff>();
         stuffKins = new ArrayList<Class<? extends Stuff>>();
+        stuffsMap = new HashMap<Class<? extends Stuff>, List<Stuff>>();
     }
 
     @Override

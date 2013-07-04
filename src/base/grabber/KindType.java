@@ -4,6 +4,11 @@ package base.grabber;
  * @author Mahdi
  */
 public enum KindType {
-    REFERENCE,
-    FACTORY,
+    REFER,
+    PAGES,
+    PAGE,
+    NAME,
+    PARAM,
+    FACTORIES,
+    REFERENCES,
 }

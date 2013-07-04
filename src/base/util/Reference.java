@@ -2,21 +2,32 @@ package base.util;
 
 import org.jsoup.nodes.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Mahdi
  */
 public class Reference {
-    private Word name;
-    private String url;
-    private RelyRate rate;
+    public Word name;
+    public List<Page> pages;
+    public Page main;
     private Document document;
     private long docUpdateTime;
+    public EntityID id;
 
-    public Reference(Word name, String url, RelyRate rate) {
+    public Reference(Word name, String url, RelyRate rate, EntityID id) {
         this.name = name;
-        this.url = url;
-        this.rate = rate;
+        this.id = id;
         docUpdateTime = 0;
+        pages = new ArrayList<Page>();
+    }
+
+    public Reference() {
+        docUpdateTime = 0;
+        pages = new ArrayList<Page>();
+        main = null;
+        id = new EntityID(0);
     }
 
     public Word getName() {
@@ -27,20 +38,13 @@ public class Reference {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public Page getMain() {
+        return main;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public RelyRate getRate() {
-        return rate;
-    }
-
-    public void setRate(RelyRate rate) {
-        this.rate = rate;
+    public void setMain(Page main) {
+        this.main = main;
+        addPage(main);
     }
 
     public Document getDocument() {
@@ -60,17 +64,52 @@ public class Reference {
         this.docUpdateTime = docUpdateTime;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Reference)) {
-            return false;
+    public EntityID getId() {
+        return id;
+    }
+
+    public void setId(EntityID id) {
+        this.id = id;
+    }
+
+    public List<Page> getPages() {
+        return pages;
+    }
+
+    public void addPage(Page page) {
+        if (pages.contains(page)) {
+            pages.remove(page);
         }
-        Reference reference = (Reference) obj;
-        if (reference.getUrl().equalsIgnoreCase(url) && reference.getDocUpdateTime() == docUpdateTime) {
-            if (reference.getDocument().text().equalsIgnoreCase(document.text())) {
-                return true;
+        pages.add(page);
+    }
+
+    public void setPages(List<Page> pages) {
+        for (Page page : pages) {
+            if (page instanceof Page) {
+                addPage(page);
             }
         }
-        return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Reference reference = (Reference) o;
+
+        if (docUpdateTime != reference.docUpdateTime) return false;
+        if (!id.equals(reference.id)) return false;
+        if (main != null ? !main.equals(reference.main) : reference.main != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = main != null ? main.hashCode() : 0;
+        result = 31 * result + (int) (docUpdateTime ^ (docUpdateTime >>> 32));
+        result = 31 * result + id.hashCode();
+        return result;
     }
 }

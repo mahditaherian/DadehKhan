@@ -35,9 +35,10 @@ public class GrabManager {
     public void initializeData() {
 
         stuffs.add(Car.class);
-
+        xmlGrabber.grabRules();
+        xmlGrabber.grabReferences();
         for (Class<? extends Stuff> clazz : stuffs) {
-            htmlGrabber.grabKindOfStuff(clazz);
+            xmlGrabber.grabKindOfStuff(clazz);
         }
     }
 
@@ -49,5 +50,8 @@ public class GrabManager {
             referenceProvider.update();
         }
 
+        for (Class<? extends Stuff> clazz : stuffs) {
+            htmlGrabber.grabKindOfStuff(clazz);
+        }
     }
 }

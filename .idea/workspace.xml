@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="improve code!!!">
+    <list default="true" id="0874d710-5cfe-42e6-a0b2-6680a55b2132" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/AttributeType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/util/Page.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/reference/rule/RequestRule.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/reference/rule/convertrule.xml" />
+      <change type="DELETED" beforePath="G:\Projects\GitHub\DadehKhan\data\reference\rule\rule.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/html/1.html" afterPath="$PROJECT_DIR$/data/html/1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Car.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Car.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/stuff/Car.xml" afterPath="$PROJECT_DIR$/data/stuff/Car.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Config.java" afterPath="$PROJECT_DIR$/src/base/Config.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" afterPath="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Currency.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Currency.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/FileHolder.java" afterPath="$PROJECT_DIR$/src/base/grabber/FileHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" afterPath="$PROJECT_DIR$/src/base/grabber/GrabManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java" afterPath="$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/KindType.java" afterPath="$PROJECT_DIR$/src/base/grabber/KindType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/MySqlConnector.java" afterPath="$PROJECT_DIR$/src/base/util/MySqlConnector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/Property.java" afterPath="$PROJECT_DIR$/src/base/util/Property.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" afterPath="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/Reference.java" afterPath="$PROJECT_DIR$/src/base/util/Reference.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/RelyRate.java" afterPath="$PROJECT_DIR$/src/base/util/RelyRate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/RequestRule.java" afterPath="$PROJECT_DIR$/src/base/applicator/RequestRule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" afterPath="$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" afterPath="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" afterPath="$PROJECT_DIR$/src/base/applicator/StuffProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/util/Util.java" afterPath="$PROJECT_DIR$/src/base/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" afterPath="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/reference/reference.xml" afterPath="$PROJECT_DIR$/data/reference/reference.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DadehKhan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369691277460" ignored="false" />
-    <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121624488" ignored="false" />
-    <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368114496208" ignored="false" />
+    <file path="/Dummy.txt" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372971518853" ignored="false" />
+    <file path="/HtmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372961192039" ignored="false" />
+    <file path="/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372968829755" ignored="false" />
     <file path="G:/java/SOS/src/sos/police_v2/state/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926268250" ignored="false" />
     <file path="/PoliceAbstractState.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926267034" ignored="false" />
     <file path="G:/java/SOS/src/sos/police_v2/base/AbstractPoliceForceAgent.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367922988777" ignored="false" />
@@ -77,32 +107,32 @@
     <file path="/a.dummy" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925303090" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/standard/messages/StandardMessageFactory.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925685011" ignored="false" />
     <file path="G:/java/SOS/src/rescuecore2/messages/control/AKMotion.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367925666446" ignored="false" />
-    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369691431775" ignored="false" />
+    <file path="/fragment.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372971461301" ignored="false" />
     <file path="G:/java/SOS/src/sos/base/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926302625" ignored="false" />
     <file path="/SOSConstant.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367926301676" ignored="false" />
-    <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368606052670" ignored="false" />
+    <file path="/XmlGrabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372847967062" ignored="false" />
     <file path="/RequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367932135442" ignored="false" />
     <file path="/XmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367932917882" ignored="false" />
     <file path="G:/java/DataGrabber/DadehKhan/data/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367937396258" ignored="false" />
     <file path="/stuffs.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368120709648" ignored="false" />
-    <file path="/PropertyType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116318329" ignored="false" />
+    <file path="/PropertyType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372963783282" ignored="false" />
     <file path="/EntityID.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1367953263675" ignored="false" />
-    <file path="/Car.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368546988841" ignored="false" />
-    <file path="/ReferenceProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369124635284" ignored="false" />
-    <file path="/KindType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368095525080" ignored="false" />
+    <file path="/Car.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372784846626" ignored="false" />
+    <file path="/ReferenceProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372968381252" ignored="false" />
+    <file path="/KindType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372768002335" ignored="false" />
     <file path="/FileReserver.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368101136203" ignored="false" />
-    <file path="/FileHolder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105126358" ignored="false" />
-    <file path="/Config.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368099565211" ignored="false" />
-    <file path="/GrabManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368121429803" ignored="false" />
+    <file path="/FileHolder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372765844881" ignored="false" />
+    <file path="/Config.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372765761115" ignored="false" />
+    <file path="/GrabManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372852133805" ignored="false" />
     <file path="/XmlGrabberLauncher.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116898006" ignored="false" />
-    <file path="/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633567143" ignored="false" />
-    <file path="/Car.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368105666906" ignored="false" />
-    <file path="/StuffProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368116811341" ignored="false" />
-    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369691658517" ignored="false" />
-    <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369691717284" ignored="false" />
+    <file path="/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372962643740" ignored="false" />
+    <file path="/Car.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372886068646" ignored="false" />
+    <file path="/StuffProvider.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372260710349" ignored="false" />
+    <file path="/EditorPaneStructure.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369937649414" ignored="false" />
+    <file path="/App.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369860289914" ignored="false" />
     <file path="E:/jswingtest-code/src/main/test/test.iml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368201031543" ignored="false" />
     <file path="/Grabber.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368538428181" ignored="false" />
-    <file path="/reference.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368542794915" ignored="false" />
+    <file path="/reference.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372864568231" ignored="false" />
     <file path="/ReferenceAdder.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368560423250" ignored="false" />
     <file path="/ReferenceManager.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369509252252" ignored="false" />
     <file path="/ReferenceGui.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368622213229" ignored="false" />
@@ -111,15 +141,30 @@
     <file path="/ClearHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369151270817" ignored="false" />
     <file path="G:/java/MRL2013_newKernel/src/mrl/common/Util.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368633594913" ignored="false" />
     <file path="G:/java/MRL2013_newKernel/src/mrl/police/strategies/PoliceTargetClusteringActionStrategy.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1368970941139" ignored="false" />
-    <file path="/RequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369242177227" ignored="false" />
+    <file path="/RequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372868582276" ignored="false" />
     <file path="/XmlRequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237436858" ignored="false" />
     <file path="$PROJECT_DIR$/src/base/applicator/XmlRequestRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237461680" ignored="false" />
-    <file path="$PROJECT_DIR$/src/base/grabber/handler/XmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237463927" ignored="false" />
-    <file path="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237463927" ignored="false" />
-    <file path="/rule.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369237972905" ignored="false" />
+    <file path="/rule.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372757351252" ignored="false" />
     <file path="E:/JTidyTest/src/Launcher.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369585440522" ignored="false" />
     <file path="/Launcher.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369585378048" ignored="false" />
     <file path="/HtmlElement.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1369675122700" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/http/wsdl11_httpbinding.xsd" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/mime/wsdl11_mimebinding.xsd" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/soap/wsdl11_soapbinding.xsd" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf.web.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/xjc.xsd" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/wsdl.xsd" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372237244497" ignored="false" />
+    <file path="/Reference.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372847637054" ignored="false" />
+    <file path="/Page.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372863731055" ignored="false" />
+    <file path="/RelyRate.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372607635155" ignored="false" />
+    <file path="/ProcessPropertyHelper.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372967936115" ignored="false" />
+    <file path="/AttributeType.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372785034085" ignored="false" />
+    <file path="/convertrule.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372971416256" ignored="false" />
+    <file path="/ConvertRule.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372878398281" ignored="false" />
+    <file path="/Property.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372768722390" ignored="false" />
+    <file path="/RequestRule.xml" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372841116572" ignored="false" />
+    <file path="/HtmlRequestHandler.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372963886824" ignored="false" />
+    <file path="/Currency.java" changelist="0874d710-5cfe-42e6-a0b2-6680a55b2132" time="1372962748246" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,128 +180,6 @@
   </component>
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" line="152" class="base.grabber.XmlGrabber" package="base.grabber">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" line="168" class="base.grabber.XmlGrabber" package="base.grabber">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java" line="101" class="structure.App" package="structure">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="446" class="structure.EditorPaneStructure" package="structure">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="182" class="structure.EditorPaneStructure$6" package="structure">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="99" class="structure.EditorPaneStructure$4" package="structure">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="230" class="structure.EditorPaneStructure" package="structure">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="414" class="structure.EditorPaneStructure" package="structure">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -293,6 +216,188 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java" line="120" class="structure.App" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="570" class="structure.EditorPaneStructure" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="203" class="structure.EditorPaneStructure$6" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="120" class="structure.EditorPaneStructure$4" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="366" class="structure.EditorPaneStructure" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="253" class="structure.EditorPaneStructure" package="structure">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="495" class="structure.EditorPaneStructure" package="structure">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" line="508" class="structure.EditorPaneStructure" package="structure">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java" line="74" class="base.grabber.ProcessPropertyHelper" package="base.grabber">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java" line="128" class="base.grabber.ProcessPropertyHelper" package="base.grabber">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java" line="135" class="base.grabber.ProcessPropertyHelper" package="base.grabber">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" line="38" class="base.grabber.HtmlGrabber" package="base.grabber">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -301,62 +406,7 @@
     <favorites_list name="DadehKhan" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="16" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.23224044">
-              <folding>
-                <element signature="e#2963#3341#0" expanded="true" />
-                <element signature="e#3330#3331#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditorPaneStructure.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="421" column="27" selection-start="17081" selection-end="17081" vertical-scroll-proportion="-7.24">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#804#820#0" expanded="true" />
-                <element signature="e#5742#5813#0" expanded="false" />
-                <element signature="method#getAttributes#0;class#EditorPaneStructure#0" expanded="false" />
-                <element signature="e#16139#16170#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlGrabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="47" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlRequestHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="426" selection-end="442" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlGrabber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="17" selection-start="3213" selection-end="3213" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -374,22 +424,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceAdder.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceManager.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java" />
-        <option value="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
-        <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/HtmlRequestRule.java" />
-        <option value="$PROJECT_DIR$/src/base/applicator/XmlRequestRule.java" />
-        <option value="$PROJECT_DIR$/data/reference/rule/sample.xsl" />
         <option value="$PROJECT_DIR$/src/base/applicator/RequestRule.java" />
-        <option value="$PROJECT_DIR$/data/reference/rule/rule.xml" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/HtmlElement.java" />
-        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/ConvertRule.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/object/Car.java" />
+        <option value="$PROJECT_DIR$/src/base/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/object/Currency.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/PropertyType.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java" />
+        <option value="$PROJECT_DIR$/data/stuff/Car.xml" />
+        <option value="$PROJECT_DIR$/data/reference/rule/convertrule.xml" />
+        <option value="$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java" />
+        <option value="$PROJECT_DIR$/src/base/applicator/object/Stuff.java" />
         <option value="$PROJECT_DIR$/ReferenceManager/src/structure/App.java" />
+        <option value="$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java" />
+        <option value="$PROJECT_DIR$/src/base/grabber/XmlGrabber.java" />
       </list>
     </option>
   </component>
@@ -555,61 +605,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferenceManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReferenceManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReferenceManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="structure" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemId" value="base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="applicator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,6 +632,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DadehKhan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stuff" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -718,7 +744,7 @@
       <recent name="G:\Projects\GitHub\DadehKhan\data\reference" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.Launcher">
     <configuration default="false" name="ReferenceManager" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -866,6 +892,13 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="false" name="XmlGrabberLauncher" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="XmlGrabberLauncher" />
@@ -900,6 +933,12 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="DadehKhan" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
     <list size="4">
@@ -984,7 +1023,11 @@
       <created>1369517225828</created>
       <updated>1369517225828</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="improve code!!!">
+      <created>1369691768131</created>
+      <updated>1369691768131</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1009,28 +1052,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6862327" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266745" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6028202" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.60047" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.52408934" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49941245" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.42890716" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3266745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2949757" sideWeight="0.4759107" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26661265" sideWeight="0.6733255" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33254993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21077909" sideWeight="0.6722408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="410" y="615" width="778" height="287" />
@@ -1115,113 +1158,128 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/com/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/ProcessPropertyHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="728" column="29" selection-start="27350" selection-end="27350" vertical-scroll-proportion="0.43907562" />
+        <state line="171" column="0" selection-start="5978" selection-end="5978" vertical-scroll-proportion="-0.2320442">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3593#3601#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_05/src.zip!/javax/xml/transform/Transformer.java">
+    <entry file="file://$PROJECT_DIR$/data/stuff/Car.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="25" selection-start="3778" selection-end="3778" vertical-scroll-proportion="0.33261338" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="3" selection-start="393" selection-end="393" vertical-scroll-proportion="-1.1014761">
+        <state line="15" column="33" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceGui.java">
+    <entry file="file://$PROJECT_DIR$/data/reference/rule/convertrule.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="-1.5988483">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/ReferenceManagerLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="41" selection-start="357" selection-end="357" vertical-scroll-proportion="0.26103646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="17" selection-start="3213" selection-end="3213" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/html/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/applicator/RequestRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="143" selection-end="155" vertical-scroll-proportion="0.031365313">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="47" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.0">
+        <state line="23" column="40" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/grabber/handler/HtmlRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="426" selection-end="442" vertical-scroll-proportion="0.0">
+        <state line="109" column="0" selection-start="3490" selection-end="3490" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.7.2.jar!/org/jsoup/select/Elements.class">
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/GrabManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="55" selection-start="3744" selection-end="3744" vertical-scroll-proportion="0.0">
+        <state line="44" column="39" selection-start="1442" selection-end="1442" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.7.2.jar!/org/jsoup/nodes/Element.class">
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/HtmlGrabber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="15" selection-start="8776" selection-end="8776" vertical-scroll-proportion="-13.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/ReferenceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="56" selection-start="728" selection-end="739" vertical-scroll-proportion="0.5245009">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="421" column="27" selection-start="17081" selection-end="17081" vertical-scroll-proportion="-7.24">
+        <state line="28" column="16" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#804#820#0" expanded="true" />
-            <element signature="e#5742#5813#0" expanded="false" />
-            <element signature="method#getAttributes#0;class#EditorPaneStructure#0" expanded="false" />
-            <element signature="e#16139#16170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/html/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="59" selection-start="2003" selection-end="2003" vertical-scroll-proportion="-6.8461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/object/Stuff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="28" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="16" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.23224044">
+        <state line="7" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/KindType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="82" selection-end="154" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/StructureDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/ReferenceProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="24" selection-start="473" selection-end="473" vertical-scroll-proportion="0.2908745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/grabber/XmlGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="0.33333334">
           <folding>
-            <element signature="e#2963#3341#0" expanded="true" />
-            <element signature="e#3330#3331#0" expanded="true" />
+            <element signature="e#1967#1978#0" expanded="true" />
+            <element signature="e#2322#2335#0" expanded="true" />
+            <element signature="e#2545#2558#0" expanded="true" />
+            <element signature="e#5570#5631#0" expanded="false" />
+            <element signature="e#7320#7377#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReferenceManager/src/structure/EditorPaneStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="342" selection-end="342" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/util/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="356" selection-end="356" vertical-scroll-proportion="0.46617916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/applicator/StuffProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="27" selection-start="304" selection-end="304" vertical-scroll-proportion="0.24862888">
+          <folding />
         </state>
       </provider>
     </entry>

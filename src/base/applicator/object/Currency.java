@@ -6,18 +6,22 @@ import base.util.Word;
  * @author Mahdi
  */
 public abstract class Currency {
-    private long value;
+    private double value;
     protected Word name;
 
     protected Currency() {
         value = 0;
     }
 
-    protected Currency(long value) {
+    protected Currency(double value) {
         this.value = value;
     }
 
-    public long getValue() {
+    public double getValue() {
         return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }

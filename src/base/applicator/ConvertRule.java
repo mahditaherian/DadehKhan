@@ -1,19 +1,31 @@
 package base.applicator;
 
+import base.grabber.PropertyType;
+import base.util.EntityID;
+import base.util.Util;
+
 /**
  * @author Mahdi Taherian
  */
 public class ConvertRule {
-    private String explosion = "TD";
-    private int index = 0;
-    private Class propertyClass;
-    private String propertyName;
+    public String explosion = "";
+    public String keyword;
+    public int index = -1;
+    public PropertyType type;
+    public String name;
+    public EntityID ID;
+    public String parent;
 
-    public ConvertRule(String explosionTag, int index, Class propertyClass, String propertyName) {
+    public ConvertRule(String explosionTag, int index, PropertyType propertyType, String propertyName) {
         this.explosion = explosionTag;
         this.index = index;
-        this.propertyClass = propertyClass;
-        this.propertyName = propertyName;
+        this.type = propertyType;
+        setName(propertyName);
+    }
+
+    public ConvertRule() {
+        this.explosion = "";
+        index = -1;
     }
 
     public String getExplosion() {
@@ -32,47 +44,46 @@ public class ConvertRule {
         this.index = index;
     }
 
-    public Class getPropertyClass() {
-        return propertyClass;
+    public PropertyType getType() {
+        return type;
     }
 
-    public void setPropertyClass(Class propertyClass) {
-        this.propertyClass = propertyClass;
+    public void setType(PropertyType type) {
+        this.type = type;
     }
 
     /**
-     * <b>Note</b> propertyName Must Start with uppercase character
+     * <b>Note</b> name Must Start with uppercase character
      */
-    public String getPropertyName() {
-        return propertyName;
+    public String getName() {
+        return name;
     }
 
-    public void setPropertyName(String propertyName) {
-        this.propertyName = propertyName;
+    public void setName(String name) {
+        this.name = Util.capitalize(name);
     }
 
-    //    private List<Pair<RequestRule, Property>> requestRules;
-//    private HtmlRequestHandler requestHandler;
+    public EntityID getID() {
+        return ID;
+    }
 
-//    public ConvertRule(List<Pair<RequestRule, Property>> requestRules) {
-//        this.requestRules = requestRules;
-//        this.requestHandler = new HtmlRequestHandler();
-//    }
+    public void setID(EntityID ID) {
+        this.ID = ID;
+    }
 
-//    public List<Property> convert(Element element) {
-//        List<Property> properties = new ArrayList<Property>();
-//        for (Pair<RequestRule, Property> rule : requestRules) {
-//            Element elm = requestHandler.getElementByRule(element.ownerDocument(), rule.getKey());
-//            String propertyName = rule.getValue().setName();
-//            Class type = rule.getValue().getType();
-//            if (type.equals(Integer.class)) {
-//                properties.add(new Property(propertyName, Integer.parseInt(elm.text()), type));
-//            } else {
-//                properties.add(new Property(propertyName, elm.text(), type));
-//            }
-//        }
-//
-//
-//        return properties;
-//    }
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getParent() {
+        return parent;
+    }
+
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
 }

@@ -1,0 +1,31 @@
+package base.grabber;
+
+import base.applicator.ConvertRule;
+import base.applicator.RequestRule;
+import base.util.EntityID;
+
+/**
+ * @author Mahdi
+ */
+public enum AttributeType {
+    ID("id", EntityID.class),
+    CONVERT_RULE("convert_rule", ConvertRule.class),
+    REQUEST_RULE("request_rule", RequestRule.class),
+    TYPE("type", null),;
+
+    String name;
+    Class<?> clazz;
+
+
+    AttributeType(String type, Class<?> clazz) {
+        this.name = type;
+        this.clazz = clazz;
+    }
+
+    public static AttributeType get(String str) {
+        for (AttributeType type : AttributeType.values()) {
+            if (type.name.equalsIgnoreCase(str)) return type;
+        }
+        return null;
+    }
+}

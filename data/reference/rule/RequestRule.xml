@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rules>
+    <requestrule id="1">
+        <tagName type="string" value="table"/>
+        <containsText type="string" value="I30"/>
+        <containsID type="string" value=""/>
+        <containsClass type="string" value=""/>
+        <requiredParent type="int" value="0"/>
+        <resultIndex type="int" value="0"/>
+    </requestrule>
+</rules>

@@ -19,7 +19,7 @@ public class MySqlConnector {
     public void connect() {
         try {
 //            conn = DriverManager.getConnection("jdbc:mysql://localhost/test?" + "user=monty&password=greatsqldb");
-            conn = DriverManager.getConnection(Config.MYSQL_HOST, Config.MYSQL_USERNAME, Config.MYSQL_PASSWORD);
+            conn = DriverManager.getConnection("jdbc:mysql://"+Config.MYSQL_HOST, Config.MYSQL_USERNAME, Config.MYSQL_PASSWORD);
 //            Statement stmt = null;
 //            ResultSet rs = null;
 //            try {

@@ -1,14 +1,13 @@
 package base.grabber;
 
-import base.grabber.handler.HtmlRequestHandler;
 import base.applicator.ReferenceProvider;
-import base.applicator.RequestRule;
 import base.applicator.StuffProvider;
 import base.applicator.object.Stuff;
+import base.grabber.handler.HtmlRequestHandler;
 import base.util.MySqlConnector;
-import base.util.Pair;
-import base.util.Reference;
+import base.util.Page;
 import org.jsoup.nodes.Element;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -43,14 +42,18 @@ public class HtmlGrabber extends Grabber {
 
     @Override
     public void grabReferences() {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw new NotImplementedException();
     }
 
     public void grab(Stuff stuff) {
         Element element;
-        for (Pair<Reference, RequestRule> reference : stuff.getReferences()) {
-            element = htmlRequestHandler.getElementByRule(reference.getKey().getDocument(), reference.getValue());
-            stuff.setProperties(htmlRequestHandler.convert(element, stuff.getConvertRules(reference.getKey())));
+        for (Page page : stuff.getReferences()) {
+            if (page != null) {
+                element = htmlRequestHandler.getElementByRule(page.getDocument(), page.getRequestRule());
+                stuff.setProperties(htmlRequestHandler.convert(element, stuff.getConvertRules(page)));
+            }else {
+                System.out.println("page is null");
+            }
         }
     }
 }

@@ -6,8 +6,8 @@ import base.util.Word;
  * @author Mahdi Taherian
  */
 public class Car extends Stuff {
-    public Currency bazaarPrice;
-    public Currency price;
+    private Currency bazaarPrice;
+    private Currency price;
 
 
     public Car() {
@@ -27,7 +27,7 @@ public class Car extends Stuff {
         return price;
     }
 
-    public void setPrice(Currency price) {
+    public <T extends Currency> void setPrice(T price) {
         this.price = price;
     }
 }

@@ -2,19 +2,23 @@ package structure;
 
 import base.applicator.RequestRule;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.*;
+import org.jsoup.nodes.Attribute;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.text.*;
-import javax.swing.text.Document;
-import javax.swing.text.Element;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.parser.ParserDelegator;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.lang.reflect.Field;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -50,10 +54,14 @@ public class EditorPaneStructure extends JPanel {
     JButton btnMark = new JButton("Mark as key");
     JButton btnMakeRule = new JButton("make rule");
     JTextArea txtRule = new JTextArea();
+    JTextArea editSrc;
 
-    public EditorPaneStructure(JEditorPane source) {
+    public EditorPaneStructure(JEditorPane source, JTextArea editSrc) {
         this.sourcePane = source;
-
+        this.editSrc = editSrc;
+        sourceDocument = Jsoup.parse(App.htmlStr);
+        editSrc.setText(sourceDocument.outerHtml());
+        sourcePane.setText(sourceDocument.outerHtml());
         init();
         initListeners();
     }
@@ -82,7 +90,20 @@ public class EditorPaneStructure extends JPanel {
         add(btnMakeRule, new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.VERTICAL, new Insets(5, 220, 5, 5), 0, 0));
         btnRefresh.setToolTipText("Press here to refresh trees");
         btnMark.setRequestFocusEnabled(false);
+        try {
+            Reader stringReader = new StringReader(editSrc.getText());
+            HTMLEditorKit htmlKit = new HTMLEditorKit();
+            HTMLDocument htmlDoc = (HTMLDocument) htmlKit.createDefaultDocument();
+            HTMLEditorKit.Parser parser = new ParserDelegator();
+            parser.parse(stringReader, htmlDoc.getReader(0), true);
+            htmlDocument = htmlDoc;
+            sourcePane.setDocument(htmlDoc);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    HTMLDocument htmlDocument;
 
     protected void initListeners() {
         sourcePane.setFocusable(true);
@@ -176,20 +197,20 @@ public class EditorPaneStructure extends JPanel {
 //        });
         trView.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(TreeSelectionEvent e) {
-                if (e.getNewLeadSelectionPath() != null) {
-                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getNewLeadSelectionPath().getLastPathComponent();
-                    org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) node.getUserObject();
-                    View v = elementViewMap.get(element);
-                    if (v.getParent() == null && node.getParent() != null) {
-                        View vParent = elementViewMap.get(((DefaultMutableTreeNode) node.getParent()).getUserObject());
-                        v = vParent.getView(vParent.getViewIndex(v.getStartOffset(), Position.Bias.Forward));
-                    }
-                    fillTable(element);
-                    Rectangle r = getAllocation(v, sourcePane).getBounds();
-                    lblViewBounds.setBounds(r);
-                    sourcePane.add(lblViewBounds);
-                    sourcePane.repaint();
-                }
+//                if (e.getNewLeadSelectionPath() != null) {
+//                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getNewLeadSelectionPath().getLastPathComponent();
+//                    org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) node.getUserObject();
+//                    View v = elementViewMap.get(element);
+//                    if (v.getParent() == null && node.getParent() != null) {
+//                        View vParent = elementViewMap.get(((DefaultMutableTreeNode) node.getParent()).getUserObject());
+//                        v = vParent.getView(vParent.getViewIndex(v.getStartOffset(), Position.Bias.Forward));
+//                    }
+//                    fillTable(element);
+//                    Rectangle r = getAllocation(v, sourcePane).getBounds();
+//                    lblViewBounds.setBounds(r);
+//                    sourcePane.add(lblViewBounds);
+//                    sourcePane.repaint();
+//                }
             }
         });
 
@@ -225,7 +246,11 @@ public class EditorPaneStructure extends JPanel {
     }
 
     public void refresh() {
-        createElementViewMap();
+        try {
+            createElementViewMap();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         if (sourcePane != null) {
             if (sourceDocument.children().size() > 1) {
                 System.out.println("hfdsjlhujklh");
@@ -335,6 +360,7 @@ public class EditorPaneStructure extends JPanel {
         for (int i = 0; i < trView.getRowCount(); i++) {
             path = trView.getPathForRow(i);
             org.jsoup.nodes.Element element = (org.jsoup.nodes.Element) ((DefaultMutableTreeNode) path.getLastPathComponent()).getUserObject();
+            Element sElement = jsoupSwingElementMap.get(element);
             View tn = elementViewMap.get(element);
             if (tn == null) {
                 System.out.println("view == nul");
@@ -402,43 +428,143 @@ public class EditorPaneStructure extends JPanel {
 
     public void createElementViewMap() {
         View view = sourcePane.getUI().getRootView(sourcePane);
-        sourceDocument = Jsoup.parse(App.htmlStr);
         elementViewMap.clear();
         elementViewMap.put(sourceDocument.child(0), view.getView(0));
-        elementViewSync(sourceDocument.child(0), view.getView(0));
+//        elementViewSync(/*sourceDocument.child(0)*/sourceDocument.getElementsByTag("body").first(), view.getView(0));
+        int caret = view.getView(0).getStartOffset();
+        elementSync();
+//        for (Element element : sourcePane.getDocument().getRootElements()) {
+//            elementViewSync(sourceDocument.child(0), element);
+//        }
     }
 
-    public void elementViewSync(org.jsoup.nodes.Element element, View view) {
-        int count = element.children().size();
-        for (int i = 0; i < count; i++) {
-            if (view.getViewCount() != count) {
-                System.out.println("ghjalhfrlahurljkl");
-            }
-            org.jsoup.nodes.Element childElement = element.child(i);
-            View childView = view.getView(i);
-            if (childView == null) {
-                elementViewMap.put(childElement, view);
-                elementViewSync(childElement, view);
-            } else if (isUndefined(childElement)) {
-                elementViewMap.put(childElement, view);
-                elementViewSync(childElement, view);
-                childView.setParent(view);
-            } else {
-                elementViewMap.put(childElement, childView);
-                elementViewSync(childElement, childView);
-                childView.setParent(view);
-            }
+    public View getViewAt(int caretPosition) {
+        return null;
+    }
+
+    Map<Element, org.jsoup.nodes.Element> swingJsoupElementMap = new HashMap<Element, org.jsoup.nodes.Element>();
+    Map<org.jsoup.nodes.Element, Element> jsoupSwingElementMap = new HashMap<org.jsoup.nodes.Element, Element>();
+
+    public void elementViewSync(/*org.jsoup.nodes.Element element, View view*/org.jsoup.nodes.Element jElement, Element sElement) {
+        if (sElement == null || jElement == null) {
+            System.out.println("Error: sElement= " + sElement + " and jElement= " + jElement);
+            return;
         }
+
+
+//        int st = view.getStartOffset();
+//        Element elem = ((HTMLDocument)sourcePane.getDocument()).getParagraphElement(st);
+        int jeCount = jElement.children().size(), seCount = sElement.getElementCount();
+        if (jeCount != seCount) {
+            System.out.println("jeCount != seCount");
+        }
+        org.jsoup.nodes.Element je = null;
+        Element se = null;
+        for (int j = 0, s = 0; j < jeCount && s < seCount; ) {
+            se = sElement.getElement(s);
+            if (!isDefined(se)) {
+                s++;
+                continue;
+            }
+            je = jElement.child(j);
+            if (!isDefined(je)) {
+//                elementViewSync(je, sElement);
+            }
+            swingJsoupElementMap.put(se, je);
+            jsoupSwingElementMap.put(je, se);
+            elementViewSync(je, se);
+            s++;
+            j++;
+        }
+    }
+
+    public void elementSync() {
+
+//        HTMLDocument doc = htmlDocument;
+
+
+        org.jsoup.nodes.Element rootElement = sourceDocument.child(0);
+        String outer = editSrc.getText();
+        String inner = rootElement.html().substring(0, rootElement.html().indexOf('>'));
+        swingJsoupElementMap.clear();
+//        try {
+//            outer = doc.getText(0, doc.getLength());
+//        } catch (BadLocationException e) {
+//            e.printStackTrace();
+//        }
+        Element element = htmlDocument.getDefaultRootElement();
+        sync(element, rootElement, outer.indexOf(inner));
+
+    }
+
+    public void sync(Element sElement, org.jsoup.nodes.Element rootElement, int start) {
+        org.jsoup.nodes.Element child = null;
+        Element element = null;
+
+        for (int i = 0; i < rootElement.children().size(); i++) {
+            child = rootElement.child(i);
+            String outer = child.outerHtml();
+            int st;
+            int end = start + outer.length();
+            if (isDefined(child)) {
+                if (child.children().isEmpty()) {
+                    st = end;
+                } else {
+                    String inner = "<" + child.child(0).tagName();
+
+                    st = editSrc.getText().indexOf(inner, start);
+
+                    element = getElementAt(sElement, st);
+//                    st = element.getStartOffset();
+                }
+
+                swingJsoupElementMap.put(element, child);
+                sync(sElement, child, start + st);
+            }
+            start = end;
+        }
+    }
+
+    public Element getElementAt(Element root, int offset) {
+        Element element = null, temp = root;
+        do {
+            int index = temp.getElementIndex(offset);
+            if (index < 0 || index >= temp.getElementCount()) {
+                System.out.println("index<0 || index>=root.getElementCount()");
+            }
+            temp = temp.getElement(index);
+            if (temp != null) {
+                element = temp;
+            }
+        } while (temp != null);
+        return element;
+    }
+
+    public boolean isDefined(org.jsoup.nodes.Element element) {
+        if (element.tagName().equalsIgnoreCase("head")) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isDefined(Element element) {
+        if (element.getName().equalsIgnoreCase("comment")) {
+            return false;
+        }
+        return true;
     }
 
     public boolean isUndefined(org.jsoup.nodes.Element element) {
         if (element.tagName().equalsIgnoreCase("tbody") ||
                 element.tagName().equalsIgnoreCase("script") ||
-                element.tagName().equalsIgnoreCase("html") ||
+//                element.tagName().equalsIgnoreCase("html") ||
+                element.tagName().equalsIgnoreCase("link") ||
+                element.tagName().equalsIgnoreCase("meta") ||
                 element.tagName().equalsIgnoreCase("head")) {
             return true;
         }
         return false;
+//        ((HTMLDocument)sourcePane.getDocument())
     }
 
     protected static Shape getAllocation(View v, JEditorPane edit) {

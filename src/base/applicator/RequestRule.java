@@ -1,5 +1,7 @@
 package base.applicator;
 
+import base.util.EntityID;
+
 /**
  * @author Mahdi Taherian
  */
@@ -11,6 +13,7 @@ public class RequestRule {
     public String containsClass = "";
     public int requiredParent = 0;
     public int resultIndex = 0;
+    public EntityID ID;
 
     public RequestRule() {
 
@@ -62,5 +65,13 @@ public class RequestRule {
 
     public void setResultIndex(int resultIndex) {
         this.resultIndex = resultIndex;
+    }
+
+    public EntityID getID() {
+        return ID;
+    }
+
+    public void setID(EntityID ID) {
+        this.ID = ID;
     }
 }
