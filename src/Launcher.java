@@ -12,7 +12,7 @@ public class Launcher {
     public static void main(String[] args) {
         GrabManager manager = new GrabManager();
         manager.initializeData();
-//        manager.execute();
+        manager.execute();
 
         RuleMaker ruleMaker = new RuleMaker(manager);
         ruleMaker.setSize(450, 550);

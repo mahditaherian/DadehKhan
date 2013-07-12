@@ -17,6 +17,7 @@ public abstract class Stuff {
     protected Map<Page, List<ConvertRule>> pageRulesMap;
     public List<Page> references;
     protected static List<Page> KIND_REFERENCES = new ArrayList<Page>();
+    Map<Page, List<Property>> referencePropertyMap;
 
 
     protected Stuff() {
@@ -32,19 +33,14 @@ public abstract class Stuff {
         this.references = references;
     }
 
-    public void setProperties(List<Property> properties) {
-        Method method;
+    public void setProperties(Page reference, List<Property> properties) {
+        referencePropertyMap.put(reference, properties);
         for (Property property : properties) {
-            try {
-                method = Util.getSetter(property.getName(), property.getType().clazz, this.getClass());
-                method.invoke(this, property.getValue());
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
+            addProperty(reference, property);
         }
     }
+
+    public abstract void addProperty(Page reference, Property property);
 
     public Word getName() {
         return name;
@@ -89,5 +85,16 @@ public abstract class Stuff {
 
     public List<Page> getReferences() {
         return references;
+    }
+
+    public List<Property> getProperties(Reference reference) {
+        return referencePropertyMap.get(reference);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "{" +
+                "name=" + name +
+                '}';
     }
 }

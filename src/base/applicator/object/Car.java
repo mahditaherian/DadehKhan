@@ -1,33 +1,46 @@
 package base.applicator.object;
 
+import base.util.Page;
+import base.util.Property;
+import base.util.Reference;
 import base.util.Word;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mahdi Taherian
  */
 public class Car extends Stuff {
-    private Currency bazaarPrice;
-    private Currency price;
+    private Map<Page, Currency> bazaarPrice;
+    private Map<Page, Currency> price;
 
 
     public Car() {
         super();
         typeName = new Word("خودرو", "Car", "Khodro");
+        referencePropertyMap = new HashMap<Page, List<Property>>();
+        price = new HashMap<Page, Currency>();
+        bazaarPrice = new HashMap<Page, Currency>();
     }
 
-    public Currency getBazaarPrice() {
+    public Map<Page, Currency> getBazaarPrice() {
         return bazaarPrice;
     }
 
-    public void setBazaarPrice(Currency bazaarPrice) {
-        this.bazaarPrice = bazaarPrice;
-    }
-
-    public Currency getPrice() {
+    public Map<Page, Currency> getPrice() {
         return price;
     }
 
-    public <T extends Currency> void setPrice(T price) {
-        this.price = price;
+    @Override
+    public void addProperty(Page reference, Property property) {
+        if (property.getName().equalsIgnoreCase("bazaarPrice")) {
+            bazaarPrice.put(reference, (Currency) property.getValue());
+        } else if (property.getName().equalsIgnoreCase("price")) {
+            price.put(reference, (Currency) property.getValue());
+        }
     }
+
 }

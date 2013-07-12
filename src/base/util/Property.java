@@ -27,4 +27,12 @@ public class Property {
     public PropertyType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "name='" + name + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

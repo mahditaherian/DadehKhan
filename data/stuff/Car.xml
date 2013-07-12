@@ -6,10 +6,10 @@
             <refer type="factory" id="2"/>
             <refer type="factory" id="3"/>
         </factories>
-        <references type="list"><refer type="reference" id="1" convert_rule="1,2"/></references>
+        <references type="list"><refer type="reference" id="1" convert_rule="1,2"/><refer type="reference" id="2" convert_rule="1,2"/></references>
     </car>
     <car type="stuff" id="1">
-        <name type="word" pe="رانا" en="pride" fi="pride"/>
+        <name type="word" pe="رانا" en="rana" fi="rana"/>
         <factories type="list">
             <refer type="factory" id="1"/>
             <refer type="factory" id="2"/>
