@@ -1,7 +1,7 @@
 <references>
     <reference type="reference" id="1">
         <name type="word" pe="قطره" en="ghatreh" fi="ghatreh"/>
-        <main type="page" link="G:\Projects\GitHub\DadehKhan\data\html\1.html" request_rule="1" id="1" rate="0"/>
+        <main type="page" link="G:\Projects\GitHub\DadehKhan\data\html\1.html" host="local" request_rule="1" id="1" rate="0"/>
         <!--<pages type="list"><page type="html" link="http://m.ai.n/p1" request_rule="1" id="2" rate="0"/><page type="html" link="http://m.ai.n/p2" request_rule="1" id="3" rate="1"/><page type="html" link="http://m.ai.n/p3" request_rule="1" id="4" rate="5"/><page type="html" link="http://m.ai.n/p4" request_rule="1" id="5" rate="10"/></pages>-->
     </reference>
 <!--    <reference type="reference" id="6">

@@ -2,6 +2,8 @@ package base.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Mahdi
@@ -9,6 +11,7 @@ import java.lang.reflect.Method;
 public class Util {
 
     public static char[] NUMBERS = new char[10];
+    public static Map<Class<?>, Class<?>> PRIMITIVES_TO_WRAPPERS = new HashMap<Class<?>, Class<?>>();
 
     static {
         NUMBERS[0] = '0';
@@ -21,6 +24,23 @@ public class Util {
         NUMBERS[7] = '7';
         NUMBERS[8] = '8';
         NUMBERS[9] = '9';
+
+
+        PRIMITIVES_TO_WRAPPERS.put(boolean.class, Boolean.class);
+        PRIMITIVES_TO_WRAPPERS.put(byte.class, Byte.class);
+        PRIMITIVES_TO_WRAPPERS.put(char.class, Character.class);
+        PRIMITIVES_TO_WRAPPERS.put(double.class, Double.class);
+        PRIMITIVES_TO_WRAPPERS.put(float.class, Float.class);
+        PRIMITIVES_TO_WRAPPERS.put(int.class, Integer.class);
+        PRIMITIVES_TO_WRAPPERS.put(long.class, Long.class);
+        PRIMITIVES_TO_WRAPPERS.put(short.class, Short.class);
+        PRIMITIVES_TO_WRAPPERS.put(void.class, Void.class);
+    }
+
+    // safe because both Long.class and long.class are of type Class<Long>
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> wrap(Class<T> c) {
+        return c.isPrimitive() ? (Class<T>) PRIMITIVES_TO_WRAPPERS.get(c) : c;
     }
 
     public static Integer convertToInt(String str) {
@@ -34,22 +54,26 @@ public class Util {
         return Double.parseDouble(str);
     }
 
-    public static boolean isInstance(Class c1, Class c2) {
-        Class superClass = c1;
-        while (superClass != null) {
-            if (superClass.equals(c2)) {
-                return true;
-            }
-            superClass = superClass.getSuperclass();
-        }
-        superClass = c2.getSuperclass();
-        while (superClass != null) {
-            if (superClass.equals(c1)) {
-                return true;
-            }
-            superClass = superClass.getSuperclass();
-        }
-        return false;
+    public static boolean isInstance(Class<?> c1, Class<?> c2) {
+
+//        while (superClass != null) {
+//            if (superClass.equals(c2)) {
+//                return true;
+//            }
+//            superClass = superClass.getSuperclass();
+//        }
+        Class<?> w1 = wrap(c1);
+        Class<?> w2 = wrap(c2);
+        return w1.isAssignableFrom(w2) || w2.isAssignableFrom(w1);
+        //        Class<?> superClass = w1;
+//        superClass = c2.getSuperclass();
+//        while (superClass != null) {
+//            if (superClass.equals(c1)) {
+//                return true;
+//            }
+//            superClass = superClass.getSuperclass();
+//        }
+//        return false;
     }
 
     public static Method getSetter(Field field, Class<?> objectKind) {

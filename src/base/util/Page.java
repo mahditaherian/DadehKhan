@@ -2,6 +2,7 @@ package base.util;
 
 import base.applicator.RequestRule;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 /**
  * @author Mahdi
@@ -9,15 +10,20 @@ import org.jsoup.nodes.Document;
 public class Page {
     public String url;
     public RelyRate rate;
-    private Document document;
     public Reference parent;
+    public HostType host;
+
+    private Document document;
+    private Element dataElement;
     private EntityID id;
     private long docUpdateTime;
     private RequestRule requestRule;
+    private boolean isDataChanged;
 
 
     public Page() {
         docUpdateTime = 0;
+        isDataChanged = false;
     }
 
     public String getUrl() {
@@ -42,6 +48,7 @@ public class Page {
 
     public void setDocument(Document document) {
         this.document = document;
+        isDataChanged = true;
         setDocUpdateTime(System.currentTimeMillis());
     }
 
@@ -80,5 +87,26 @@ public class Page {
     public void reset() {
         document = null;
         docUpdateTime = 0;
+    }
+
+    public HostType getHost() {
+        return host;
+    }
+
+    public void setHost(HostType host) {
+        this.host = host;
+    }
+
+    public Element getDataElement() {
+        return dataElement;
+    }
+
+    public void setDataElement(Element dataElement) {
+        this.dataElement = dataElement;
+        isDataChanged = false;
+    }
+
+    public boolean isDataChanged() {
+        return isDataChanged;
     }
 }

@@ -15,12 +15,14 @@ public class Reference {
     private Document document;
     private long docUpdateTime;
     public EntityID id;
+    public UpdateManager updateManager;
 
     public Reference(Word name, String url, RelyRate rate, EntityID id) {
         this.name = name;
         this.id = id;
         docUpdateTime = 0;
         pages = new ArrayList<Page>();
+        updateManager = new UpdateManager();
     }
 
     public Reference() {
@@ -28,6 +30,7 @@ public class Reference {
         pages = new ArrayList<Page>();
         main = null;
         id = new EntityID(0);
+        updateManager = new UpdateManager();
     }
 
     public Word getName() {
@@ -85,9 +88,7 @@ public class Reference {
 
     public void setPages(List<Page> pages) {
         for (Page page : pages) {
-            if (page instanceof Page) {
-                addPage(page);
-            }
+            addPage(page);
         }
     }
 
@@ -112,4 +113,27 @@ public class Reference {
         result = 31 * result + id.hashCode();
         return result;
     }
+
+    public boolean needUpdate() {
+        return true;
+    }
+
+//    public void update() {
+//        Document doc;
+//        for (Page page : this.getPages()) {
+//            try {
+//                if (page.getHost().equals(HostType.REMOTE)) {
+//                    doc = Jsoup.connect(page.getUrl()).get();
+//                } else if (page.getHost().equals(HostType.LOCAL)) {
+//                    File file = new File(page.getUrl());
+//                    doc = Jsoup.parse(file, "utf-8");
+//                } else {
+//                    doc = null;
+//                }
+//                page.setDocument(doc);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 }

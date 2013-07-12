@@ -3,7 +3,7 @@ package base;
 /**
  * @author Mahdi
  */
-public class Config {
+public final class Config {
     public static final String MYSQL_USERNAME = "root";
     public static final String MYSQL_PASSWORD = "254136";
     public static final String MYSQL_HOST = "localhost";

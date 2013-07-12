@@ -20,6 +20,7 @@ import static org.joox.JOOX.$;
 public class ReferenceGui extends JFrame {
     JButton runBtn = new JButton("Run");
     JTable table;
+    private JPanel panel1;
 
     public void start() {
         append();

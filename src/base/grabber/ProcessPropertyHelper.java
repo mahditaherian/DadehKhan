@@ -37,6 +37,8 @@ public class ProcessPropertyHelper {
         EntityID requestRuleID = new EntityID(Util.convertToInt(node.getAttributes().getNamedItem("request_rule").getNodeValue()));
         RequestRule requestRule = referenceProvider.getRequestRuleByID(requestRuleID);
         page.setRequestRule(requestRule);
+        String host = node.getAttributes().getNamedItem("host").getNodeValue();
+        page.setHost(HostType.valueOf(host.toUpperCase()));
         return page;
     }
 
@@ -47,13 +49,13 @@ public class ProcessPropertyHelper {
         return new Word(pe, en, fi);
     }
 
-    public List processList(Node node) {
-        List<Object> clsList = new ArrayList<Object>();
-        for (int i = 0; i < node.getChildNodes().getLength(); i++) {
-            clsList.add(node.getChildNodes().item(i));
-        }
-        return clsList;
-    }
+//    public List processList(Node node) {
+//        List<Object> clsList = new ArrayList<Object>();
+//        for (int i = 0; i < node.getChildNodes().getLength(); i++) {
+//            clsList.add(node.getChildNodes().item(i));
+//        }
+//        return clsList;
+//    }
 
     public Object processProperty(Object obj, Node node) {
         if (node == null) {

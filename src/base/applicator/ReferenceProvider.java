@@ -2,15 +2,8 @@ package base.applicator;
 
 import base.applicator.object.Stuff;
 import base.grabber.XmlGrabber;
-import base.util.EntityID;
-import base.util.MySqlConnector;
-import base.util.Page;
-import base.util.Reference;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import base.util.*;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -24,16 +17,13 @@ public class ReferenceProvider extends Provider {
     private Map<EntityID, ConvertRule> convertRuleIDMap;
     private Map<EntityID, RequestRule> requestRuleIDMap;
     private XmlGrabber xmlGrabber;
+    private UpdateManager updateManager;
 
     public ReferenceProvider(XmlGrabber xmlGrabber, MySqlConnector connector, List<Stuff> stuffs) {
         super(connector);
         this.xmlGrabber = xmlGrabber;
         this.stuffs = new ArrayList<Stuff>(stuffs);
-        referenceIDMap = new HashMap<EntityID, Reference>();
-        referencePageIDMap = new HashMap<EntityID, Page>();
-        convertRuleIDMap = new HashMap<EntityID, ConvertRule>();
-        requestRuleIDMap = new HashMap<EntityID, RequestRule>();
-        references = new ArrayList<Reference>();
+        initialize();
     }
 
     public void reset() {
@@ -46,19 +36,18 @@ public class ReferenceProvider extends Provider {
 
     @Override
     public void update() {
-        reset();
-
-
-        updateReferences();
+        updateManager.updateReferences(references);
     }
 
     @Override
     public void initialize() {
-        reset();
-//        for (Stuff stuff : stuffs){
-//            stuff.addReference();
-//        }
-
+        referenceIDMap = new HashMap<EntityID, Reference>();
+        referencePageIDMap = new HashMap<EntityID, Page>();
+        convertRuleIDMap = new HashMap<EntityID, ConvertRule>();
+        requestRuleIDMap = new HashMap<EntityID, RequestRule>();
+        references = new ArrayList<Reference>();
+        updateManager = new UpdateManager();
+//        reset();
     }
 
     @Override
@@ -74,24 +63,31 @@ public class ReferenceProvider extends Provider {
         references.add(reference);
     }
 
-    public void update(Reference reference) {
-        for (Page page : reference.getPages()) {
-            try {
-//                Document doc = Jsoup.connect(page.getUrl()).get();
-                File file = new File(page.getUrl());
-                Document doc = Jsoup.parse(file, "utf-8");
-                page.setDocument(doc);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    public void update(Reference reference) {
+//        Document doc;
+//        for (Page page : reference.getPages()) {
+//            try {
+//                if (page.getHost().equals(HostType.REMOTE)) {
+//                    doc = Jsoup.connect(page.getUrl()).get();
+//                } else if (page.getHost().equals(HostType.LOCAL)) {
+//                    File file = new File(page.getUrl());
+//                    doc = Jsoup.parse(file, "utf-8");
+//                } else {
+//                    doc = null;
+//                }
+//                page.setDocument(doc);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
-    private void updateReferences() {
-        for (Reference reference : references) {
-            update(reference);
-        }
-    }
+//    private void updateReferences() {
+//        for (Reference reference : references) {
+//            if (reference.needUpdate())
+//                reference.update();
+//        }
+//    }
 
     public ConvertRule getConvertRuleByID(EntityID id) {
         return convertRuleIDMap.get(id);
@@ -124,8 +120,8 @@ public class ReferenceProvider extends Provider {
 
     public Page getPageByID(EntityID id) {
         Page page = referencePageIDMap.get(id);
-        if(page==null){
-            System.out.println("page with id '"+id.getValue()+"' does not exist");
+        if (page == null) {
+            System.out.println("page with id '" + id.getValue() + "' does not exist");
         }
         return page;
     }

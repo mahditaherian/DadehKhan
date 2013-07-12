@@ -49,9 +49,14 @@ public class HtmlGrabber extends Grabber {
         Element element;
         for (Page page : stuff.getReferences()) {
             if (page != null) {
-                element = htmlRequestHandler.getElementByRule(page.getDocument(), page.getRequestRule());
+                if (page.getDataElement() == null || page.isDataChanged()) {
+                    element = htmlRequestHandler.getElementByRule(page.getDocument(), page.getRequestRule());
+                    page.setDataElement(element);
+                } else {
+                    element = page.getDataElement();
+                }
                 stuff.setProperties(htmlRequestHandler.convert(element, stuff.getConvertRules(page)));
-            }else {
+            } else {
                 System.out.println("page is null");
             }
         }
