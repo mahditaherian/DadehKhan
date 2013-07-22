@@ -1,11 +1,9 @@
 package base.applicator.object;
 
+import base.applicator.Property;
 import base.util.Page;
-import base.util.Property;
-import base.util.Reference;
 import base.util.Word;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

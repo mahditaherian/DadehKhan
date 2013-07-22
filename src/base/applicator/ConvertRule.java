@@ -1,5 +1,6 @@
 package base.applicator;
 
+import base.applicator.object.StandardEntity;
 import base.grabber.PropertyType;
 import base.util.EntityID;
 import base.util.Util;
@@ -7,7 +8,7 @@ import base.util.Util;
 /**
  * @author Mahdi Taherian
  */
-public class ConvertRule {
+public class ConvertRule extends StandardEntity {
     public String explosion = "";
     public String keyword;
     public int index = -1;
@@ -15,6 +16,16 @@ public class ConvertRule {
     public String name;
     public EntityID ID;
     public String parent;
+
+    {
+        addParameter(new Property("explosion", explosion, PropertyType.STRING));
+        addParameter(new Property("keyword", keyword, PropertyType.STRING));
+        addParameter(new Property("name", name, PropertyType.STRING));
+        addParameter(new Property("id", ID, PropertyType.ID));
+        addParameter(new Property("index", index, PropertyType.INTEGER));
+        addParameter(new Property("type", type, PropertyType.TYPE));
+        addParameter(new Property("parent", parent, PropertyType.STRING));
+    }
 
     public ConvertRule(String explosionTag, int index, PropertyType propertyType, String propertyName) {
         this.explosion = explosionTag;

@@ -1,16 +1,18 @@
 package base.applicator.object;
 
 import base.applicator.ConvertRule;
-import base.util.*;
+import base.applicator.Property;
+import base.grabber.PropertyType;
+import base.util.EntityID;
+import base.util.Page;
+import base.util.Word;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
 
 /**
  * @author Mahdi
  */
-public abstract class Stuff {
+public abstract class Stuff extends StandardEntity {
     public Word name;
     public EntityID id;
     protected Word typeName;
@@ -19,10 +21,16 @@ public abstract class Stuff {
     protected static List<Page> KIND_REFERENCES = new ArrayList<Page>();
     Map<Page, List<Property>> referencePropertyMap;
 
+    {
+        addParameter(new Property("name", name, PropertyType.WORD));
+        addParameter(new Property("id", id, PropertyType.ID));
+        addParameter(new Property("references", references, PropertyType.LIST));
+    }
 
     protected Stuff() {
         pageRulesMap = new HashMap<Page, List<ConvertRule>>();
         references = new ArrayList<Page>();
+        setProperty(new Property("stuff", this, PropertyType.STUFF));
     }
 
     public Collection<Page> getKindReferences() {
@@ -87,7 +95,7 @@ public abstract class Stuff {
         return references;
     }
 
-    public List<Property> getProperties(Reference reference) {
+    public List<Property> getProperties(Page reference) {
         return referencePropertyMap.get(reference);
     }
 

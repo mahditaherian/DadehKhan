@@ -1,12 +1,14 @@
 package base.applicator;
 
+import base.applicator.object.StandardEntity;
+import base.grabber.PropertyType;
 import base.util.EntityID;
 
 /**
  * @author Mahdi Taherian
  */
 
-public class RequestRule {
+public class RequestRule extends StandardEntity {
     public String tagName = "table";
     public String containsText = "I30";
     public String containsID = "";
@@ -14,6 +16,16 @@ public class RequestRule {
     public int requiredParent = 0;
     public int resultIndex = 0;
     public EntityID ID;
+
+    {
+        addParameter(new Property("tagName", tagName, PropertyType.STRING));
+        addParameter(new Property("containsText", containsText, PropertyType.STRING));
+        addParameter(new Property("containsID", containsID, PropertyType.STRING));
+        addParameter(new Property("containsClass", containsClass, PropertyType.STRING));
+        addParameter(new Property("id", ID, PropertyType.ID));
+        addParameter(new Property("requiredParent", requiredParent, PropertyType.INTEGER));
+        addParameter(new Property("resultIndex", resultIndex, PropertyType.INTEGER));
+    }
 
     public RequestRule() {
 

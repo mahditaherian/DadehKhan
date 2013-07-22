@@ -1,10 +1,10 @@
 package base.grabber.handler;
 
 import base.applicator.ConvertRule;
+import base.applicator.Property;
 import base.applicator.RequestRule;
 import base.applicator.object.Currency;
 import base.grabber.PropertyType;
-import base.util.Property;
 import base.util.Util;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

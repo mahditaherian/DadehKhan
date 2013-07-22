@@ -1,11 +1,3 @@
-import structure.EditorPaneStructure;
-
-import javax.swing.*;
-import javax.swing.text.html.HTMLEditorKit;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 /**
  * @author Mahdi Taherian
  */

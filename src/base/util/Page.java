@@ -1,13 +1,16 @@
 package base.util;
 
+import base.applicator.Property;
 import base.applicator.RequestRule;
+import base.applicator.object.StandardEntity;
+import base.grabber.PropertyType;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 /**
  * @author Mahdi
  */
-public class Page {
+public class Page extends StandardEntity {
     public String url;
     public RelyRate rate;
     public Reference parent;
@@ -20,6 +23,12 @@ public class Page {
     private RequestRule requestRule;
     private boolean isDataChanged;
 
+    {
+        addParameter(new Property("url", url, PropertyType.STRING));
+        addParameter(new Property("rate", rate, PropertyType.RELY));
+        addParameter(new Property("parent", parent, PropertyType.REFERENCE));
+        addParameter(new Property("host", host, PropertyType.HOST));
+    }
 
     public Page() {
         docUpdateTime = 0;

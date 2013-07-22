@@ -1,5 +1,8 @@
 package base.util;
 
+import base.applicator.Property;
+import base.applicator.object.StandardEntity;
+import base.grabber.PropertyType;
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
@@ -8,7 +11,7 @@ import java.util.List;
 /**
  * @author Mahdi
  */
-public class Reference {
+public class Reference extends StandardEntity {
     public Word name;
     public List<Page> pages;
     public Page main;
@@ -17,12 +20,20 @@ public class Reference {
     public EntityID id;
     public UpdateManager updateManager;
 
+    {
+        addParameter(new Property("name", name, PropertyType.WORD));
+        addParameter(new Property("pages", pages, PropertyType.LIST));
+        addParameter(new Property("main", main, PropertyType.PAGE));
+        addParameter(new Property("id", id, PropertyType.ID));
+    }
+
     public Reference(Word name, String url, RelyRate rate, EntityID id) {
         this.name = name;
         this.id = id;
         docUpdateTime = 0;
         pages = new ArrayList<Page>();
         updateManager = new UpdateManager();
+        setProperty(new Property("reference", this, PropertyType.REFERENCE));
     }
 
     public Reference() {

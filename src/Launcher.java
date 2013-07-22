@@ -1,8 +1,6 @@
 import base.grabber.GrabManager;
 import base.panel.RuleMaker;
 
-import javax.swing.*;
-
 /**
  * Created by: Mahdi Taherian
  */

@@ -60,6 +60,13 @@ public class GrabManager {
         }
     }
 
+    public void append(Stuff stuff) {
+        if (stuff != null) {
+            xmlGrabber.append(stuff);
+            stuffProvider.addStuff(stuff);
+        }
+    }
+
     public void execute() {
         if (stuffProvider.needUpdate()) {
             stuffProvider.update();

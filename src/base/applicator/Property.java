@@ -1,31 +1,20 @@
-package base.util;
+package base.applicator;
 
 import base.grabber.PropertyType;
 
 /**
  * @author Mahdi
  */
-public class Property {
-    String name;
+public class Property extends Parameter {
     Object value;
-    PropertyType type;
 
     public Property(String name, Object value, PropertyType type) {
-        this.name = name;
+        super(name, type);
         this.value = value;
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public Object getValue() {
         return value;
-    }
-
-    public PropertyType getType() {
-        return type;
     }
 
     @Override

@@ -1,7 +1,3 @@
-import base.applicator.object.Car;
-import base.grabber.FileHolder;
-import base.grabber.XmlGrabber;
-
 /**
  * @author Mahdi
  */

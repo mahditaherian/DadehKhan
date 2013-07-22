@@ -1,12 +1,10 @@
 package base.grabber;
 
 import base.applicator.*;
+import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.panel.RuleMaker;
-import base.util.EntityID;
-import base.util.Page;
-import base.util.Reference;
-import base.util.Util;
+import base.util.*;
 import org.joox.Match;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -14,17 +12,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
-import java.io.StringWriter;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,7 +88,7 @@ public class XmlGrabber extends Grabber {
         }
     }
 
-    private <T> List<T> grabKind(Class<T> kind) {
+    private <T extends StandardEntity> List<T> grabKind(Class<T> kind) {
         Document doc = getDocument(kind);
         if (doc == null) {
             System.err.println("xmlDocument is null");
@@ -103,7 +98,6 @@ public class XmlGrabber extends Grabber {
         T obj;
 // Wrap the document with the jOOX API
         Match objects = $(doc).find(kind.getSimpleName().toLowerCase());
-        Field[] fields;
         for (Element objElement : objects) {
             obj = null;
             try {
@@ -117,36 +111,22 @@ public class XmlGrabber extends Grabber {
                 continue;
             }
 
-            fields = kind.getFields();
-            for (Field field : fields) {
-                Node node = objElement.getElementsByTagName(field.getName()).item(0);
+//            fields = kind.getFields();
+            for (Parameter property : obj.getParameters()) {
+                Node node = objElement.getElementsByTagName(property.getName()).item(0);
                 if (node == null) {
-                    String attr = objElement.getAttribute(field.getName().toLowerCase());
+                    String attr = objElement.getAttribute(property.getName().toLowerCase());
                     if (!attr.isEmpty()) {
-                        try {
 //                            field.set(obj, processAttribute(AttributeType.valueOf(field.getName().toUpperCase()), attr));
-                            Object val = processAttribute(AttributeType.valueOf(field.getName().toUpperCase()), attr);
-                            Method method = Util.getSetter(field, kind);
-                            method.invoke(obj, val);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        } catch (IllegalArgumentException e) {
-                            e.printStackTrace();
-                        } catch (InvocationTargetException e) {
-                            e.printStackTrace();
-                        }
+                        Object val = processAttribute(AttributeType.valueOf(property.getName().toUpperCase()), attr);
+                        Method method = Util.getSetter(property.getName(), property.getType().clazz, kind);
+                        Util.invoke(method, obj, val);
                     }
                 } else {
-                    try {
 //                        field.set(obj, processPropertyHelper.processProperty(node));
-                        Object val = processPropertyHelper.processProperty(obj, node);
-                        Method method = Util.getSetter(field, kind);
-                        method.invoke(obj, val);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
+                    Object val = processPropertyHelper.processProperty(obj, node);
+                    Method method = Util.getSetter(property.getName(), property.getType().clazz, kind);
+                    Util.invoke(method, obj, val);
                 }
             }
             objectList.add(obj);
@@ -195,6 +175,124 @@ public class XmlGrabber extends Grabber {
         saveDocument(document, file);
     }
 
+
+    ///****************************************appender****************************************///
+    public void append(Stuff stuff) {
+        Document document = getDocument(RequestRule.class);
+//        appendStuff(stuff);
+        appendStuff(stuff, document);
+        File file = fileHolder.getFile(RequestRule.class);
+        saveDocument(document, file);
+    }
+
+    public void appendStuff(Stuff stuff, Document doc) {
+        Element stuffElement = doc.createElement(stuff.getClass().getSimpleName().toLowerCase());
+        // set attribute to rule element
+        Attr attr = doc.createAttribute("id");
+        attr.setValue(stuff.getId().toString());
+        stuffElement.setAttributeNode(attr);
+
+        attr = doc.createAttribute("type");
+        attr.setValue("stuff");
+        stuffElement.setAttributeNode(attr);
+
+        for (Parameter property : stuff.getParameters()) {
+            appendParameter(doc, stuffElement, stuff, (Property) property);
+        }
+
+
+//        Element child = doc.createElement("name");
+//        attr = doc.createAttribute("pe");
+//        attr.setValue(stuff.getName().getFarsi());
+//        child.setAttributeNode(attr);
+//        attr = doc.createAttribute("en");
+//        attr.setValue(stuff.getName().getEnglish());
+//        child.setAttributeNode(attr);
+//        attr = doc.createAttribute("fi");
+//        attr.setValue(stuff.getName().getFarsiInEnglish());
+//        child.setAttributeNode(attr);
+//        stuffElement.appendChild(child);
+
+//        child = doc.createElement("factories");
+//        attr = doc.createAttribute("type");
+//        attr.setValue(stuff.getName().getFarsi());
+//        child.setAttributeNode(attr);
+//        attr = doc.createAttribute("en");
+//        attr.setValue(stuff.getName().getEnglish());
+//        child.setAttributeNode(attr);
+//        attr = doc.createAttribute("fi");
+//        attr.setValue(stuff.getName().getFarsiInEnglish());
+//        child.setAttributeNode(attr);
+//        stuffElement.appendChild(child);
+
+
+    }
+
+    public void appendParameter(Document doc, Element element, StandardEntity object, Property property) {
+        Element child;
+        StandardEntity entity;
+        Attr attr;
+        switch (property.getType()) {
+            case WORD:
+                Word word = (Word) property.getValue();
+                child = doc.createElement(property.getName());
+                attr = doc.createAttribute("type");
+                attr.setValue(property.getType().key);
+                child.setAttributeNode(attr);
+                attr = doc.createAttribute("pe");
+                attr.setValue(word.getFarsi());
+                child.setAttributeNode(attr);
+                attr = doc.createAttribute("en");
+                attr.setValue(word.getEnglish());
+                child.setAttributeNode(attr);
+                attr = doc.createAttribute("fi");
+                attr.setValue(word.getFarsiInEnglish());
+                child.setAttributeNode(attr);
+                element.appendChild(child);
+                break;
+            case LIST:
+                child = doc.createElement(property.getName());
+                attr = doc.createAttribute("type");
+                attr.setValue(property.getType().key);
+                child.setAttributeNode(attr);
+                for (Object obj : (List<?>) property.getValue()) {
+                    if (obj instanceof StandardEntity) {
+                        entity = (StandardEntity) obj;
+                        appendParameter(doc, child, entity, entity.getProperty());
+                    } else {
+                        System.out.println("WTF? AAA");
+                    }
+                }
+                break;
+            case REFERENCE:
+                child = doc.createElement("refer");
+                attr = doc.createAttribute("type");
+                attr.setValue(property.getType().key);
+                child.setAttributeNode(attr);
+                Page page = (Page) property.getValue();
+                attr = doc.createAttribute("id");
+                attr.setValue(page.getId().toString());
+                child.setAttributeNode(attr);
+
+                String crs = "";
+                Stuff stuff = (Stuff) object;
+                List<ConvertRule> convertRules = stuff.getConvertRules(page);
+                for (int i = 0; i < convertRules.size(); i++) {
+                    ConvertRule convertRule = convertRules.get(i);
+                    crs += convertRule.getID().toString();
+                    if (i < convertRules.size() - 1) {
+                        crs += ",";
+                    }
+                }
+                attr = doc.createAttribute("convert_rule");
+                attr.setValue(crs);
+                child.setAttributeNode(attr);
+                element.appendChild(child);
+                break;
+
+        }
+    }
+
     public static void appendRule(RequestRule requestRule, Document doc) {
         Element rule = doc.createElement("requestrule");
 
@@ -203,26 +301,22 @@ public class XmlGrabber extends Grabber {
         attr.setValue(requestRule.getID().toString());
         rule.setAttributeNode(attr);
 
-        Class<RequestRule> clazz = RequestRule.class;
         Element string;
-        for (Field field : clazz.getFields()) {
-            try {
-                Object val = field.get(requestRule);
-                if (val == null || val.toString().trim().isEmpty() || !RuleMaker.isValidType(field.getType())) {
-                    continue;
-                }
-
-                string = doc.createElement(field.getName());
-                attr = doc.createAttribute("type");
-                attr.setValue(field.getType().getSimpleName().toLowerCase());
-                string.setAttributeNode(attr);
-                attr = doc.createAttribute("value");
-                attr.setValue(val.toString());
-                string.setAttributeNode(attr);
-                rule.appendChild(string);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+        for (Parameter property : requestRule.getParameters()) {
+//        for (Field field : clazz.getFields()) {
+            Object val = ((Property)property).getValue();
+            if (val == null || val.toString().trim().isEmpty() || !RuleMaker.isValidType(property.getType().clazz)) {
+                continue;
             }
+
+            string = doc.createElement(property.getName());
+            attr = doc.createAttribute("type");
+            attr.setValue(property.getType().clazz.getSimpleName().toLowerCase());
+            string.setAttributeNode(attr);
+            attr = doc.createAttribute("value");
+            attr.setValue(val.toString());
+            string.setAttributeNode(attr);
+            rule.appendChild(string);
         }
         doc.getElementsByTagName("rules").item(0).appendChild(rule);
     }

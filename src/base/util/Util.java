@@ -1,6 +1,9 @@
 package base.util;
 
+import base.applicator.object.StandardEntity;
+
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -101,6 +104,16 @@ public class Util {
 
     public static String capitalize(String line) {
         return Character.toUpperCase(line.charAt(0)) + line.substring(1);
+    }
+
+    public static <T extends StandardEntity> void invoke(Method method, T obj, Object val) {
+        try {
+            method.invoke(obj, val);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
 //    public static String retainAllChars(String str, char[] chars) {
