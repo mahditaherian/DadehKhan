@@ -1,33 +1,26 @@
-<cars>
-    <car type="stuff" id="1">
-        <name type="word" pe="پراید" en="pride" fi="pride"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<stuffs>
+    <car id="1" type="stuff">
+        <name en="pride" fi="pride" pe="پراید" type="word"/>
         <!--<factories type="list">-->
-            <!--<refer type="factory" id="1"/>-->
-            <!--<refer type="factory" id="2"/>-->
-            <!--<refer type="factory" id="3"/>-->
+        <!--<refer type="factory" id="1"/>-->
+        <!--<refer type="factory" id="2"/>-->
+        <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <references type="list"><refer type="reference" id="1" convert_rule="1,2"/><refer type="reference" id="2" convert_rule="1,2"/></references>
+        <references type="list">
+            <refer convert_rule="1,2" id="1" type="page"/>
+            <refer convert_rule="1,2" id="2" type="page"/>
+        </references>
     </car>
-    <car type="stuff" id="2">
-        <name type="word" pe="رانا" en="rana" fi="rana"/>
+    <car id="2" type="stuff">
+        <name en="rana" fi="rana" pe="رانا" type="word"/>
         <!--<factories type="list">-->
-            <!--<refer type="factory" id="1"/>-->
-            <!--<refer type="factory" id="2"/>-->
-            <!--<refer type="factory" id="3"/>-->
+        <!--<refer type="factory" id="1"/>-->
+        <!--<refer type="factory" id="2"/>-->
+        <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <references type="list"><refer type="reference" id="1" convert_rule="3,4"/></references>
+        <references type="list">
+            <refer convert_rule="3,4" id="1" type="page"/>
+        </references>
     </car>
-    <!--<car type="stuff" id="2">-->
-    <!--<name type="word" pe="پراید" en="pride" fi="pride"/>-->
-    <!--<factories type="list">-->
-    <!--<refer type="factory" id="1"/>-->
-    <!--<refer type="factory" id="2"/>-->
-    <!--<refer type="factory" id="3"/>-->
-    <!--</factories>-->
-    <!--<references type="list">-->
-    <!--<refer type="reference" id="1" convert_rule="1,2"/>-->
-    <!--<refer type="reference" id="2" convert_rule="1,2"/>-->
-    <!--<refer type="reference" id="3" convert_rule="1,2"/>-->
-    <!--</references>-->
-    <!--</car>-->
-</cars>
+</stuffs>

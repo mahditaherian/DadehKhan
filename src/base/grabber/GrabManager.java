@@ -22,6 +22,7 @@ public class GrabManager {
     private FileHolder fileHolder;
     private StuffProvider stuffProvider;
     private XmlGrabber xmlGrabber;
+    private XmlAppender xmlAppender;
     private List<Class<? extends Stuff>> stuffs;
     private UpdateManager updateManager;
     private IDManager idManager;
@@ -34,6 +35,7 @@ public class GrabManager {
         this.stuffProvider = new StuffProvider(connector);
         this.referenceProvider = new ReferenceProvider(xmlGrabber, connector, stuffProvider.getStuffs());
         this.xmlGrabber = new XmlGrabber(fileHolder, stuffProvider, referenceProvider, idManager);
+        this.xmlAppender = new XmlAppender(xmlGrabber);
         this.htmlGrabber = new HtmlGrabber(connector, referenceProvider, stuffProvider);
         this.stuffs = new ArrayList<Class<? extends Stuff>>();
         updateManager = new UpdateManager();
@@ -51,18 +53,19 @@ public class GrabManager {
         for (Class<? extends Stuff> clazz : stuffs) {
             xmlGrabber.grabKindOfStuff(clazz);
         }
+        stuffProvider.setStuffKinds(stuffs);
     }
 
     public void append(RequestRule requestRule) {
         if (requestRule != null) {
-            xmlGrabber.append(requestRule);
-            referenceProvider.addRequestRule(requestRule.getID(), requestRule);
+            xmlAppender.append(requestRule);
+            referenceProvider.addRequestRule(requestRule.getId(), requestRule);
         }
     }
 
     public void append(Stuff stuff) {
         if (stuff != null) {
-            xmlGrabber.append(stuff);
+            xmlAppender.append(stuff);
             stuffProvider.addStuff(stuff);
         }
     }
@@ -83,4 +86,14 @@ public class GrabManager {
             }
         }
     }
+
+    public StuffProvider getStuffProvider() {
+        return stuffProvider;
+    }
+
+    public ReferenceProvider getReferenceProvider() {
+        return referenceProvider;
+    }
+
+
 }

@@ -8,7 +8,7 @@ public class EntityID {
 
     /**
      Construct a new EntityID object.
-     @param id The numeric ID to use.
+     @param id The numeric id to use.
      */
     public EntityID(int id) {
         this.id = id;
@@ -28,8 +28,8 @@ public class EntityID {
     }
 
     /**
-     Get the numeric ID for this object.
-     @return The numeric ID.
+     Get the numeric id for this object.
+     @return The numeric id.
      */
     public int getValue() {
         return id;

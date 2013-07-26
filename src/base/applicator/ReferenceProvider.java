@@ -118,11 +118,19 @@ public class ReferenceProvider extends Provider {
         return reference;
     }
 
+    public Collection<ConvertRule> getConvertRules(){
+        return convertRuleIDMap.values();
+    }
+
     public Page getPageByID(EntityID id) {
         Page page = referencePageIDMap.get(id);
         if (page == null) {
             System.out.println("page with id '" + id.getValue() + "' does not exist");
         }
         return page;
+    }
+
+    public Collection<Page> getPages() {
+        return referencePageIDMap.values();
     }
 }

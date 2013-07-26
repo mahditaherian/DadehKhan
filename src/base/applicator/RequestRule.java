@@ -15,14 +15,14 @@ public class RequestRule extends StandardEntity {
     public String containsClass = "";
     public int requiredParent = 0;
     public int resultIndex = 0;
-    public EntityID ID;
+    public EntityID id;
 
     {
         addParameter(new Property("tagName", tagName, PropertyType.STRING));
         addParameter(new Property("containsText", containsText, PropertyType.STRING));
         addParameter(new Property("containsID", containsID, PropertyType.STRING));
         addParameter(new Property("containsClass", containsClass, PropertyType.STRING));
-        addParameter(new Property("id", ID, PropertyType.ID));
+        addParameter(new Property("id", id, PropertyType.ID));
         addParameter(new Property("requiredParent", requiredParent, PropertyType.INTEGER));
         addParameter(new Property("resultIndex", resultIndex, PropertyType.INTEGER));
     }
@@ -67,7 +67,7 @@ public class RequestRule extends StandardEntity {
         return requiredParent;
     }
 
-    public void setRequiredParent(int requiredParent) {
+    public void setRequiredParent(Integer requiredParent) {
         this.requiredParent = requiredParent;
     }
 
@@ -75,15 +75,15 @@ public class RequestRule extends StandardEntity {
         return resultIndex;
     }
 
-    public void setResultIndex(int resultIndex) {
+    public void setResultIndex(Integer resultIndex) {
         this.resultIndex = resultIndex;
     }
 
-    public EntityID getID() {
-        return ID;
+    public EntityID getId() {
+        return id;
     }
 
-    public void setID(EntityID ID) {
-        this.ID = ID;
+    public void setId(EntityID id) {
+        this.id = id;
     }
 }

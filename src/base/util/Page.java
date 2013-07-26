@@ -33,6 +33,7 @@ public class Page extends StandardEntity {
     public Page() {
         docUpdateTime = 0;
         isDataChanged = false;
+        setProperty(new Property("page", this, PropertyType.PAGE));
     }
 
     public String getUrl() {

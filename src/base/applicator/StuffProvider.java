@@ -57,11 +57,11 @@ public class StuffProvider extends Provider {
         return stuffsMap.get(kind);
     }
 
-    public List<Class<? extends Stuff>> getStuffKins() {
+    public List<Class<? extends Stuff>> getStuffKinds() {
         return stuffKins;
     }
 
-    public void setStuffKins(List<Class<? extends Stuff>> stuffKins) {
+    public void setStuffKinds(List<Class<? extends Stuff>> stuffKins) {
         this.stuffKins = stuffKins;
     }
 }

@@ -19,6 +19,9 @@ public abstract class StandardEntity {
 
 
     public void addParameter(Parameter parameter) {
+        if (parameters.contains(parameter)) {
+            parameters.remove(parameter);
+        }
         parameters.add(parameter);
     }
 

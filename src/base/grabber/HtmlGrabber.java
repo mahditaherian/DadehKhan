@@ -27,7 +27,7 @@ public class HtmlGrabber extends Grabber {
 
 
     public void grabAllStuff() {
-        for (Class<? extends Stuff> kind : stuffProvider.getStuffKins()) {
+        for (Class<? extends Stuff> kind : stuffProvider.getStuffKinds()) {
             grabKindOfStuff(kind);
         }
     }

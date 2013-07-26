@@ -20,7 +20,7 @@ public class RuleMaker extends AbstractMaker {
 
     protected void save() {
         RequestRule requestRule = new RequestRule();
-        requestRule.setID(grabManager.getIdManager().getNextRequestRuleID());
+        requestRule.setId(grabManager.getIdManager().getNextRequestRuleID());
         Pair<JComponent, Class<?>> pair;
         Object value;
         Method setter;
@@ -51,7 +51,8 @@ public class RuleMaker extends AbstractMaker {
     }
 
     public void initialize() {
-        super.initialize(RequestRule.class.getFields());
+        RequestRule temp = new RequestRule();
+        super.initialize(temp.getParameters());
     }
 
 }

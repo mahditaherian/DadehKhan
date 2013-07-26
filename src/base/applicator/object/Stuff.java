@@ -38,6 +38,7 @@ public abstract class Stuff extends StandardEntity {
     }
 
     public void setReferences(List<Page> references) {
+        addParameter(new Property("references", references, PropertyType.LIST));
         this.references = references;
     }
 
@@ -55,6 +56,7 @@ public abstract class Stuff extends StandardEntity {
     }
 
     public void setName(Word name) {
+        addParameter(new Property("name", name, PropertyType.WORD));
         this.name = name;
     }
 
@@ -79,6 +81,16 @@ public abstract class Stuff extends StandardEntity {
         KIND_REFERENCES.add(page);
     }
 
+    public void addRule(Page page, Collection<ConvertRule> rules) {
+        if (page == null || rules == null) {
+            System.out.println("page = " + page + " rules = null");
+            return;
+        }
+        for (ConvertRule rule : rules) {
+            addRule(page, rule);
+        }
+    }
+
     public void setTypeName(Word typeName) {
         this.typeName = typeName;
     }
@@ -88,6 +100,7 @@ public abstract class Stuff extends StandardEntity {
     }
 
     public void setId(EntityID id) {
+        addParameter(new Property("id", id, PropertyType.ID));
         this.id = id;
     }
 

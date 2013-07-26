@@ -124,7 +124,11 @@ public class ProcessPropertyHelper {
             }
             case HTML:
             case PAGE: {
-                return processPage(node);
+                if (kindType != null && kindType.equals(KindType.REFER)) {
+                    return processKind(obj, propertyType, kindType, node);
+                } else {
+                    return processPage(node);
+                }
             }
             case USDOLLAR:
             case IRRIAL: {
@@ -170,9 +174,10 @@ public class ProcessPropertyHelper {
         if (kindType.equals(KindType.REFER)) {
             String idString = node.getAttributes().getNamedItem("id").getNodeValue();
             switch (propertyType) {
-                case REFERENCE:
+                case PAGE:
+//                case REFERENCE:
                     Page page = referenceProvider.getPageByID(new EntityID(Util.convertToInt(idString)));
-                    if (obj instanceof Stuff && page !=null) {
+                    if (obj instanceof Stuff && page != null) {
                         Stuff stuff = (Stuff) obj;
 
                         String[] ids = node.getAttributes().getNamedItem("convert_rule").getNodeValue().split(",");

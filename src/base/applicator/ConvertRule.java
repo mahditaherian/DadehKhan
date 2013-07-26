@@ -14,14 +14,14 @@ public class ConvertRule extends StandardEntity {
     public int index = -1;
     public PropertyType type;
     public String name;
-    public EntityID ID;
+    public EntityID id;
     public String parent;
 
     {
         addParameter(new Property("explosion", explosion, PropertyType.STRING));
         addParameter(new Property("keyword", keyword, PropertyType.STRING));
         addParameter(new Property("name", name, PropertyType.STRING));
-        addParameter(new Property("id", ID, PropertyType.ID));
+        addParameter(new Property("id", id, PropertyType.ID));
         addParameter(new Property("index", index, PropertyType.INTEGER));
         addParameter(new Property("type", type, PropertyType.TYPE));
         addParameter(new Property("parent", parent, PropertyType.STRING));
@@ -51,7 +51,7 @@ public class ConvertRule extends StandardEntity {
         return index;
     }
 
-    public void setIndex(int index) {
+    public void setIndex(Integer index) {
         this.index = index;
     }
 
@@ -74,12 +74,12 @@ public class ConvertRule extends StandardEntity {
         this.name = Util.capitalize(name);
     }
 
-    public EntityID getID() {
-        return ID;
+    public EntityID getId() {
+        return id;
     }
 
-    public void setID(EntityID ID) {
-        this.ID = ID;
+    public void setId(EntityID id) {
+        this.id = id;
     }
 
     public String getKeyword() {
