@@ -1,0 +1,38 @@
+<component name="libraryTable">
+  <library name="logger">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-1.2-api-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-api-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-core-2.0-beta8-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-core-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-flume-ng-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jcl-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jmx-gui-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-slf4j-impl-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-taglib-2.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-to-slf4j-2.0-beta8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-1.2-api-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-api-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-core-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-flume-ng-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jcl-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jmx-gui-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-slf4j-impl-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-taglib-2.0-beta8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-to-slf4j-2.0-beta8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-1.2-api-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-api-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-core-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-flume-ng-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jcl-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-jmx-gui-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-slf4j-impl-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-taglib-2.0-beta8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logger/log4j-to-slf4j-2.0-beta8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

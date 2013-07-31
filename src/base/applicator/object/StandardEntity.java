@@ -2,6 +2,7 @@ package base.applicator.object;
 
 import base.applicator.Parameter;
 import base.applicator.Property;
+import base.classification.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public abstract class StandardEntity {
     private List<Parameter> parameters = new ArrayList<Parameter>();
     private Property property;
+    private Category category;
 
     public List<Parameter> getParameters() {
         return parameters;
@@ -33,5 +35,20 @@ public abstract class StandardEntity {
         this.property = property;
     }
 
+    public void setParameters(List<Parameter> parameters) {
+        this.parameters = parameters;
+    }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+
+        if (this.category != null && !this.category.equals(category)) {
+            this.category.removeItem(this);
+        }
+        category.addItem(this);
+        this.category = category;
+    }
 }
