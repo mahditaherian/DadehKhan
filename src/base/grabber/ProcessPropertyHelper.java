@@ -1,16 +1,20 @@
 package base.grabber;
 
-import base.applicator.ConvertRule;
-import base.applicator.ReferenceProvider;
-import base.applicator.RequestRule;
-import base.applicator.StuffProvider;
+import base.applicator.*;
 import base.applicator.object.Currency;
+import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
+import base.classification.Category;
+import base.classification.Icon;
 import base.util.*;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.joox.JOOX.$;
 
 /**
  * @author Mahdi
@@ -18,11 +22,11 @@ import java.util.List;
 public class ProcessPropertyHelper {
 
     private ReferenceProvider referenceProvider;
-    private StuffProvider stuffProvider;
+    private GrabManager grabManager;
 
-    public ProcessPropertyHelper(ReferenceProvider referenceProvider, StuffProvider stuffProvider) {
-        this.referenceProvider = referenceProvider;
-        this.stuffProvider = stuffProvider;
+    public ProcessPropertyHelper(GrabManager grabManager) {
+        this.grabManager = grabManager;
+        this.referenceProvider = grabManager.getReferenceProvider();
     }
 
     public Page processPage(Node node) {
@@ -74,9 +78,9 @@ public class ProcessPropertyHelper {
             return content;
         }
         PropertyType propertyType = PropertyType.STRING;
-        KindType kindType;
+        PropertyType kindType;
         try {
-            kindType = KindType.valueOf(kind.toUpperCase());
+            kindType = PropertyType.getValue(kind);
         } catch (IllegalArgumentException ex) {
             kindType = null;
         }
@@ -100,21 +104,29 @@ public class ProcessPropertyHelper {
         switch (propertyType) {
             case LIST:
                 List<Object> clsList = new ArrayList<Object>();
+                Node lNode = node.getAttributes().getNamedItem("kind");
+                PropertyType listKind = lNode != null ? PropertyType.getValue(lNode.getNodeValue()) : null;
                 for (int i = 0; i < node.getChildNodes().getLength(); i++) {
                     Object val = processProperty(obj, node.getChildNodes().item(i));
                     if (val != null) {
-                        clsList.add(val);
+                        if (listKind == null || Util.isInstance(listKind.clazz, val.getClass())) {
+                            clsList.add(val);
+                        }
                     }
                 }
                 return clsList;
             case WORD:
                 return processWord(node);
 
-            case REFERENCE:
-            case FACTORY:
+//            case REFERENCE:
+//            case FACTORY:
+//
+//                return processKind(obj, kindType, node);
+            case CATEGORY:
+                return processCategory(obj, node);
 
-                return processKind(obj, propertyType, kindType, node);
-
+            case ICON:
+                return processIcon(node);
             case INTEGER:
                 return Util.convertToInt(content);
             case STRING:
@@ -124,18 +136,27 @@ public class ProcessPropertyHelper {
             }
             case HTML:
             case PAGE: {
-                if (kindType != null && kindType.equals(KindType.REFER)) {
-                    return processKind(obj, propertyType, kindType, node);
-                } else {
-                    return processPage(node);
-                }
+                return processPage(node);
             }
+
             case USDOLLAR:
             case IRRIAL: {
                 return processCurrency(node, propertyType);
             }
+
+            case REFER: {
+                return processKind(obj, kindType, node);
+            }
         }
         return null;
+    }
+
+    private Icon processIcon(Node node) {
+        Icon icon = new Icon();
+        icon.setId(null);//todo
+        String url = node.getAttributes().getNamedItem("url").getNodeValue();
+        icon.setUrl(url);
+        return icon;
     }
 
     private Currency processCurrency(Node node, PropertyType propertyType) {
@@ -167,34 +188,69 @@ public class ProcessPropertyHelper {
         return type;
     }
 
-    public Object processKind(Object obj, PropertyType propertyType, KindType kindType, Node node) {
+    public Object processKind(Object obj, PropertyType kindType, Node node) {
         if (kindType == null) {
             return null;
         }
-        if (kindType.equals(KindType.REFER)) {
-            String idString = node.getAttributes().getNamedItem("id").getNodeValue();
-            switch (propertyType) {
-                case PAGE:
-//                case REFERENCE:
-                    Page page = referenceProvider.getPageByID(new EntityID(Util.convertToInt(idString)));
-                    if (obj instanceof Stuff && page != null) {
-                        Stuff stuff = (Stuff) obj;
-
-                        String[] ids = node.getAttributes().getNamedItem("convert_rule").getNodeValue().split(",");
-                        ConvertRule convertRule;
-                        EntityID convertRuleID;
-                        for (String id : ids) {
-                            convertRuleID = new EntityID(Util.convertToInt(id));
-                            convertRule = referenceProvider.getConvertRuleByID(convertRuleID);
-                            stuff.addRule(page, convertRule);
-                        }
+        String idString = node.getAttributes().getNamedItem("id").getNodeValue();
+        EntityID id = new EntityID(Util.convertToInt(idString));
+        switch (kindType) {
+            case PAGE:
+                Page page = referenceProvider.getPageByID(id);
+                if (obj instanceof Stuff && page != null) {
+                    Stuff stuff = (Stuff) obj;
+                    String[] ids = node.getAttributes().getNamedItem("convert_rule").getNodeValue().split(",");
+                    ConvertRule convertRule;
+                    EntityID convertRuleID;
+                    for (String i : ids) {
+                        convertRuleID = new EntityID(Util.convertToInt(i));
+                        convertRule = referenceProvider.getConvertRuleByID(convertRuleID);
+                        stuff.addRule(page, convertRule);
                     }
-                    return page;
-                case FACTORY:
-                    return idString;
-                default:
-                    return null;
+                }
+                return page;
+            case FACTORY:
+                return id;
+            case CATEGORY:
+                return this.grabManager.getEntityClassifier().getCategory(id);
+        }
+        return null;
+    }
+
+    public Category processCategory(Object obj, Node node) {
+        Category category = new Category();
+        category.setParent(obj == null ? null : (Category) obj);
+        Element element = $(node).get(0);
+        process(category, element);
+        grabManager.getIdManager().addCategoryID(category.getId().getValue());
+        grabManager.getEntityClassifier().register(category);
+        return category;
+    }
+
+    public void process(StandardEntity entity, Element objElement) {
+        List<Parameter> parameters = new ArrayList<Parameter>(entity.getParameters());
+        for (Parameter property : parameters) {
+            Node node = objElement.getElementsByTagName(property.getName()).item(0);
+            if (node == null) {
+                String attr = objElement.getAttribute(property.getName().toLowerCase());
+                if (!attr.isEmpty()) {
+                    Object val = processAttribute(AttributeType.valueOf(property.getName().toUpperCase()), attr);
+                    Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
+                    Util.invoke(method, entity, val);
+                }
+            } else {
+                Object val = processProperty(entity, node);
+                Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
+                Util.invoke(method, entity, val);
             }
+        }
+    }
+
+    private Object processAttribute(AttributeType attribute, String value) {
+        switch (attribute) {
+            case ID:
+                int id = Util.convertToInt(value);
+                return new EntityID(id);
         }
         return null;
     }

@@ -1,6 +1,8 @@
 package base.classification;
 
+import base.applicator.Parameter;
 import base.applicator.object.StandardEntity;
+import base.grabber.PropertyType;
 import base.util.EntityID;
 import base.util.Word;
 
@@ -12,7 +14,7 @@ import java.util.Set;
 /**
  * @author Mahdi
  */
-public class Category {
+public class Category extends StandardEntity {
     private Category parent;
     private List<Category> subCategories;
     private Word name;
@@ -28,7 +30,13 @@ public class Category {
         this.icon = null;
         this.description = new Word("Farsi description");
         this.id = null;
-        items = new HashSet<StandardEntity>();
+        this.items = new HashSet<StandardEntity>();
+
+        addParameter(new Parameter("parent", PropertyType.CATEGORY));
+        addParameter(new Parameter("subCategories", PropertyType.LIST));
+        addParameter(new Parameter("name", PropertyType.WORD));
+        addParameter(new Parameter("icon", PropertyType.ICON));
+        addParameter(new Parameter("id", PropertyType.ID));
     }
 
     public Set<StandardEntity> getItems() {

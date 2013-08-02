@@ -46,4 +46,13 @@ public class Word {
     public void setFarsiInEnglish(String farsiInEnglish) {
         this.farsiInEnglish = farsiInEnglish;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "farsi='" + farsi + '\'' +
+                ", english='" + english + '\'' +
+                ", farsiInEnglish='" + farsiInEnglish + '\'' +
+                '}';
+    }
 }

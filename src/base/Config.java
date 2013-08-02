@@ -14,4 +14,5 @@ public final class Config {
     public static String DEFAULT_REFERENCE_PATH = DATA_PATH + "reference/";
     public static String DEFAULT_REQUEST_RULE_PATH = DEFAULT_REFERENCE_PATH + "rule/";
     public static String DEFAULT_CONVERT_RULE_PATH = DEFAULT_REFERENCE_PATH + "rule/";
+    public static String DEFAULT_CATEGORY_PATH = DATA_PATH;
 }

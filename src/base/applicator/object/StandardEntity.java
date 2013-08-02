@@ -3,6 +3,7 @@ package base.applicator.object;
 import base.applicator.Parameter;
 import base.applicator.Property;
 import base.classification.Category;
+import base.grabber.PropertyType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public abstract class StandardEntity {
         if (this.category != null && !this.category.equals(category)) {
             this.category.removeItem(this);
         }
+        addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
         category.addItem(this);
         this.category = category;
     }

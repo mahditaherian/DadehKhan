@@ -3,6 +3,8 @@ package base.grabber;
 import base.applicator.object.IRRial;
 import base.applicator.object.Stuff;
 import base.applicator.object.USDollar;
+import base.classification.Category;
+import base.classification.Icon;
 import base.util.*;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
  * @author Mahdi Taherian
  */
 public enum PropertyType {
+    REFER("refer",null),
     LIST("list", ArrayList.class),
     WORD("word", Word.class),
     REFERENCE("reference", Reference.class),
@@ -28,6 +31,8 @@ public enum PropertyType {
     USDOLLAR("USDollar", USDollar.class),
     ID("id", EntityID.class),
     RELY("rely_rate", RelyRate.class),
+    CATEGORY("category", Category.class),
+    ICON("icon", Icon.class),
 
     PAGE("page", Page.class),
     HTML("html", Page.class),

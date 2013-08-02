@@ -6,6 +6,7 @@ import base.applicator.RequestRule;
 import base.applicator.StuffProvider;
 import base.applicator.object.Car;
 import base.applicator.object.Stuff;
+import base.classification.EntityClassifier;
 import base.util.MySqlConnector;
 import base.util.UpdateManager;
 
@@ -26,6 +27,7 @@ public class GrabManager {
     private List<Class<? extends Stuff>> stuffs;
     private UpdateManager updateManager;
     private IDManager idManager;
+    private EntityClassifier entityClassifier;
 
     public GrabManager() {
         connector = new MySqlConnector();
@@ -34,7 +36,8 @@ public class GrabManager {
         this.fileHolder = new FileHolder();
         this.stuffProvider = new StuffProvider(connector);
         this.referenceProvider = new ReferenceProvider(xmlGrabber, connector, stuffProvider.getStuffs());
-        this.xmlGrabber = new XmlGrabber(fileHolder, stuffProvider, referenceProvider, idManager);
+        this.entityClassifier = new EntityClassifier();
+        this.xmlGrabber = new XmlGrabber(fileHolder, this, idManager);
         this.xmlAppender = new XmlAppender(xmlGrabber);
         this.htmlGrabber = new HtmlGrabber(connector, referenceProvider, stuffProvider);
         this.stuffs = new ArrayList<Class<? extends Stuff>>();
@@ -48,6 +51,7 @@ public class GrabManager {
     public void initializeData() {
 
         stuffs.add(Car.class);
+        xmlGrabber.grabCategories();
         xmlGrabber.grabRules();
         xmlGrabber.grabReferences();
         for (Class<? extends Stuff> clazz : stuffs) {
@@ -95,5 +99,12 @@ public class GrabManager {
         return referenceProvider;
     }
 
-
+    /**
+     * entity classifier getter.
+     * entity classifier is a object which manage categories of objects
+     * @return entity classifier
+     */
+    public EntityClassifier getEntityClassifier() {
+        return entityClassifier;
+    }
 }

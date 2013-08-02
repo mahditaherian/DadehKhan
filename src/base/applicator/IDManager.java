@@ -11,6 +11,7 @@ public class IDManager {
     int pageIDCounter = 0;
     int referenceIDCounter = 0;
     int stuffIDCounter = 0;
+    int categoryIDCounter = 0;
 
     public EntityID getNextRequestRuleID() {
         return new EntityID(++requestRuleIDCounter);
@@ -50,5 +51,13 @@ public class IDManager {
 
     public void addStuffID(int stuffIDCounter) {
         this.stuffIDCounter = Math.max(stuffIDCounter, this.stuffIDCounter);
+    }
+
+    public void addCategoryID(int id) {
+        this.categoryIDCounter = Math.max(id, categoryIDCounter);
+    }
+
+    public EntityID getNextCategoryID() {
+        return new EntityID(++categoryIDCounter);
     }
 }
