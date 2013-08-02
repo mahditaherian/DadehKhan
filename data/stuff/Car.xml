@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <stuffs>
     <car id="1" type="stuff">
+        <category type="refer" id="10"/>
         <name en="pride" fi="pride" pe="پراید" type="word"/>
         <!--<factories type="list">-->
         <!--<refer type="factory" id="1"/>-->
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <references type="list">
-            <refer convert_rule="1,2" id="1" type="page"/>
-            <refer convert_rule="1,2" id="2" type="page"/>
+        <references type="list" kind="page">
+            <page convert_rule="1,2" id="1" type="refer"/>
+            <page convert_rule="1,2" id="2" type="refer"/>
         </references>
     </car>
     <car id="2" type="stuff">
+        <category type="refer" id="3"/>
         <name en="rana" fi="rana" pe="رانا" type="word"/>
         <!--<factories type="list">-->
         <!--<refer type="factory" id="1"/>-->
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <references type="list">
-            <refer convert_rule="3,4" id="1" type="page"/>
+        <references type="list" kind="page">
+            <page convert_rule="3,4" id="1" type="refer"/>
         </references>
     </car>
 </stuffs>

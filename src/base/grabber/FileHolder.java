@@ -4,6 +4,7 @@ import base.Config;
 import base.applicator.ConvertRule;
 import base.applicator.RequestRule;
 import base.applicator.object.Stuff;
+import base.classification.Category;
 import base.util.Reference;
 import base.util.Util;
 
@@ -31,10 +32,12 @@ public class FileHolder {
             path.append(Config.DEFAULT_STUFF_PATH);
         } else if (Util.isInstance(Reference.class, className)) {
             path.append(Config.DEFAULT_REFERENCE_PATH);
-        }else if (Util.isInstance(RequestRule.class,className)){
+        } else if (Util.isInstance(RequestRule.class, className)) {
             path.append(Config.DEFAULT_REQUEST_RULE_PATH);
-        }else if (Util.isInstance(ConvertRule.class,className)){
+        } else if (Util.isInstance(ConvertRule.class, className)) {
             path.append(Config.DEFAULT_CONVERT_RULE_PATH);
+        } else if (Util.isInstance(className, Category.class)) {
+            path.append(Config.DEFAULT_CATEGORY_PATH);
         }
         path.append(className.getSimpleName());
         path.append(".");

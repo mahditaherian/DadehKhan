@@ -1,21 +1,20 @@
 package base.grabber;
 
-import base.applicator.*;
+import base.applicator.ConvertRule;
+import base.applicator.IDManager;
+import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
-import base.util.EntityID;
+import base.classification.Category;
 import base.util.Page;
 import base.util.Reference;
-import base.util.Util;
 import org.joox.Match;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,19 +30,21 @@ public class XmlGrabber extends Grabber {
     protected FileHolder fileHolder;
     private ProcessPropertyHelper processPropertyHelper;
     protected IDManager idManager;
+    protected GrabManager grabManager;
 
 
-    public XmlGrabber(FileHolder fileHolder, StuffProvider stuffProvider, ReferenceProvider referenceProvider, IDManager idManager) {
+    public XmlGrabber(FileHolder fileHolder, GrabManager grabManager, IDManager idManager) {
         super();
         this.idManager = idManager;
-        this.stuffProvider = stuffProvider;
-        this.referenceProvider = referenceProvider;
+        this.grabManager = grabManager;
+        this.stuffProvider = grabManager.getStuffProvider();
+        this.referenceProvider = grabManager.getReferenceProvider();
         documentMap = new HashMap<Class, Document>();
         this.fileHolder = fileHolder;
         fileHolder.hold(Reference.class, "xml");
         File referenceFile = fileHolder.getFile(Reference.class);
         putDocument(Reference.class, referenceFile);
-        processPropertyHelper = new ProcessPropertyHelper(referenceProvider, stuffProvider);
+        processPropertyHelper = new ProcessPropertyHelper(grabManager);
     }
 
     @Override
@@ -82,6 +83,14 @@ public class XmlGrabber extends Grabber {
         }
     }
 
+    public void grabCategories() {
+        List<Category> categories = new ArrayList<Category>(grabKind(Category.class));
+        for (Category category : categories) {
+            idManager.addCategoryID(category.getId().getValue());
+            grabManager.getEntityClassifier().register(category);
+        }
+    }
+
     private <T extends StandardEntity> List<T> grabKind(Class<T> kind) {
         Document doc = getDocument(kind);
         if (doc == null) {
@@ -89,54 +98,31 @@ public class XmlGrabber extends Grabber {
             return null;
         }
         List<T> objectList = new ArrayList<T>();
-        T obj;
-        // Wrap the document with the jOOX API
-        Match objects = $(doc).find(kind.getSimpleName().toLowerCase());
+//        Match objects = $(doc).find(kind.getSimpleName().toLowerCase());
+        Match objects = $(doc).children();
+
+        T entity;
         for (Element objElement : objects) {
-            obj = null;
-            try {
-                obj = kind.newInstance();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            if (obj == null) {
-                continue;
-            }
 
-//            fields = kind.getFields();
-
-            List<Parameter> parameters = new ArrayList<Parameter>(obj.getParameters());
-            for (Parameter property : parameters) {
-                Node node = objElement.getElementsByTagName(property.getName()).item(0);
-                if (node == null) {
-                    String attr = objElement.getAttribute(property.getName().toLowerCase());
-                    if (!attr.isEmpty()) {
-//                            field.set(obj, processAttribute(AttributeType.valueOf(field.getName().toUpperCase()), attr));
-                        Object val = processAttribute(AttributeType.valueOf(property.getName().toUpperCase()), attr);
-                        Method method = Util.getSetter(property.getName(), property.getType().clazz, kind);
-                        Util.invoke(method, obj, val);
-                    }
-                } else {
-//                        field.set(obj, processPropertyHelper.processProperty(node));
-                    Object val = processPropertyHelper.processProperty(obj, node);
-                    Method method = Util.getSetter(property.getName(), property.getType().clazz, kind);
-                    Util.invoke(method, obj, val);
-                }
-            }
-            objectList.add(obj);
+            entity = processElement(kind, objElement);
+            objectList.add(entity);
         }
         return objectList;
     }
 
-    private Object processAttribute(AttributeType attribute, String value) {
-        switch (attribute) {
-            case ID:
-                int id = Util.convertToInt(value);
-                return new EntityID(id);
+    private <T extends StandardEntity> T processElement(Class<T> kind, Element element) {
+        T obj = null;
+        try {
+            obj = kind.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        return null;
+        if (obj != null) {
+            processPropertyHelper.process(obj, element);
+        }
+        return obj;
     }
 
     protected Document getDocument(Class kind) {

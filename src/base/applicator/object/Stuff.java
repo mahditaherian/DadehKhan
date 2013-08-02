@@ -25,6 +25,7 @@ public abstract class Stuff extends StandardEntity {
         addParameter(new Property("name", name, PropertyType.WORD));
         addParameter(new Property("id", id, PropertyType.ID));
         addParameter(new Property("references", references, PropertyType.LIST));
+        addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
     }
 
     protected Stuff() {
