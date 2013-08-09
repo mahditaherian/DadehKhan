@@ -35,6 +35,7 @@ public class Category extends StandardEntity {
         addParameter(new Parameter("parent", PropertyType.CATEGORY));
         addParameter(new Parameter("subCategories", PropertyType.LIST));
         addParameter(new Parameter("name", PropertyType.WORD));
+        addParameter(new Parameter("description", PropertyType.WORD));
         addParameter(new Parameter("icon", PropertyType.ICON));
         addParameter(new Parameter("id", PropertyType.ID));
     }

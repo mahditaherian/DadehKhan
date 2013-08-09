@@ -5,12 +5,11 @@
 package base.panel;
 
 import base.classification.Category;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import javax.swing.JLabel;
 
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Mahdi
@@ -37,21 +36,21 @@ public class NavigationPanel extends javax.swing.JPanel {
         javax.swing.JLabel label;
 //        Collections.reverse(parents);
         final Font font = new java.awt.Font("B Mitra", 0, 18);
-        JLabel spliterLabel;
+        JLabel splitterLabel;
         label = new javax.swing.JLabel();
         label.setFont(font); // NOI18N
         label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         label.setText(category == null ? "NULL" : category.getName().getFarsi());
         jToolBar1.add(label);
         for (Category cat : parents) {
-            spliterLabel = new JLabel(" « ");
-            spliterLabel.setFont(font); // NOI18N
-            spliterLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-            label = new javax.swing.JLabel();;
+            splitterLabel = new JLabel(" « ");
+            splitterLabel.setFont(font); // NOI18N
+            splitterLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+            label = new javax.swing.JLabel();
             label.setFont(font); // NOI18N
             label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             label.setText(cat.getName().getFarsi());
-            jToolBar1.add(spliterLabel);
+            jToolBar1.add(splitterLabel);
             jToolBar1.add(label);
         }
     }

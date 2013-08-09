@@ -20,7 +20,7 @@ public class ContainerPanel extends javax.swing.JFrame{
     public ContainerPanel(GrabManager grabManager) {
         initComponents();
         this.grabManager = grabManager;
-        contentPanel1.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(5)));
+        contentPanel1.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(3)));
     }
     
     public ContainerPanel() {
