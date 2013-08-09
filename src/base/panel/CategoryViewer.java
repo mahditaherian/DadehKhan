@@ -47,12 +47,15 @@ public class CategoryViewer extends javax.swing.JPanel {
         catIcon = new javax.swing.JLabel();
         catName = new javax.swing.JLabel();
         catDescription = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setOpaque(false);
 
         catIcon.setBackground(new java.awt.Color(255, 255, 255));
         catIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         catIcon.setIcon(new javax.swing.ImageIcon("D:\\Dadehkhan_pics\\Irankhodro.gif")); // NOI18N
+        catIcon.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 1, true));
         catIcon.setOpaque(true);
 
         catName.setBackground(new java.awt.Color(255, 255, 255));
@@ -70,6 +73,35 @@ public class CategoryViewer extends javax.swing.JPanel {
         catDescription.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         catDescription.setOpaque(true);
 
+        jTable1.setComponentOrientation(java.awt.ComponentOrientation.RIGHT_TO_LEFT);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"پژو 206 تیپ 2",  new Long(32),  new Long(30)},
+                {"پژو 206 تیپ 5",  new Long(38),  new Long(36)},
+                {"سمند",  new Long(19),  new Long(18)},
+                {"ویتارا",  new Long(80),  new Long(75)}
+            },
+            new String [] {
+                "نام کالا", "قیمت بازار", "قیمت نمایندگی"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Long.class, java.lang.Long.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,6 +111,7 @@ public class CategoryViewer extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(catName, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
             .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,13 +119,17 @@ public class CategoryViewer extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(catIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(catName, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(catDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel catDescription;
     private javax.swing.JLabel catIcon;
     private javax.swing.JLabel catName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

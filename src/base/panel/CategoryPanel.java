@@ -67,6 +67,7 @@ public class CategoryPanel extends javax.swing.JPanel {
 
         categoryViewer1.setOpaque(true);
 
+        jList1.setComponentOrientation(java.awt.ComponentOrientation.RIGHT_TO_LEFT);
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "ایران خودرو", "سایپا", "پارس خودرو", "کرمان خودرو", "آسا موتورز" };
             public int getSize() { return strings.length; }

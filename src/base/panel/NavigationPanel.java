@@ -35,25 +35,25 @@ public class NavigationPanel extends javax.swing.JPanel {
             parent = parent.getParent();
         }
         javax.swing.JLabel label;
-        Collections.reverse(parents);
+//        Collections.reverse(parents);
         final Font font = new java.awt.Font("B Mitra", 0, 18);
         JLabel spliterLabel;
+        label = new javax.swing.JLabel();
+        label.setFont(font); // NOI18N
+        label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        label.setText(category == null ? "NULL" : category.getName().getFarsi());
+        jToolBar1.add(label);
         for (Category cat : parents) {
-            spliterLabel = new JLabel(" » ");
+            spliterLabel = new JLabel(" « ");
             spliterLabel.setFont(font); // NOI18N
             spliterLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             label = new javax.swing.JLabel();;
             label.setFont(font); // NOI18N
             label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             label.setText(cat.getName().getFarsi());
-            jToolBar1.add(label);
             jToolBar1.add(spliterLabel);
+            jToolBar1.add(label);
         }
-        label = new javax.swing.JLabel();
-        label.setFont(font); // NOI18N
-        label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        label.setText(category == null ? "NULL" : category.getName().getFarsi());
-        jToolBar1.add(label);
     }
 
     /**
@@ -75,6 +75,7 @@ public class NavigationPanel extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jToolBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
         jToolBar1.add(javax.swing.Box.createHorizontalGlue());
 
