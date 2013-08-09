@@ -31,33 +31,16 @@
                             <category id="5">
                                 <name type="word" en="peugeot" fi="pejo" pe="پژو"/>
                                 <description type="word" en="peugeot" fi="pejo" pe="پژو"/>
-                                <icon type="icon" url=""/>
+                                <icon type="icon" url="D:\Dadehkhan_pics\Irankhodro.gif"/>
 
                                 <subCategories type="list" kind="category">
                                     <category id="6">
                                         <name type="word" en="206" fi="206" pe="206"/>
-                                        <description type="word" en="206" fi="206" pe="206"/>
-                                        <icon type="icon" url=""/>
+                                        <description type="word" en="206" fi="206" pe="پژو 206 مونتاژ ایران خودرو"/>
+                                        <icon type="icon" url="D:\Dadehkhan_pics\Irankhodro.gif"/>
 
                                         <subCategories type="list" kind="category">
-<!--                                            <category id="7">
-                                                <name type="word" en="tip2" fi="tip2" pe="??? 2"/>
-                                                <description type="word"  en="tip2" fi="tip2" pe="??? 2"/>
-                                                <icon type="icon" url=""/>
 
-                                                <subCategories type="list" kind="category">
-
-                                                </subCategories>
-                                            </category>
-                                            <category id="8">
-                                                <name type="word" en="tip5" fi="tip5" pe="??? 5"/>
-                                                <description type="word" en="tip5" fi="tip5" pe="??? 5"/>
-                                                <icon type="icon" url=""/>
-
-                                                <subCategories type="list" kind="category">
-
-                                                </subCategories>
-                                            </category>-->
                                         </subCategories>
                                     </category>
                                 </subCategories>
