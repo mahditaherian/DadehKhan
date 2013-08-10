@@ -2,6 +2,7 @@ package base.grabber;
 
 import base.applicator.*;
 import base.applicator.object.Currency;
+import base.applicator.object.IRRial;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
@@ -11,6 +12,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import java.lang.reflect.Method;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -253,5 +255,25 @@ public class ProcessPropertyHelper {
                 return new EntityID(id);
         }
         return null;
+    }
+
+
+    public static String displayText(Property property) {
+        String text = "";
+        switch (property.getType()) {
+            case USDOLLAR:
+            case MILLION_TOMAN:
+            case MILLION_RIAL:
+            case THOUSAND_TOMAN:
+            case THOUSAND_RIAL:
+            case TOMAN:
+            case IRRIAL:
+                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
+                break;
+            default:
+                text = String.valueOf(property.getValue());
+                break;
+        }
+        return text;
     }
 }

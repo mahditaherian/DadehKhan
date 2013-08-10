@@ -3,7 +3,6 @@ package base.applicator;
 import base.applicator.object.StandardEntity;
 import base.grabber.PropertyType;
 import base.util.EntityID;
-import base.util.Util;
 
 /**
  * @author Mahdi Taherian
@@ -66,12 +65,12 @@ public class ConvertRule extends StandardEntity {
     /**
      * <b>Note</b> name Must Start with uppercase character
      */
-    public String getName() {
+    public String getVarName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = Util.capitalize(name);
+        this.name = name;
     }
 
     public EntityID getId() {

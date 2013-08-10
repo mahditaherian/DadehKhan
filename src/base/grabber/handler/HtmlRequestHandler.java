@@ -166,7 +166,7 @@ public class HtmlRequestHandler {
                 break;
             }
         }
-        return new Property(convertRule.getName(), value, convertRule.getType());
+        return new Property(convertRule.getVarName(), value, convertRule.getType());
     }
 
     public List<Element> getElementsContainsText(Elements elements, String text) {

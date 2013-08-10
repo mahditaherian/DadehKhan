@@ -13,13 +13,12 @@ import java.util.*;
  * @author Mahdi
  */
 public abstract class Stuff extends StandardEntity {
-    public Word name;
     public EntityID id;
     protected Word typeName;
     protected Map<Page, List<ConvertRule>> pageRulesMap;
     public List<Page> references;
     protected static List<Page> KIND_REFERENCES = new ArrayList<Page>();
-    Map<Page, List<Property>> referencePropertyMap;
+
 
     {
         addParameter(new Property("name", name, PropertyType.WORD));
@@ -32,10 +31,14 @@ public abstract class Stuff extends StandardEntity {
         pageRulesMap = new HashMap<Page, List<ConvertRule>>();
         references = new ArrayList<Page>();
         setProperty(new Property("stuff", this, PropertyType.STUFF));
+        initVariables();
     }
 
     public Collection<Page> getKindReferences() {
         return Collections.unmodifiableCollection(KIND_REFERENCES);
+    }
+
+    protected void initVariables() {
     }
 
     public void setReferences(List<Page> references) {
@@ -51,15 +54,6 @@ public abstract class Stuff extends StandardEntity {
     }
 
     public abstract void addProperty(Page reference, Property property);
-
-    public Word getName() {
-        return name;
-    }
-
-    public void setName(Word name) {
-        addParameter(new Property("name", name, PropertyType.WORD));
-        this.name = name;
-    }
 
     public Word getTypeName() {
         return typeName;

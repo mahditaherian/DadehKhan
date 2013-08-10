@@ -1,11 +1,12 @@
 package base.applicator.object;
 
+import base.applicator.Parameter;
 import base.applicator.Property;
+import base.grabber.PropertyType;
 import base.util.Page;
 import base.util.Word;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,9 +20,17 @@ public class Car extends Stuff {
     public Car() {
         super();
         typeName = new Word("خودرو", "Car", "Khodro");
-        referencePropertyMap = new HashMap<Page, List<Property>>();
-        price = new HashMap<Page, Currency>();
-        bazaarPrice = new HashMap<Page, Currency>();
+        referencePropertyMap = new HashMap<>();
+        price = new HashMap<>();
+        bazaarPrice = new HashMap<>();
+    }
+
+    protected void initVariables() {
+        variables.add(new Parameter("bazaarPrice", PropertyType.IRRIAL));
+        propertyNameMap.put("bazaarPrice", new Word("قیمت بازار", "bazaar price", "gheymate bazar"));
+
+        variables.add(new Parameter("price", PropertyType.IRRIAL));
+        propertyNameMap.put("price", new Word("قیمت نمایندگی", "price", "gheymate namayandegi"));
     }
 
     public Map<Page, Currency> getBazaarPrice() {

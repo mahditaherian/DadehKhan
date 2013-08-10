@@ -58,6 +58,11 @@ public class Category extends StandardEntity {
             System.out.println(this.toString() + " contains this item... now going to remove it");
             items.remove(entity);
         }
+//        variables.addAll(entity.getVariables());
+        for (Parameter var : entity.getVariables()){
+            variables.add(var);
+            propertyNameMap.put(var.getName(),entity.getPropertyName(var.getName()));
+        }
         items.add(entity);
     }
 
