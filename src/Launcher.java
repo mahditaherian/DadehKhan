@@ -9,9 +9,9 @@ import base.panel.ContainerPanel;
 public class Launcher {
 
     public static void main(String[] args) {
-        GrabManager manager = new GrabManager();
+        final GrabManager manager = new GrabManager();
         manager.initializeData();
-        manager.execute();
+//        manager.execute();
 
 //        StuffMaker stuffMaker = new StuffMaker(manager);
 //        RuleMaker ruleMaker = new RuleMaker(manager);
@@ -35,13 +35,12 @@ public class Launcher {
         //</editor-fold>
 
         /* Create and display the form */
-        new ContainerPanel(manager).setVisible(true);
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new ContainerPanel(manager).setVisible(true);
-//            }
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new ContainerPanel(manager).setVisible(true);
+            }
+        });
 //        runMaker(stuffMaker);
     }
 

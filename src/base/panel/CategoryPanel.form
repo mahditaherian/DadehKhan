@@ -32,9 +32,6 @@
   </Layout>
   <SubComponents>
     <Component class="base.panel.CategoryViewer" name="categoryViewer1">
-      <Properties>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

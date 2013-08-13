@@ -8,14 +8,22 @@ import base.classification.Category;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author Mahdi
  */
 public class NavigationPanel extends javax.swing.JPanel {
 
+    private ContentPanel contentPanel;
+    private Map<String , Category> labelCategoryMap = new HashMap<>();
 
     /**
      * Creates new form NavigationPanel
@@ -26,33 +34,53 @@ public class NavigationPanel extends javax.swing.JPanel {
 
     public void show(Category category) {
         List<Category> parents = new ArrayList<>();
-        Category parent = category == null ? null : category.getParent();
+        Category parent = category/* == null ? null : category.getParent()*/;
         jToolBar1.removeAll();
         jToolBar1.add(javax.swing.Box.createHorizontalGlue());
         while (parent != null) {
-            parents.add(parent);
             parent = parent.getParent();
+            if (parent != null) {
+                parents.add(parent);
+            }
         }
-        javax.swing.JLabel label;
-//        Collections.reverse(parents);
-        final Font font = new java.awt.Font("B Mitra", 0, 18);
-        JLabel splitterLabel;
-        label = new javax.swing.JLabel();
-        label.setFont(font); // NOI18N
-        label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        label.setText(category == null ? "NULL" : category.getName().getFarsi());
-        jToolBar1.add(label);
+        String txt = category == null ? "NULL" : category.getName().getFarsi();
+        labelCategoryMap.put(txt, category);
+        addLabel(txt , true);
         for (Category cat : parents) {
-            splitterLabel = new JLabel(" « ");
-            splitterLabel.setFont(font); // NOI18N
-            splitterLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-            label = new javax.swing.JLabel();
-            label.setFont(font); // NOI18N
-            label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-            label.setText(cat.getName().getFarsi());
-            jToolBar1.add(splitterLabel);
-            jToolBar1.add(label);
+            addLabel(" « ", false);
+            labelCategoryMap.put(cat.getName().getFarsi(),cat);
+            addLabel(cat.getName().getFarsi(),true);
         }
+    }
+
+    private void addLabel(String text, boolean link) {
+        final Font font = new java.awt.Font("B Mitra", 0, 18);
+        final javax.swing.JLabel label = new javax.swing.JLabel();
+        label.setFont(font);
+        label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        label.setText(text);
+        if(link){
+            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.addMouseListener(new MouseAdapter() {
+
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Category cat = labelCategoryMap.get(label.getText());
+                    contentPanel.setCategory(cat);
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    label.setForeground(Color.BLUE);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    label.setForeground(Color.BLACK);
+                }
+            });
+        }
+        jToolBar1.add(label);
     }
 
     /**
@@ -122,4 +150,8 @@ public class NavigationPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
+
+    void setContentPanel(ContentPanel contentPanel) {
+        this.contentPanel = contentPanel;
+    }
 }

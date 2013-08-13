@@ -26,11 +26,15 @@ public class ContentPanel extends javax.swing.JPanel {
     public ContentPanel() {
         this.grabManager = null;
         initComponents();
+        categoryPanel1.setContentPanel(this);
+        navigationPanel2.setContentPanel(this);
     }
 
     public void setCategory(Category category) {
         navigationPanel2.show(category);
         categoryPanel1.show(category);
+        revalidate();
+        repaint();
     }
 
     /**

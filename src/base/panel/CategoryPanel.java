@@ -25,6 +25,7 @@ public class CategoryPanel extends javax.swing.JPanel {
     Map<Integer, Category> labelCategoryMap = new HashMap<Integer, Category>();
     Category presentCategory = null;
     private GrabManager grabManager;
+    private ContentPanel contentPanel;
 
     /**
      * Creates new form CategoryPanel
@@ -39,6 +40,10 @@ public class CategoryPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void setContentPanel(ContentPanel contentPanel) {
+        this.contentPanel = contentPanel;
+    }
+    
     public void show(Category category) {
         jList1.removeAll();
         presentCategory = category;
@@ -109,8 +114,15 @@ public class CategoryPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jList1ValueChanged
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-//        if (evt.getClickCount() >= 2) {
-//        }
+        if (evt.getClickCount() >= 2) {
+            int index = jList1.locationToIndex(evt.getPoint());
+            Category cat = labelCategoryMap.get(index);
+            if (cat == null) {
+            } else {
+                contentPanel.setCategory(cat);
+//                show(cat);
+            }
+        }
     }//GEN-LAST:event_jList1MouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private base.panel.CategoryViewer categoryViewer1;

@@ -4,6 +4,7 @@
  */
 package base.panel;
 
+import base.classification.Category;
 import base.grabber.GrabManager;
 import base.util.EntityID;
 
@@ -20,7 +21,7 @@ public class ContainerPanel extends javax.swing.JFrame{
     public ContainerPanel(GrabManager grabManager) {
         initComponents();
         this.grabManager = grabManager;
-        contentPanel1.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(3)));
+        showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
     }
     
     public ContainerPanel() {
@@ -48,7 +49,7 @@ public class ContainerPanel extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(contentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(rightMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -98,6 +99,11 @@ public class ContainerPanel extends javax.swing.JFrame{
             }
         });
     }
+    
+    public void showCategory(Category category){
+        contentPanel1.setCategory(category);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private base.panel.ContentPanel contentPanel1;
     private base.panel.RightMenu rightMenu1;

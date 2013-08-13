@@ -46,58 +46,84 @@ public class CategoryViewer extends javax.swing.JPanel {
     }
 
     private TableModel convertToModel(Category category) {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         List<String> columns = new ArrayList<>();
         String name, varName;
         Map<String, Integer> nameIndexMap = new HashMap<>();
 
-        //model columns initiative
         columns.add("نام کالا");
-        int i = 1;
-        Set<Parameter> variables = category.getVariables();
-        Category parent = category.getParent(), cat = category;
-        while (parent != null && variables.isEmpty()) {
-            cat = parent;
-            variables = parent.getVariables();
-            parent = parent.getParent();
-        }
-        for (Parameter parameter : variables) {
-            varName = parameter.getName();
-            nameIndexMap.put(varName, i);
-            name = cat.getPropertyName(varName).getFarsi();
-            columns.add(name);
-
-            i++;
-        }
-        columns.add("منبع");
-
+        columns.add("شاخه");
+        columns.add("تعداد فیلد");
         for (String col : columns) {
             model.addColumn(col);
         }
-
-
-        //model rows insertion
-        int size = columns.size();
         Object[] row;
-        int index;
         Stuff stuff;
-        List<Property> properties;
         for (StandardEntity entity : category.getItems()) {
             stuff = (Stuff) entity;
-            for (Page page : stuff.getReferences()) {
-                row = new Object[size];
-                row[0] = entity.getName().getFarsi();
-                properties = stuff.getProperties(page);
-                if (properties != null) {
-                    for (Property property : properties) {
-                        index = nameIndexMap.get(property.getName());
-                        row[index] = ProcessPropertyHelper.displayText(property);
-                    }
-                }
-                row[size - 1] = page.getParent().getName().getFarsi();
-                model.addRow(row);
-            }
+            row = new Object[3];
+            row[0] = entity.getName().getFarsi();
+            row[1] = stuff.getCategory() == null ? "-" : stuff.getCategory().getName().getFarsi();
+            row[2] = stuff.getReferences().size();
+            model.addRow(row);
         }
+
+
+
+
+//        //model columns initiative
+//        columns.add("نام کالا");
+//        int i = 1;
+//        Set<Parameter> variables = category.getVariables();
+//        Category parent = category.getParent(), cat = category;
+//        while (parent != null && variables.isEmpty()) {
+//            cat = parent;
+//            variables = parent.getVariables();
+//            parent = parent.getParent();
+//        }
+//        for (Parameter parameter : variables) {
+//            varName = parameter.getName();
+//            nameIndexMap.put(varName, i);
+//            name = cat.getPropertyName(varName).getFarsi();
+//            columns.add(name);
+//
+//            i++;
+//        }
+//        columns.add("منبع");
+//
+//        for (String col : columns) {
+//            model.addColumn(col);
+//        }
+//
+//
+//        //model rows insertion
+//        int size = columns.size();
+//        Object[] row;
+//        int index;
+//        Stuff stuff;
+//        List<Property> properties;
+//        for (StandardEntity entity : category.getItems()) {
+//            stuff = (Stuff) entity;
+//            for (Page page : stuff.getReferences()) {
+//                row = new Object[size];
+//                row[0] = entity.getName().getFarsi();
+//                properties = stuff.getProperties(page);
+//                if (properties != null) {
+//                    for (Property property : properties) {
+//                        index = nameIndexMap.get(property.getName());
+//                        row[index] = ProcessPropertyHelper.displayText(property);
+//                    }
+//                }
+//                row[size - 1] = page.getParent().getName().getFarsi();
+//                model.addRow(row);
+//            }
+//        }
         return model;
     }
 
@@ -195,7 +221,6 @@ public class CategoryViewer extends javax.swing.JPanel {
                                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel catDescription;
     private javax.swing.JLabel catIcon;
