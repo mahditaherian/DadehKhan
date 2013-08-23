@@ -4,13 +4,12 @@
  */
 package base.panel;
 
+import base.Config;
 import base.classification.Category;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,13 +42,13 @@ public class NavigationPanel extends javax.swing.JPanel {
                 parents.add(parent);
             }
         }
-        String txt = category == null ? "NULL" : category.getName().getFarsi();
+        String txt = category == null ? "NULL" : category.getName().get(Config.DEFAULT_LANGUAGE);
         labelCategoryMap.put(txt, category);
         addLabel(txt , true);
         for (Category cat : parents) {
             addLabel(" « ", false);
-            labelCategoryMap.put(cat.getName().getFarsi(),cat);
-            addLabel(cat.getName().getFarsi(),true);
+            labelCategoryMap.put(cat.getName().get(Config.DEFAULT_LANGUAGE),cat);
+            addLabel(cat.getName().get(Config.DEFAULT_LANGUAGE),true);
         }
     }
 

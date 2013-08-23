@@ -24,13 +24,14 @@ public class Category extends StandardEntity {
     private Set<StandardEntity> items;
 
     public Category() {
+        super();
         this.parent = null;
-        this.subCategories = new ArrayList<Category>();
-        this.name = new Word("Farsi name");
+        this.subCategories = new ArrayList<>();
+//        this.name = new Word("Farsi name");
         this.icon = null;
-        this.description = new Word("Farsi description");
+//        this.description = new Word("Farsi description");
         this.id = null;
-        this.items = new HashSet<StandardEntity>();
+        this.items = new HashSet<>();
 
         addParameter(new Parameter("parent", PropertyType.CATEGORY));
         addParameter(new Parameter("subCategories", PropertyType.LIST));

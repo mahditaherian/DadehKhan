@@ -21,24 +21,26 @@ public class Reference extends StandardEntity {
     public UpdateManager updateManager;
 
     {
-        addParameter(new Property("name", name, PropertyType.WORD));
+//        addParameter(new Property("name", name, PropertyType.WORD));
         addParameter(new Property("pages", pages, PropertyType.LIST));
         addParameter(new Property("main", main, PropertyType.PAGE));
-        addParameter(new Property("id", id, PropertyType.ID));
+//        addParameter(new Property("id", id, PropertyType.ID));
     }
 
     public Reference(Word name, String url, RelyRate rate, EntityID id) {
+        this();
         this.name = name;
         this.id = id;
         docUpdateTime = 0;
-        pages = new ArrayList<Page>();
+        pages = new ArrayList<>();
         updateManager = new UpdateManager();
         setProperty(new Property("reference", this, PropertyType.REFERENCE));
     }
 
     public Reference() {
+        super();
         docUpdateTime = 0;
-        pages = new ArrayList<Page>();
+        pages = new ArrayList<>();
         main = null;
         id = new EntityID(0);
         updateManager = new UpdateManager();

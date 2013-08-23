@@ -4,17 +4,17 @@
  */
 package base.panel;
 
-import base.applicator.Parameter;
-import base.applicator.Property;
+import base.Config;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
-import base.grabber.ProcessPropertyHelper;
-import base.util.Page;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mahdi
@@ -40,8 +40,8 @@ public class CategoryViewer extends javax.swing.JPanel {
         } else {
             System.out.println("category icon is null");
         }
-        catName.setText(startHtml + category.getName().getFarsi() + endHtml);
-        catDescription.setText(startHtml + category.getDescription().getFarsi() + endHtml);
+        catName.setText(startHtml + category.getName().get(Config.DEFAULT_LANGUAGE) + endHtml);
+        catDescription.setText(startHtml + category.getDescription().get(Config.DEFAULT_LANGUAGE) + endHtml);
         jTable1.setModel(convertToModel(category));
     }
 
@@ -68,8 +68,8 @@ public class CategoryViewer extends javax.swing.JPanel {
         for (StandardEntity entity : category.getItems()) {
             stuff = (Stuff) entity;
             row = new Object[3];
-            row[0] = entity.getName().getFarsi();
-            row[1] = stuff.getCategory() == null ? "-" : stuff.getCategory().getName().getFarsi();
+            row[0] = entity.getName().get(Config.DEFAULT_LANGUAGE);
+            row[1] = stuff.getCategory() == null ? "-" : stuff.getCategory().getName().get(Config.DEFAULT_LANGUAGE);
             row[2] = stuff.getReferences().size();
             model.addRow(row);
         }

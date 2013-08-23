@@ -6,8 +6,11 @@ import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
+import base.lang.WordManager;
+import base.util.Detail;
 import base.util.Page;
 import base.util.Reference;
+import base.util.Word;
 import org.joox.Match;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,7 +29,7 @@ import static org.joox.JOOX.$;
  * @author Mahdi Taherian
  */
 public class XmlGrabber extends Grabber {
-    private Map<Class, Document> documentMap;//string
+    private Map<String, Document> documentMap;//string
     protected FileHolder fileHolder;
     private ProcessPropertyHelper processPropertyHelper;
     protected IDManager idManager;
@@ -39,17 +42,17 @@ public class XmlGrabber extends Grabber {
         this.grabManager = grabManager;
         this.stuffProvider = grabManager.getStuffProvider();
         this.referenceProvider = grabManager.getReferenceProvider();
-        documentMap = new HashMap<Class, Document>();
+        documentMap = new HashMap<>();
         this.fileHolder = fileHolder;
-        fileHolder.hold(Reference.class, "xml");
-        File referenceFile = fileHolder.getFile(Reference.class);
-        putDocument(Reference.class, referenceFile);
+        fileHolder.hold(Reference.class, Reference.class.getSimpleName(), "xml");
+        File referenceFile = fileHolder.getFile(Reference.class.getSimpleName());
+        putDocument(Reference.class.getSimpleName(), referenceFile);
         processPropertyHelper = new ProcessPropertyHelper(grabManager);
     }
 
     @Override
     public void grabKindOfStuff(Class<? extends Stuff> kind) {
-        List<? extends Stuff> stuffs = new ArrayList<Stuff>(grabKind(kind));
+        List<? extends Stuff> stuffs = new ArrayList<>(grabKind(kind));
         for (Stuff stuff : stuffs) {
             idManager.addStuffID(stuff.getId().getValue());
             stuffProvider.addStuff(stuff);
@@ -58,7 +61,7 @@ public class XmlGrabber extends Grabber {
 
     @Override
     public void grabReferences() {
-        List<Reference> references = new ArrayList<Reference>(grabKind(Reference.class));
+        List<Reference> references = new ArrayList<>(grabKind(Reference.class));
         for (Reference reference : references) {
             idManager.addReferenceID(reference.getId().getValue());
             for (Page page : reference.getPages()) {
@@ -70,13 +73,13 @@ public class XmlGrabber extends Grabber {
     }
 
     public void grabRules() {
-        List<RequestRule> requestRules = new ArrayList<RequestRule>(grabKind(RequestRule.class));
+        List<RequestRule> requestRules = new ArrayList<>(grabKind(RequestRule.class));
         for (RequestRule rule : requestRules) {
             idManager.addRequestRuleID(rule.getId().getValue());
             referenceProvider.addRequestRule(rule.getId(), rule);
         }
 
-        List<ConvertRule> convertRules = new ArrayList<ConvertRule>(grabKind(ConvertRule.class));
+        List<ConvertRule> convertRules = new ArrayList<>(grabKind(ConvertRule.class));
         for (ConvertRule rule : convertRules) {
             idManager.addConvertRuleID(rule.getId().getValue());
             referenceProvider.addConvertRule(rule.getId(), rule);
@@ -84,20 +87,39 @@ public class XmlGrabber extends Grabber {
     }
 
     public void grabCategories() {
-        List<Category> categories = new ArrayList<Category>(grabKind(Category.class));
+        List<Category> categories = new ArrayList<>(grabKind(Category.class));
         for (Category category : categories) {
             idManager.addCategoryID(category.getId().getValue());
             grabManager.getEntityClassifier().register(category);
         }
     }
 
-    private <T extends StandardEntity> List<T> grabKind(Class<T> kind) {
-        Document doc = getDocument(kind);
+    public void grabDetails() {
+        List<Detail> details = new ArrayList<>(grabKind(Detail.class));
+        for (Detail detail : details) {
+            idManager.addDetailID(detail.getId().getValue());
+            grabManager.getEntityClassifier().register(detail);
+        }
+    }
+
+    public void grabWords() {
+        Class<Word> kind = Word.class;
+        WordManager wordManager = grabManager.getWordManager();
+        Document doc = getDocument(kind, wordManager.getLanguage().fileName);
         if (doc == null) {
             System.err.println("xmlDocument is null");
-            return null;
+            return;
         }
-        List<T> objectList = new ArrayList<T>();
+        List<Word> words = new ArrayList<>(grabKind(kind,doc));
+        for (Word word : words){
+            idManager.addWordID(word.getId().getValue());
+            wordManager.addWord(word);
+        }
+//        grabKind(kind,doc);
+    }
+
+    private <T extends StandardEntity> List<T> grabKind(Class<T> kind, Document doc) {
+        List<T> objectList = new ArrayList<>();
 //        Match objects = $(doc).find(kind.getSimpleName().toLowerCase());
         Match objects = $(doc).children();
 
@@ -108,15 +130,23 @@ public class XmlGrabber extends Grabber {
             objectList.add(entity);
         }
         return objectList;
+
+    }
+
+    private <T extends StandardEntity> List<T> grabKind(Class<T> kind) {
+        Document doc = getDocument(kind, kind.getSimpleName());
+        if (doc == null) {
+            System.err.println("xmlDocument is null");
+            return null;
+        }
+        return grabKind(kind, doc);
     }
 
     private <T extends StandardEntity> T processElement(Class<T> kind, Element element) {
         T obj = null;
         try {
             obj = kind.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
         if (obj != null) {
@@ -125,27 +155,25 @@ public class XmlGrabber extends Grabber {
         return obj;
     }
 
-    protected Document getDocument(Class kind) {
-        if (documentMap.containsKey(kind)) {
-            return documentMap.get(kind);
+    protected Document getDocument(Class kind, String fileName) {
+        if (documentMap.containsKey(fileName)) {
+            return documentMap.get(fileName);
         } else {
-            if (fileHolder.containsFile(kind)) {
-                File file = fileHolder.getFile(kind);
-                putDocument(kind, file);
-                return documentMap.get(kind);
+            if (fileHolder.containsFile(fileName)) {
+                File file = fileHolder.getFile(fileName);
+                putDocument(fileName, file);
+                return documentMap.get(fileName);
             } else {
-                fileHolder.hold(kind, "xml");
-                return getDocument(kind);
+                fileHolder.hold(kind,fileName, "xml");
+                return getDocument(kind, fileName);
             }
         }
     }
 
-    private void putDocument(Class kind, File file) {
+    private void putDocument(String kind, File file) {
         try {
             documentMap.put(kind, $(file).document());
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
     }

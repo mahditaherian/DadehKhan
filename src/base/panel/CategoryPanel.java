@@ -4,17 +4,13 @@
  */
 package base.panel;
 
+import base.Config;
 import base.classification.Category;
 import base.grabber.GrabManager;
-import base.util.EntityID;
-import java.awt.Color;
+
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.Box;
-import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
-import javax.swing.ListModel;
-import javax.swing.event.ListDataListener;
 
 /**
  *
@@ -50,7 +46,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         int i = 0;
         DefaultListModel<String> model = new DefaultListModel<String>();
         for (Category cat : category.getSubCategories()) {
-            model.add(i, cat.getName().getFarsi());
+            model.add(i, cat.getName().get(Config.DEFAULT_LANGUAGE));
             labelCategoryMap.put(i, cat);
             i++;
         }

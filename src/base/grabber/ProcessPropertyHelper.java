@@ -49,10 +49,11 @@ public class ProcessPropertyHelper {
     }
 
     public Word processWord(Node node) {
-        String pe = node.getAttributes().getNamedItem("pe").getNodeValue();
-        String en = node.getAttributes().getNamedItem("en").getNodeValue();
-        String fi = node.getAttributes().getNamedItem("fi").getNodeValue();
-        return new Word(pe, en, fi);
+        String idStr = node.getAttributes().getNamedItem("id").getNodeValue();
+        EntityID id = new EntityID(Util.convertToInt(idStr));
+//        String en = node.getAttributes().getNamedItem("en").getNodeValue();
+//        String fi = node.getAttributes().getNamedItem("fi").getNodeValue();
+        return grabManager.getWordManager().getWord(id);
     }
 
 //    public List processList(Node node) {
@@ -105,7 +106,7 @@ public class ProcessPropertyHelper {
         }
         switch (propertyType) {
             case LIST:
-                List<Object> clsList = new ArrayList<Object>();
+                List<Object> clsList = new ArrayList<>();
                 Node lNode = node.getAttributes().getNamedItem("kind");
                 PropertyType listKind = lNode != null ? PropertyType.getValue(lNode.getNodeValue()) : null;
                 for (int i = 0; i < node.getChildNodes().getLength(); i++) {
@@ -118,7 +119,8 @@ public class ProcessPropertyHelper {
                 }
                 return clsList;
             case WORD:
-                return processWord(node);
+                Word word = processWord(node);
+                return word;
 
 //            case REFERENCE:
 //            case FACTORY:
@@ -168,11 +170,7 @@ public class ProcessPropertyHelper {
             double value = Util.convertToDouble(node.getAttributes().getNamedItem("value").getNodeValue());
 
             cur.setValue(value);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (InstantiationException | NullPointerException | IllegalAccessException e) {
             e.printStackTrace();
         }
         assert cur != null;
@@ -230,17 +228,23 @@ public class ProcessPropertyHelper {
     }
 
     public void process(StandardEntity entity, Element objElement) {
-        List<Parameter> parameters = new ArrayList<Parameter>(entity.getParameters());
+        List<Parameter> parameters = new ArrayList<>(entity.getParameters());
         for (Parameter property : parameters) {
             Node node = objElement.getElementsByTagName(property.getName()).item(0);
             if (node == null) {
+                //it means, no such parameter in element children were found.
+                //so looking for it in attributes
                 String attr = objElement.getAttribute(property.getName().toLowerCase());
                 if (!attr.isEmpty()) {
-                    Object val = processAttribute(AttributeType.valueOf(property.getName().toUpperCase()), attr);
+                    Object val = processAttribute(AttributeType.getValue(property.getName().toUpperCase()), attr);
                     Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
                     Util.invoke(method, entity, val);
+                } else {
+                    //no such parameters were found in this element
+//                    System.out.println(property + " not found for " + entity);
                 }
             } else {
+                //it means, this parameter were found in child attributes
                 Object val = processProperty(entity, node);
                 Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
                 Util.invoke(method, entity, val);
@@ -249,10 +253,18 @@ public class ProcessPropertyHelper {
     }
 
     private Object processAttribute(AttributeType attribute, String value) {
+        int id;
         switch (attribute) {
             case ID:
-                int id = Util.convertToInt(value);
+                id = Util.convertToInt(value);
                 return new EntityID(id);
+            case DETAIL_KIND:
+                return Detail.DetailKind.valueOf(value.toUpperCase());
+            case NAME:
+                id = Util.convertToInt(value);
+                return grabManager.getWordManager().getWord(new EntityID(id));
+            case VALUE:
+                return value;
         }
         return null;
     }

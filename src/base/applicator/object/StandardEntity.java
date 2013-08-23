@@ -4,6 +4,7 @@ import base.applicator.Parameter;
 import base.applicator.Property;
 import base.classification.Category;
 import base.grabber.PropertyType;
+import base.util.EntityID;
 import base.util.Page;
 import base.util.Word;
 
@@ -13,18 +14,24 @@ import java.util.*;
  * @author Mahdi
  */
 public abstract class StandardEntity {
-    private List<Parameter> parameters = new ArrayList<Parameter>();
+    private List<Parameter> parameters = new ArrayList<>();
     private Property property;
     private Category category;
     protected Word name;
     protected Map<Page, List<Property>> referencePropertyMap;
     protected Map<String, Word> propertyNameMap = new HashMap<>();
     protected Set<Parameter> variables = new HashSet<>();
+    protected EntityID id;
 
     public List<Parameter> getParameters() {
         return parameters;
     }
 
+    public StandardEntity() {
+        setId(id);
+        setName(name);
+        setCategory(category);
+    }
 
     public void addParameter(Parameter parameter) {
         if (parameters.contains(parameter)) {
@@ -54,6 +61,15 @@ public abstract class StandardEntity {
         this.name = name;
     }
 
+    public EntityID getId() {
+        return id;
+    }
+
+    public void setId(EntityID id) {
+        addParameter(new Property("id", id, PropertyType.ID));
+        this.id = id;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -72,7 +88,9 @@ public abstract class StandardEntity {
             this.category.removeItem(this);
         }
         addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
+        if(category!=null){
         category.addItem(this);
+        }
         this.category = category;
     }
 }

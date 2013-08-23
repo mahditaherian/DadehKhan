@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <stuffs>
-    <car id="1" type="stuff">
+    <car id="1" type="stuff" name="4">
         <category type="refer" id="10"/>
-        <name en="pride" fi="pride" pe="پراید" type="word"/>
+        <!--<name en="pride" fi="pride" pe="پراید" type="word"/>-->
+        <!--<name type="word" id="4"/>-->
         <!--<factories type="list">-->
         <!--<refer type="factory" id="1"/>-->
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
+        <detail type="detail">
+            <param type="refer" name="1" value="1"/>
+            <param type="property" name="2" value="1"/>
+        </detail>
         <references type="list" kind="page">
             <page convert_rule="1,2" id="1" type="refer"/>
             <page convert_rule="1,2" id="2" type="refer"/>
@@ -15,12 +20,17 @@
     </car>
     <car id="2" type="stuff">
         <category type="refer" id="3"/>
-        <name en="rana" fi="rana" pe="رانا" type="word"/>
+        <name type="word" id="4"/>
+        <!--<name en="rana" fi="rana" pe="رانا" type="word"/>-->
         <!--<factories type="list">-->
         <!--<refer type="factory" id="1"/>-->
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
+        <detail type="detail">
+            <param type="refer" name="1" value="1"/>
+            <param type="property" name="2" value="1"/>
+        </detail>
         <references type="list" kind="page">
             <page convert_rule="3,4" id="1" type="refer"/>
         </references>

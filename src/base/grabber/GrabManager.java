@@ -1,5 +1,6 @@
 package base.grabber;
 
+import base.Config;
 import base.applicator.IDManager;
 import base.applicator.ReferenceProvider;
 import base.applicator.RequestRule;
@@ -7,6 +8,7 @@ import base.applicator.StuffProvider;
 import base.applicator.object.Car;
 import base.applicator.object.Stuff;
 import base.classification.EntityClassifier;
+import base.lang.WordManager;
 import base.util.MySqlConnector;
 import base.util.UpdateManager;
 
@@ -28,6 +30,7 @@ public class GrabManager {
     private UpdateManager updateManager;
     private IDManager idManager;
     private EntityClassifier entityClassifier;
+    private WordManager wordManager;
 
     public GrabManager() {
         connector = new MySqlConnector();
@@ -37,6 +40,7 @@ public class GrabManager {
         this.stuffProvider = new StuffProvider(connector);
         this.referenceProvider = new ReferenceProvider(xmlGrabber, connector, stuffProvider.getStuffs());
         this.entityClassifier = new EntityClassifier();
+        this.wordManager = new WordManager(Config.DEFAULT_LANGUAGE);
         this.xmlGrabber = new XmlGrabber(fileHolder, this, idManager);
         this.xmlAppender = new XmlAppender(xmlGrabber);
         this.htmlGrabber = new HtmlGrabber(connector, referenceProvider, stuffProvider);
@@ -51,6 +55,7 @@ public class GrabManager {
     public void initializeData() {
 
         stuffs.add(Car.class);
+        xmlGrabber.grabWords();
         xmlGrabber.grabCategories();
         xmlGrabber.grabRules();
         xmlGrabber.grabReferences();
@@ -106,5 +111,13 @@ public class GrabManager {
      */
     public EntityClassifier getEntityClassifier() {
         return entityClassifier;
+    }
+
+    /**
+     * word manager reserve words by id of them.
+     * @return WordManager
+     */
+    public WordManager getWordManager() {
+        return wordManager;
     }
 }

@@ -1,58 +1,62 @@
 package base.util;
 
+import base.applicator.Parameter;
+import base.applicator.object.StandardEntity;
+import base.grabber.PropertyType;
+import base.lang.Language;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Mahdi
  */
-public class Word {
-    private String farsi;
-    private String english;
-    private String farsiInEnglish;
+public class Word extends StandardEntity {
+    private Map<Language, String> valueMap;
 
-    public Word(String farsi) {
-        this.farsi = farsi;
+    {
+        addParameter(new Parameter("value", PropertyType.STRING));
     }
 
-    public Word(String farsi, String english) {
-        this.farsi = farsi;
-        this.english = english;
+    public Word() {
+        super();
+        valueMap = new HashMap<>();
+    }
+
+    public Word(EntityID id) {
+        this();
+        setId(id);
+    }
+
+    public String get(Language language) {
+        return valueMap.get(language);
+    }
+
+    public void set(Language language, String value) {
+        valueMap.put(language, value);
+    }
+
+    public void setValue(String value) {
+        set(base.Config.DEFAULT_LANGUAGE, value);
     }
 
     public Word(String farsi, String english, String farsiInEnglish) {
-        this.farsi = farsi;
-        this.english = english;
-        this.farsiInEnglish = farsiInEnglish;
+//        this.farsi = farsi;
+//        this.english = english;
+//        this.farsiInEnglish = farsiInEnglish;
     }
 
-    public String getFarsi() {
-        return farsi;
-    }
-
-    public void setFarsi(String farsi) {
-        this.farsi = farsi;
-    }
-
-    public String getEnglish() {
-        return english;
-    }
-
-    public void setEnglish(String english) {
-        this.english = english;
-    }
-
-    public String getFarsiInEnglish() {
-        return farsiInEnglish;
-    }
-
-    public void setFarsiInEnglish(String farsiInEnglish) {
-        this.farsiInEnglish = farsiInEnglish;
+    @Override
+    public void setName(Word name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Word{" +
-                "farsi='" + farsi + '\'' +
-                ", english='" + english + '\'' +
-                ", farsiInEnglish='" + farsiInEnglish + '\'' +
+                "farsi='" + get(Language.FARSI) + '\'' +
+//                ", english='" + english + '\'' +
+//                ", farsiInEnglish='" + farsiInEnglish + '\'' +
                 '}';
     }
 }

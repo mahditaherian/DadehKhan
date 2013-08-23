@@ -18,7 +18,7 @@ public class Page extends StandardEntity {
 
     private Document document;
     private Element dataElement;
-    private EntityID id;
+//    private EntityID id;
     private long docUpdateTime;
     private RequestRule requestRule;
     private boolean isDataChanged;
@@ -31,6 +31,7 @@ public class Page extends StandardEntity {
     }
 
     public Page() {
+        super();
         docUpdateTime = 0;
         isDataChanged = false;
         setProperty(new Property("page", this, PropertyType.PAGE));
@@ -70,13 +71,13 @@ public class Page extends StandardEntity {
         return docUpdateTime;
     }
 
-    public EntityID getId() {
-        return id;
-    }
-
-    public void setId(EntityID id) {
-        this.id = id;
-    }
+//    public EntityID getId() {
+//        return id;
+//    }
+//
+//    public void setId(EntityID id) {
+//        this.id = id;
+//    }
 
     public Reference getParent() {
         return parent;
