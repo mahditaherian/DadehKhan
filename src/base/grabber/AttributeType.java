@@ -2,7 +2,6 @@ package base.grabber;
 
 import base.applicator.ConvertRule;
 import base.applicator.RequestRule;
-import base.util.Detail;
 import base.util.EntityID;
 import base.util.Word;
 
@@ -13,7 +12,6 @@ public enum AttributeType {
     ID("id", EntityID.class),
     CONVERT_RULE("convert_rule", ConvertRule.class),
     REQUEST_RULE("request_rule", RequestRule.class),
-    DETAIL_KIND("kind", Detail.DetailKind.class),
     NAME("name", Word.class),
     VALUE("value", String.class),
     TYPE("type", null),;

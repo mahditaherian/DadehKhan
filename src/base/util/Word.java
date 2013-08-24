@@ -29,7 +29,15 @@ public class Word extends StandardEntity {
     }
 
     public String get(Language language) {
-        return valueMap.get(language);
+        String name;
+        if (valueMap.containsKey(language)) {
+            name = valueMap.get(language);
+        } else if (valueMap.containsKey(Language.DEFAULT)) {
+            name = valueMap.get(Language.DEFAULT);
+        } else {
+            name = null;
+        }
+        return name;
     }
 
     public void set(Language language, String value) {

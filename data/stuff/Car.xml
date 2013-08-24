@@ -9,9 +9,10 @@
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <detail type="detail">
-            <param type="refer" name="1" value="1"/>
-            <param type="property" name="2" value="1"/>
+        <detail type="list" kind="detail">
+            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" name="2" value="1" value-numeric="no" value-refer="no" kind="table"/>
         </detail>
         <references type="list" kind="page">
             <page convert_rule="1,2" id="1" type="refer"/>
@@ -27,9 +28,10 @@
         <!--<refer type="factory" id="2"/>-->
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
-        <detail type="detail">
-            <param type="refer" name="1" value="1"/>
-            <param type="property" name="2" value="1"/>
+        <detail type="list" kind="detail">
+            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" name="2" value="1" value-numeric="no" value-refer="no" kind="table"/>
         </detail>
         <references type="list" kind="page">
             <page convert_rule="3,4" id="1" type="refer"/>

@@ -1,6 +1,5 @@
 package base.grabber;
 
-import base.applicator.Property;
 import base.applicator.object.IRRial;
 import base.applicator.object.Stuff;
 import base.applicator.object.USDollar;
@@ -34,7 +33,7 @@ public enum PropertyType {
     RELY("rely_rate", RelyRate.class),
     CATEGORY("category", Category.class),
     ICON("icon", Icon.class),
-    PARAM("property", Property.class),
+    DETAIL("detail", Detail.class),
 
     PAGE("page", Page.class),
     HTML("html", Page.class),

@@ -35,15 +35,15 @@ public class EntityClassifier {
         }
     }
 
-    public void register(Detail detail) {
-        if (detail != null && detail.getId() != null) {
-            if (idDetailMap.containsKey(detail.getId())) {
-                System.out.println("Warning:This detail id is exist....");
-            }
-            idDetailMap.put(detail.getId(), detail);
-            //String name = detail.getName().getEnglish();
-        }
-    }
+//    public void register(Detail detail) {
+//        if (detail != null && detail.getId() != null) {
+//            if (idDetailMap.containsKey(detail.getId())) {
+//                System.out.println("Warning:This detail id is exist....");
+//            }
+//            idDetailMap.put(detail.getId(), detail);
+//            //String name = detail.getName().getEnglish();
+//        }
+//    }
 
     public Category getCar() {
         return car;

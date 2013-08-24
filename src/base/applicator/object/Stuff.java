@@ -3,6 +3,7 @@ package base.applicator.object;
 import base.applicator.ConvertRule;
 import base.applicator.Property;
 import base.grabber.PropertyType;
+import base.util.Detail;
 import base.util.Page;
 import base.util.Word;
 
@@ -16,7 +17,8 @@ public abstract class Stuff extends StandardEntity {
     protected Word typeName;
     protected Map<Page, List<ConvertRule>> pageRulesMap;
     public List<Page> references;
-    protected static List<Page> KIND_REFERENCES = new ArrayList<Page>();
+    protected static List<Page> KIND_REFERENCES = new ArrayList<>();
+    protected List<Detail> detail = new ArrayList<>();
 
 
     {
@@ -24,12 +26,13 @@ public abstract class Stuff extends StandardEntity {
 //        addParameter(new Property("id", id, PropertyType.ID));
         addParameter(new Property("references", references, PropertyType.LIST));
         addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
+        addParameter(new Property("detail", detail, PropertyType.LIST));
     }
 
     protected Stuff() {
         super();
-        pageRulesMap = new HashMap<Page, List<ConvertRule>>();
-        references = new ArrayList<Page>();
+        pageRulesMap = new HashMap<>();
+        references = new ArrayList<>();
         setProperty(new Property("stuff", this, PropertyType.STUFF));
         initVariables();
     }
@@ -105,6 +108,14 @@ public abstract class Stuff extends StandardEntity {
 
     public List<Property> getProperties(Page reference) {
         return referencePropertyMap.get(reference);
+    }
+
+    public List<Detail> getDetail() {
+        return detail;
+    }
+
+    public void setDetail(List<Detail> detail) {
+        this.detail = detail;
     }
 
     @Override

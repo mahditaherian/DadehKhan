@@ -6,7 +6,9 @@ package base.lang;
 public enum Language {
     FARSI("fa_ir"),
     ENGLISH("en_us"),
-    FINGLISH("fi_ir");
+    FINGLISH("fi_ir"),
+    DEFAULT(null),
+    NUMBER("");
 
     public String fileName;
 

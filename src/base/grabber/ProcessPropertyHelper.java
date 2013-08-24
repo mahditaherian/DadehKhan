@@ -7,6 +7,7 @@ import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.classification.Icon;
+import base.lang.Language;
 import base.util.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -147,6 +148,9 @@ public class ProcessPropertyHelper {
             case IRRIAL: {
                 return processCurrency(node, propertyType);
             }
+            case DETAIL: {
+                return processDetail(node);
+            }
 
             case REFER: {
                 return processKind(obj, kindType, node);
@@ -217,6 +221,51 @@ public class ProcessPropertyHelper {
         return null;
     }
 
+    public Detail processDetail(Node node) {
+        //<param type="detail" name="1" value="1" value-numeric="yes" value-refer="no"/>
+        Node nameNode = node.getAttributes().getNamedItem("name");
+        Word name = null, value = null;
+        boolean chart = false, numeric = false;
+        if (nameNode != null) {
+            EntityID nameID = new EntityID(Util.convertToInt(nameNode.getNodeValue()));
+            name = grabManager.getWordManager().getWord(nameID);
+        }
+        boolean isValueRefer = false;
+
+        Node referNode = node.getAttributes().getNamedItem("value-refer");
+        if (referNode != null) {
+            String val = referNode.getNodeValue().trim();
+            if (val.equalsIgnoreCase("yes")) {
+                isValueRefer = true;
+            }
+        }
+        Node numericNode = node.getAttributes().getNamedItem("value-numeric");
+        boolean isNumeric = false;
+        if (numericNode != null) {
+            String val = numericNode.getNodeValue().trim();
+            if (val.equalsIgnoreCase("yes")) {
+                isNumeric = true;
+            }
+        }
+
+        Node valNode = node.getAttributes().getNamedItem("value");
+        if (valNode != null) {
+            if (isValueRefer) {
+                value = grabManager.getWordManager().getWord(new EntityID(Util.convertToInt(valNode.getNodeValue())));
+            } else {
+                value = new Word();
+                if (isNumeric) {
+                    value.set(Language.NUMBER, valNode.getNodeValue());
+                } else {
+                    value.set(Language.DEFAULT, valNode.getNodeValue());
+                }
+            }
+        }
+
+
+        return new Detail(name, value, numeric, chart);
+    }
+
     public Category processCategory(Object obj, Node node) {
         Category category = new Category();
         category.setParent(obj == null ? null : (Category) obj);
@@ -258,8 +307,6 @@ public class ProcessPropertyHelper {
             case ID:
                 id = Util.convertToInt(value);
                 return new EntityID(id);
-            case DETAIL_KIND:
-                return Detail.DetailKind.valueOf(value.toUpperCase());
             case NAME:
                 id = Util.convertToInt(value);
                 return grabManager.getWordManager().getWord(new EntityID(id));

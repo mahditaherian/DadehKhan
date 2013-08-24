@@ -7,7 +7,6 @@ import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.lang.WordManager;
-import base.util.Detail;
 import base.util.Page;
 import base.util.Reference;
 import base.util.Word;
@@ -91,14 +90,6 @@ public class XmlGrabber extends Grabber {
         for (Category category : categories) {
             idManager.addCategoryID(category.getId().getValue());
             grabManager.getEntityClassifier().register(category);
-        }
-    }
-
-    public void grabDetails() {
-        List<Detail> details = new ArrayList<>(grabKind(Detail.class));
-        for (Detail detail : details) {
-            idManager.addDetailID(detail.getId().getValue());
-            grabManager.getEntityClassifier().register(detail);
         }
     }
 
