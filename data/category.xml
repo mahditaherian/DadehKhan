@@ -1,14 +1,14 @@
 <categories>
-    <category id="1">
-        <name type="word" en="Car" fi="khodro" pe="خودرو"/>
-        <description type="word" en="Car" fi="khodro" pe="خودرو"/>
+    <category id="1" name="1">
+        <!--<name type="word" en="Car" fi="khodro" pe="خودرو"/>-->
+        <description type="word" id="1"/>
         <icon type="icon" url=""/>
 
         <subCategories type="list" kind="category">
 
-            <category id="2">
-                <name type="word" en="foreign" fi="khareji" pe="خارجی"/>
-                <description type="word" en="foreign" fi="khareji" pe="خارجی"/>
+            <category id="2" name="6">
+                <!--<name type="word" en="foreign" fi="khareji" pe="خارجی"/>-->
+                <description type="word" id="6"/>
                 <icon type="icon" url=""/>
 
                 <subCategories type="list" kind="category">
@@ -16,27 +16,27 @@
                 </subCategories>
             </category>
 
-            <category id="3">
-                <name type="word" en="domestic" fi="dakheli" pe="داخلی"/>
-                <description type="word" en="domestic" fi="dakheli" pe="داخلی"/>
+            <category id="3" name="7">
+                <!--<name type="word" en="domestic" fi="dakheli" pe="داخلی"/>-->
+                <description type="word" id="7"/>
                 <icon type="icon" url=""/>
 
                 <subCategories type="list" kind="category">
-                    <category id="4">
-                        <name type="word" en="iran khodro" fi="iran khodro" pe="ایران خودرو"/>
-                        <description type="word" en="iran khodro" fi="iran khodro" pe="ایران خودرو"/>
+                    <category id="4" name="2">
+                        <!--<name type="word" en="iran khodro" fi="iran khodro" pe="ایران خودرو"/>-->
+                        <description type="word" id="2"/>
                         <icon type="icon" url=""/>
 
                         <subCategories type="list" kind="category">
-                            <category id="5">
-                                <name type="word" en="peugeot" fi="pejo" pe="پژو"/>
-                                <description type="word" en="peugeot" fi="pejo" pe="پژو"/>
+                            <category id="5" name="8">
+                                <!--<name type="word" en="peugeot" fi="pejo" pe="پژو"/>-->
+                                <description type="word" id="8"/>
                                 <icon type="icon" url="D:\Dadehkhan_pics\Irankhodro.gif"/>
 
                                 <subCategories type="list" kind="category">
-                                    <category id="6">
-                                        <name type="word" en="206" fi="206" pe="206"/>
-                                        <description type="word" en="206" fi="206" pe="پژو 206 مونتاژ ایران خودرو"/>
+                                    <category id="6" name="10">
+                                        <!--<name type="word" en="206" fi="206" pe="206"/>-->
+                                        <description type="word" id="9"/>
                                         <icon type="icon" url="D:\Dadehkhan_pics\Irankhodro.gif"/>
 
                                         <subCategories type="list" kind="category">
@@ -47,36 +47,36 @@
                             </category>
                         </subCategories>
                     </category>
-                    <category id="9">
-                        <name type="word" en="saipa" fi="saipa" pe="سایپا"/>
-                        <description type="word" en="saipa" fi="saipa" pe="سایپا"/>
+                    <category id="9" name="3">
+                        <!--<name type="word" en="saipa" fi="saipa" pe="سایپا"/>-->
+                        <description type="word" id="3"/>
                         <icon type="icon" url=""/>
 
                         <subCategories type="list" kind="category">
-                            <category id="10">
-                                <name type="word" en="Pride" fi="perayd" pe="پراید"/>
-                                <description type="word" en="Pride" fi="perayd" pe="پراید"/>
+                            <category id="10" name="4">
+                                <!--<name type="word" en="Pride" fi="perayd" pe="پراید"/>-->
+                                <description type="word" id="4"/>
                                 <icon type="icon" url=""/>
 
                                 <subCategories type="list" kind="category">
-                                    <!--<category id="11">
-                                        <name type="word" en="206" fi="206" pe="206"/>
-                                        <description type="word" en="206" fi="206" pe="206"/>
+                                    <category id="11" name="10">
+                                        <!--<name type="word" en="206" fi="206" pe="206"/>-->
+                                        <description type="word" id="10"/>
                                         <icon type="icon" url=""/>
 
                                         <subCategories type="list" kind="category">
-                                            <category id="12">
-                                                <name type="word" en="tip2" fi="tip2" pe="??? 2"/>
-                                                <description type="word"  en="tip2" fi="tip2" pe="??? 2"/>
+                                            <category id="12" name="11">
+                                                <!--<name type="word" en="tip2" fi="tip2" pe="تیپ 2"/>-->
+                                                <description type="word" id="11"/>
                                                 <icon type="icon" url=""/>
 
                                                 <subCategories type="list" kind="category">
 
                                                 </subCategories>
                                             </category>
-                                            <category id="13">
-                                                <name type="word" en="tip5" fi="tip5" pe="??? 5"/>
-                                                <description type="word" en="tip5" fi="tip5" pe="??? 5"/>
+                                            <category id="13" name="12">
+                                                <!--<name type="word" en="tip5" fi="tip5" pe="تیپ 5"/>-->
+                                                <description type="word" id="12"/>
                                                 <icon type="icon" url=""/>
 
                                                 <subCategories type="list" kind="category">
@@ -84,7 +84,7 @@
                                                 </subCategories>
                                             </category>
                                         </subCategories>
-                                    </category>-->
+                                    </category>
                                 </subCategories>
                             </category>
                         </subCategories>
