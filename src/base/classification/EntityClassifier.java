@@ -15,6 +15,7 @@ public class EntityClassifier {
     private Category car;
     private Category currency;
     private Category metal;
+    private Map<EntityType, Category> rootCategoryMap = new HashMap<>();
 
     public void register(Category category) {
         if (category != null && category.getId() != null) {
@@ -28,7 +29,7 @@ public class EntityClassifier {
             } else if (name.equalsIgnoreCase("currency")) {
                 currency = category;
             } else if (name.equalsIgnoreCase("metal")) {
-                metal= category;
+                metal = category;
             }
         }
     }
@@ -44,8 +45,10 @@ public class EntityClassifier {
     public Category getMetal() {
         return metal;
     }
-    
-    
+
+    public Category getRootCategory(EntityType type) {
+        return rootCategoryMap.get(type);
+    }
 
     public Category getCategory(EntityID id) {
         return idCategoryMap.get(id);

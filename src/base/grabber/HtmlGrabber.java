@@ -42,7 +42,7 @@ public class HtmlGrabber extends Grabber {
 
     @Override
     public void grabReferences() {
-        throw new NotImplementedException();
+//        throw new NotImplementedException();
     }
 
     public void grab(Stuff stuff) {

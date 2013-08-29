@@ -5,6 +5,7 @@
 package base.panel;
 
 import base.classification.Category;
+import base.classification.EntityType;
 import base.grabber.GrabManager;
 import base.util.EntityID;
 
@@ -102,6 +103,10 @@ public class ContainerPanel extends javax.swing.JFrame{
     
     public void showCategory(Category category){
         contentPanel1.setCategory(category);
+    }
+    
+    public void show(EntityType type){
+        grabManager.getEntityClassifier().getRootCategory(type);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

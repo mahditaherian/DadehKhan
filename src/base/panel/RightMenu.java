@@ -4,6 +4,7 @@
  */
 package base.panel;
 
+import base.classification.EntityType;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JComponent;
@@ -501,7 +502,7 @@ public class RightMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_mouseExited
 
     private void showCar(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showCar
-//        containerPanel.
+        containerPanel.show(EntityType.CAR);
     }//GEN-LAST:event_showCar
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
