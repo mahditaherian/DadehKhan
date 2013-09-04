@@ -40,6 +40,9 @@
     <Component class="base.panel.NavigationPanel" name="navigationPanel2">
     </Component>
     <Component class="base.panel.CategoryPanel" name="categoryPanel1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new base.panel.CategoryPanel(grabManager)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

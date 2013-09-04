@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public class CategoryPanel extends javax.swing.JPanel {
 
-    Map<Integer, Category> labelCategoryMap = new HashMap<Integer, Category>();
+    Map<Integer, Category> labelCategoryMap = new HashMap<>();
     Category presentCategory = null;
     private GrabManager grabManager;
     private ContentPanel contentPanel;
@@ -38,13 +38,14 @@ public class CategoryPanel extends javax.swing.JPanel {
 
     public void setContentPanel(ContentPanel contentPanel) {
         this.contentPanel = contentPanel;
+        categoryViewer1.setContentPanel(contentPanel);
     }
-    
+  
     public void show(Category category) {
         jList1.removeAll();
         presentCategory = category;
         int i = 0;
-        DefaultListModel<String> model = new DefaultListModel<String>();
+        DefaultListModel<String> model = new DefaultListModel<>();
         for (Category cat : category.getSubCategories()) {
             model.add(i, cat.getName().get(Config.DEFAULT_LANGUAGE));
             labelCategoryMap.put(i, cat);

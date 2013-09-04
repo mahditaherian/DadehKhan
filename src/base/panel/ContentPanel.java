@@ -4,8 +4,11 @@
  */
 package base.panel;
 
+import base.applicator.object.Car;
 import base.classification.Category;
+import base.classification.EntityType;
 import base.grabber.GrabManager;
+import base.util.EntityID;
 
 /**
  *
@@ -21,6 +24,8 @@ public class ContentPanel extends javax.swing.JPanel {
     public ContentPanel(GrabManager grabManager) {
         this.grabManager = grabManager;
         initComponents();
+        categoryPanel1.setContentPanel(this);
+        navigationPanel2.setContentPanel(this);
     }
 
     public ContentPanel() {
@@ -47,7 +52,7 @@ public class ContentPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         navigationPanel2 = new base.panel.NavigationPanel();
-        categoryPanel1 = new base.panel.CategoryPanel();
+        categoryPanel1 = new base.panel.CategoryPanel(grabManager);
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,4 +76,15 @@ public class ContentPanel extends javax.swing.JPanel {
     private base.panel.CategoryPanel categoryPanel1;
     private base.panel.NavigationPanel navigationPanel2;
     // End of variables declaration//GEN-END:variables
+
+    void showItem(EntityID id, EntityType entityType) {
+        
+        switch(entityType){
+            case CAR:{
+                Car car = grabManager.getStuffProvider().getCarByID(id);
+                CarViewer carViewer = new CarViewer();
+                carViewer.show(car);
+            }
+        }
+    }
 }

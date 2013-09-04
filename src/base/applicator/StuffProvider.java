@@ -1,6 +1,8 @@
 package base.applicator;
 
+import base.applicator.object.Car;
 import base.applicator.object.Stuff;
+import base.util.EntityID;
 import base.util.MySqlConnector;
 
 import java.util.ArrayList;
@@ -17,12 +19,14 @@ public class StuffProvider extends Provider {
     private Map<Class<? extends Stuff>, List<Stuff>> stuffsMap;
     private ReferenceProvider referenceProvider;
     private List<Class<? extends Stuff>> stuffKins;
+    private Map<EntityID , Car> carIDMap;
 
     public StuffProvider(MySqlConnector connector) {
         super(connector);
-        this.stuffs = new ArrayList<Stuff>();
-        stuffKins = new ArrayList<Class<? extends Stuff>>();
-        stuffsMap = new HashMap<Class<? extends Stuff>, List<Stuff>>();
+        this.stuffs = new ArrayList<>();
+        stuffKins = new ArrayList<>();
+        stuffsMap = new HashMap<>();
+        carIDMap = new HashMap<>();
     }
 
     @Override
@@ -45,8 +49,13 @@ public class StuffProvider extends Provider {
         stuffs.add(stuff);
         if (!stuffsMap.containsKey(stuff.getClass())) {
             stuffsMap.put(stuff.getClass(), new ArrayList<Stuff>());
+            
         }
         stuffsMap.get(stuff.getClass()).add(stuff);
+        
+        if(stuff instanceof Car){
+            carIDMap.put(stuff.getId(), (Car)stuff);
+        }
     }
 
     public List<Stuff> getStuffs() {
@@ -63,5 +72,9 @@ public class StuffProvider extends Provider {
 
     public void setStuffKinds(List<Class<? extends Stuff>> stuffKins) {
         this.stuffKins = stuffKins;
+    }
+
+    public Car getCarByID(EntityID id) {
+        return carIDMap.get(id);
     }
 }

@@ -8,6 +8,8 @@ import base.Config;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
+import base.classification.EntityType;
+import base.util.EntityID;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -56,7 +58,7 @@ public class CategoryViewer extends javax.swing.JPanel {
         List<String> columns = new ArrayList<>();
         String name, varName;
         Map<String, Integer> nameIndexMap = new HashMap<>();
-
+        columns.add("ID");
         columns.add("نام کالا");
         columns.add("شاخه");
         columns.add("تعداد فیلد");
@@ -65,67 +67,26 @@ public class CategoryViewer extends javax.swing.JPanel {
         }
         Object[] row;
         Stuff stuff;
+        int i;
         for (StandardEntity entity : category.getItems()) {
             stuff = (Stuff) entity;
-            row = new Object[3];
-            row[0] = entity.getName().get(Config.DEFAULT_LANGUAGE);
-            row[1] = stuff.getCategory() == null ? "-" : stuff.getCategory().getName().get(Config.DEFAULT_LANGUAGE);
-            row[2] = stuff.getReferences().size();
+            row = new Object[4];
+            i=0;
+            row[i++] = entity.getId();
+            row[i++] = entity.getName().get(Config.DEFAULT_LANGUAGE);
+            row[i++] = stuff.getCategory() == null ? "-" : stuff.getCategory().getName().get(Config.DEFAULT_LANGUAGE);
+            row[i++] = stuff.getReferences().size();
             model.addRow(row);
         }
-
-
-
-
-//        //model columns initiative
-//        columns.add("نام کالا");
-//        int i = 1;
-//        Set<Parameter> variables = category.getVariables();
-//        Category parent = category.getParent(), cat = category;
-//        while (parent != null && variables.isEmpty()) {
-//            cat = parent;
-//            variables = parent.getVariables();
-//            parent = parent.getParent();
-//        }
-//        for (Parameter parameter : variables) {
-//            varName = parameter.getName();
-//            nameIndexMap.put(varName, i);
-//            name = cat.getPropertyName(varName).getFarsi();
-//            columns.add(name);
-//
-//            i++;
-//        }
-//        columns.add("منبع");
-//
-//        for (String col : columns) {
-//            model.addColumn(col);
-//        }
-//
-//
-//        //model rows insertion
-//        int size = columns.size();
-//        Object[] row;
-//        int index;
-//        Stuff stuff;
-//        List<Property> properties;
-//        for (StandardEntity entity : category.getItems()) {
-//            stuff = (Stuff) entity;
-//            for (Page page : stuff.getReferences()) {
-//                row = new Object[size];
-//                row[0] = entity.getName().getFarsi();
-//                properties = stuff.getProperties(page);
-//                if (properties != null) {
-//                    for (Property property : properties) {
-//                        index = nameIndexMap.get(property.getName());
-//                        row[index] = ProcessPropertyHelper.displayText(property);
-//                    }
-//                }
-//                row[size - 1] = page.getParent().getName().getFarsi();
-//                model.addRow(row);
-//            }
-//        }
         return model;
     }
+    
+    private ContentPanel contentPanel;
+
+    public void setContentPanel(ContentPanel contentPanel) {
+        this.contentPanel = contentPanel;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,29 +128,34 @@ public class CategoryViewer extends javax.swing.JPanel {
 
         jTable1.setComponentOrientation(java.awt.ComponentOrientation.RIGHT_TO_LEFT);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {"پژو 206 تیپ 2", new Long(32), new Long(30)},
-                        {"پژو 206 تیپ 5", new Long(38), new Long(36)},
-                        {"سمند", new Long(19), new Long(18)},
-                        {"ویتارا", new Long(80), new Long(75)}
-                },
-                new String[]{
-                        "نام کالا", "قیمت بازار", "قیمت نمایندگی"
-                }
+            new Object [][] {
+                {"پژو 206 تیپ 2",  new Long(32),  new Long(30)},
+                {"پژو 206 تیپ 5",  new Long(38),  new Long(36)},
+                {"سمند",  new Long(19),  new Long(18)},
+                {"ویتارا",  new Long(80),  new Long(75)}
+            },
+            new String [] {
+                "نام کالا", "قیمت بازار", "قیمت نمایندگی"
+            }
         ) {
-            Class[] types = new Class[]{
-                    java.lang.String.class, java.lang.Long.class, java.lang.Long.class
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Long.class, java.lang.Long.class
             };
-            boolean[] canEdit = new boolean[]{
-                    false, false, false
+            boolean[] canEdit = new boolean [] {
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectItemEvent(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -197,30 +163,40 @@ public class CategoryViewer extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(catIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(catName, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
-                        .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addComponent(catIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(catName, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
+            .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(catIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(catName, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)
-                                .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(catIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(catName, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(catDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void selectItemEvent(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectItemEvent
+        if(evt.getClickCount()>=2){
+            int row = jTable1.rowAtPoint(evt.getPoint());
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            EntityID id = (EntityID)model.getValueAt(row, 0);
+            contentPanel.showItem(id, EntityType.CAR);
+        }
+    }//GEN-LAST:event_selectItemEvent
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel catDescription;
     private javax.swing.JLabel catIcon;

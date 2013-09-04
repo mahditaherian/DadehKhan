@@ -20,8 +20,8 @@ public class ContainerPanel extends javax.swing.JFrame{
      * Creates new form ContainerPanel
      */
     public ContainerPanel(GrabManager grabManager) {
-        initComponents();
         this.grabManager = grabManager;
+        initComponents();
         showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
     }
     
@@ -40,7 +40,7 @@ public class ContainerPanel extends javax.swing.JFrame{
     private void initComponents() {
 
         rightMenu1 = new base.panel.RightMenu();
-        contentPanel1 = new base.panel.ContentPanel();
+        contentPanel1 = new base.panel.ContentPanel(grabManager);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

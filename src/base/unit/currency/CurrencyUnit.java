@@ -4,6 +4,7 @@ import base.unit.Unit;
 import base.unit.UnitKind;
 import base.util.Util;
 import base.util.Word;
+import java.text.DecimalFormat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -83,4 +84,11 @@ public abstract class CurrencyUnit extends Unit {
         DEFAULT_CURRENCY_UNIT = newUnit;
 
     }
+
+    @Override
+    public String toString() {
+        return new DecimalFormat("#.###").format(value);
+    }
+    
+    
 }

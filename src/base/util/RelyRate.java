@@ -12,7 +12,7 @@ public enum RelyRate {
     LITTLE(9),
     UNRELIABLE(10);
 
-    int val;
+    public int val;
     RelyRate(int i) {
         val = i;
     }

@@ -45,6 +45,13 @@ public class Category extends StandardEntity {
         return items;
     }
 
+    @Override
+    public void setCategory(Category category) {
+        
+    }
+    
+    
+
     /**
      * this method add an entity item to this category and parents if available.<br/>
      * if category contains this item existing one will be replaced with new one.

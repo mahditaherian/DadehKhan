@@ -4,17 +4,18 @@
  */
 package base.panel;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Mahdi
  */
-public class ItemPanel extends javax.swing.JDialog {
+public class ItemPanel extends JFrame {
 
     /**
      * Creates new form ItemPanel
      */
-    public ItemPanel(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public ItemPanel() {
         initComponents();
     }
 
@@ -194,7 +195,7 @@ public class ItemPanel extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ItemPanel dialog = new ItemPanel(new javax.swing.JFrame(), true);
+                ItemPanel dialog = new ItemPanel();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -206,8 +207,8 @@ public class ItemPanel extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable commonDetailsTable;
-    private javax.swing.JTable commonDetailsTable1;
+    protected javax.swing.JTable commonDetailsTable;
+    protected javax.swing.JTable commonDetailsTable1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
