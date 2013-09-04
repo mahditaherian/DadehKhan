@@ -20,8 +20,8 @@
         </references>
     </car>
     <car id="2" type="stuff">
-        <category type="refer" id="3"/>
-        <name type="word" id="4"/>
+        <category type="refer" id="6"/>
+        <name type="word" id="5"/>
         <!--<name en="rana" fi="rana" pe="رانا" type="word"/>-->
         <!--<factories type="list">-->
         <!--<refer type="factory" id="1"/>-->
