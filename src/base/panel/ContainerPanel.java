@@ -106,7 +106,7 @@ public class ContainerPanel extends javax.swing.JFrame{
     }
     
     public void show(EntityType type){
-        grabManager.getEntityClassifier().getRootCategory(type);
+//        grabManager.getEntityClassifier().getRootCategory(type);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

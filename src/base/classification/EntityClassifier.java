@@ -1,5 +1,6 @@
 package base.classification;
 
+import base.util.Detail;
 import base.util.EntityID;
 
 import java.util.HashMap;
