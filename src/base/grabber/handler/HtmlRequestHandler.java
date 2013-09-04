@@ -3,8 +3,8 @@ package base.grabber.handler;
 import base.applicator.ConvertRule;
 import base.applicator.Property;
 import base.applicator.RequestRule;
-import base.applicator.object.Currency;
 import base.grabber.PropertyType;
+import base.unit.currency.CurrencyUnit;
 import base.util.Util;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -124,49 +124,65 @@ public class HtmlRequestHandler {
 //            value = goalElement.text();
 //        }
 
-        switch (convertRule.getType()) {
-            case THOUSAND_TOMAN:
-            case MILLION_TOMAN:
-            case TOMAN:
-            case MILLION_RIAL:
-            case THOUSAND_RIAL:
-            case USDOLLAR:
-            case IRRIAL: {
-
+        switch (convertRule.getUnit().getKind()) {
+            case IR_TOMAN:
+            case US_DOLLAR:
+            case IR_RIAL: {
                 try {
-                    Currency currency = (Currency) convertRule.getType().clazz.newInstance();
+                    CurrencyUnit unit = (CurrencyUnit)convertRule.getUnit().getKind().clazz.newInstance();
                     double val = Util.convertToDouble(goalElement.text());
-                    if (convertRule.getType().equals(PropertyType.TOMAN)) {
-                        val *= 10;
-                    } else if (convertRule.getType().equals(PropertyType.THOUSAND_RIAL)) {
-                        val *= 1000;
-                    } else if (convertRule.getType().equals(PropertyType.MILLION_RIAL)) {
-                        val *= 1000000;
-                    } else if (convertRule.getType().equals(PropertyType.MILLION_TOMAN)) {
-                        val *= 10000000;
-                    } else if (convertRule.getType().equals(PropertyType.THOUSAND_TOMAN)) {
-                        val *= 10000;
-                    }
-                    currency.setValue(val);
-                    value = currency;
-                } catch (InstantiationException e1) {
-                    e1.printStackTrace();
-                } catch (IllegalAccessException e1) {
+                    unit.setValue(val);
+                    value = unit;
+                } catch (InstantiationException | IllegalAccessException e1) {
                     e1.printStackTrace();
                 }
-                break;
             }
-            case INTEGER: {
-                value = Util.convertToInt(goalElement.text());
-                break;
-            }
-            case STRING:
-            default: {
-                value = goalElement.text();
-                break;
-            }
+
         }
-        return new Property(convertRule.getVarName(), value, convertRule.getType());
+
+//        switch (convertRule.getType()) {
+//            case THOUSAND_TOMAN:
+//            case MILLION_TOMAN:
+//            case TOMAN:
+//            case MILLION_RIAL:
+//            case THOUSAND_RIAL:
+//            case USDOLLAR:
+//            case IRRIAL: {
+//
+//                try {
+//                    Currency currency = (Currency) convertRule.getType().clazz.newInstance();
+//                    double val = Util.convertToDouble(goalElement.text());
+//                    if (convertRule.getType().equals(PropertyType.TOMAN)) {
+//                        val *= 10;
+//                    } else if (convertRule.getType().equals(PropertyType.THOUSAND_RIAL)) {
+//                        val *= 1000;
+//                    } else if (convertRule.getType().equals(PropertyType.MILLION_RIAL)) {
+//                        val *= 1000000;
+//                    } else if (convertRule.getType().equals(PropertyType.MILLION_TOMAN)) {
+//                        val *= 10000000;
+//                    } else if (convertRule.getType().equals(PropertyType.THOUSAND_TOMAN)) {
+//                        val *= 10000;
+//                    }
+//                    currency.setValue(val);
+//                    value = currency;
+//                } catch (InstantiationException e1) {
+//                    e1.printStackTrace();
+//                } catch (IllegalAccessException e1) {
+//                    e1.printStackTrace();
+//                }
+//                break;
+//            }
+//            case INTEGER: {
+//                value = Util.convertToInt(goalElement.text());
+//                break;
+//            }
+//            case STRING:
+//            default: {
+//                value = goalElement.text();
+//                break;
+//            }
+//        }
+        return new Property(convertRule.getVarName(), value, PropertyType.UNIT);
     }
 
     public List<Element> getElementsContainsText(Elements elements, String text) {

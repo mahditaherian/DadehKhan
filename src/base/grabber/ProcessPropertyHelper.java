@@ -1,18 +1,22 @@
 package base.grabber;
 
-import base.applicator.*;
-import base.applicator.object.Currency;
-import base.applicator.object.IRRial;
+import base.applicator.ConvertRule;
+import base.applicator.Parameter;
+import base.applicator.ReferenceProvider;
+import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.classification.Icon;
+import base.lang.Language;
+import base.unit.Amount;
+import base.unit.Unit;
+import base.unit.UnitKind;
 import base.util.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import java.lang.reflect.Method;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +53,11 @@ public class ProcessPropertyHelper {
     }
 
     public Word processWord(Node node) {
-        String pe = node.getAttributes().getNamedItem("pe").getNodeValue();
-        String en = node.getAttributes().getNamedItem("en").getNodeValue();
-        String fi = node.getAttributes().getNamedItem("fi").getNodeValue();
-        return new Word(pe, en, fi);
+        String idStr = node.getAttributes().getNamedItem("id").getNodeValue();
+        EntityID id = new EntityID(Util.convertToInt(idStr));
+//        String en = node.getAttributes().getNamedItem("en").getNodeValue();
+//        String fi = node.getAttributes().getNamedItem("fi").getNodeValue();
+        return grabManager.getWordManager().getWord(id);
     }
 
 //    public List processList(Node node) {
@@ -105,7 +110,7 @@ public class ProcessPropertyHelper {
         }
         switch (propertyType) {
             case LIST:
-                List<Object> clsList = new ArrayList<Object>();
+                List<Object> clsList = new ArrayList<>();
                 Node lNode = node.getAttributes().getNamedItem("kind");
                 PropertyType listKind = lNode != null ? PropertyType.getValue(lNode.getNodeValue()) : null;
                 for (int i = 0; i < node.getChildNodes().getLength(); i++) {
@@ -118,7 +123,8 @@ public class ProcessPropertyHelper {
                 }
                 return clsList;
             case WORD:
-                return processWord(node);
+                Word word = processWord(node);
+                return word;
 
 //            case REFERENCE:
 //            case FACTORY:
@@ -140,10 +146,15 @@ public class ProcessPropertyHelper {
             case PAGE: {
                 return processPage(node);
             }
-
-            case USDOLLAR:
-            case IRRIAL: {
-                return processCurrency(node, propertyType);
+            case UNIT:{
+                return processUnit(node);
+            }
+//            case USDOLLAR:
+//            case IRRIAL: {
+//                return processCurrency(node, propertyType);
+//            }
+            case DETAIL: {
+                return processDetail(node);
             }
 
             case REFER: {
@@ -161,23 +172,19 @@ public class ProcessPropertyHelper {
         return icon;
     }
 
-    private Currency processCurrency(Node node, PropertyType propertyType) {
-        Currency cur = null;
-        try {
-            cur = (Currency) propertyType.clazz.newInstance();
-            double value = Util.convertToDouble(node.getAttributes().getNamedItem("value").getNodeValue());
-
-            cur.setValue(value);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-        assert cur != null;
-        return cur;
-    }
+//    private Currency processCurrency(Node node, PropertyType propertyType) {
+//        Currency cur = null;
+//        try {
+//            cur = (Currency) propertyType.clazz.newInstance();
+//            double value = Util.convertToDouble(node.getAttributes().getNamedItem("value").getNodeValue());
+//
+//            cur.setValue(value);
+//        } catch (InstantiationException | NullPointerException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+//        assert cur != null;
+//        return cur;
+//    }
 
     private PropertyType processType(Node node) {
         PropertyType type;
@@ -219,6 +226,51 @@ public class ProcessPropertyHelper {
         return null;
     }
 
+    public Detail processDetail(Node node) {
+        //<param type="detail" name="1" value="1" value-numeric="yes" value-refer="no"/>
+        Node nameNode = node.getAttributes().getNamedItem("name");
+        Word name = null, value = null;
+        boolean chart = false, numeric = false;
+        if (nameNode != null) {
+            EntityID nameID = new EntityID(Util.convertToInt(nameNode.getNodeValue()));
+            name = grabManager.getWordManager().getWord(nameID);
+        }
+        boolean isValueRefer = false;
+
+        Node referNode = node.getAttributes().getNamedItem("value-refer");
+        if (referNode != null) {
+            String val = referNode.getNodeValue().trim();
+            if (val.equalsIgnoreCase("yes")) {
+                isValueRefer = true;
+            }
+        }
+        Node numericNode = node.getAttributes().getNamedItem("value-numeric");
+        boolean isNumeric = false;
+        if (numericNode != null) {
+            String val = numericNode.getNodeValue().trim();
+            if (val.equalsIgnoreCase("yes")) {
+                isNumeric = true;
+            }
+        }
+
+        Node valNode = node.getAttributes().getNamedItem("value");
+        if (valNode != null) {
+            if (isValueRefer) {
+                value = grabManager.getWordManager().getWord(new EntityID(Util.convertToInt(valNode.getNodeValue())));
+            } else {
+                value = new Word();
+                if (isNumeric) {
+                    value.set(Language.NUMBER, valNode.getNodeValue());
+                } else {
+                    value.set(Language.DEFAULT, valNode.getNodeValue());
+                }
+            }
+        }
+
+
+        return new Detail(name, value, numeric, chart);
+    }
+
     public Category processCategory(Object obj, Node node) {
         Category category = new Category();
         category.setParent(obj == null ? null : (Category) obj);
@@ -229,18 +281,43 @@ public class ProcessPropertyHelper {
         return category;
     }
 
+    public Unit processUnit(Node node) {
+        String kindStr = node.getAttributes().getNamedItem("kind").getNodeValue();
+        String amountStr = node.getAttributes().getNamedItem("amount").getNodeValue();
+
+        UnitKind unitKind = UnitKind.valueOf(kindStr.toUpperCase());
+        Unit unit = null;
+        try {
+            unit = unitKind.clazz.newInstance();
+            unit.setKind(unitKind);
+            if (amountStr != null) {
+                unit.setAmount(Amount.valueOf(amountStr.toUpperCase()));
+            }
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return unit;
+    }
+
     public void process(StandardEntity entity, Element objElement) {
-        List<Parameter> parameters = new ArrayList<Parameter>(entity.getParameters());
+        List<Parameter> parameters = new ArrayList<>(entity.getParameters());
         for (Parameter property : parameters) {
             Node node = objElement.getElementsByTagName(property.getName()).item(0);
             if (node == null) {
+                //it means, no such parameter in element children were found.
+                //so looking for it in attributes
                 String attr = objElement.getAttribute(property.getName().toLowerCase());
                 if (!attr.isEmpty()) {
-                    Object val = processAttribute(AttributeType.valueOf(property.getName().toUpperCase()), attr);
+                    Object val = processAttribute(AttributeType.getValue(property.getName().toUpperCase()), attr);
                     Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
                     Util.invoke(method, entity, val);
+                } else {
+                    //no such parameters were found in this element
+//                    System.out.println(property + " not found for " + entity);
                 }
             } else {
+                //it means, this parameter were found in child attributes
                 Object val = processProperty(entity, node);
                 Method method = Util.getSetter(property.getName(), property.getType().clazz, entity.getClass());
                 Util.invoke(method, entity, val);
@@ -249,31 +326,37 @@ public class ProcessPropertyHelper {
     }
 
     private Object processAttribute(AttributeType attribute, String value) {
+        int id;
         switch (attribute) {
             case ID:
-                int id = Util.convertToInt(value);
+                id = Util.convertToInt(value);
                 return new EntityID(id);
+            case NAME:
+                id = Util.convertToInt(value);
+                return grabManager.getWordManager().getWord(new EntityID(id));
+            case VALUE:
+                return value;
         }
         return null;
     }
 
 
-    public static String displayText(Property property) {
-        String text = "";
-        switch (property.getType()) {
-            case USDOLLAR:
-            case MILLION_TOMAN:
-            case MILLION_RIAL:
-            case THOUSAND_TOMAN:
-            case THOUSAND_RIAL:
-            case TOMAN:
-            case IRRIAL:
-                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
-                break;
-            default:
-                text = String.valueOf(property.getValue());
-                break;
-        }
-        return text;
-    }
+//    public static String displayText(Property property) {
+//        String text = "";
+//        switch (property.getType()) {
+//            case USDOLLAR:
+//            case MILLION_TOMAN:
+//            case MILLION_RIAL:
+//            case THOUSAND_TOMAN:
+//            case THOUSAND_RIAL:
+//            case TOMAN:
+//            case IRRIAL:
+//                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
+//                break;
+//            default:
+//                text = String.valueOf(property.getValue());
+//                break;
+//        }
+//        return text;
+//    }
 }

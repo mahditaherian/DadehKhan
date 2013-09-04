@@ -27,8 +27,6 @@ public abstract class Currency {
 
     @Override
     public String toString() {
-        return name.getEnglish() + "{" +
-                "value=" + value +
-                '}';
+        return new java.text.DecimalFormat("#").format(value);
     }
 }

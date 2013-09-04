@@ -5,8 +5,8 @@ package base.util;
  */
 public class Detail {
 
-    boolean isNumeric = false;
-    boolean isChart = false;
+    private boolean isNumeric = false;
+    private boolean isChart = false;
     private Word name, value;
 
 
@@ -50,6 +50,10 @@ public class Detail {
 
     public Word getValue() {
         return value;
+    }
+
+    public EntityID getID(){
+        return name.getId();
     }
 
     public void setValue(Word value) {

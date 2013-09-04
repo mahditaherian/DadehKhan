@@ -109,9 +109,7 @@ public class Util {
     public static <T extends StandardEntity> void invoke(Method method, T obj, Object val) {
         try {
             method.invoke(obj, val);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }

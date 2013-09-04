@@ -14,7 +14,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -33,16 +32,16 @@ public class XmlAppender {
     }
 
     public void append(RequestRule requestRule) {
-        Document document = xmlGrabber.getDocument(RequestRule.class);
+        Document document = xmlGrabber.getDocument(RequestRule.class,RequestRule.class.getSimpleName());
         appendRule(requestRule, document);
-        File file = xmlGrabber.fileHolder.getFile(RequestRule.class);
+        File file = xmlGrabber.fileHolder.getFile(RequestRule.class.getSimpleName());
         saveDocument(document, file);
     }
 
     public void append(Stuff stuff) {
-        Document document = xmlGrabber.getDocument(stuff.getClass());
+        Document document = xmlGrabber.getDocument(stuff.getClass(),stuff.getClass().getSimpleName());
         appendStuff(stuff, document);
-        File file = xmlGrabber.fileHolder.getFile(stuff.getClass());
+        File file = xmlGrabber.fileHolder.getFile(stuff.getClass().getSimpleName());
         saveDocument(document, file);
     }
 
@@ -74,9 +73,10 @@ public class XmlAppender {
                 Word word = (Word) property.getValue();
                 child = doc.createElement(property.getName());
                 appendAttribute(doc, child, "type", property.getType().key);
-                appendAttribute(doc, child, "pe", word.getFarsi());
-                appendAttribute(doc, child, "en", word.getEnglish());
-                appendAttribute(doc, child, "fi", word.getFarsiInEnglish());
+                //todo oooooooooooooooooooooooooooooooooooooooooooooo
+//                appendAttribute(doc, child, "pe", word.getFarsi());
+//                appendAttribute(doc, child, "en", word.getEnglish());
+//                appendAttribute(doc, child, "fi", word.getFarsiInEnglish());
                 element.appendChild(child);
                 break;
             case LIST:
@@ -170,8 +170,6 @@ public class XmlAppender {
 //            StringWriter writer = new StringWriter();
 //            transformer.transform(new DOMSource(doc), new StreamResult(writer));
 //            return writer.getBuffer().toString().replaceAll("\n|\r", "");
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
         } catch (TransformerException e) {
             e.printStackTrace();
         }

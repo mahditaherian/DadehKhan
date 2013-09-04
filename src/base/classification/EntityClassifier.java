@@ -10,12 +10,12 @@ import java.util.Map;
  */
 public class EntityClassifier {
 
-    private Map<EntityID, Category> idCategoryMap = new HashMap<EntityID, Category>();
+    private Map<EntityID, Category> idCategoryMap = new HashMap<>();
+    private Map<EntityID, Detail> idDetailMap = new HashMap<>();
     private Category root;
     private Category car;
     private Category currency;
     private Category metal;
-    private Map<EntityType, Category> rootCategoryMap = new HashMap<>();
 
     public void register(Category category) {
         if (category != null && category.getId() != null) {
@@ -23,16 +23,26 @@ public class EntityClassifier {
                 System.out.println("Warning:This category id is exist....");
             }
             idCategoryMap.put(category.getId(), category);
-            String name = category.getName().getEnglish();
-            if (name.equalsIgnoreCase("car")) {
-                car = category;
-            } else if (name.equalsIgnoreCase("currency")) {
-                currency = category;
-            } else if (name.equalsIgnoreCase("metal")) {
-                metal = category;
-            }
+//            String name = category.getName().get(Language.ENGLISH);
+//            if (name.equalsIgnoreCase("car")) {
+//                car = category;
+//            } else if (name.equalsIgnoreCase("currency")) {
+//                currency = category;
+//            } else if (name.equalsIgnoreCase("metal")) {
+//                metal= category;
+//            }
         }
     }
+
+//    public void register(Detail detail) {
+//        if (detail != null && detail.getId() != null) {
+//            if (idDetailMap.containsKey(detail.getId())) {
+//                System.out.println("Warning:This detail id is exist....");
+//            }
+//            idDetailMap.put(detail.getId(), detail);
+//            //String name = detail.getName().getEnglish();
+//        }
+//    }
 
     public Category getCar() {
         return car;
@@ -45,10 +55,8 @@ public class EntityClassifier {
     public Category getMetal() {
         return metal;
     }
-
-    public Category getRootCategory(EntityType type) {
-        return rootCategoryMap.get(type);
-    }
+    
+    
 
     public Category getCategory(EntityID id) {
         return idCategoryMap.get(id);

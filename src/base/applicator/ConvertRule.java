@@ -2,7 +2,7 @@ package base.applicator;
 
 import base.applicator.object.StandardEntity;
 import base.grabber.PropertyType;
-import base.util.EntityID;
+import base.unit.Unit;
 
 /**
  * @author Mahdi Taherian
@@ -11,26 +11,27 @@ public class ConvertRule extends StandardEntity {
     public String explosion = "";
     public String keyword;
     public int index = -1;
-    public PropertyType type;
-    public String name;
-    public EntityID id;
+    public Unit unit;
+    public String varName;
+//    public EntityID id;
     public String parent;
 
     {
         addParameter(new Property("explosion", explosion, PropertyType.STRING));
         addParameter(new Property("keyword", keyword, PropertyType.STRING));
-        addParameter(new Property("name", name, PropertyType.STRING));
-        addParameter(new Property("id", id, PropertyType.ID));
+        addParameter(new Property("varName", varName, PropertyType.STRING));
+//        addParameter(new Property("id", id, PropertyType.ID));
         addParameter(new Property("index", index, PropertyType.INTEGER));
-        addParameter(new Property("type", type, PropertyType.TYPE));
+        addParameter(new Property("unit", unit, PropertyType.UNIT));
         addParameter(new Property("parent", parent, PropertyType.STRING));
     }
 
-    public ConvertRule(String explosionTag, int index, PropertyType propertyType, String propertyName) {
+    public ConvertRule(String explosionTag, int index, Unit unit, String propertyName) {
+        super();
         this.explosion = explosionTag;
         this.index = index;
-        this.type = propertyType;
-        setName(propertyName);
+        this.unit = unit;
+        setVarName(propertyName);
     }
 
     public ConvertRule() {
@@ -54,32 +55,32 @@ public class ConvertRule extends StandardEntity {
         this.index = index;
     }
 
-    public PropertyType getType() {
-        return type;
+    public Unit getUnit() {
+        return unit;
     }
 
-    public void setType(PropertyType type) {
-        this.type = type;
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 
     /**
      * <b>Note</b> name Must Start with uppercase character
      */
     public String getVarName() {
-        return name;
+        return varName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setVarName(String varName) {
+        this.varName = varName;
     }
 
-    public EntityID getId() {
-        return id;
-    }
-
-    public void setId(EntityID id) {
-        this.id = id;
-    }
+//    public EntityID getId() {
+//        return id;
+//    }
+//
+//    public void setId(EntityID id) {
+//        this.id = id;
+//    }
 
     public String getKeyword() {
         return keyword;
