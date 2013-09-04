@@ -3,7 +3,7 @@
     <convertrule id="1">
         <explosion type="string" value="td"/>
         <index type="int" value="2"/>
-        <type type="type" value="MillionToman"/>
+        <unit type="unit" kind="ir_toman" amount="MILLION"/>
         <varName type="string" value="price"/>
         <keyword type="string" value="111-SX"/>
         <parent type="string" value="tr"/>
@@ -11,7 +11,7 @@
     <convertrule id="2">
         <explosion type="string" value="td"/>
         <index type="int" value="3"/>
-        <type type="type" value="MillionToman"/>
+        <unit type="unit" kind="ir_toman" amount="MILLION"/>
         <varName type="string" value="bazaarPrice"/>
         <keyword type="string" value="111-SX"/>
         <parent type="string" value="tr"/>
@@ -20,7 +20,7 @@
     <convertrule id="3">
         <explosion type="string" value="td"/>
         <index type="int" value="2"/>
-        <type type="type" value="MillionToman"/>
+        <unit type="unit" kind="ir_toman" amount="MILLION"/>
         <varName type="string" value="price"/>
         <keyword type="string" value="رانا"/>
         <parent type="string" value="tr"/>
@@ -28,7 +28,7 @@
     <convertrule id="4">
         <explosion type="string" value="td"/>
         <index type="int" value="3"/>
-        <type type="type" value="MillionToman"/>
+        <unit type="unit" kind="ir_toman" amount="MILLION"/>
         <varName type="string" value="bazaarPrice"/>
         <keyword type="string" value="رانا"/>
         <parent type="string" value="tr"/>

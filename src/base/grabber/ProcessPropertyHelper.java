@@ -1,19 +1,22 @@
 package base.grabber;
 
-import base.applicator.*;
-import base.applicator.object.Currency;
-import base.applicator.object.IRRial;
+import base.applicator.ConvertRule;
+import base.applicator.Parameter;
+import base.applicator.ReferenceProvider;
+import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.classification.Icon;
 import base.lang.Language;
+import base.unit.Amount;
+import base.unit.Unit;
+import base.unit.UnitKind;
 import base.util.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import java.lang.reflect.Method;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,11 +146,13 @@ public class ProcessPropertyHelper {
             case PAGE: {
                 return processPage(node);
             }
-
-            case USDOLLAR:
-            case IRRIAL: {
-                return processCurrency(node, propertyType);
+            case UNIT:{
+                return processUnit(node);
             }
+//            case USDOLLAR:
+//            case IRRIAL: {
+//                return processCurrency(node, propertyType);
+//            }
             case DETAIL: {
                 return processDetail(node);
             }
@@ -167,19 +172,19 @@ public class ProcessPropertyHelper {
         return icon;
     }
 
-    private Currency processCurrency(Node node, PropertyType propertyType) {
-        Currency cur = null;
-        try {
-            cur = (Currency) propertyType.clazz.newInstance();
-            double value = Util.convertToDouble(node.getAttributes().getNamedItem("value").getNodeValue());
-
-            cur.setValue(value);
-        } catch (InstantiationException | NullPointerException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        assert cur != null;
-        return cur;
-    }
+//    private Currency processCurrency(Node node, PropertyType propertyType) {
+//        Currency cur = null;
+//        try {
+//            cur = (Currency) propertyType.clazz.newInstance();
+//            double value = Util.convertToDouble(node.getAttributes().getNamedItem("value").getNodeValue());
+//
+//            cur.setValue(value);
+//        } catch (InstantiationException | NullPointerException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+//        assert cur != null;
+//        return cur;
+//    }
 
     private PropertyType processType(Node node) {
         PropertyType type;
@@ -276,6 +281,25 @@ public class ProcessPropertyHelper {
         return category;
     }
 
+    public Unit processUnit(Node node) {
+        String kindStr = node.getAttributes().getNamedItem("kind").getNodeValue();
+        String amountStr = node.getAttributes().getNamedItem("amount").getNodeValue();
+
+        UnitKind unitKind = UnitKind.valueOf(kindStr.toUpperCase());
+        Unit unit = null;
+        try {
+            unit = unitKind.clazz.newInstance();
+            unit.setKind(unitKind);
+            if (amountStr != null) {
+                unit.setAmount(Amount.valueOf(amountStr.toUpperCase()));
+            }
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return unit;
+    }
+
     public void process(StandardEntity entity, Element objElement) {
         List<Parameter> parameters = new ArrayList<>(entity.getParameters());
         for (Parameter property : parameters) {
@@ -317,22 +341,22 @@ public class ProcessPropertyHelper {
     }
 
 
-    public static String displayText(Property property) {
-        String text = "";
-        switch (property.getType()) {
-            case USDOLLAR:
-            case MILLION_TOMAN:
-            case MILLION_RIAL:
-            case THOUSAND_TOMAN:
-            case THOUSAND_RIAL:
-            case TOMAN:
-            case IRRIAL:
-                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
-                break;
-            default:
-                text = String.valueOf(property.getValue());
-                break;
-        }
-        return text;
-    }
+//    public static String displayText(Property property) {
+//        String text = "";
+//        switch (property.getType()) {
+//            case USDOLLAR:
+//            case MILLION_TOMAN:
+//            case MILLION_RIAL:
+//            case THOUSAND_TOMAN:
+//            case THOUSAND_RIAL:
+//            case TOMAN:
+//            case IRRIAL:
+//                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
+//                break;
+//            default:
+//                text = String.valueOf(property.getValue());
+//                break;
+//        }
+//        return text;
+//    }
 }

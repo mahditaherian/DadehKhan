@@ -1,6 +1,5 @@
 package base.applicator.object;
 
-import base.Config;
 import base.util.Word;
 
 /**
@@ -28,8 +27,6 @@ public abstract class Currency {
 
     @Override
     public String toString() {
-        return name.get(Config.DEFAULT_LANGUAGE) + "{" +
-                "value=" + value +
-                '}';
+        return new java.text.DecimalFormat("#").format(value);
     }
 }

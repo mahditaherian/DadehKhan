@@ -23,11 +23,6 @@ public class Word extends StandardEntity {
         valueMap = new HashMap<>();
     }
 
-    public Word(EntityID id) {
-        this();
-        setId(id);
-    }
-
     public String get(Language language) {
         String name;
         if (valueMap.containsKey(language)) {
@@ -49,6 +44,10 @@ public class Word extends StandardEntity {
     }
 
     public Word(String farsi, String english, String farsiInEnglish) {
+        this();
+        set(Language.FARSI, farsi);
+        set(Language.ENGLISH, english);
+        set(Language.FINGLISH, farsiInEnglish);
 //        this.farsi = farsi;
 //        this.english = english;
 //        this.farsiInEnglish = farsiInEnglish;
