@@ -84,6 +84,7 @@ public class ContentPanel extends javax.swing.JPanel {
                 Car car = grabManager.getStuffProvider().getCarByID(id);
                 CarViewer carViewer = new CarViewer();
                 carViewer.show(car);
+                carViewer.setVisible(true);
             }
         }
     }
