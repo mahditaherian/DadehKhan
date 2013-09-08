@@ -75,7 +75,7 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
         }
 //        }
     }
-
+    
     @Override
     protected void initialize() {
         pageRuleMap = new HashMap<Page, Set<ConvertRule>>();
