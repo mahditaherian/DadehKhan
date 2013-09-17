@@ -4,6 +4,8 @@
  */
 package base.panel.component;
 
+import base.util.Word;
+
 /**
  *
  * @author Mahdi
@@ -16,7 +18,13 @@ public class WordComponent extends javax.swing.JPanel {
     public WordComponent() {
         initComponents();
     }
-
+    
+    public Word getWord(){
+        Word word = new Word();
+        word.set(base.Config.DEFAULT_LANGUAGE, jTextField1.getText());
+        return word;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -7,15 +7,18 @@ package base.panel;
 import base.classification.Category;
 import base.classification.EntityType;
 import base.grabber.GrabManager;
+import base.panel.management.ManagementPanel;
 import base.util.EntityID;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Mahdi
  */
-public class ContainerPanel extends javax.swing.JFrame{
+public class ContainerPanel extends javax.swing.JFrame {
 
     protected GrabManager grabManager;
+
     /**
      * Creates new form ContainerPanel
      */
@@ -24,7 +27,7 @@ public class ContainerPanel extends javax.swing.JFrame{
         initComponents();
         showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
     }
-    
+
     public ContainerPanel() {
         initComponents();
         this.grabManager = null;
@@ -40,23 +43,40 @@ public class ContainerPanel extends javax.swing.JFrame{
     private void initComponents() {
 
         rightMenu1 = new base.panel.RightMenu();
+        mainPanel = new javax.swing.JPanel();
         contentPanel1 = new base.panel.ContentPanel(grabManager);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        rightMenu1.setContentPanel(this);
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(contentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contentPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(contentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(rightMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rightMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(contentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(rightMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -100,17 +120,55 @@ public class ContainerPanel extends javax.swing.JFrame{
             }
         });
     }
-    
-    public void showCategory(Category category){
+
+    public void showCategory(Category category) {
         contentPanel1.setCategory(category);
     }
-    
-    public void show(EntityType type){
+
+    public void show(EntityType type) {
 //        grabManager.getEntityClassifier().getRootCategory(type);
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private base.panel.ContentPanel contentPanel1;
+    private javax.swing.JPanel mainPanel;
     private base.panel.RightMenu rightMenu1;
     // End of variables declaration//GEN-END:variables
+
+    public void setMainPanel(Panel panel) {
+        switch (panel) {
+            case SHOW_CAR:
+                ContentPanel contentPanel = new ContentPanel(grabManager);
+                setPanel(contentPanel);
+                break;
+            case ADD_STUFF:
+                ManagementPanel managementPanel = new ManagementPanel();
+                managementPanel.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
+                setPanel(managementPanel);
+                break;
+
+        }
+    }
+
+    void setPanel(JPanel panel) {
+        mainPanel.removeAll();
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap()));
+        mainPanelLayout.setVerticalGroup(
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE));
+        mainPanel.repaint();
+        this.repaint();
+    }
+
+    public enum Panel {
+
+        ADD_STUFF,
+        SHOW_CAR,
+    }
 }

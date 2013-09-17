@@ -4,6 +4,9 @@
  */
 package base.panel.component;
 
+import base.util.Word;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Mahdi
@@ -34,12 +37,11 @@ public class DetailComponent extends javax.swing.JPanel {
         wordComponent1 = new base.panel.component.WordComponent();
         wordComponent2 = new base.panel.component.WordComponent();
 
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        setOpaque(false);
 
         detailTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2"
@@ -56,6 +58,11 @@ public class DetailComponent extends javax.swing.JPanel {
         jScrollPane1.setViewportView(detailTable);
 
         addDetailBtn.setText("افزودن توضیحات");
+        addDetailBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addDetail(evt);
+            }
+        });
 
         jLabel1.setText("نام خصوصیت :");
 
@@ -70,7 +77,7 @@ public class DetailComponent extends javax.swing.JPanel {
                 .addComponent(addDetailBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                     .addComponent(wordComponent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,10 +103,18 @@ public class DetailComponent extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(addDetailBtn))
-                            .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
+                            .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
                         .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addDetail(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDetail
+        Word name = wordComponent1.getWord();
+        Word value = wordComponent2.getWord();
+        DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
+        //model.getDataVector().clear();
+        model.addRow(new Word[]{name, value});
+    }//GEN-LAST:event_addDetail
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addDetailBtn;
     private javax.swing.JTable detailTable;

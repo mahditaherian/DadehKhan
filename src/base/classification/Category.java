@@ -158,8 +158,6 @@ public class Category extends StandardEntity {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "name=" + name +
-                '}';
+        return name.toString();
     }
 }

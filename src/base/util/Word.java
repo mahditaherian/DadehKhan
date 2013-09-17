@@ -60,10 +60,6 @@ public class Word extends StandardEntity {
 
     @Override
     public String toString() {
-        return "Word{" +
-                "farsi='" + get(Language.FARSI) + '\'' +
-//                ", english='" + english + '\'' +
-//                ", farsiInEnglish='" + farsiInEnglish + '\'' +
-                '}';
+        return get(base.Config.DEFAULT_LANGUAGE);
     }
 }

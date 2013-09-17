@@ -285,6 +285,9 @@ public class RightMenu extends javax.swing.JPanel {
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel20.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStuff(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 RightMenu.this.mouseEntered(evt);
             }
@@ -504,6 +507,10 @@ public class RightMenu extends javax.swing.JPanel {
     private void showCar(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showCar
         containerPanel.show(EntityType.CAR);
     }//GEN-LAST:event_showCar
+
+    private void addStuff(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addStuff
+        containerPanel.setMainPanel(ContainerPanel.Panel.ADD_STUFF);
+    }//GEN-LAST:event_addStuff
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
