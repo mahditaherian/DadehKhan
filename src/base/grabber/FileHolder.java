@@ -7,6 +7,7 @@ import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.util.Detail;
 import base.util.Reference;
+import base.util.UpdateRule;
 import base.util.Util;
 import base.util.Word;
 
@@ -44,6 +45,8 @@ public class FileHolder {
             path.append(Config.DEFAULT_DETAIL_PATH);
         } else if (Util.isInstance(className, Word.class)) {
             path.append(Config.DEFAULT_LANGUAGE_PATH);
+        } else if (Util.isInstance(className, UpdateRule.class)) {
+            path.append(Config.DEFAULT_UPDATE_RULE_PATH);
         }
         path.append(fileName);
         path.append(".");

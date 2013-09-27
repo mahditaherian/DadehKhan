@@ -19,6 +19,7 @@ import java.util.List;
  * @author Mahdi Taherian
  */
 public class GrabManager {
+
     private MySqlConnector connector;
     private HtmlGrabber htmlGrabber;
     private ReferenceProvider referenceProvider;
@@ -44,7 +45,7 @@ public class GrabManager {
         this.xmlGrabber = new XmlGrabber(fileHolder, this, idManager);
         this.xmlAppender = new XmlAppender(xmlGrabber);
         this.htmlGrabber = new HtmlGrabber(connector, referenceProvider, stuffProvider);
-        this.stuffs = new ArrayList<Class<? extends Stuff>>();
+        this.stuffs = new ArrayList<>();
         updateManager = new UpdateManager();
     }
 
@@ -105,8 +106,9 @@ public class GrabManager {
     }
 
     /**
-     * entity classifier getter.
-     * entity classifier is a object which manage categories of objects
+     * entity classifier getter. entity classifier is a object which manage
+     * categories of objects
+     *
      * @return entity classifier
      */
     public EntityClassifier getEntityClassifier() {
@@ -115,9 +117,14 @@ public class GrabManager {
 
     /**
      * word manager reserve words by id of them.
+     *
      * @return WordManager
      */
     public WordManager getWordManager() {
         return wordManager;
+    }
+
+    public UpdateManager getUpdateManager() {
+        return updateManager;
     }
 }

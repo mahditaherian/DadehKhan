@@ -5,8 +5,10 @@ import base.classification.Category;
 import base.classification.Icon;
 import base.unit.Unit;
 import base.util.*;
+import base.util.datetime.WeeklyDuration;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Mahdi Taherian
@@ -35,6 +37,8 @@ public enum PropertyType {
     CATEGORY("category", Category.class),
     ICON("icon", Icon.class),
     DETAIL("detail", Detail.class),
+    DURATION("duration", WeeklyDuration.class),
+    DURATIONS("durations", HashMap.class),
 
     PAGE("page", Page.class),
     HTML("html", Page.class),

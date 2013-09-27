@@ -9,6 +9,7 @@ import base.classification.Category;
 import base.lang.WordManager;
 import base.util.Page;
 import base.util.Reference;
+import base.util.UpdateRule;
 import base.util.Word;
 import org.joox.Match;
 import org.w3c.dom.Document;
@@ -82,6 +83,12 @@ public class XmlGrabber extends Grabber {
         for (ConvertRule rule : convertRules) {
             idManager.addConvertRuleID(rule.getId().getValue());
             referenceProvider.addConvertRule(rule.getId(), rule);
+        }
+        
+        List<UpdateRule> updateRules = new ArrayList<>(grabKind(UpdateRule.class));
+        for (UpdateRule rule : updateRules) {
+            idManager.addUpdateRuleID(rule.getId().getValue());
+            grabManager.getUpdateManager().addUpdateRule(rule.getId(), rule);
         }
     }
 

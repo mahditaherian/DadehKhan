@@ -22,6 +22,7 @@ public class Page extends StandardEntity {
     private long docUpdateTime;
     private RequestRule requestRule;
     private boolean isDataChanged;
+    private UpdateRule updateRule;
 
     {
         addParameter(new Property("url", url, PropertyType.STRING));
@@ -35,6 +36,7 @@ public class Page extends StandardEntity {
         docUpdateTime = 0;
         isDataChanged = false;
         setProperty(new Property("page", this, PropertyType.PAGE));
+        updateRule = null;
     }
 
     public String getUrl() {
@@ -55,6 +57,14 @@ public class Page extends StandardEntity {
 
     public Document getDocument() {
         return document;
+    }
+
+    public UpdateRule getUpdateRule() {
+        return updateRule;
+    }
+
+    public void setUpdateRule(UpdateRule updateRule) {
+        this.updateRule = updateRule;
     }
 
     public void setDocument(Document document) {

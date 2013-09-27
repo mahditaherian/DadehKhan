@@ -13,14 +13,19 @@ import base.unit.Amount;
 import base.unit.Unit;
 import base.unit.UnitKind;
 import base.util.*;
+import base.util.datetime.DayOfWeek;
+import base.util.datetime.WeeklyDuration;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.joox.JOOX.$;
+import org.w3c.dom.NodeList;
 
 /**
  * @author Mahdi
@@ -47,6 +52,9 @@ public class ProcessPropertyHelper {
         EntityID requestRuleID = new EntityID(Util.convertToInt(node.getAttributes().getNamedItem("request_rule").getNodeValue()));
         RequestRule requestRule = referenceProvider.getRequestRuleByID(requestRuleID);
         page.setRequestRule(requestRule);
+        EntityID updateRuleID = new EntityID(Util.convertToInt(node.getAttributes().getNamedItem("update_rule").getNodeValue()));
+        UpdateRule updateRule = grabManager.getUpdateManager().getUpdateRule(updateRuleID);
+        page.setUpdateRule(updateRule);
         String host = node.getAttributes().getNamedItem("host").getNodeValue();
         page.setHost(HostType.valueOf(host.toUpperCase()));
         return page;
@@ -67,7 +75,6 @@ public class ProcessPropertyHelper {
 //        }
 //        return clsList;
 //    }
-
     public Object processProperty(Object obj, Node node) {
         if (node == null) {
             return null;
@@ -133,6 +140,9 @@ public class ProcessPropertyHelper {
             case CATEGORY:
                 return processCategory(obj, node);
 
+            case DURATIONS:
+                return processDurations(node);
+
             case ICON:
                 return processIcon(node);
             case INTEGER:
@@ -146,7 +156,7 @@ public class ProcessPropertyHelper {
             case PAGE: {
                 return processPage(node);
             }
-            case UNIT:{
+            case UNIT: {
                 return processUnit(node);
             }
 //            case USDOLLAR:
@@ -185,7 +195,6 @@ public class ProcessPropertyHelper {
 //        assert cur != null;
 //        return cur;
 //    }
-
     private PropertyType processType(Node node) {
         PropertyType type;
         if (node == null || node.getAttributes() == null || node.getAttributes().getLength() == 0) {
@@ -340,23 +349,34 @@ public class ProcessPropertyHelper {
         return null;
     }
 
+    private Map<WeeklyDuration, Integer> processDurations(Node node) {
+        Map<WeeklyDuration, Integer> durations = new HashMap<>();
+        NodeList childNodes = node.getChildNodes();
 
-//    public static String displayText(Property property) {
-//        String text = "";
-//        switch (property.getType()) {
-//            case USDOLLAR:
-//            case MILLION_TOMAN:
-//            case MILLION_RIAL:
-//            case THOUSAND_TOMAN:
-//            case THOUSAND_RIAL:
-//            case TOMAN:
-//            case IRRIAL:
-//                text = new DecimalFormat("#").format(((IRRial) property.getValue()).getValue());
-//                break;
-//            default:
-//                text = String.valueOf(property.getValue());
-//                break;
-//        }
-//        return text;
-//    }
+
+        for (int i = 0; i < node.getChildNodes().getLength(); i++) {
+            Node child = node.getChildNodes().item(i);
+            if (child.getNodeName().equals("time")) {
+                Pair<WeeklyDuration, Integer> duration = processDuration(child);
+                durations.put(duration.getKey(), duration.getValue());
+            }
+        }
+        return durations;
+    }
+
+    private Pair<WeeklyDuration, Integer> processDuration(Node node) {
+        Node nameNode = node.getAttributes().getNamedItem("start");
+        int start = Util.convertToInt(nameNode.getNodeValue());
+        nameNode = node.getAttributes().getNamedItem("end");
+        int end = Util.convertToInt(nameNode.getNodeValue());
+//        nameNode = node.getAttributes().getNamedItem("period");
+//        int period = Util.convertToInt(nameNode.getNodeValue());
+        nameNode = node.getAttributes().getNamedItem("interval");
+        int interval = Util.convertToInt(nameNode.getNodeValue());
+        WeeklyDuration duration = new WeeklyDuration();
+        duration.setStartSecondOfDay(start);
+        duration.setEndSecondOfDay(end);
+        duration.setDayOfWeek(DayOfWeek.EVERY_DAY);//todo should get from xml file instead of constant declaration
+        return new Pair<>(duration, interval);
+    }
 }

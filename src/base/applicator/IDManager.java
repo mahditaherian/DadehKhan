@@ -14,6 +14,7 @@ public class IDManager {
     int categoryIDCounter = 0;
     int detailIDCounter = 0;
     private int wordIDCounter = 0;
+    private int updateRuleIDCounter = 0;
 
     public EntityID getNextRequestRuleID() {
         return new EntityID(++requestRuleIDCounter);
@@ -77,5 +78,13 @@ public class IDManager {
 
     public EntityID getNextWordID() {
         return new EntityID(++wordIDCounter);
+    }
+
+    public void addUpdateRuleID(int id) {
+        this.updateRuleIDCounter = Math.max(id, updateRuleIDCounter);
+    }
+    
+    public EntityID getNextUpdateRuleID(){
+        return new EntityID(++updateRuleIDCounter);
     }
 }

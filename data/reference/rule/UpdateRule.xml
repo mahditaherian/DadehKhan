@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+    <updaterule id="1">
+        <durations type="durations" >
+            <time type="duration" start="8000" end="20000" period="weekly" interval="60"/>
+            <time type="duration" start="25000" end="86400" period="weekly" interval="60"/>
+        </durations>
+    </updaterule>
+</rules>

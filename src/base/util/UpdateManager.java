@@ -14,10 +14,10 @@ import java.util.Map;
  * @author Mahdi
  */
 public class UpdateManager {
-    private Map<Page, UpdateRule> pageUpdateRuleMap;
+    private Map<EntityID, UpdateRule> updateRuleIDMap;
 
     public UpdateManager() {
-        pageUpdateRuleMap = new HashMap<Page, UpdateRule>();
+        updateRuleIDMap = new HashMap<>();
     }
 
     public void updateReferences(Collection<Reference> references) {
@@ -63,11 +63,22 @@ public class UpdateManager {
 
     public boolean isTimeToUpdate(Page page) {
         //todo this always returned true for deeper test
-        if (page != null) {
-            return true;
+        if (page == null) {
+            return false;
         }
-        UpdateRule rule = pageUpdateRuleMap.get(page);
-        return rule != null && rule.isOnTime();
+        UpdateRule rule = page.getUpdateRule();
+        if (rule == null) {
+            System.out.println("there is no rule found for page:" + page.toString());
+        }
+        return rule == null || rule.allowUpdate();
 
+    }
+
+    public void addUpdateRule(EntityID id, UpdateRule rule) {
+        updateRuleIDMap.put(id, rule);
+    }
+
+    public UpdateRule getUpdateRule(EntityID updateRuleID) {
+        return updateRuleIDMap.get(updateRuleID);
     }
 }
