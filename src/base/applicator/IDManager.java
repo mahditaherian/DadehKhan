@@ -15,6 +15,7 @@ public class IDManager {
     int detailIDCounter = 0;
     private int wordIDCounter = 0;
     private int updateRuleIDCounter = 0;
+    private int fieldIDCounter = 0;
 
     public EntityID getNextRequestRuleID() {
         return new EntityID(++requestRuleIDCounter);
@@ -86,5 +87,13 @@ public class IDManager {
     
     public EntityID getNextUpdateRuleID(){
         return new EntityID(++updateRuleIDCounter);
+    }
+
+    public void addFieldID(int id) {
+        this.fieldIDCounter = Math.max(id, fieldIDCounter);
+    }
+    
+    public EntityID getNextFieldID() {
+        return new EntityID(++fieldIDCounter);
     }
 }

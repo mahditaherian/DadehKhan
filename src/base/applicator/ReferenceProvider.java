@@ -133,4 +133,8 @@ public class ReferenceProvider extends Provider {
     public Collection<Page> getPages() {
         return referencePageIDMap.values();
     }
+
+    public List<Reference> getReferences() {
+        return references;
+    }
 }

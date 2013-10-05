@@ -1,0 +1,7 @@
+<details>
+    <DetailField field="int" id="1" name="13" category="20" />
+    <DetailField field="int" id="2" name="14" category="20" />
+    <DetailField field="int" id="3" name="15" category="20" />
+    <DetailField field="int" id="4" name="16" category="20" />
+    <DetailField field="string" id="5" name="18" category="20" />
+</details>

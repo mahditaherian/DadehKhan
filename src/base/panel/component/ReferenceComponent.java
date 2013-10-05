@@ -4,8 +4,12 @@
  */
 package base.panel.component;
 
+import base.panel.PanelViewer;
 import base.util.Page;
 import base.util.Reference;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Collection;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -14,29 +18,63 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class ReferenceComponent extends javax.swing.JPanel {
 
+    private Reference selectedReference = null;
+
     /**
      * Creates new form ReferenceComponent
      */
     public ReferenceComponent() {
         initComponents();
     }
-    
-    private void showAddReferencePanel(){
-        
+
+    private void showAddReferencePanel() {
+        final AddReferencePanel addReferencePanel = new AddReferencePanel();
+        final PanelViewer panelViewer = new PanelViewer(addReferencePanel);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                panelViewer.setVisible(true);
+//                new AddReferencePanel().setVisible(true);
+            }
+        });
+
+        panelViewer.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent arg0) {
+                panelViewer.setVisible(false);
+                Reference reference = addReferencePanel.getResult();
+                if (reference != null) {
+                    ((DefaultComboBoxModel) referencesCombo.getModel()).addElement(reference);
+                }
+            }
+        });
+
     }
-    
-    public Page getSelectedPage(){
-        return (Page)pagesCombo.getModel().getSelectedItem();
+
+    public void setReferences(Collection<Reference> references) {
+        DefaultComboBoxModel model = new DefaultComboBoxModel(references.toArray());
+        referencesCombo.setModel(model);
+        if (references.iterator().hasNext()) {
+            setSelectReference(references.iterator().next());
+        }
     }
-    
+
+    public Page getSelectedPage() {
+        return (Page) pagesCombo.getModel().getSelectedItem();
+    }
+
     public Reference getSelectedReference() {
         return (Reference) pagesCombo.getModel().getSelectedItem();
     }
-    
-    public void setSelectReference(Reference ref){
-        DefaultComboBoxModel model = new DefaultComboBoxModel(ref.getPages().toArray());
-        pagesCombo.setModel(model);
-        pagesCombo.repaint();
+
+    public void setSelectReference(Reference ref) {
+        if (ref != null && !ref.equals(selectedReference)) {
+            selectedReference = ref;
+            referencesCombo.setSelectedItem(ref);
+            DefaultComboBoxModel model = new DefaultComboBoxModel(ref.getPages().toArray());
+            pagesCombo.setModel(model);
+            pagesCombo.repaint();
+        }
     }
 
     /**
@@ -55,6 +93,11 @@ public class ReferenceComponent extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
 
         referencesCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        referencesCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                referencesComboActionPerformed(evt);
+            }
+        });
 
         pagesCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -62,13 +105,15 @@ public class ReferenceComponent extends javax.swing.JPanel {
 
         jLabel2.setText("صفحه :");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 204, 0));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 204, 0));
         jLabel3.setText("+");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
             }
         });
 
@@ -77,16 +122,16 @@ public class ReferenceComponent extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pagesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(referencesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pagesCombo, 0, 286, Short.MAX_VALUE)
+                    .addComponent(referencesCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,7 +140,7 @@ public class ReferenceComponent extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(referencesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -103,16 +148,23 @@ public class ReferenceComponent extends javax.swing.JPanel {
                             .addComponent(pagesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(22, 22, 22)
                         .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void referencesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_referencesComboActionPerformed
+        setSelectReference((Reference) referencesCombo.getSelectedItem());
+    }//GEN-LAST:event_referencesComboActionPerformed
+
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         showAddReferencePanel();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+//        jLabel3.setForeground(Color.red);
+    }//GEN-LAST:event_jLabel3MouseEntered
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

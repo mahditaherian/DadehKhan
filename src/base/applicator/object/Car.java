@@ -14,9 +14,9 @@ import java.util.Map;
  * @author Mahdi Taherian
  */
 public class Car extends Stuff {
+
     private Map<Page, CurrencyUnit> bazaarPrice;
     private Map<Page, CurrencyUnit> price;
-
 
     public Car() {
         super();
@@ -26,6 +26,7 @@ public class Car extends Stuff {
         bazaarPrice = new HashMap<>();
     }
 
+    @Override
     protected void initVariables() {
         variables.add(new Parameter("bazaarPrice", PropertyType.UNIT));
         propertyNameMap.put("bazaarPrice", new Word("قیمت بازار", "bazaar price", "gheymate bazar"));
@@ -50,5 +51,4 @@ public class Car extends Stuff {
             price.put(reference, (CurrencyUnit) property.getValue());
         }
     }
-
 }

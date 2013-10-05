@@ -1,6 +1,9 @@
 package base.util;
 
 import base.applicator.object.StandardEntity;
+import base.applicator.object.detail.FieldType;
+import static base.applicator.object.detail.FieldType.FLOAT;
+import static base.applicator.object.detail.FieldType.LONG;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +17,8 @@ import java.util.Map;
 public class Util {
 
     public static char[] NUMBERS = new char[10];
-    public static Map<Class<?>, Class<?>> PRIMITIVES_TO_WRAPPERS = new HashMap<Class<?>, Class<?>>();
+    public static final Map<Class<?>, Class<?>> PRIMITIVES_TO_WRAPPERS = new HashMap<>();
+    public static char[] points = new char[]{'.', ',', '/'};
 
     static {
         NUMBERS[0] = '0';
@@ -46,6 +50,19 @@ public class Util {
         return c.isPrimitive() ? (Class<T>) PRIMITIVES_TO_WRAPPERS.get(c) : c;
     }
 
+    public static Number convertToNumber(String val, NumberType type) {
+        switch (type) {
+            case INT: {
+                return convertToInt(val);
+            }
+            case DOUBLE: {
+                return convertToDouble(val);
+            }
+            default:
+                return null;
+        }
+    }
+
     public static Integer convertToInt(String str) {
         String numberStr = str.replaceAll("\\D+", "");
         return Integer.parseInt(numberStr);
@@ -58,25 +75,9 @@ public class Util {
     }
 
     public static boolean isInstance(Class<?> c1, Class<?> c2) {
-
-//        while (superClass != null) {
-//            if (superClass.equals(c2)) {
-//                return true;
-//            }
-//            superClass = superClass.getSuperclass();
-//        }
         Class<?> w1 = wrap(c1);
         Class<?> w2 = wrap(c2);
         return w1.isAssignableFrom(w2) || w2.isAssignableFrom(w1);
-        //        Class<?> superClass = w1;
-//        superClass = c2.getSuperclass();
-//        while (superClass != null) {
-//            if (superClass.equals(c1)) {
-//                return true;
-//            }
-//            superClass = superClass.getSuperclass();
-//        }
-//        return false;
     }
 
     public static Method getSetter(Field field, Class<?> objectKind) {
@@ -90,14 +91,16 @@ public class Util {
             method = objectType.getMethod(setter, propertyType);
         } catch (NoSuchMethodException e) {
             for (Method m : objectType.getMethods()) {
-                if (m.getName().equals(setter) && m.getParameterTypes().length == 1)
+                if (m.getName().equals(setter) && m.getParameterTypes().length == 1) {
                     if (m.getParameterTypes()[0].isAssignableFrom(propertyType)) {
                         method = m;
                         break;
                     }
+                }
             }
-            if (method == null)
+            if (method == null) {
                 e.printStackTrace();
+            }
         }
         return method;
     }
@@ -113,8 +116,31 @@ public class Util {
             e.printStackTrace();
         }
     }
+    
+    public static Object convert(String string, FieldType type) {
+        switch(type){
+            case INT:
+                return convertToNumber(string, NumberType.DOUBLE);
+            case DOUBLE:
+                return convertToNumber(string, NumberType.DOUBLE);
+            case FLOAT:
+                return convertToNumber(string, NumberType.FLOAT);
+            case LONG:
+                return convertToNumber(string, NumberType.LONG);
+            case SHORT:
+                return convertToNumber(string, NumberType.SHORT);
+            case STRING:
+                return string;
+            default:
+                return string;
+        }
+    }
 
-//    public static String retainAllChars(String str, char[] chars) {
-//
-//    }
+    public enum NumberType {
+        INT,
+        DOUBLE,
+        FLOAT,
+        LONG,
+        SHORT,
+    }
 }

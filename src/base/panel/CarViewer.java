@@ -7,7 +7,7 @@ package base.panel;
 import base.Config;
 import base.applicator.object.Car;
 import base.unit.currency.CurrencyUnit;
-import base.util.Detail;
+import base.applicator.object.detail.Detail;
 import base.util.Page;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,7 +25,7 @@ public class CarViewer extends ItemPanel {
             commonModel.addRow(
                     new Object[]{
                 detail.getName().get(Config.DEFAULT_LANGUAGE),
-                detail.getValue().get(Config.DEFAULT_LANGUAGE)});
+                detail.getValue().toString()});
         }
         
         commonModel = (DefaultTableModel) commonDetailsTable1.getModel();

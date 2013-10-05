@@ -58,6 +58,7 @@ public class GrabManager {
         stuffs.add(Car.class);
         xmlGrabber.grabWords();
         xmlGrabber.grabCategories();
+        xmlGrabber.grabDetails();
         xmlGrabber.grabRules();
         xmlGrabber.grabReferences();
         for (Class<? extends Stuff> clazz : stuffs) {

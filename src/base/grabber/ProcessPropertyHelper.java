@@ -1,14 +1,18 @@
 package base.grabber;
 
+import base.applicator.object.detail.Detail;
 import base.applicator.ConvertRule;
 import base.applicator.Parameter;
 import base.applicator.ReferenceProvider;
 import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
+import base.applicator.object.detail.DetailField;
+import base.applicator.object.detail.DetailValue;
+import base.applicator.object.detail.FieldType;
+import base.applicator.object.detail.StringValue;
 import base.classification.Category;
 import base.classification.Icon;
-import base.lang.Language;
 import base.unit.Amount;
 import base.unit.Unit;
 import base.unit.UnitKind;
@@ -68,13 +72,6 @@ public class ProcessPropertyHelper {
         return grabManager.getWordManager().getWord(id);
     }
 
-//    public List processList(Node node) {
-//        List<Object> clsList = new ArrayList<Object>();
-//        for (int i = 0; i < node.getChildNodes().getLength(); i++) {
-//            clsList.add(node.getChildNodes().item(i));
-//        }
-//        return clsList;
-//    }
     public Object processProperty(Object obj, Node node) {
         if (node == null) {
             return null;
@@ -236,48 +233,54 @@ public class ProcessPropertyHelper {
     }
 
     public Detail processDetail(Node node) {
-        //<param type="detail" name="1" value="1" value-numeric="yes" value-refer="no"/>
-        Node nameNode = node.getAttributes().getNamedItem("name");
-        Word name = null, value = null;
-        boolean chart = false, numeric = false;
+        //<param type="detail" field="1" value="8" isnumeric="no" isrefer="no" />
+        Node nameNode = node.getAttributes().getNamedItem("field");
+        DetailField field = null;
+        DetailValue value = null;
         if (nameNode != null) {
-            EntityID nameID = new EntityID(Util.convertToInt(nameNode.getNodeValue()));
-            name = grabManager.getWordManager().getWord(nameID);
+            EntityID fieldID = new EntityID(Util.convertToInt(nameNode.getNodeValue()));
+            field = grabManager.getEntityClassifier().getDetailField(fieldID);
         }
+        if (field == null) {
+            throw new IllegalStateException();
+        }
+
         boolean isValueRefer = false;
 
-        Node referNode = node.getAttributes().getNamedItem("value-refer");
+        Node referNode = node.getAttributes().getNamedItem("isrefer");
         if (referNode != null) {
             String val = referNode.getNodeValue().trim();
             if (val.equalsIgnoreCase("yes")) {
                 isValueRefer = true;
             }
         }
-        Node numericNode = node.getAttributes().getNamedItem("value-numeric");
-        boolean isNumeric = false;
-        if (numericNode != null) {
-            String val = numericNode.getNodeValue().trim();
-            if (val.equalsIgnoreCase("yes")) {
-                isNumeric = true;
-            }
-        }
 
+        //determining type of value
+//        Node numericNode = node.getAttributes().getNamedItem("isnumeric");
+//        Util.NumberType numType = Util.NumberType.INT;
+////        boolean isNumeric = false;
+//        if (numericNode != null) {
+//            String val = numericNode.getNodeValue().trim();
+//            if (val.equalsIgnoreCase("yes")) {
+//                isNumeric = true;
+//            }
+//        }
+
+
+        //process detail value
         Node valNode = node.getAttributes().getNamedItem("value");
         if (valNode != null) {
             if (isValueRefer) {
-                value = grabManager.getWordManager().getWord(new EntityID(Util.convertToInt(valNode.getNodeValue())));
+                Word word = grabManager.getWordManager().getWord(new EntityID(Util.convertToInt(valNode.getNodeValue())));
+                value = new StringValue(word);
+
             } else {
-                value = new Word();
-                if (isNumeric) {
-                    value.set(Language.NUMBER, valNode.getNodeValue());
-                } else {
-                    value.set(Language.DEFAULT, valNode.getNodeValue());
-                }
+//                Util.convert(valNode.getNodeValue(), field.getFieldType());
+                value = DetailValue.newInstance(valNode.getNodeValue(), field.getFieldType());
             }
         }
 
-
-        return new Detail(name, value, numeric, chart);
+        return new Detail(field, value);
     }
 
     public Category processCategory(Object obj, Node node) {
@@ -345,6 +348,14 @@ public class ProcessPropertyHelper {
                 return grabManager.getWordManager().getWord(new EntityID(id));
             case VALUE:
                 return value;
+            case FIELD: {
+                return FieldType.getValue(value);
+            }
+            case CATEGORY:{
+                id = Util.convertToInt(value);
+                return grabManager.getEntityClassifier().getCategory(new EntityID(id));
+            }
+
         }
         return null;
     }

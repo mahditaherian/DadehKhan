@@ -14,6 +14,8 @@ public enum AttributeType {
     REQUEST_RULE("request_rule", RequestRule.class),
     NAME("name", Word.class),
     VALUE("value", String.class),
+    FIELD("field",null),
+    CATEGORY("category",null),
     TYPE("type", null),;
 
     String name;

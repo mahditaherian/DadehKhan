@@ -130,4 +130,9 @@ public class Page extends StandardEntity {
     public boolean isDataChanged() {
         return isDataChanged;
     }
+
+    @Override
+    public String toString() {
+        return "Page{" + url + '}';
+    }
 }

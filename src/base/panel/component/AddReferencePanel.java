@@ -4,6 +4,11 @@
  */
 package base.panel.component;
 
+import base.util.EntityID;
+import base.util.Reference;
+import base.util.RelyRate;
+import base.util.Word;
+
 /**
  *
  * @author Mahdi
@@ -15,6 +20,13 @@ public class AddReferencePanel extends AbstractPanel {
      */
     public AddReferencePanel() {
         initComponents();
+    }
+    private Reference reference = null;
+    
+    public Reference getResult(){
+        Reference ref = new Reference(new Word("1", "2", "3"),"j", RelyRate.ALMOST,new EntityID(1000));
+        return ref;
+//        return reference;
     }
 
     /**
@@ -49,6 +61,8 @@ public class AddReferencePanel extends AbstractPanel {
         jTextField4 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("نام منبع :");
 
         jLabel2.setText("صفحات :");
@@ -66,7 +80,7 @@ public class AddReferencePanel extends AbstractPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
 
         jTextField3.setText("1");
 

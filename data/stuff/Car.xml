@@ -10,10 +10,11 @@
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
         <detail type="list" kind="detail">
-            <param type="detail" name="13" value="8" value-numeric="no" value-refer="no" kind="table"/>
-            <param type="detail" name="14" value="4" value-numeric="no" value-refer="no" kind="table"/>
-            <param type="detail" name="15" value="1300" value-numeric="no" value-refer="no" kind="table"/>
-            <param type="detail" name="16" value="750" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" field="1" value="8" isrefer="no" />
+            <param type="detail" field="2" value="8" isrefer="no" />
+            <param type="detail" field="3" value="1300" isrefer="no" />
+            <param type="detail" field="4" value="750" isrefer="no" />
+            <param type="detail" field="5" value="19" isrefer="yes" />
         </detail>
         <references type="list" kind="page">
             <page convert_rule="1,2" id="1" type="refer"/>
@@ -30,9 +31,10 @@
         <!--<refer type="factory" id="3"/>-->
         <!--</factories>-->
         <detail type="list" kind="detail">
-            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
-            <param type="detail" name="1" value="1" value-numeric="no" value-refer="no" kind="table"/>
-            <param type="detail" name="2" value="1" value-numeric="no" value-refer="no" kind="table"/>
+            <param type="detail" field="1" value="8" isnumeric="no" isrefer="no" />
+            <param type="detail" field="2" value="8" isnumeric="no" isrefer="no" />
+            <param type="detail" field="3" value="8" isnumeric="no" isrefer="no" />
+            <param type="detail" field="4" value="8" isnumeric="no" isrefer="no" />
         </detail>
         <references type="list" kind="page">
             <page convert_rule="3,4" id="1" type="refer"/>

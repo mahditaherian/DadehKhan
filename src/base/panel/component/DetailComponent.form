@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="opaque" type="boolean" value="false"/>
   </Properties>
@@ -78,11 +78,14 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="0">
-                <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                <Column editable="false" title="Title 2" type="java.lang.Object"/>
+                <Column editable="false" title="&#x646;&#x627;&#x645; &#x62e;&#x635;&#x648;&#x635;&#x64a;&#x62a;" type="java.lang.String"/>
+                <Column editable="false" title="&#x645;&#x642;&#x62f;&#x627;&#x631;" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="detailTable.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -107,6 +110,9 @@
     <Component class="base.panel.component.WordComponent" name="wordComponent1">
     </Component>
     <Component class="base.panel.component.WordComponent" name="wordComponent2">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="wordComponent2.setMultiline(true);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

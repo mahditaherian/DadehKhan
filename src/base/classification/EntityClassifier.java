@@ -1,6 +1,7 @@
 package base.classification;
 
-import base.util.Detail;
+import base.applicator.object.detail.Detail;
+import base.applicator.object.detail.DetailField;
 import base.util.EntityID;
 
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class EntityClassifier {
 
     private Map<EntityID, Category> idCategoryMap = new HashMap<>();
-    private Map<EntityID, Detail> idDetailMap = new HashMap<>();
+    private Map<EntityID, DetailField> idDetailMap = new HashMap<>();
     private Category root;
     private Category car;
     private Category currency;
@@ -24,29 +25,22 @@ public class EntityClassifier {
                 System.out.println("Warning:This category id is exist....");
             }
             idCategoryMap.put(category.getId(), category);
-//            String name = category.getName().get(Language.ENGLISH);
-//            if (name.equalsIgnoreCase("car")) {
-//                car = category;
-//            } else if (name.equalsIgnoreCase("currency")) {
-//                currency = category;
-//            } else if (name.equalsIgnoreCase("metal")) {
-//                metal= category;
-//            }
         }
     }
 
-//    public void register(Detail detail) {
-//        if (detail != null && detail.getId() != null) {
-//            if (idDetailMap.containsKey(detail.getId())) {
-//                System.out.println("Warning:This detail id is exist....");
-//            }
-//            idDetailMap.put(detail.getId(), detail);
-//            //String name = detail.getName().getEnglish();
-//        }
-//    }
+    public void register(DetailField field) {
+        if(field != null && field.getId() !=null){
+//            field.getCategory().addItem(field);
+            idDetailMap.put(field.getId(), field);
+        }
+    }
 
     public Category getCar() {
         return car;
+    }
+    
+    public DetailField getDetailField(EntityID id){
+        return idDetailMap.get(id);
     }
 
     public Category getCurrency() {
@@ -56,8 +50,6 @@ public class EntityClassifier {
     public Category getMetal() {
         return metal;
     }
-    
-    
 
     public Category getCategory(EntityID id) {
         return idCategoryMap.get(id);

@@ -7,9 +7,12 @@ package base.panel;
 import base.classification.Category;
 import base.classification.EntityType;
 import base.grabber.GrabManager;
+import base.panel.component.AddReferencePanel;
 import base.panel.management.ManagementPanel;
 import base.util.EntityID;
+import java.awt.Font;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -23,9 +26,44 @@ public class ContainerPanel extends javax.swing.JFrame {
      * Creates new form ContainerPanel
      */
     public ContainerPanel(GrabManager grabManager) {
+        setUIFont(new Font("Arial" , Font.PLAIN,12));
         this.grabManager = grabManager;
         initComponents();
-        showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
+//        showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
+    }
+
+    private void setUIFont(Font font) {
+        UIManager.put("Button.font", font);
+        UIManager.put("ToggleButton.font", font);
+        UIManager.put("RadioButton.font", font);
+        UIManager.put("CheckBox.font", font);
+        UIManager.put("ColorChooser.font", font);
+        UIManager.put("ComboBox.font", font);
+        UIManager.put("Label.font", font);
+        UIManager.put("List.font", font);
+        UIManager.put("MenuBar.font", font);
+        UIManager.put("MenuItem.font", font);
+        UIManager.put("RadioButtonMenuItem.font", font);
+        UIManager.put("CheckBoxMenuItem.font", font);
+        UIManager.put("Menu.font", font);
+        UIManager.put("PopupMenu.font", font);
+        UIManager.put("OptionPane.font", font);
+        UIManager.put("Panel.font", font);
+        UIManager.put("ProgressBar.font", font);
+        UIManager.put("ScrollPane.font", font);
+        UIManager.put("Viewport.font", font);
+        UIManager.put("TabbedPane.font", font);
+        UIManager.put("Table.font", font);
+        UIManager.put("TableHeader.font", font);
+        UIManager.put("TextField.font", font);
+        UIManager.put("PasswordField.font", font);
+        UIManager.put("TextArea.font", font);
+        UIManager.put("TextPane.font", font);
+        UIManager.put("EditorPane.font", font);
+        UIManager.put("TitledBorder.font", font);
+        UIManager.put("ToolBar.font", font);
+        UIManager.put("ToolTip.font", font);
+        UIManager.put("Tree.font", font);
     }
 
     public ContainerPanel() {
@@ -61,7 +99,7 @@ public class ContainerPanel extends javax.swing.JFrame {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+            .addComponent(contentPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +181,12 @@ public class ContainerPanel extends javax.swing.JFrame {
             case ADD_STUFF:
                 ManagementPanel managementPanel = new ManagementPanel();
                 managementPanel.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
+                managementPanel.setGrabManager(grabManager);
                 setPanel(managementPanel);
+                break;
+            case ADD_REFERENCE:
+                AddReferencePanel addReferencePanel = new AddReferencePanel();
+                setPanel(addReferencePanel);
                 break;
 
         }
@@ -170,5 +213,6 @@ public class ContainerPanel extends javax.swing.JFrame {
 
         ADD_STUFF,
         SHOW_CAR,
+        ADD_REFERENCE
     }
 }

@@ -33,7 +33,7 @@ public abstract class StandardEntity {
         setCategory(category);
     }
 
-    public void addParameter(Parameter parameter) {
+    protected void addParameter(Parameter parameter) {
         if (parameters.contains(parameter)) {
             parameters.remove(parameter);
         }
@@ -44,11 +44,11 @@ public abstract class StandardEntity {
         return property;
     }
 
-    public void setProperty(Property property) {
+    protected void setProperty(Property property) {
         this.property = property;
     }
 
-    public void setParameters(List<Parameter> parameters) {
+    protected void setParameters(List<Parameter> parameters) {
         this.parameters = parameters;
     }
 

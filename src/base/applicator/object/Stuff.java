@@ -3,7 +3,7 @@ package base.applicator.object;
 import base.applicator.ConvertRule;
 import base.applicator.Property;
 import base.grabber.PropertyType;
-import base.util.Detail;
+import base.applicator.object.detail.Detail;
 import base.util.Page;
 import base.util.Word;
 

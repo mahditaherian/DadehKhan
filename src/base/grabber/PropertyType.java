@@ -1,6 +1,9 @@
 package base.grabber;
 
+import base.applicator.object.detail.Detail;
 import base.applicator.object.Stuff;
+import base.applicator.object.detail.DetailField;
+import base.applicator.object.detail.FieldType;
 import base.classification.Category;
 import base.classification.Icon;
 import base.unit.Unit;
@@ -31,6 +34,8 @@ public enum PropertyType {
 //    THOUSAND_RIAL("ThousandRial", IRRial.class),
 //    THOUSAND_TOMAN("ThousandToman", IRRial.class),
 //    USDOLLAR("USDollar", USDollar.class),
+    FIELD("field", DetailField.class),
+    FIELD_TYPE("fieldType", FieldType.class),
     UNIT("unit", Unit.class),
     ID("id", EntityID.class),
     RELY("rely_rate", RelyRate.class),
@@ -43,7 +48,7 @@ public enum PropertyType {
     PAGE("page", Page.class),
     HTML("html", Page.class),
     HOST("host", HostType.class);
-
+    
 
     public String key;
     public Class<?> clazz;

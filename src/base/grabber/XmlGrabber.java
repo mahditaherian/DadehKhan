@@ -5,6 +5,7 @@ import base.applicator.IDManager;
 import base.applicator.RequestRule;
 import base.applicator.object.StandardEntity;
 import base.applicator.object.Stuff;
+import base.applicator.object.detail.DetailField;
 import base.classification.Category;
 import base.lang.WordManager;
 import base.util.Page;
@@ -29,12 +30,12 @@ import static org.joox.JOOX.$;
  * @author Mahdi Taherian
  */
 public class XmlGrabber extends Grabber {
+
     private Map<String, Document> documentMap;//string
     protected FileHolder fileHolder;
     private ProcessPropertyHelper processPropertyHelper;
     protected IDManager idManager;
     protected GrabManager grabManager;
-
 
     public XmlGrabber(FileHolder fileHolder, GrabManager grabManager, IDManager idManager) {
         super();
@@ -84,7 +85,7 @@ public class XmlGrabber extends Grabber {
             idManager.addConvertRuleID(rule.getId().getValue());
             referenceProvider.addConvertRule(rule.getId(), rule);
         }
-        
+
         List<UpdateRule> updateRules = new ArrayList<>(grabKind(UpdateRule.class));
         for (UpdateRule rule : updateRules) {
             idManager.addUpdateRuleID(rule.getId().getValue());
@@ -100,6 +101,14 @@ public class XmlGrabber extends Grabber {
         }
     }
 
+    void grabDetails() {
+        List<DetailField> fields = new ArrayList<>(grabKind(DetailField.class));
+        for (DetailField field : fields) {
+            idManager.addFieldID(field.getId().getValue());
+            grabManager.getEntityClassifier().register(field);
+        }
+    }
+
     public void grabWords() {
         Class<Word> kind = Word.class;
         WordManager wordManager = grabManager.getWordManager();
@@ -108,8 +117,8 @@ public class XmlGrabber extends Grabber {
             System.err.println("xmlDocument is null");
             return;
         }
-        List<Word> words = new ArrayList<>(grabKind(kind,doc));
-        for (Word word : words){
+        List<Word> words = new ArrayList<>(grabKind(kind, doc));
+        for (Word word : words) {
             idManager.addWordID(word.getId().getValue());
             wordManager.addWord(word);
         }
@@ -162,7 +171,7 @@ public class XmlGrabber extends Grabber {
                 putDocument(fileName, file);
                 return documentMap.get(fileName);
             } else {
-                fileHolder.hold(kind,fileName, "xml");
+                fileHolder.hold(kind, fileName, "xml");
                 return getDocument(kind, fileName);
             }
         }

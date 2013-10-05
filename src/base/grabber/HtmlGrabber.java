@@ -7,7 +7,6 @@ import base.grabber.handler.HtmlRequestHandler;
 import base.util.MySqlConnector;
 import base.util.Page;
 import org.jsoup.nodes.Element;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 

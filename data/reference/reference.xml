@@ -1,6 +1,6 @@
 <references>
     <reference type="reference" id="1">
-        <name type="word" pe="قطره" en="ghatreh" fi="ghatreh"/>
+        <name type="word" id="17" pe="قطره" en="ghatreh" fi="ghatreh"/>
         <!--<main type="page" link="G:\Projects\GitHub\DadehKhan\data\html\1.html" host="local" request_rule="1" id="1" rate="0"/>-->
         <pages type="list" kind="html">
             <page type="html" link="data\html\1.html" host="local" request_rule="1" id="1" update_rule="1" rate="0"/>

@@ -107,7 +107,6 @@ public class CategoryViewer extends javax.swing.JPanel {
 
         catIcon.setBackground(new java.awt.Color(255, 255, 255));
         catIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        catIcon.setIcon(new javax.swing.ImageIcon("D:\\Dadehkhan_pics\\Irankhodro.gif")); // NOI18N
         catIcon.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 1, true));
         catIcon.setOpaque(true);
 

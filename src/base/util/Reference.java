@@ -12,12 +12,12 @@ import java.util.List;
  * @author Mahdi
  */
 public class Reference extends StandardEntity {
-    public Word name;
+//    public Word name;
     public List<Page> pages;
     public Page main;
     private Document document;
     private long docUpdateTime;
-    public EntityID id;
+//    public EntityID id;
     public UpdateManager updateManager;
 
     {
@@ -42,17 +42,17 @@ public class Reference extends StandardEntity {
         docUpdateTime = 0;
         pages = new ArrayList<>();
         main = null;
-        id = new EntityID(0);
+//        id = new EntityID(0);
         updateManager = new UpdateManager();
     }
 
-    public Word getName() {
-        return name;
-    }
-
-    public void setName(Word name) {
-        this.name = name;
-    }
+//    public Word getName() {
+//        return name;
+//    }
+//
+//    public void setName(Word name) {
+//        this.name = name;
+//    }
 
     public Page getMain() {
         return main;
@@ -80,13 +80,13 @@ public class Reference extends StandardEntity {
         this.docUpdateTime = docUpdateTime;
     }
 
-    public EntityID getId() {
-        return id;
-    }
-
-    public void setId(EntityID id) {
-        this.id = id;
-    }
+//    public EntityID getId() {
+//        return id;
+//    }
+//
+//    public void setId(EntityID id) {
+//        this.id = id;
+//    }
 
     public List<Page> getPages() {
         return pages;
@@ -130,7 +130,7 @@ public class Reference extends StandardEntity {
     public boolean needUpdate() {
         return true;
     }
-
+    
 //    public void update() {
 //        Document doc;
 //        for (Page page : this.getPages()) {
@@ -149,4 +149,9 @@ public class Reference extends StandardEntity {
 //            }
 //        }
 //    }
+
+    @Override
+    public String toString() {
+        return name.toString();
+    }
 }

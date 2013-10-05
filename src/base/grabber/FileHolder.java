@@ -5,7 +5,8 @@ import base.applicator.ConvertRule;
 import base.applicator.RequestRule;
 import base.applicator.object.Stuff;
 import base.classification.Category;
-import base.util.Detail;
+import base.applicator.object.detail.Detail;
+import base.applicator.object.detail.DetailField;
 import base.util.Reference;
 import base.util.UpdateRule;
 import base.util.Util;
@@ -41,7 +42,7 @@ public class FileHolder {
             path.append(Config.DEFAULT_CONVERT_RULE_PATH);
         } else if (Util.isInstance(className, Category.class)) {
             path.append(Config.DEFAULT_CATEGORY_PATH);
-        } else if (Util.isInstance(className, Detail.class)) {
+        } else if (Util.isInstance(className, DetailField.class)) {
             path.append(Config.DEFAULT_DETAIL_PATH);
         } else if (Util.isInstance(className, Word.class)) {
             path.append(Config.DEFAULT_LANGUAGE_PATH);
