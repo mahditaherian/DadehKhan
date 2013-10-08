@@ -14,6 +14,16 @@ import java.util.Map;
  * @author Mahdi Taherian
  */
 public class Car extends Stuff {
+//    public static final StuffType stuffType = new StuffType();
+    static{
+//        stuffType.setClazz(Car.class);
+//        
+//        Word type = new Word("خودرو", "Car", "Khodro");
+//        stuffType.setName(type);
+//        
+        
+//        stuffType.addDetail();
+    }
 
     private Map<Page, CurrencyUnit> bazaarPrice;
     private Map<Page, CurrencyUnit> price;

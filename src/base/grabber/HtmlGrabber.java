@@ -3,12 +3,12 @@ package base.grabber;
 import base.applicator.ReferenceProvider;
 import base.applicator.StuffProvider;
 import base.applicator.object.Stuff;
+import base.applicator.object.StuffType;
 import base.grabber.handler.HtmlRequestHandler;
 import base.util.MySqlConnector;
 import base.util.Page;
 import org.jsoup.nodes.Element;
 
-import java.util.List;
 
 /**
  * Created by: Mahdi Taherian
@@ -26,15 +26,14 @@ public class HtmlGrabber extends Grabber {
 
 
     public void grabAllStuff() {
-        for (Class<? extends Stuff> kind : stuffProvider.getStuffKinds()) {
-            grabKindOfStuff(kind);
+        for (StuffType type : stuffProvider.getStuffTypes()) {
+            grabKindOfStuff(type);
         }
     }
 
     @Override
-    public void grabKindOfStuff(Class<? extends Stuff> kind) {
-        List<Stuff> stuffs = stuffProvider.getStuffs(kind);
-        for (Stuff stuff : stuffs) {
+    public void grabKindOfStuff(StuffType type) {
+        for (Stuff stuff : type.getStuffs()) {
             grab(stuff);
         }
     }

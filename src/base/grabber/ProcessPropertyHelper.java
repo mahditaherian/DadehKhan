@@ -5,7 +5,7 @@ import base.applicator.ConvertRule;
 import base.applicator.Parameter;
 import base.applicator.ReferenceProvider;
 import base.applicator.RequestRule;
-import base.applicator.object.StandardEntity;
+import base.applicator.object.Entity;
 import base.applicator.object.Stuff;
 import base.applicator.object.detail.DetailField;
 import base.applicator.object.detail.DetailValue;
@@ -228,6 +228,8 @@ public class ProcessPropertyHelper {
                 return id;
             case CATEGORY:
                 return this.grabManager.getEntityClassifier().getCategory(id);
+            case FIELD:
+                return this.grabManager.getEntityClassifier().getDetailField(id);
         }
         return null;
     }
@@ -312,7 +314,7 @@ public class ProcessPropertyHelper {
         return unit;
     }
 
-    public void process(StandardEntity entity, Element objElement) {
+    public void process(Entity entity, Element objElement) {
         List<Parameter> parameters = new ArrayList<>(entity.getParameters());
         for (Parameter property : parameters) {
             Node node = objElement.getElementsByTagName(property.getName()).item(0);

@@ -20,4 +20,5 @@ public final class Config {
     public static String DEFAULT_CONVERT_RULE_PATH = DEFAULT_REFERENCE_PATH + "rule/";
     public static String DEFAULT_UPDATE_RULE_PATH = DEFAULT_REFERENCE_PATH + "rule/";
     public static String DEFAULT_CATEGORY_PATH = DATA_PATH;
+    public static Object DEFAULT_STUFF_TYPE_PATH = DATA_PATH;
 }

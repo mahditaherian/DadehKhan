@@ -13,7 +13,7 @@ public class Launcher {
     public static void main(String[] args) {
         final GrabManager manager = new GrabManager();
         manager.initializeData();
-//        manager.execute();
+        manager.execute();
 
 //        StuffMaker stuffMaker = new StuffMaker(manager);
 //        RuleMaker ruleMaker = new RuleMaker(manager);

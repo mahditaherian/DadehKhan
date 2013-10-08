@@ -3,8 +3,9 @@ package base.grabber;
 import base.applicator.ConvertRule;
 import base.applicator.IDManager;
 import base.applicator.RequestRule;
-import base.applicator.object.StandardEntity;
+import base.applicator.object.Entity;
 import base.applicator.object.Stuff;
+import base.applicator.object.StuffType;
 import base.applicator.object.detail.DetailField;
 import base.classification.Category;
 import base.lang.WordManager;
@@ -50,11 +51,19 @@ public class XmlGrabber extends Grabber {
         putDocument(Reference.class.getSimpleName(), referenceFile);
         processPropertyHelper = new ProcessPropertyHelper(grabManager);
     }
+    
+    public void grabStuffTypes(){
+        List<StuffType> stuffTypes = new ArrayList<>(grabKind(StuffType.class));
+        for(StuffType stuffType : stuffTypes){
+            grabManager.getStuffProvider().addStuffType(stuffType);
+        }
+    }
 
     @Override
-    public void grabKindOfStuff(Class<? extends Stuff> kind) {
-        List<? extends Stuff> stuffs = new ArrayList<>(grabKind(kind));
+    public void grabKindOfStuff(StuffType type) {
+        List<? extends Stuff> stuffs = new ArrayList<>(grabKind(type.getClazz()));
         for (Stuff stuff : stuffs) {
+            stuff.setStuffType(type);
             idManager.addStuffID(stuff.getId().getValue());
             stuffProvider.addStuff(stuff);
         }
@@ -125,7 +134,7 @@ public class XmlGrabber extends Grabber {
 //        grabKind(kind,doc);
     }
 
-    private <T extends StandardEntity> List<T> grabKind(Class<T> kind, Document doc) {
+    private <T extends Entity> List<T> grabKind(Class<T> kind, Document doc) {
         List<T> objectList = new ArrayList<>();
 //        Match objects = $(doc).find(kind.getSimpleName().toLowerCase());
         Match objects = $(doc).children();
@@ -140,7 +149,7 @@ public class XmlGrabber extends Grabber {
 
     }
 
-    private <T extends StandardEntity> List<T> grabKind(Class<T> kind) {
+    private <T extends Entity> List<T> grabKind(Class<T> kind) {
         Document doc = getDocument(kind, kind.getSimpleName());
         if (doc == null) {
             System.err.println("xmlDocument is null");
@@ -149,7 +158,7 @@ public class XmlGrabber extends Grabber {
         return grabKind(kind, doc);
     }
 
-    private <T extends StandardEntity> T processElement(Class<T> kind, Element element) {
+    private <T extends Entity> T processElement(Class<T> kind, Element element) {
         T obj = null;
         try {
             obj = kind.newInstance();

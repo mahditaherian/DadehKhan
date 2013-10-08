@@ -13,8 +13,8 @@ import java.util.*;
 /**
  * @author Mahdi
  */
-public abstract class StandardEntity {
-    private List<Parameter> parameters = new ArrayList<>();
+public abstract class StandardEntity extends Entity {
+
     private Property property;
     private Category category;
     protected Word name;
@@ -23,21 +23,10 @@ public abstract class StandardEntity {
     protected Set<Parameter> variables = new HashSet<>();
     protected EntityID id;
 
-    public List<Parameter> getParameters() {
-        return parameters;
-    }
-
     public StandardEntity() {
         setId(id);
         setName(name);
         setCategory(category);
-    }
-
-    protected void addParameter(Parameter parameter) {
-        if (parameters.contains(parameter)) {
-            parameters.remove(parameter);
-        }
-        parameters.add(parameter);
     }
 
     public Property getProperty() {
@@ -46,10 +35,6 @@ public abstract class StandardEntity {
 
     protected void setProperty(Property property) {
         this.property = property;
-    }
-
-    protected void setParameters(List<Parameter> parameters) {
-        this.parameters = parameters;
     }
 
     public Word getName() {
@@ -88,8 +73,8 @@ public abstract class StandardEntity {
             this.category.removeItem(this);
         }
         addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
-        if(category!=null){
-        category.addItem(this);
+        if (category != null) {
+            category.addItem(this);
         }
         this.category = category;
     }

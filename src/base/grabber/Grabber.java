@@ -2,7 +2,7 @@ package base.grabber;
 
 import base.applicator.ReferenceProvider;
 import base.applicator.StuffProvider;
-import base.applicator.object.Stuff;
+import base.applicator.object.StuffType;
 import base.util.MySqlConnector;
 
 /**
@@ -19,7 +19,7 @@ public abstract class Grabber {
 //        this.connector = connector;
     }
 
-    public abstract void grabKindOfStuff(Class<? extends Stuff> kind);
+    public abstract void grabKindOfStuff(StuffType type);
 
     public abstract void grabReferences();
 }

@@ -1,6 +1,5 @@
 package base.classification;
 
-import base.applicator.object.detail.Detail;
 import base.applicator.object.detail.DetailField;
 import base.util.EntityID;
 

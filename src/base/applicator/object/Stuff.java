@@ -19,6 +19,7 @@ public abstract class Stuff extends StandardEntity {
     public List<Page> references;
     protected static List<Page> KIND_REFERENCES = new ArrayList<>();
     protected List<Detail> detail = new ArrayList<>();
+    protected StuffType stuffType;
 
 
     {
@@ -116,6 +117,14 @@ public abstract class Stuff extends StandardEntity {
 
     public void setDetail(List<Detail> detail) {
         this.detail = detail;
+    }
+
+    public StuffType getStuffType() {
+        return stuffType;
+    }
+
+    public void setStuffType(StuffType stuffType) {
+        this.stuffType = stuffType;
     }
 
     @Override

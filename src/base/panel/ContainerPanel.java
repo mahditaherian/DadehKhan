@@ -29,7 +29,7 @@ public class ContainerPanel extends javax.swing.JFrame {
         setUIFont(new Font("Arial" , Font.PLAIN,12));
         this.grabManager = grabManager;
         initComponents();
-//        showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
+        showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
     }
 
     private void setUIFont(Font font) {

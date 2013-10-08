@@ -4,8 +4,8 @@ import base.Config;
 import base.applicator.ConvertRule;
 import base.applicator.RequestRule;
 import base.applicator.object.Stuff;
+import base.applicator.object.StuffType;
 import base.classification.Category;
-import base.applicator.object.detail.Detail;
 import base.applicator.object.detail.DetailField;
 import base.util.Reference;
 import base.util.UpdateRule;
@@ -48,6 +48,8 @@ public class FileHolder {
             path.append(Config.DEFAULT_LANGUAGE_PATH);
         } else if (Util.isInstance(className, UpdateRule.class)) {
             path.append(Config.DEFAULT_UPDATE_RULE_PATH);
+        } else if (Util.isInstance(className, StuffType.class)) {
+            path.append(Config.DEFAULT_STUFF_TYPE_PATH);
         }
         path.append(fileName);
         path.append(".");

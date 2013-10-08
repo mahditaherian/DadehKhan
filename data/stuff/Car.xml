@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <stuffs>
-    <car id="1" type="stuff" name="4">
+    <car id="1" type="stuff" name="4" category="10">
         <category type="refer" id="10"/>
-        <!--<name en="pride" fi="pride" pe="پراید" type="word"/>-->
-        <!--<name type="word" id="4"/>-->
-        <!--<factories type="list">-->
-        <!--<refer type="factory" id="1"/>-->
-        <!--<refer type="factory" id="2"/>-->
-        <!--<refer type="factory" id="3"/>-->
-        <!--</factories>-->
         <detail type="list" kind="detail">
             <param type="detail" field="1" value="8" isrefer="no" />
             <param type="detail" field="2" value="8" isrefer="no" />
@@ -21,20 +14,15 @@
             <page convert_rule="1,2" id="2" type="refer"/>
         </references>
     </car>
-    <car id="2" type="stuff">
-        <category type="refer" id="6"/>
-        <name type="word" id="5"/>
-        <!--<name en="rana" fi="rana" pe="رانا" type="word"/>-->
-        <!--<factories type="list">-->
-        <!--<refer type="factory" id="1"/>-->
-        <!--<refer type="factory" id="2"/>-->
-        <!--<refer type="factory" id="3"/>-->
-        <!--</factories>-->
+    <car id="2" type="stuff" category="6" name="5">
+<!--        <category type="refer" id="6"/>
+        <name type="word" id="5"/>-->
         <detail type="list" kind="detail">
-            <param type="detail" field="1" value="8" isnumeric="no" isrefer="no" />
-            <param type="detail" field="2" value="8" isnumeric="no" isrefer="no" />
-            <param type="detail" field="3" value="8" isnumeric="no" isrefer="no" />
-            <param type="detail" field="4" value="8" isnumeric="no" isrefer="no" />
+            <param type="detail" field="1" value="8" isrefer="no" />
+            <param type="detail" field="2" value="8" isrefer="no" />
+            <param type="detail" field="3" value="1300" isrefer="no" />
+            <param type="detail" field="4" value="750" isrefer="no" />
+            <param type="detail" field="5" value="19" isrefer="yes" />
         </detail>
         <references type="list" kind="page">
             <page convert_rule="3,4" id="1" type="refer"/>

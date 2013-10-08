@@ -94,16 +94,16 @@
         </subCategories>
     </category>
     
-    <category id="20" name="6">
-        <description type="word" id="6"/>//moshakhasaate motori
+    <category id="20" name="20">
+        <description type="word" id="20"/>//moshakhasaate motori
         <icon type="icon" url=""/>
 
         <subCategories type="list" kind="category">
             
         </subCategories>
     </category>
-    <category id="21" name="6">
-        <description type="word" id="6"/>//moshakhasaate omoomi
+    <category id="21" name="21">
+        <description type="word" id="21"/>//moshakhasaate omoomi
         <icon type="icon" url=""/>
 
         <subCategories type="list" kind="category">

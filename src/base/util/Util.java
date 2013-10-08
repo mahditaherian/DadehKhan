@@ -1,6 +1,6 @@
 package base.util;
 
-import base.applicator.object.StandardEntity;
+import base.applicator.object.Entity;
 import base.applicator.object.detail.FieldType;
 import static base.applicator.object.detail.FieldType.FLOAT;
 import static base.applicator.object.detail.FieldType.LONG;
@@ -109,7 +109,7 @@ public class Util {
         return Character.toUpperCase(line.charAt(0)) + line.substring(1);
     }
 
-    public static <T extends StandardEntity> void invoke(Method method, T obj, Object val) {
+    public static <T extends Entity> void invoke(Method method, T obj, Object val) {
         try {
             method.invoke(obj, val);
         } catch (IllegalAccessException | InvocationTargetException e) {

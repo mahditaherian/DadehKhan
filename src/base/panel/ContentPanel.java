@@ -81,6 +81,7 @@ public class ContentPanel extends javax.swing.JPanel {
         
         switch(entityType){
             case CAR:{
+                grabManager.getStuffProvider().getStuffTypes()
                 Car car = grabManager.getStuffProvider().getCarByID(id);
                 CarViewer carViewer = new CarViewer();
                 carViewer.show(car);
