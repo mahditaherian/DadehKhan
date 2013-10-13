@@ -1,5 +1,5 @@
 <stuffs>
-    <StuffType type="Car" name="1">
+    <StuffType clazz="Car" name="1">
         <fields type="List" kind="category">
             <category type="refer" id="20"/>
         </fields>
