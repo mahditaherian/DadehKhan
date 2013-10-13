@@ -4,8 +4,10 @@
  */
 package base.panel.management;
 
+import base.applicator.object.StuffType;
 import base.classification.Category;
 import base.grabber.GrabManager;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
@@ -35,7 +37,10 @@ public class ManagementPanel extends javax.swing.JPanel {
 
     public void setGrabManager(GrabManager grabManager) {
         this.grabManager = grabManager;
+        DefaultComboBoxModel model = new DefaultComboBoxModel(grabManager.getStuffProvider().getStuffTypes().toArray());
+        stuffList.setModel(model);
         referenceComponent1.setReferences(this.grabManager.getReferenceProvider().getReferences());
+        stuffListActionPerformed(null);
     }
 
     public void setCategory(Category category) {
@@ -61,7 +66,7 @@ public class ManagementPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox();
+        stuffList = new javax.swing.JComboBox();
         addStuffBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -92,7 +97,12 @@ public class ManagementPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("نوع کالا :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "خودرو", "لوازم خانگی", "طلا و سکه", "ارز" }));
+        stuffList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "خودرو", "لوازم خانگی", "طلا و سکه", "ارز" }));
+        stuffList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stuffListActionPerformed(evt);
+            }
+        });
 
         addStuffBtn.setText("افزودن");
         addStuffBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +221,7 @@ public class ManagementPanel extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel2))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(stuffList, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel4))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -229,7 +239,7 @@ public class ManagementPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stuffList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,15 +320,20 @@ public class ManagementPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addStuffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStuffBtnActionPerformed
-        //make stuff
-        jComboBox1.getSelectedItem();
+        
+        
     }//GEN-LAST:event_addStuffBtnActionPerformed
+
+    private void stuffListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stuffListActionPerformed
+        StuffType type = (StuffType)stuffList.getSelectedItem();
+        detailComponent1.setDetails(type.getFiealds());
+        this.repaint();
+    }//GEN-LAST:event_stuffListActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStuffBtn;
     private base.panel.component.DetailComponent detailComponent1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -338,6 +353,7 @@ public class ManagementPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTree jTree1;
     private base.panel.component.ReferenceComponent referenceComponent1;
+    private javax.swing.JComboBox stuffList;
     private base.panel.component.WordComponent wordComponent1;
     // End of variables declaration//GEN-END:variables
 }

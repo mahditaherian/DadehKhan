@@ -1,5 +1,6 @@
 package base.grabber;
 
+import base.applicator.object.Car;
 import base.applicator.object.detail.Detail;
 import base.applicator.object.Stuff;
 import base.applicator.object.detail.DetailField;
@@ -26,6 +27,8 @@ public enum PropertyType {
     INTEGER("int", Integer.class),
     STRING("string", String.class),
     TYPE("type", PropertyType.class),
+    CAR("car", Car.class),
+    CLAZZ("clazz", Class.class),
     //    CURRENCY("currency", Currency.class),
 //    IRRIAL("IRRial", IRRial.class),
 //    MILLION_RIAL("MillionRial", IRRial.class),

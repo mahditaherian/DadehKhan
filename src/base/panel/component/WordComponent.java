@@ -7,7 +7,6 @@ package base.panel.component;
 import base.util.Word;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -30,6 +29,14 @@ public class WordComponent extends javax.swing.JPanel {
         Word word = new Word();
         word.set(base.Config.DEFAULT_LANGUAGE, jText.getText());
         return word;
+    }
+    
+    public void setWord(Word word){
+        jText.setText(word.get(base.Config.DEFAULT_LANGUAGE));
+    }
+    
+    public void setText(Object obj) {
+        jText.setText(String.valueOf(obj));
     }
 
     public void setMultiline(boolean b) {

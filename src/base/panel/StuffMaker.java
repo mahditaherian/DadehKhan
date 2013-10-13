@@ -5,6 +5,7 @@ package base.panel;
 import base.applicator.ConvertRule;
 import base.applicator.object.DefaultStuff;
 import base.applicator.object.Stuff;
+import base.applicator.object.StuffType;
 import base.grabber.GrabManager;
 import base.util.Page;
 import base.util.Pair;
@@ -23,7 +24,7 @@ import java.util.Set;
  * @author Mahdi
  */
 public class StuffMaker<T extends Stuff> extends AbstractMaker {
-    private JComboBox<Class<? extends Stuff>> stuffTypes;
+    private JComboBox<StuffType> stuffTypes;
     private JList<ConvertRule> rules;
     private JList<Page> pages;
     private ConvertRule selectedRule;
@@ -34,6 +35,7 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
         super(manager);
     }
 
+    @Override
     protected void save() {
         if (stuffTypes == null || stuffTypes.getSelectedItem() == null || !(stuffTypes.getSelectedItem() instanceof Class)) {
             System.out.println("Warning: no valid types were selected!");
@@ -68,9 +70,7 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
                 }
             }
             grabManager.append(stuff);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 //        }
@@ -78,14 +78,14 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
     
     @Override
     protected void initialize() {
-        pageRuleMap = new HashMap<Page, Set<ConvertRule>>();
+        pageRuleMap = new HashMap<>();
         Stuff temp = new DefaultStuff();
         {
-            DefaultComboBoxModel<Class<? extends Stuff>> model = new DefaultComboBoxModel<Class<? extends Stuff>>();
-            for (Class<? extends Stuff> clazz : grabManager.getStuffProvider().getStuffKinds()) {
-                model.addElement(clazz);
+            DefaultComboBoxModel<StuffType> model = new DefaultComboBoxModel<>();
+            for (StuffType type : grabManager.getStuffProvider().getStuffTypes()) {
+                model.addElement(type);
             }
-            stuffTypes = new JComboBox<Class<? extends Stuff>>(model);
+            stuffTypes = new JComboBox<>(model);
             stuffTypes.setPreferredSize(new Dimension(400, 30));
             panel.add(stuffTypes,
                     new GridBagConstraints(0, gridY, 1, 1, 1, 0, GridBagConstraints.BOTH, GridBagConstraints.HORIZONTAL,
@@ -94,24 +94,24 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
             gridY++;
         }
         {
-            DefaultComboBoxModel<ConvertRule> ruleModel = new DefaultComboBoxModel<ConvertRule>();
+            DefaultComboBoxModel<ConvertRule> ruleModel = new DefaultComboBoxModel<>();
             for (ConvertRule rule : grabManager.getReferenceProvider().getConvertRules()) {
                 ruleModel.addElement(rule);
             }
-            DefaultComboBoxModel<Page> pageModel = new DefaultComboBoxModel<Page>();
+            DefaultComboBoxModel<Page> pageModel = new DefaultComboBoxModel<>();
             for (Page page : grabManager.getReferenceProvider().getPages()) {
                 pageRuleMap.put(page, new HashSet<ConvertRule>());
                 pageModel.addElement(page);
             }
 
 
-            JComboBox<Page> pageJComboBox = new JComboBox<Page>(pageModel);
+            JComboBox<Page> pageJComboBox = new JComboBox<>(pageModel);
             pageJComboBox.addItemListener(new ItemListener() {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
                     selectedPage = (Page) e.getItem();
                     Set<ConvertRule> convertRules = pageRuleMap.get(selectedPage);
-                    DefaultListModel<ConvertRule> listModel = new DefaultListModel<ConvertRule>();
+                    DefaultListModel<ConvertRule> listModel = new DefaultListModel<>();
                     for (ConvertRule rule : convertRules) {
                         listModel.addElement(rule);
                     }
@@ -125,7 +125,7 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
 
             gridY++;
 
-            JComboBox<ConvertRule> convertRuleJComboBox = new JComboBox<ConvertRule>(ruleModel);
+            JComboBox<ConvertRule> convertRuleJComboBox = new JComboBox<>(ruleModel);
             convertRuleJComboBox.addItemListener(new ItemListener() {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
@@ -176,7 +176,7 @@ public class StuffMaker<T extends Stuff> extends AbstractMaker {
             gridY++;
 
 
-            rules = new JList<ConvertRule>(new DefaultListModel<ConvertRule>());
+            rules = new JList<>(new DefaultListModel<ConvertRule>());
             rules.setPreferredSize(new Dimension(400, 100));
             panel.add(rules,
                     new GridBagConstraints(0, gridY, 1, 1, 1, 0, GridBagConstraints.BOTH, GridBagConstraints.HORIZONTAL,

@@ -9,18 +9,18 @@ import base.util.Word;
  * @author Mahdi
  */
 public enum AttributeType {
+
     ID("id", EntityID.class),
     CONVERT_RULE("convert_rule", ConvertRule.class),
     REQUEST_RULE("request_rule", RequestRule.class),
     NAME("name", Word.class),
     VALUE("value", String.class),
-    FIELD("field",null),
-    CATEGORY("category",null),
+    FIELD("field", null),
+    CATEGORY("category", null),
+    CLAZZ("clazz", Class.class),
     TYPE("type", null),;
-
     String name;
     Class<?> clazz;
-
 
     AttributeType(String type, Class<?> clazz) {
         this.name = type;

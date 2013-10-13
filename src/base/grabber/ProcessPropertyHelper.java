@@ -353,9 +353,13 @@ public class ProcessPropertyHelper {
             case FIELD: {
                 return FieldType.getValue(value);
             }
-            case CATEGORY:{
+            case CATEGORY: {
                 id = Util.convertToInt(value);
                 return grabManager.getEntityClassifier().getCategory(new EntityID(id));
+            }
+            case CLAZZ: {
+                PropertyType type = PropertyType.getValue(value);
+                return type.clazz;
             }
 
         }

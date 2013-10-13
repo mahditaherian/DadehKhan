@@ -4,9 +4,20 @@
  */
 package base.panel.component;
 
+import base.applicator.object.StandardEntity;
+import base.applicator.object.detail.DetailField;
+import base.applicator.object.detail.DetailValue;
+import base.applicator.object.detail.FieldType;
+import base.applicator.object.detail.NumericValue;
+import base.applicator.object.detail.StringValue;
+import base.classification.Category;
 import base.util.Word;
 import java.awt.ComponentOrientation;
+import java.util.List;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -19,6 +30,38 @@ public class DetailComponent extends javax.swing.JPanel {
      */
     public DetailComponent() {
         initComponents();
+        detailTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
+                DetailField field = (DetailField) model.getValueAt(detailTable.getSelectedRow(), 0);
+                DetailValue value = (DetailValue) model.getValueAt(detailTable.getSelectedRow(), 1);
+                wordComponent1.setWord(field.getName());
+                wordComponent2.setText(value.getValue());
+                switch (field.getFieldType()) {
+                    case INT:
+                    case DOUBLE:
+                    case FLOAT:
+                    case LONG:
+                    case SHORT:
+
+                    //NumericValue value = new NumericValue(WIDTH);
+                }
+            }
+        });
+    }
+
+    public void setDetails(List<Category> details) {
+        DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
+        model.getDataVector().clear();
+        for (Category cat : details) {
+            for (StandardEntity fieldEntity : cat.getItems()) {
+                DetailField field = (DetailField) fieldEntity;
+                model.addRow(new Object[]{field, field.getFieldType().equals(FieldType.STRING) ? new StringValue(new Word()) : new NumericValue(0)});
+            }
+        }
+        detailTable.setModel(model);
+        this.repaint();
     }
 
     /**
@@ -76,6 +119,8 @@ public class DetailComponent extends javax.swing.JPanel {
         jLabel1.setText("نام خصوصیت :");
 
         jLabel2.setText("مقدار :");
+
+        wordComponent1.setEnabled(false);
 
         wordComponent2.setMultiline(true);
 

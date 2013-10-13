@@ -7,6 +7,7 @@ package base.classification;
 import base.applicator.ConvertRule;
 import base.applicator.RequestRule;
 import base.applicator.object.Car;
+import base.applicator.object.Entity;
 import base.applicator.object.StandardEntity;
 
 /**
@@ -40,5 +41,9 @@ public enum EntityType {
             }
         }
         return null;
+    }
+    
+    public static EntityType get(Class<? extends StandardEntity> clazz ){
+        return get(clazz.getSimpleName());
     }
 }
