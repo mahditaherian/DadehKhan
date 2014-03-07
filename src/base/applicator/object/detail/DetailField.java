@@ -28,4 +28,9 @@ public class DetailField extends StandardEntity {
     public void setFieldType(FieldType fieldType) {
         this.fieldType = fieldType;
     }
+    
+    @Override
+    public String toString(){
+        return name.toString();
+    }
 }

@@ -5,7 +5,7 @@
 package base.panel;
 
 import base.applicator.object.Car;
-import base.applicator.object.StuffType;
+import base.applicator.object.Stuff;
 import base.classification.Category;
 import base.classification.EntityType;
 import base.grabber.GrabManager;
@@ -82,9 +82,8 @@ public class ContentPanel extends javax.swing.JPanel {
         
         switch(entityType){
             case CAR:{
-                StuffType type = grabManager.getStuffProvider().getStuffType(entityType);
-                type.getStuffByID(id);
-                Car car = (Car)type.getStuffByID(id);
+                Stuff stuff = grabManager.getStuffProvider().getStuffByID(id);
+                Car car = (Car) stuff;
                 CarViewer carViewer = new CarViewer();
                 carViewer.show(car);
                 carViewer.setVisible(true);

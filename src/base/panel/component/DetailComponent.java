@@ -5,6 +5,7 @@
 package base.panel.component;
 
 import base.applicator.object.StandardEntity;
+import base.applicator.object.detail.Detail;
 import base.applicator.object.detail.DetailField;
 import base.applicator.object.detail.DetailValue;
 import base.applicator.object.detail.FieldType;
@@ -50,6 +51,8 @@ public class DetailComponent extends javax.swing.JPanel {
             }
         });
     }
+    
+    
 
     public void setDetails(List<Category> details) {
         DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
@@ -57,7 +60,10 @@ public class DetailComponent extends javax.swing.JPanel {
         for (Category cat : details) {
             for (StandardEntity fieldEntity : cat.getItems()) {
                 DetailField field = (DetailField) fieldEntity;
-                model.addRow(new Object[]{field, field.getFieldType().equals(FieldType.STRING) ? new StringValue(new Word()) : new NumericValue(0)});
+                model.addRow(new Object[]{field, 
+                    field.getFieldType().equals(FieldType.STRING) ? 
+                        new StringValue(new Word()) : 
+                        new NumericValue(0)});
             }
         }
         detailTable.setModel(model);
@@ -110,8 +116,8 @@ public class DetailComponent extends javax.swing.JPanel {
         jScrollPane1.setViewportView(detailTable);
 
         addDetailBtn.setText("افزودن توضیحات");
-        addDetailBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        addDetailBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addDetail(evt);
             }
         });
@@ -133,7 +139,7 @@ public class DetailComponent extends javax.swing.JPanel {
                 .addComponent(addDetailBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                    .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                     .addComponent(wordComponent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,32 +150,30 @@ public class DetailComponent extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(wordComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(addDetailBtn))
-                            .addComponent(wordComponent2, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
-                        .addContainerGap())))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(addDetailBtn)
+                        .addComponent(wordComponent2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addDetail(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDetail
+    private void addDetail(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDetail
         Word name = wordComponent1.getWord();
         Word value = wordComponent2.getWord();
         DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
         //model.getDataVector().clear();
         model.addRow(new Word[]{name, value});
+        detailTable.getSelectedRow();
+        model.setValueAt(value, detailTable.getSelectedRow(),1);
+        
+        
     }//GEN-LAST:event_addDetail
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addDetailBtn;
@@ -180,4 +184,8 @@ public class DetailComponent extends javax.swing.JPanel {
     private base.panel.component.WordComponent wordComponent1;
     private base.panel.component.WordComponent wordComponent2;
     // End of variables declaration//GEN-END:variables
+
+    public List<Detail> getDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
