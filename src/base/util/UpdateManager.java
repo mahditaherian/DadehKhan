@@ -14,6 +14,7 @@ import java.util.Map;
  * @author Mahdi
  */
 public class UpdateManager {
+
     private Map<EntityID, UpdateRule> updateRuleIDMap;
 
     public UpdateManager() {
@@ -37,7 +38,7 @@ public class UpdateManager {
     }
 
     public void updateSpecificPage(Page page) {
-        Document doc;
+        Document doc = null;
         try {
             if (page.getHost().equals(HostType.REMOTE)) {
                 doc = Jsoup.connect(page.getUrl()).get();
@@ -45,12 +46,12 @@ public class UpdateManager {
                 File file = new File(page.getUrl());
                 doc = Jsoup.parse(file, "utf-8");
             } else {
-                doc = null;
+                //unsupported HostType....
             }
-            page.setDocument(doc);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("An error accoured in UpdateManager: " + e.getMessage());
         }
+        page.setDocument(doc);
     }
 
     public void updateStuffReferences(Stuff stuff) {

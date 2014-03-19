@@ -1,9 +1,12 @@
 package base.panel.management;
 
+import base.applicator.ConvertRule;
 import base.applicator.object.Stuff;
 import base.applicator.object.StuffType;
 import base.classification.Category;
 import base.grabber.GrabManager;
+import base.util.GrabPage;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -51,12 +54,24 @@ public class ManagementPanel extends javax.swing.JPanel {
             Stuff stuff = selectectStuffType.getClazz().newInstance();
             stuff.setDetail(detailComponent1.getDetails());
             
+            
             return stuff;
         } catch (InstantiationException | IllegalAccessException ex) {
             //Logger.getLogger(ManagementPanel.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
         return null;
+    }
+    
+    private void setStuffGrabPages(Stuff stuff, List<GrabPage> grabPages){
+        if(grabPages==null || grabPages.isEmpty()){
+            return;
+        }
+        
+        for(GrabPage grabPage: grabPages){
+            ConvertRule convertRule = grabManager.getReferenceProvider().getConvertRuleByID(grabPage.getConvertRuleID());
+            stuff.addReference(grabPage.getPage(),convertRule);
+        }
     }
 
     /**
@@ -241,17 +256,15 @@ public class ManagementPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(detailComponent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel3)
+                    .addComponent(detailComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(referenceComponent1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel6)
+                    .addComponent(referenceComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addStuffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -295,7 +308,8 @@ public class ManagementPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addStuffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStuffBtnActionPerformed
-
+        Stuff stuff = makeStuff();
+        grabManager.getXmlAppender().append(stuff);
     }//GEN-LAST:event_addStuffBtnActionPerformed
 
     private void stuffListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stuffListActionPerformed

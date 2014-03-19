@@ -44,12 +44,17 @@ public abstract class Stuff extends StandardEntity {
 
     protected void initVariables() {
     }
+    
+    public void addReference(Page page , ConvertRule convertRule) {
+        references.add(page);
+        addRule(page, convertRule);
+    }
 
     public void setReferences(List<Page> references) {
         addParameter(new Property("references", references, PropertyType.LIST));
         this.references = references;
     }
-
+    
     public void setProperties(Page reference, List<Property> properties) {
         referencePropertyMap.put(reference, properties);
         for (Property property : properties) {

@@ -66,6 +66,10 @@ public class GrabManager {
         }
 //        stuffProvider.setStuffKinds(stuffs);
     }
+
+    public XmlAppender getXmlAppender() {
+        return xmlAppender;
+    }
     
     public void append(RequestRule requestRule) {
         if (requestRule != null) {

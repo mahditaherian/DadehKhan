@@ -9,11 +9,11 @@ import base.util.MySqlConnector;
 import base.util.Page;
 import org.jsoup.nodes.Element;
 
-
 /**
- * Created by: Mahdi Taherian
+ * @author Mahdi Taherian
  */
 public class HtmlGrabber extends Grabber {
+
     private HtmlRequestHandler htmlRequestHandler;
 
     public HtmlGrabber(MySqlConnector connector, ReferenceProvider referenceProvider, StuffProvider stuffProvider) {
@@ -23,7 +23,6 @@ public class HtmlGrabber extends Grabber {
         this.connector = connector;
         htmlRequestHandler = new HtmlRequestHandler();
     }
-
 
     public void grabAllStuff() {
         for (StuffType type : stuffProvider.getStuffTypes()) {
@@ -46,7 +45,7 @@ public class HtmlGrabber extends Grabber {
     public void grab(Stuff stuff) {
         Element element;
         for (Page page : stuff.getReferences()) {
-            if (page != null) {
+            if (page != null && page.getDocument() != null) {
                 if (page.getDataElement() == null || page.isDataChanged()) {
                     element = htmlRequestHandler.getElementByRule(page.getDocument(), page.getRequestRule());
                     page.setDataElement(element);
