@@ -17,6 +17,15 @@ public class WordManager {
         idWordMap = new HashMap<>();
         setLanguage(language);
     }
+    
+    public Word get(String str){
+        for(Word word : idWordMap.values()){
+            if(word.toString().equals(str)){
+                return word;
+            }
+        }
+        return null;
+    }
 
     public void addWord(Word word) {
         idWordMap.put(word.getId(), word);

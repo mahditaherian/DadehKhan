@@ -26,7 +26,7 @@ public class ContainerPanel extends javax.swing.JFrame {
      * Creates new form ContainerPanel
      */
     public ContainerPanel(GrabManager grabManager) {
-        setUIFont(new Font("Arial" , Font.PLAIN,12));
+        setUIFont(new Font("Arial", Font.PLAIN, 12));
         this.grabManager = grabManager;
         initComponents();
         showCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
@@ -172,20 +172,30 @@ public class ContainerPanel extends javax.swing.JFrame {
     private base.panel.RightMenu rightMenu1;
     // End of variables declaration//GEN-END:variables
 
+//    private ContentPanel contentPanel;
+    private ManagementPanel managementPanel;
+    private AddReferencePanel addReferencePanel;
+
     public void setMainPanel(Panel panel) {
         switch (panel) {
             case SHOW_CAR:
-                ContentPanel contentPanel = new ContentPanel(grabManager);
-                setPanel(contentPanel);
+                if (contentPanel1 == null) {
+                    contentPanel1 = new ContentPanel(grabManager);
+                }
+                setPanel(contentPanel1);
                 break;
             case ADD_STUFF:
-                ManagementPanel managementPanel = new ManagementPanel();
+                if (managementPanel == null) {
+                    managementPanel = new ManagementPanel();
+                }
                 managementPanel.setCategory(grabManager.getEntityClassifier().getCategory(new EntityID(1)));
                 managementPanel.setGrabManager(grabManager);
                 setPanel(managementPanel);
                 break;
             case ADD_REFERENCE:
-                AddReferencePanel addReferencePanel = new AddReferencePanel();
+                if (addReferencePanel == null) {
+                    addReferencePanel = new AddReferencePanel();
+                }
                 setPanel(addReferencePanel);
                 break;
 
@@ -199,9 +209,9 @@ public class ContainerPanel extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
                 mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                .addContainerGap()));
+                        .addContainerGap()
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                        .addContainerGap()));
         mainPanelLayout.setVerticalGroup(
                 mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE));

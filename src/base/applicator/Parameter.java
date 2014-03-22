@@ -8,6 +8,7 @@ import base.grabber.PropertyType;
 public class Parameter {
     protected String name;
     protected PropertyType type;
+    protected boolean simple;
 
     public Parameter(String name,  PropertyType type) {
         this.name = name;
@@ -28,6 +29,14 @@ public class Parameter {
         return "Property{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    public boolean isSimple() {
+        return simple;
+    }
+
+    public void setSimple(boolean simple) {
+        this.simple = simple;
     }
 
     @Override

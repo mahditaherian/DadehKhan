@@ -61,7 +61,7 @@
                       </Group>
                       <Component id="jSeparator5" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="wordComponent1" min="-2" pref="193" max="-2" attributes="0"/>
+                          <Component id="nameCmp" min="-2" pref="193" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -97,7 +97,7 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="wordComponent1" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="nameCmp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="5" max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
             <Property name="text" type="java.lang.String" value="&#x62a;&#x648;&#x636;&#x6cc;&#x62d;&#x627;&#x62a; :"/>
           </Properties>
         </Component>
-        <Component class="base.panel.component.WordComponent" name="wordComponent1">
+        <Component class="base.panel.component.WordComponent" name="nameCmp">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -172,7 +172,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="addStuffBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#x627;&#x641;&#x632;&#x648;&#x62f;&#x646;"/>
+            <Property name="text" type="java.lang.String" value="&#x627;&#x641;&#x632;&#x648;&#x62f;&#x646; &#x6a9;&#x627;&#x644;&#x627;&#x6cc; &#x62c;&#x62f;&#x6cc;&#x62f;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addStuffBtnActionPerformed"/>
@@ -202,7 +202,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTree" name="jTree1">
+                <Component class="javax.swing.JTree" name="categoryTree">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -211,6 +211,9 @@
                       <TreeModel code="&#x62e;&#x648;&#x62f;&#x631;&#x648;&#xa; &#x62f;&#x627;&#x62e;&#x644;&#x6cc;&#xa;  &#x627;&#x6cc;&#x631;&#x627;&#x646; &#x62e;&#x648;&#x62f;&#x631;&#x648;&#xa;   &#x633;&#x645;&#x646;&#x62f;&#xa;    LX&#xa;    &#x633;&#x648;&#x631;&#x646;&#xa;   &#x67e;&#x698;&#x648;&#xa;    206&#xa;     &#x62a;&#x6cc;&#x67e; 1&#xa;     &#x62a;&#x6cc;&#x67e; 2&#xa;     &#x62a;&#x6cc;&#x67e; 3&#xa;     &#x62a;&#x6cc;&#x67e; 5&#xa;     &#x62a;&#x6cc;&#x67e; 6&#xa;     SD V8&#xa;     SD V9&#xa;     SD V20&#xa;    207&#xa;    &#x67e;&#x627;&#x631;&#x633;&#xa;   &#x633;&#x648;&#x632;&#x648;&#x6a9;&#x6cc;&#xa;  &#x633;&#x627;&#x6cc;&#x67e;&#x627;&#xa; &#x62e;&#x627;&#x631;&#x62c;&#x6cc;&#xa;  &#x647;&#x6cc;&#x648;&#x646;&#x62f;&#x627;&#x6cc;&#xa;  &#x62a;&#x648;&#x6cc;&#x648;&#x62a;&#x627;&#xa;  &#x646;&#x6cc;&#x633;&#x627;&#x646;&#xa;  &#x628;&#x646;&#x632;&#xa;  &#x628; &#x627;&#x645; &#x648;&#xa;  &#x67e;&#x648;&#x631;&#x634;&#x647;"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="categoryTree.getSelectionModel().setSelectionMode&#xa;            (TreeSelectionModel.SINGLE_TREE_SELECTION);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

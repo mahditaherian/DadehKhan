@@ -7,6 +7,7 @@ import base.lang.Language;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Mahdi
@@ -56,8 +57,8 @@ public class Word extends StandardEntity {
     @Override
     public void setName(Word name) {
         this.name = name;
-    }
-
+    }  
+    
     @Override
     public String toString() {
         return get(base.Config.DEFAULT_LANGUAGE);

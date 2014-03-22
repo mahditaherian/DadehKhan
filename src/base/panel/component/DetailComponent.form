@@ -105,7 +105,7 @@
     </Component>
     <Component class="base.panel.component.WordComponent" name="wordComponent2">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="wordComponent2.setMultiline(true);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//wordComponent2.setMultiline(true);"/>
       </AuxValues>
     </Component>
   </SubComponents>

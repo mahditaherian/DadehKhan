@@ -1,6 +1,7 @@
 package base.util;
 
 import base.applicator.ConvertRule;
+import java.util.List;
 
 /**
  *
@@ -8,18 +9,18 @@ import base.applicator.ConvertRule;
  */
 public class GrabPage {
     private Page page;
-    private EntityID convertRuleID;
+    private List<ConvertRule> convertRuleIDs;
 
-    public GrabPage(Page page, EntityID convertRule) {
+    public GrabPage(Page page, List<ConvertRule> convertRules) {
         this.page = page;
-        this.convertRuleID = convertRule;
+        this.convertRuleIDs = convertRules;
     }
 
     public Page getPage() {
         return page;
     }
 
-    public EntityID getConvertRuleID() {
-        return convertRuleID;
+    public List<ConvertRule> getConvertRules() {
+        return convertRuleIDs;
     }
 }

@@ -11,4 +11,5 @@ public enum KindType {
     PARAM,
     FACTORIES,
     REFERENCES,
+    DETAIL,
 }

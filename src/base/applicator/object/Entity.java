@@ -15,6 +15,9 @@ public abstract class Entity {
     }
     
     protected void addParameter(Parameter parameter) {
+        if(parameter == null){
+            return;
+        }
         if (parameters.contains(parameter)) {
             parameters.remove(parameter);
         }

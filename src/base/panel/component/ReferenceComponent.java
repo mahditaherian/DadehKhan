@@ -4,11 +4,14 @@
  */
 package base.panel.component;
 
+import base.applicator.ConvertRule;
+import base.applicator.ReferenceProvider;
 import base.panel.PanelViewer;
 import base.util.EntityID;
 import base.util.GrabPage;
 import base.util.Page;
 import base.util.Reference;
+import base.util.Util;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -84,19 +87,28 @@ public class ReferenceComponent extends javax.swing.JPanel {
     }
 
     /**
-     * 
+     *
+     * @param referenceProvider
      * @return a list of pair of Page and convert rule id of it
      */
-    public List<GrabPage> getReferences() {
+    public List<GrabPage> getReferences(ReferenceProvider referenceProvider) {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         List<GrabPage> result = new ArrayList<>();
+        EntityID id;
+        Vector row;
+        Page page;
+        String crStr;
+        List<ConvertRule> convertRules;
         for (int i = 0; i < model.getDataVector().size(); i++) {
-            Vector row = (Vector)model.getDataVector().elementAt(i);
-            //Reference reference = (Reference)  row.elementAt(0);
-            Page page = (Page)row.elementAt(1);
-            EntityID convertRuleID = (EntityID) row.elementAt(2);
-            
-            result.add(new GrabPage(page,convertRuleID));
+            row = (Vector) model.getDataVector().elementAt(i);
+            page = (Page) row.elementAt(1);
+            crStr = (String) row.elementAt(2);
+            convertRules = new ArrayList<>();
+            for (String s : crStr.split(",")) {
+                id = new EntityID(Util.convertToInt(s));
+                convertRules.add(referenceProvider.getConvertRuleByID(id));
+            }
+            result.add(new GrabPage(page, convertRules));
         }
         return result;
     }
@@ -118,7 +130,7 @@ public class ReferenceComponent extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        addToListBtn = new javax.swing.JButton();
         addConvertRuleBtn = new javax.swing.JButton();
         addReferenceBtn = new javax.swing.JButton();
 
@@ -135,26 +147,23 @@ public class ReferenceComponent extends javax.swing.JPanel {
 
         jLabel2.setText("صفحه :");
 
-        jTextField2.setText("1,2,3");
+        jTextField2.setText("1,2");
 
         jLabel6.setText("کد شیوه های تبديل :");
 
         jTable1.setComponentOrientation(java.awt.ComponentOrientation.RIGHT_TO_LEFT);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "منبع", "صفحه", "شیوه تبدیل"
+                "منبع", "صفحه", "شیوه های تبدیل"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("افزودن به لیست");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addToListBtn.setText("افزودن به لیست");
+        addToListBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToTableEvent(evt);
             }
@@ -189,7 +198,7 @@ public class ReferenceComponent extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(addToListBtn)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(addConvertRuleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,7 +228,7 @@ public class ReferenceComponent extends javax.swing.JPanel {
                         .addComponent(jTextField2)
                         .addComponent(jLabel6))
                     .addComponent(addConvertRuleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addToListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -233,13 +242,13 @@ public class ReferenceComponent extends javax.swing.JPanel {
         model.addRow(new Object[]{
             referencesCombo.getSelectedItem(),
             pagesCombo.getSelectedItem(),
-            new EntityID(Integer.valueOf(jTextField2.getText()))
+            jTextField2.getText()
         });
     }//GEN-LAST:event_addToTableEvent
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addConvertRuleBtn;
     private javax.swing.JButton addReferenceBtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addToListBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

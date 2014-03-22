@@ -28,6 +28,10 @@ public abstract class StandardEntity extends Entity {
         setName(name);
         setCategory(category);
     }
+    
+    protected void setParameters(){
+        addParameter(new Property("category", category, PropertyType.CATEGORY, true));
+    }
 
     public Property getProperty() {
         return property;
@@ -42,7 +46,7 @@ public abstract class StandardEntity extends Entity {
     }
 
     public void setName(Word name) {
-        addParameter(new Property("name", name, PropertyType.WORD));
+        addParameter(new Property("name", name, PropertyType.WORD, true));
         this.name = name;
     }
 
@@ -51,7 +55,7 @@ public abstract class StandardEntity extends Entity {
     }
 
     public void setId(EntityID id) {
-        addParameter(new Property("id", id, PropertyType.ID));
+        addParameter(new Property("id", id, PropertyType.ID, true));
         this.id = id;
     }
 
@@ -72,7 +76,7 @@ public abstract class StandardEntity extends Entity {
         if (this.category != null && !this.category.equals(category)) {
             this.category.removeItem(this);
         }
-        addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
+        addParameter(new Property("category", getCategory(), PropertyType.CATEGORY, true));
         if (category != null) {
             category.addItem(this);
         }

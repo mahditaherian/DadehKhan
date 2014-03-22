@@ -4,6 +4,7 @@ import base.applicator.ConvertRule;
 import base.applicator.Property;
 import base.grabber.PropertyType;
 import base.applicator.object.detail.Detail;
+import base.grabber.KindType;
 import base.util.Page;
 import base.util.Word;
 
@@ -21,21 +22,25 @@ public abstract class Stuff extends StandardEntity {
     protected List<Detail> detail = new ArrayList<>();
     protected StuffType stuffType;
 
-
-    {
-//        addParameter(new Property("name", name, PropertyType.WORD));
-//        addParameter(new Property("id", id, PropertyType.ID));
-        addParameter(new Property("references", references, PropertyType.LIST));
-        addParameter(new Property("category", getCategory(), PropertyType.CATEGORY));
-        addParameter(new Property("detail", detail, PropertyType.LIST));
-    }
-
     protected Stuff() {
         super();
         pageRulesMap = new HashMap<>();
         references = new ArrayList<>();
+        
         setProperty(new Property("stuff", this, PropertyType.STUFF));
         initVariables();
+        setParameters();
+    }
+    
+    @Override
+    protected void setParameters(){
+        super.setParameters();
+        Property refProp = new Property("references", references, PropertyType.LIST);
+        refProp.setKind(KindType.PAGE);
+        addParameter(refProp);
+        Property detProp = new Property("detail", detail, PropertyType.LIST);
+        detProp.setKind(KindType.DETAIL);
+        addParameter(detProp);
     }
 
     public Collection<Page> getKindReferences() {
@@ -45,14 +50,14 @@ public abstract class Stuff extends StandardEntity {
     protected void initVariables() {
     }
     
-    public void addReference(Page page , ConvertRule convertRule) {
+    public void addReference(Page page , List<ConvertRule> convertRules) {
         references.add(page);
-        addRule(page, convertRule);
+        addRule(page, convertRules);
     }
 
     public void setReferences(List<Page> references) {
-        addParameter(new Property("references", references, PropertyType.LIST));
-        this.references = references;
+        this.references.clear();
+        this.references.addAll(references);
     }
     
     public void setProperties(Page reference, List<Property> properties) {
@@ -61,7 +66,7 @@ public abstract class Stuff extends StandardEntity {
             addProperty(reference, property);
         }
     }
-
+    
     public abstract void addProperty(Page reference, Property property);
 
     public Word getTypeName() {
@@ -121,7 +126,8 @@ public abstract class Stuff extends StandardEntity {
     }
 
     public void setDetail(List<Detail> detail) {
-        this.detail = detail;
+        this.detail.clear();
+        this.detail.addAll(detail);
     }
 
     public StuffType getStuffType() {

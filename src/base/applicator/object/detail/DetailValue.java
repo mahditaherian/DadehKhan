@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package base.applicator.object.detail;
 
 import base.lang.Language;
@@ -14,6 +10,7 @@ import base.util.Word;
 public abstract class DetailValue<T> {
 
     protected T value;
+    protected boolean refer;
 
     public DetailValue(T val) {
         setValue(val);
@@ -26,7 +23,7 @@ public abstract class DetailValue<T> {
     public void setValue(T value) {
         this.value = value;
     }
-
+    
     public static DetailValue newInstance(String value, FieldType type) {
         switch (type) {
             case INT:
@@ -47,6 +44,14 @@ public abstract class DetailValue<T> {
 
     }
 
+    public boolean isRefer() {
+        return refer;
+    }
+
+    public void setRefer(boolean refer) {
+        this.refer = refer;
+    }
+    
     @Override
     public String toString() {
         return value.toString();

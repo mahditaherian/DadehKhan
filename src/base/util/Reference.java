@@ -2,6 +2,7 @@ package base.util;
 
 import base.applicator.Property;
 import base.applicator.object.StandardEntity;
+import base.grabber.KindType;
 import base.grabber.PropertyType;
 import org.jsoup.nodes.Document;
 
@@ -12,27 +13,17 @@ import java.util.List;
  * @author Mahdi
  */
 public class Reference extends StandardEntity {
-//    public Word name;
     public List<Page> pages;
     public Page main;
     private Document document;
     private long docUpdateTime;
-//    public EntityID id;
     public UpdateManager updateManager;
-
-    {
-//        addParameter(new Property("name", name, PropertyType.WORD));
-        addParameter(new Property("pages", pages, PropertyType.LIST));
-        addParameter(new Property("main", main, PropertyType.PAGE));
-//        addParameter(new Property("id", id, PropertyType.ID));
-    }
 
     public Reference(Word name, String url, RelyRate rate, EntityID id) {
         this();
         this.name = name;
         this.id = id;
         docUpdateTime = 0;
-        pages = new ArrayList<>();
         updateManager = new UpdateManager();
         setProperty(new Property("reference", this, PropertyType.REFERENCE));
     }
@@ -42,17 +33,17 @@ public class Reference extends StandardEntity {
         docUpdateTime = 0;
         pages = new ArrayList<>();
         main = null;
-//        id = new EntityID(0);
         updateManager = new UpdateManager();
+        setParameters();
     }
 
-//    public Word getName() {
-//        return name;
-//    }
-//
-//    public void setName(Word name) {
-//        this.name = name;
-//    }
+    @Override
+    protected void setParameters() {
+        Property pageProp = new Property("pages", pages, PropertyType.LIST);
+        pageProp.setKind(KindType.PAGE);
+        addParameter(pageProp);
+        addParameter(new Property("main", main, PropertyType.PAGE));
+    }
 
     public Page getMain() {
         return main;
@@ -80,14 +71,6 @@ public class Reference extends StandardEntity {
         this.docUpdateTime = docUpdateTime;
     }
 
-//    public EntityID getId() {
-//        return id;
-//    }
-//
-//    public void setId(EntityID id) {
-//        this.id = id;
-//    }
-
     public List<Page> getPages() {
         return pages;
     }
@@ -107,14 +90,24 @@ public class Reference extends StandardEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Reference reference = (Reference) o;
 
-        if (docUpdateTime != reference.docUpdateTime) return false;
-        if (!id.equals(reference.id)) return false;
-        if (main != null ? !main.equals(reference.main) : reference.main != null) return false;
+        if (docUpdateTime != reference.docUpdateTime) {
+            return false;
+        }
+        if (!id.equals(reference.id)) {
+            return false;
+        }
+        if (main != null ? !main.equals(reference.main) : reference.main != null) {
+            return false;
+        }
 
         return true;
     }
@@ -130,25 +123,6 @@ public class Reference extends StandardEntity {
     public boolean needUpdate() {
         return true;
     }
-    
-//    public void update() {
-//        Document doc;
-//        for (Page page : this.getPages()) {
-//            try {
-//                if (page.getHost().equals(HostType.REMOTE)) {
-//                    doc = Jsoup.connect(page.getUrl()).get();
-//                } else if (page.getHost().equals(HostType.LOCAL)) {
-//                    File file = new File(page.getUrl());
-//                    doc = Jsoup.parse(file, "utf-8");
-//                } else {
-//                    doc = null;
-//                }
-//                page.setDocument(doc);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
     @Override
     public String toString() {

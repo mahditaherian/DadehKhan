@@ -1,14 +1,15 @@
 package base.panel.management;
 
-import base.applicator.ConvertRule;
 import base.applicator.object.Stuff;
 import base.applicator.object.StuffType;
 import base.classification.Category;
 import base.grabber.GrabManager;
 import base.util.GrabPage;
+import base.util.Word;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
@@ -45,16 +46,32 @@ public class ManagementPanel extends javax.swing.JPanel {
 
     public void setCategory(Category category) {
         DefaultMutableTreeNode treeNode = createRootNode(category);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode));
+        categoryTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode));
     }
-    
-    public Stuff makeStuff(){
+
+    public Stuff makeStuff() {
         try {
-            StuffType selectectStuffType = (StuffType)stuffList.getSelectedItem();
+            StuffType selectectStuffType = (StuffType) stuffList.getSelectedItem();
             Stuff stuff = selectectStuffType.getClazz().newInstance();
+            Word name = nameCmp.getWord();
+            Word get = grabManager.getWordManager().get(name.toString());
+            if(get != null){
+                name = get;
+            }else{
+                name.setId(grabManager.getIdManager().getNextWordID());
+                grabManager.getWordManager().addWord(name);
+            }
+            stuff.setName(name);
             stuff.setDetail(detailComponent1.getDetails());
-            
-            
+            DefaultMutableTreeNode selectedElement
+                    = (DefaultMutableTreeNode) categoryTree.getSelectionPath().getLastPathComponent();
+            Category cat = (Category) selectedElement.getUserObject();
+            stuff.setCategory(cat);
+            List<GrabPage> references = referenceComponent1.getReferences(grabManager.getReferenceProvider());
+            for (GrabPage grabPage : references) {
+                stuff.addReference(grabPage.getPage(), grabPage.getConvertRules());
+            }
+            stuff.setId(grabManager.getIdManager().getNextStuffID());
             return stuff;
         } catch (InstantiationException | IllegalAccessException ex) {
             //Logger.getLogger(ManagementPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,15 +79,14 @@ public class ManagementPanel extends javax.swing.JPanel {
         }
         return null;
     }
-    
-    private void setStuffGrabPages(Stuff stuff, List<GrabPage> grabPages){
-        if(grabPages==null || grabPages.isEmpty()){
+
+    private void setStuffGrabPages(Stuff stuff, List<GrabPage> grabPages) {
+        if (grabPages == null || grabPages.isEmpty()) {
             return;
         }
-        
-        for(GrabPage grabPage: grabPages){
-            ConvertRule convertRule = grabManager.getReferenceProvider().getConvertRuleByID(grabPage.getConvertRuleID());
-            stuff.addReference(grabPage.getPage(),convertRule);
+
+        for (GrabPage grabPage : grabPages) {
+            stuff.addReference(grabPage.getPage(), grabPage.getConvertRules());
         }
     }
 
@@ -87,7 +103,7 @@ public class ManagementPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         detailComponent1 = new base.panel.component.DetailComponent();
         jLabel3 = new javax.swing.JLabel();
-        wordComponent1 = new base.panel.component.WordComponent();
+        nameCmp = new base.panel.component.WordComponent();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         stuffList = new javax.swing.JComboBox();
@@ -96,7 +112,7 @@ public class ManagementPanel extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        categoryTree = new javax.swing.JTree();
         referenceComponent1 = new base.panel.component.ReferenceComponent();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
@@ -126,7 +142,7 @@ public class ManagementPanel extends javax.swing.JPanel {
             }
         });
 
-        addStuffBtn.setText("افزودن");
+        addStuffBtn.setText("افزودن کالای جدید");
         addStuffBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStuffBtnActionPerformed(evt);
@@ -138,7 +154,9 @@ public class ManagementPanel extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(76, 140));
 
-        jTree1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        categoryTree.getSelectionModel().setSelectionMode
+        (TreeSelectionModel.SINGLE_TREE_SELECTION);
+        categoryTree.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("خودرو");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("داخلی");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ایران خودرو");
@@ -192,8 +210,8 @@ public class ManagementPanel extends javax.swing.JPanel {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("پورشه");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
+        categoryTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(categoryTree);
 
         jScrollPane2.setViewportView(jScrollPane1);
 
@@ -216,7 +234,7 @@ public class ManagementPanel extends javax.swing.JPanel {
                         .addGap(14, 14, 14))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wordComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameCmp, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -245,7 +263,7 @@ public class ManagementPanel extends javax.swing.JPanel {
                         .addComponent(stuffList, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
                         .addComponent(jLabel4))
-                    .addComponent(wordComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameCmp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -313,13 +331,14 @@ public class ManagementPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_addStuffBtnActionPerformed
 
     private void stuffListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stuffListActionPerformed
-        StuffType type = (StuffType)stuffList.getSelectedItem();
+        StuffType type = (StuffType) stuffList.getSelectedItem();
         detailComponent1.setDetails(type.getFiealds());
         this.repaint();
     }//GEN-LAST:event_stuffListActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStuffBtn;
+    private javax.swing.JTree categoryTree;
     private base.panel.component.DetailComponent detailComponent1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -334,9 +353,8 @@ public class ManagementPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTree jTree1;
+    private base.panel.component.WordComponent nameCmp;
     private base.panel.component.ReferenceComponent referenceComponent1;
     private javax.swing.JComboBox stuffList;
-    private base.panel.component.WordComponent wordComponent1;
     // End of variables declaration//GEN-END:variables
 }

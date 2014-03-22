@@ -280,6 +280,7 @@ public class ProcessPropertyHelper {
 //                Util.convert(valNode.getNodeValue(), field.getFieldType());
                 value = DetailValue.newInstance(valNode.getNodeValue(), field.getFieldType());
             }
+            value.setRefer(isValueRefer);
         }
 
         return new Detail(field, value);

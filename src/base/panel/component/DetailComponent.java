@@ -14,11 +14,11 @@ import base.applicator.object.detail.StringValue;
 import base.classification.Category;
 import base.util.Word;
 import java.awt.ComponentOrientation;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -51,8 +51,6 @@ public class DetailComponent extends javax.swing.JPanel {
             }
         });
     }
-    
-    
 
     public void setDetails(List<Category> details) {
         DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
@@ -60,10 +58,11 @@ public class DetailComponent extends javax.swing.JPanel {
         for (Category cat : details) {
             for (StandardEntity fieldEntity : cat.getItems()) {
                 DetailField field = (DetailField) fieldEntity;
-                model.addRow(new Object[]{field, 
-                    field.getFieldType().equals(FieldType.STRING) ? 
-                        new StringValue(new Word()) : 
-                        new NumericValue(0)});
+                
+                model.addRow(new Object[]{field,
+                    field.getFieldType().equals(FieldType.STRING)
+                    ? new StringValue(new Word())
+                    : new NumericValue(0)});
             }
         }
         detailTable.setModel(model);
@@ -128,7 +127,7 @@ public class DetailComponent extends javax.swing.JPanel {
 
         wordComponent1.setEnabled(false);
 
-        wordComponent2.setMultiline(true);
+        //wordComponent2.setMultiline(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -169,11 +168,34 @@ public class DetailComponent extends javax.swing.JPanel {
         Word value = wordComponent2.getWord();
         DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
         //model.getDataVector().clear();
-        model.addRow(new Word[]{name, value});
-        detailTable.getSelectedRow();
-        model.setValueAt(value, detailTable.getSelectedRow(),1);
-        
-        
+        boolean contains = false;
+        int index = -1;
+        DetailField field = null;
+        DetailValue val = null;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            field = (DetailField) model.getValueAt(i, 0);
+            String n = field.getName().toString();
+            if (n.equals(name.toString())) {
+                contains = true;
+                index = i;
+                val = (DetailValue) model.getValueAt(i, 1);
+                break;
+            }
+        }
+        if (contains) {
+            val.setValue(value);
+            model.setValueAt(val, index, 1);
+        } else {
+            field = new DetailField();
+            field.setFieldType(FieldType.STRING);//todo
+            field.setName(name);
+            val = new StringValue(value);
+            model.addRow(new Object[]{field, val});
+        }
+//        detailTable.getSelectedRow();
+//        model.setValueAt(value, detailTable.getSelectedRow(),1);
+
+
     }//GEN-LAST:event_addDetail
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addDetailBtn;
@@ -186,6 +208,17 @@ public class DetailComponent extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public List<Detail> getDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Detail> details = new ArrayList<>();
+        Detail detail;
+        DefaultTableModel model = (DefaultTableModel) detailTable.getModel();
+        DetailField field;
+        DetailValue value;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            field = (DetailField) model.getValueAt(i, 0);
+            value = (DetailValue) model.getValueAt(i, 1);
+            detail = new Detail(field, value);
+            details.add(detail);
+        }
+        return details;
     }
 }
