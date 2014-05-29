@@ -1,16 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package base.panel.component;
 
 import base.util.EntityID;
+import base.util.HostType;
+import base.util.Page;
 import base.util.Reference;
 import base.util.RelyRate;
 import base.util.Word;
+import javax.swing.DefaultComboBoxModel;
 
 /**
- *
  * @author Mahdi
  */
 public class AddReferencePanel extends AbstractPanel {
@@ -19,13 +17,15 @@ public class AddReferencePanel extends AbstractPanel {
      * Creates new form AddReferencePanel
      */
     public AddReferencePanel() {
+        this.reference = null;
         initComponents();
+        relyRateCmb.setModel(new DefaultComboBoxModel(RelyRate.values()));
     }
-    private Reference reference = null;
-    
+    private Reference reference;
+
     public Reference getResult(){
-        Reference ref = new Reference(new Word("1", "2", "3"),"j", RelyRate.ALMOST,new EntityID(1000));
-        return ref;
+        reference = new Reference(new Word("1", "2", "3"),"j", RelyRate.ALMOST,new EntityID(1000));
+        return reference;
 //        return reference;
     }
 
@@ -44,22 +44,22 @@ public class AddReferencePanel extends AbstractPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField2 = new javax.swing.JTextField();
+        updateRuleTxt = new javax.swing.JTextField();
+        relyRateCmb = new javax.swing.JComboBox();
+        requestRuleTxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        addPageBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        pageLinkTxt = new javax.swing.JTextField();
+        localChk = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        addReferenceBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -69,29 +69,40 @@ public class AddReferencePanel extends AbstractPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "لینک صفحه", "سرور", "شیوه درخواست", "شیوه بروز رسانی", "سطح اطمینان"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBackground(new java.awt.Color(237, 237, 237));
 
-        jTextField3.setText("1");
+        updateRuleTxt.setText("1");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "مرجع اصلی", "قابل اعتماد", "قابل توجه", "مرجع عادی", "کم اهمیت", "غیر قابل اطمینان" }));
+        relyRateCmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "مرجع اصلی", "قابل اعتماد", "قابل توجه", "مرجع عادی", "کم اهمیت", "غیر قابل اطمینان" }));
 
-        jTextField2.setText("1");
+        requestRuleTxt.setText("1");
 
         jLabel7.setText("سطح اطمینان :");
 
-        jButton1.setText("افزودن صفحه");
-        jButton1.setOpaque(false);
+        addPageBtn.setText("افزودن صفحه");
+        addPageBtn.setOpaque(false);
+        addPageBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPageBtnActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("سرور لوکال :");
 
@@ -101,12 +112,13 @@ public class AddReferencePanel extends AbstractPanel {
 
         jLabel3.setText("لینک صفحه :");
 
-        jTextField1.setText("http://");
+        pageLinkTxt.setText("http://");
 
-        jCheckBox1.setText("بله");
-        jCheckBox1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jCheckBox1.setOpaque(false);
+        localChk.setSelected(true);
+        localChk.setText("بله");
+        localChk.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        localChk.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        localChk.setOpaque(false);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 153, 0));
@@ -132,12 +144,12 @@ public class AddReferencePanel extends AbstractPanel {
                             .addComponent(jButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextField1))
+                            .addComponent(addPageBtn)
+                            .addComponent(requestRuleTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateRuleTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(relyRateCmb, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(localChk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pageLinkTxt))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -153,30 +165,30 @@ public class AddReferencePanel extends AbstractPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pageLinkTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
+                    .addComponent(localChk)
                     .addComponent(jLabel4))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(requestRuleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateRuleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(relyRateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(addPageBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -185,7 +197,7 @@ public class AddReferencePanel extends AbstractPanel {
         jTextField4.setEditable(false);
         jTextField4.setPreferredSize(new java.awt.Dimension(40, 20));
 
-        jButton4.setText("افزودن منبع");
+        addReferenceBtn.setText("افزودن منبع");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -196,7 +208,7 @@ public class AddReferencePanel extends AbstractPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addReferenceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -231,17 +243,25 @@ public class AddReferencePanel extends AbstractPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addReferenceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPageBtnActionPerformed
+        Page page = new Page();
+        String url = pageLinkTxt.getText();
+        page.setUrl(url);
+        page.setHost(localChk.isSelected() ? HostType.LOCAL : HostType.REMOTE);
+        page.setRate((RelyRate) relyRateCmb.getSelectedItem());
+        System.out.println("UpdateRule and ConvertRule should get from GrabManager....." + this.getClass());
+    }//GEN-LAST:event_addPageBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addPageBtn;
+    private javax.swing.JButton addReferenceBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -253,10 +273,12 @@ public class AddReferencePanel extends AbstractPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JCheckBox localChk;
+    private javax.swing.JTextField pageLinkTxt;
+    private javax.swing.JComboBox relyRateCmb;
+    private javax.swing.JTextField requestRuleTxt;
+    private javax.swing.JTextField updateRuleTxt;
     private base.panel.component.WordComponent wordComponent1;
     // End of variables declaration//GEN-END:variables
 }
